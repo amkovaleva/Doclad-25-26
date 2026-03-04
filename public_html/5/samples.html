@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Примеры типографики в CSS</title>
+    <link rel="stylesheet" href="1_main.css">
+</head>
+<body>
+
+    <h1></h1>
+
+    <!-- ========== 1. font-size (РАЗМЕР ШРИФТА) ========== -->
+    <section class="section">
+        <h2>1. font-size — размер шрифта</h2>
+        
+        <div class="example-block">
+            <h3>Абсолютные единицы (px)</h3>
+            <p class="fs-px-12">Этот текст 12px</p>
+            <p class="fs-px-16">Этот текст 16px (стандартный)</p>
+            <p class="fs-px-24">Этот текст 24px</p>
+            <p class="fs-px-32">Этот текст 32px</p>
+        </div>
+
+        <div class="example-block">
+            <h3>Относительные единицы (rem, em, %)</h3>
+            <p class="fs-rem-15">1.5rem — зависит от корневого элемента (обычно 16px × 1.5 = 24px)</p>
+            <div class="fs-em-parent" style="font-size: 20px;">
+                Родитель с font-size: 20px
+                <p class="fs-em-child">1.5em = 30px (зависит от родителя)</p>
+            </div>
+            <div class="fs-percent-parent" style="font-size: 20px;">
+                Родитель 20px
+                <p class="fs-percent-150">150% = 30px</p>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <h3>Ключевые слова</h3>
+            <p class="fs-small">small — маленький</p>
+            <p class="fs-medium">medium — средний</p>
+            <p class="fs-large">large — большой</p>
+            <p class="fs-x-large">x-large — очень большой</p>
+        </div>
+    </section>
+
+    <!-- ========== 2. font-family (ГАРНИТУРА) ========== -->
+    <section class="section">
+        <h2>2. font-family — выбор шрифта</h2>
+
+        <div class="example-block">
+            <h3>Шрифты с засечками (serif)</h3>
+            <p class="ff-serif">Georgia, Times New Roman — подходит для книг</p>
+        </div>
+
+        <div class="example-block">
+            <h3>Шрифты без засечек (sans-serif)</h3>
+            <p class="ff-sans">Arial, Helvetica — современный вид</p>
+        </div>
+
+        <div class="example-block">
+            <h3>Моноширинные шрифты (monospace)</h3>
+            <p class="ff-mono">Courier New, Consolas — как в терминале</p>
+        </div>
+
+        <div class="example-block">
+            <h3>Стек шрифтов (несколько вариантов)</h3>
+            <p class="ff-stack">Сначала ищет Roboto, потом Arial, потом любой sans-serif</p>
+        </div>
+    </section>
+
+    <!-- ========== 3. font-weight (ЖИРНОСТЬ) ========== -->
+    <section class="section">
+        <h2>3. font-weight — насыщенность шрифта</h2>
+
+        <div class="fw-grid">
+            <p class="fw-100">100 — Thin (тонкий)</p>
+            <p class="fw-300">300 — Light (светлый)</p>
+            <p class="fw-400">400 — Normal (обычный)</p>
+            <p class="fw-500">500 — Medium (средний)</p>
+            <p class="fw-600">600 — Semi Bold (полужирный)</p>
+            <p class="fw-700">700 — Bold (жирный)</p>
+            <p class="fw-900">900 — Black (очень жирный)</p>
+        </div>
+
+        <div class="example-block">
+            <h3>Ключевые слова</h3>
+            <p class="fw-normal">normal = 400</p>
+            <p class="fw-bold">bold = 700</p>
+            <p class="fw-bolder">bolder — жирнее родителя</p>
+            <p class="fw-lighter">lighter — светлее родителя</p>
+        </div>
+    </section>
+
+    <!-- ========== 4. font-style (НАКЛОН) ========== -->
+    <section class="section">
+        <h2>4. font-style — наклонное начертание</h2>
+
+        <p class="fstyle-normal">normal — обычный текст</p>
+        <p class="fstyle-italic">italic — курсив (настоящий)</p>
+        <p class="fstyle-oblique">oblique — наклонный (искусственный)</p>
+        <p class="fstyle-oblique-deg">oblique 10deg — наклон с углом</p>
+    </section>
+
+    <!-- ========== 5. font (УНИВЕРСАЛЬНОЕ СВОЙСТВО) ========== -->
+    <section class="section">
+        <h2>5. font — сокращённая запись</h2>
+
+        <p class="font-short-1">font: italic 700 20px/1.5 Arial</p>
+        <p class="font-short-2">font: 24px/1.2 Georgia</p>
+        <p class="font-short-3">font: bold 16px/1.4 'Courier New'</p>
+
+        <div class="note">
+            <strong>Порядок:</strong> font-style font-weight font-size/line-height font-family
+        </div>
+    </section>
+
+    <!-- ========== 6. line-height (МЕЖСТРОЧНЫЙ ИНТЕРВАЛ) ========== -->
+    <section class="section">
+        <h2>6. line-height — высота строки</h2>
+
+        <div class="lh-grid">
+            <div class="lh-box lh-1">
+                <h4>line-height: 1</h4>
+                <p>Строка 1<br>Строка 2<br>Строка 3</p>
+            </div>
+            <div class="lh-box lh-15">
+                <h4>line-height: 1.5</h4>
+                <p>Строка 1<br>Строка 2<br>Строка 3</p>
+            </div>
+            <div class="lh-box lh-2">
+                <h4>line-height: 2</h4>
+                <p>Строка 1<br>Строка 2<br>Строка 3</p>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <h3>Вертикальное центрирование</h3>
+            <div class="lh-center">Одна строка — идеально по центру</div>
+        </div>
+    </section>
+
+    <!-- ========== 7. text-align (ВЫРАВНИВАНИЕ) ========== -->
+    <section class="section">
+        <h2>7. text-align — выравнивание текста</h2>
+
+        <p class="tal-left">По левому краю (left)</p>
+        <p class="tal-center">По центру (center)</p>
+        <p class="tal-right">По правому краю (right)</p>
+        <p class="tal-justify">
+            По ширине (justify). Этот текст растянут так, чтобы строки были одинаковой ширины. 
+            Иногда это создаёт большие пробелы между словами, но выглядит аккуратно в книгах.
+        </p>
+    </section>
+
+    <!-- ========== 8. vertical-align (ВЕРТИКАЛЬНОЕ ВЫРАВНИВАНИЕ) ========== -->
+    <section class="section">
+        <h2>8. vertical-align — вертикальное выравнивание</h2>
+
+        <div class="valign-demo">
+            <p>
+                <span>Текст</span>
+                <img src="https://via.placeholder.com/30x30/3498db/ffffff?text=icon" class="valign-baseline"> baseline
+            </p>
+            <p>
+                <span>Текст</span>
+                <img src="https://via.placeholder.com/30x30/e74c3c/ffffff?text=icon" class="valign-top"> top
+            </p>
+            <p>
+                <span>Текст</span>
+                <img src="https://via.placeholder.com/30x30/2ecc71/ffffff?text=icon" class="valign-middle"> middle
+            </p>
+            <p>
+                <span>Текст</span>
+                <img src="https://via.placeholder.com/30x30/f39c12/ffffff?text=icon" class="valign-bottom"> bottom
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== 9. text-decoration (ДЕКОРАЦИЯ) ========== -->
+    <section class="section">
+        <h2>9. text-decoration — украшение текста</h2>
+
+        <p class="td-none">none — без линии</p>
+        <p class="td-underline">underline — подчеркивание</p>
+        <p class="td-overline">overline — надчеркивание</p>
+        <p class="td-line-through">line-through — зачеркивание</p>
+        <p class="td-underline-red">underline red — красное подчеркивание</p>
+        <p class="td-wavy-blue">wavy blue — волнистое синее</p>
+        <p class="td-double-green">double green — двойное зеленое</p>
+    </section>
+
+    <!-- ========== 10. text-transform (РЕГИСТР) ========== -->
+    <section class="section">
+        <h2>10. text-transform — преобразование регистра</h2>
+
+        <p class="tt-none">none — как есть</p>
+        <p class="tt-uppercase">uppercase — все заглавные</p>
+        <p class="tt-lowercase">LOWERCASE — все строчные</p>
+        <p class="tt-capitalize">capitalize — каждое слово с большой</p>
+    </section>
+
+    <!-- ========== 11. word-wrap & hyphens (ПЕРЕНОСЫ) ========== -->
+    <section class="section">
+        <h2>11. word-wrap и hyphens — перенос слов</h2>
+
+        <div class="wrap-demo">
+            <div class="wrap-box">
+                <h4>word-wrap: normal</h4>
+                <div class="wrap-normal">Pneumonoultramicroscopicsilicovolcanoconiosis вылезает за границы</div>
+            </div>
+            <div class="wrap-box">
+                <h4>word-wrap: break-word</h4>
+                <div class="wrap-break-word">Pneumonoultramicroscopicsilicovolcanoconiosis переносится</div>
+            </div>
+            <div class="wrap-box">
+                <h4>hyphens: auto (ru)</h4>
+                <div class="hyphens-auto" lang="ru">электрооборудование сельскохозяйственный достопримечательность</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 12. @font-face (ВЕБ-ШРИФТ) ========== -->
+    <section class="section">
+        <h2>12. @font-face — подключение своего шрифта</h2>
+
+        <p class="custom-font">Этот текст написан шрифтом "Open Sans", подключенным через @font-face</p>
+        <p class="custom-font-bold">А это жирная версия того же шрифта</p>
+    </section>
+
+</body>
+</html>
