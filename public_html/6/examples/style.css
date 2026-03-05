@@ -1,0 +1,274 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #2980b9;
+    margin-top: 30px;
+    background: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h3 {
+    color: #34495e;
+    margin-top: 20px;
+}
+
+.example-block {
+    background: #f9f9f9;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.demo-box {
+    padding: 20px;
+    margin: 15px 0;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    background: white;
+}
+
+.code-snippet {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+.grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* === БЛОК 1: ЦВЕТА === */
+.color-hex { 
+    background-color: #FF5733; 
+    color: white; 
+    padding: 10px; 
+}
+
+.color-rgb { 
+    background-color: rgb(46, 204, 113); 
+    color: white; 
+    padding: 10px; 
+}
+
+.color-rgba { 
+    background-color: rgba(52, 152, 219, 0.3); 
+    color: #333; 
+    padding: 10px; 
+    border: 1px solid black; 
+}
+
+.color-hsl { 
+    background-color: hsl(60, 100%, 50%); 
+    color: black; 
+    padding: 10px; 
+}
+
+.color-hsla { 
+    background-color: hsla(300, 100%, 50%, 0.1); 
+    color: black; 
+    padding: 10px; 
+    border: 1px solid black; 
+}
+
+/* === БЛОК 2: ПРОЗРАЧНОСТЬ === */
+.opacity-box {
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;
+}
+
+.opacity-1 { opacity: 1; }
+.opacity-05 { opacity: 0.5; }
+.opacity-02 { opacity: 0.2; }
+
+.rgba-box {
+    background-color: rgba(231, 76, 60, 0.5);
+    color: black;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+/* === БЛОК 3: ФОНЫ === */
+.bg-color-example { 
+    background-color: #f1c40f; 
+    padding: 20px; 
+}
+
+.bg-image-example { 
+    background-image: url('resource/pattern1.png');
+    padding: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.bg-repeat-example {
+    background-image: url('resource/flower1.png');
+    height: 150px;
+    width: 300px;
+    border: 2px solid black;
+}
+
+.repeat { background-repeat: repeat; }
+.repeat-x { background-repeat: repeat-x; }
+.repeat-y { background-repeat: repeat-y; }
+.no-repeat { background-repeat: no-repeat; }
+
+.bg-position-example {
+    background-image: url('resource/car.png');
+    background-repeat: no-repeat;
+    background-color: #ecf0f1;
+    height: 200px;
+    width: 300px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.pos-center { background-position: center; }
+.pos-right-top { background-position: right top; }
+.pos-25-50 { background-position: 25% 50%; }
+
+.bg-shorthand-example {
+    background: #e67e22 url('resource/pattern2.png') no-repeat center;
+    height: 300px;
+    width: 600px;
+    color: white;
+    padding: 10px;
+}
+
+/* === БЛОК 4: ГРАДИЕНТЫ === */
+.gradient-linear1 {
+    background-image: linear-gradient(to right, red, yellow);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+.gradient-linear2 {
+    background-image: linear-gradient(45deg, #000, #fff);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+.gradient-linear3 {
+    background-image: linear-gradient(to bottom right, #3498db, #9b59b6, #e74c3c);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+.gradient-radial {
+    background-image: radial-gradient(circle, #f1c40f, #e67e22, #e74c3c);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+/* === БЛОК 5: СПРАЙТЫ === */
+.sprite-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sprite-demo {
+    width: 300px;
+    height: 180px;
+    background-color: #ecf0f1;
+    border: 2px solid #7f8c8d;
+    background-image: 
+        url('resource/car.png'),
+        url('resource/flower1.png'),
+        url('resource/flower.png');
+    background-repeat: no-repeat;
+    background-position: 
+        10px 10px,
+        70px 10px,
+        130px 10px;
+    background-size: 60px 60px;
+    position: relative;
+}
+
+.sprite-demo::after {
+    content: "Это имитация спрайта (картинки в одной области)";
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+}
+
+/* пример спрайта */
+.social-sprite {
+    width: 192px;
+    height: 48px;
+    background-image: url('resource/4.png');
+    background-repeat: no-repeat;
+    border: 2px solid #333;
+}
+
+.sprite-item {
+    width: 48px;
+    height: 48px;
+    background-image: url('resource/4.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+.sprite-fb { background-position: 0 0; }
+.sprite-tw { background-position: -48px 0; }
+.sprite-yt { background-position: -96px 0; }
+.sprite-ig { background-position: -144px 0; }
+
+/* Подписи к примерам */
+.caption {
+    font-weight: bold;
+    margin-top: 5px;
+    color: #2c3e50;
+}
