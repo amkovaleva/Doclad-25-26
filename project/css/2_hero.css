@@ -1,0 +1,100 @@
+/* ===== БАЗА ===== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+  height: 100vh; /* ✅ vh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+
+  /* ✅ background + blend */
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("../resource/images/hero-desktop.jpg") center/cover no-repeat;
+
+  background-blend-mode: multiply;
+}
+
+/* ===== CONTENT ===== */
+
+.hero__content {
+  max-width: 90%;
+  padding: 2rem;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 4rem); /* ✅ vw */
+  margin-bottom: 1rem;
+
+  /* ✅ mix-blend-mode */
+  mix-blend-mode: screen;
+
+  /* для читаемости */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.hero__text {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: 2rem;
+}
+
+.hero__btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  background: #ff6b00;
+  color: white;
+  transition: transform .2s ease;
+}
+
+.hero__btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== IMAGE BLOCK ===== */
+
+.demo-image {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.demo-image__img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+}
+
+/* ===== АДАПТИВ ===== */
+
+@media (max-width: 768px) {
+  .hero {
+    background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url("../resource/images/hero-tablet.jpg") center/cover no-repeat;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background:
+      linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+      url("../resource/images/hero-mobile.jpg") center/cover no-repeat;
+  }
+}

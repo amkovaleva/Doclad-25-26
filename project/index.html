@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- ✅ viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hero Blend Demo</title>
+  <link rel="stylesheet" href="css/2_hero.css">
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">Современные технологии</h1>
+      <p class="hero__text">
+        Адаптивные изображения и режимы смешивания в действии
+      </p>
+      <button class="hero__btn">Подробнее</button>
+    </div>
+  </section>
+
+  <!-- АДАПТИВНОЕ ИЗОБРАЖЕНИЕ -->
+  <section class="demo-image">
+    <h2>Адаптивное изображение</h2>
+
+    <!-- ✅ picture + srcset -->
+    <picture>
+      <source
+        media="(max-width: 600px)"
+        srcset="resource/images/hero-mobile.jpg">
+
+      <source
+        media="(max-width: 1024px)"
+        srcset="resource/images/hero-tablet.jpg">
+
+      <img
+        src="resource/images/hero-desktop.jpg"
+        alt="Пример адаптивного изображения"
+        loading="lazy"
+        class="demo-image__img">
+    </picture>
+  </section>
+
+</body>
+</html>
