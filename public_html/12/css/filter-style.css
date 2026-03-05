@@ -1,0 +1,116 @@
+body {
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery img {
+    width: 440px;
+    height: 440px;
+    object-fit: cover;
+}
+
+.photo_grayscale {
+    filter: grayscale(100%);
+
+}
+
+.photo_blur {
+    filter: blur(5px);
+}
+
+
+.photo_brightness {
+    filter: brightness(0.4);
+}
+
+.photo_contrast {
+    filter: contrast(200%);
+}
+
+.photo_drop-shadow {
+    filter: drop-shadow(16px 16px 20px rgb(131, 131, 240));
+}
+
+
+.photo_hue-rotate {
+    filter: hue-rotate(90deg);
+}
+
+.photo_invert {
+    filter: invert(100%);
+}
+
+.photo_opacity {
+    filter: opacity(10%);
+}
+
+.photo_saturate {
+    filter: saturate(300%);
+}
+
+.photo_sepia {
+    filter: sepia(80%);
+}
+
+.photo_multiple {
+    filter: contrast(155%) brightness(130%);
+}
+
+.button1 {
+    width: 550px;
+    font-size: 33px;
+    padding: 10px 20px;
+    background-color: rgb(69, 126, 224);
+    color: rgb(59, 11, 62);
+    border-radius: 8px;
+}
+
+.button-disabled {
+    width: 550px;
+    font-size: 33px;
+    padding: 10px 20px;
+    background-color: rgb(69, 126, 224);
+    color: rgb(59, 11, 62);
+    border-radius: 8px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.card1 {
+    width: 250px;
+    padding: 15px;
+    background: rgb(210, 63, 63);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.card1:hover {
+    filter: brightness(200%);
+
+}
+
+.button2 {
+    padding: 10px 20px;
+    background-color: rgb(69, 126, 224);
+    color: rgb(59, 11, 62);
+    border-radius: 8px;
+}
+
+.card2 {
+    width: 250px;
+    padding: 15px;
+    background: rgb(210, 63, 63);
+    border-radius: 12px;
+    text-align: center;
+    filter: blur(3px);
+    transition: 0.5s;
+}
