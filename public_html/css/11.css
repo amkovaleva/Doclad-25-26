@@ -1,4 +1,4 @@
-/* ==================== БАЗОВЫЕ СТИЛИ ==================== */
+/* == БАЗОВЫЕ СТИЛИ == */
 * {
     margin: 0;
     padding: 0;
@@ -76,9 +76,9 @@ h3 {
     font-style: italic;
 }
 
-/* ==================== РАЗДЕЛ 1: ТРАНСФОРМАЦИИ ==================== */
+/* == ТРАНСФОРМАЦИИ == */
 
-/* 1.1 Перемещение — translate() */
+/* 1.1 translate() */
 .btn-translate {
     padding: 12px 30px;
     background: #3498db;
@@ -99,7 +99,7 @@ h3 {
     transform: translateY(0);
 }
 
-/* 1.2 Поворот — rotate() */
+/* 1.2 rotate() */
 .arrow-rotate {
     font-size: 24px;
     color: #e74c3c;
@@ -112,7 +112,7 @@ h3 {
     transform: rotate(180deg);
 }
 
-/* 1.3 Масштабирование — scale() */
+/* 1.3 scale() */
 .gallery {
     gap: 20px;
 }
@@ -130,7 +130,6 @@ h3 {
     cursor: pointer;
     transition: transform 0.3s;
     transform-origin: center;
-    /* Добавляем скрытие всего, что выходит за границы */
     overflow: hidden;
     position: relative;
 }
@@ -139,24 +138,19 @@ h3 {
     transform: scale(1.15);
 }
 
-/* Стили для картинки внутри .photo-thumb */
 .photo-thumb img {
     width: 100%;
     height: 100%;
-    /* Картинка заполняет контейнер, сохраняя пропорции */
     object-fit: cover;
-    /* Центрируем картинку */
     object-position: center;
-    /* Плавный переход при масштабировании */
     transition: transform 0.3s;
 }
 
-/* При наведении на контейнер — картинка тоже масштабируется */
 .photo-thumb:hover img {
     transform: scale(1.1);
 }
 
-/* 1.4 Наклон — skew() */
+/* 1.4 skew() */
 .banner-skew {
     background: linear-gradient(90deg, #9b59b6, #3498db);
     color: white;
@@ -198,7 +192,7 @@ h3 {
     transform: rotateY(15deg) translateZ(20px) rotateX(5deg);
 }
 
-/* ==================== РАЗДЕЛ 2: ПЕРЕХОДЫ ==================== */
+/* == ПЕРЕХОДЫ == */
 
 /* 2.1 Свойства и длительность */
 .link-transition {
@@ -281,7 +275,7 @@ h3 {
     transform: translateY(0);
 }
 
-/* ==================== РАЗДЕЛ 3: АНИМАЦИИ ==================== */
+/* == АНИМАЦИИ == */
 
 /* 3.1 Базовая анимация — пульсация */
 .online-indicator {
@@ -374,12 +368,10 @@ h3 {
     transform: translateX(-30px);
 }
 
-/* При наведении на demo-area — запускаем анимацию для всех li */
 .demo-area:hover .staggered-list li {
     animation: fadeInSlide 0.5s ease-out forwards;
 }
 
-/* У каждого элемента своя задержка — они сработают последовательно */
 .demo-area:hover .staggered-list li:nth-child(1) { animation-delay: 0s; }
 .demo-area:hover .staggered-list li:nth-child(2) { animation-delay: 0.2s; }
 .demo-area:hover .staggered-list li:nth-child(3) { animation-delay: 0.4s; }
@@ -432,7 +424,7 @@ h3 {
     animation-play-state: paused;
 }
 
-/* ==================== ЗАДАНИЯ ДЛЯ САМОСТОЯТЕЛЬНОЙ РАБОТЫ ==================== */
+/* == ЗАДАНИЯ ДЛЯ САМОСТОЯТЕЛЬНОЙ РАБОТЫ ==*/
 
 .tasks-section {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -495,16 +487,15 @@ h3 {
     font-family: 'Courier New', monospace;
 }
 
-/* Заготовки для заданий (без стилей — для самостоятельной работы) */
+/* Задание 1: Добавлять стили здесь */
 .task1-button {
-    /* Задание 1: Добавь стили здесь */
     padding: 15px 40px;
     font-size: 16px;
     cursor: pointer;
 }
 
+/* Задание 2: Добавлять стили здесь */
 .task2-loader {
-    /* Задание 2: Добавь стили здесь */
     width: 50px;
     height: 50px;
     border: 5px solid #ddd;
@@ -515,8 +506,8 @@ h3 {
     gap: 20px;
 }
 
+/* Задание 3: Добавлять стили здесь */
 .task3-item {
-    /* Задание 3: Добавь стили здесь */
     width: 80px;
     height: 80px;
     background: #3498db;
@@ -528,7 +519,7 @@ h3 {
     border-radius: 10px;
 }
 
-/* ==================== FOOTER ==================== */
+/* == FOOTER == */
 footer {
     text-align: center;
     color: rgba(255,255,255,0.8);
