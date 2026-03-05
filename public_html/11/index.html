@@ -6,21 +6,294 @@
     <link rel='stylesheet' href='../css/11.css'>
 </head>
 <body>
-    <p>
-        !!!!
-    </p>
-    <h1>Трансформации и анимации</h1>
     <h2><a href="11.pdf" target="_blank">Презентация с теорией</a></h2>
 
     <h2>Вопросы для самопроверки</h2>
     ...
 
-    <h2>Примеры</h2>
-    ...
+    <h2>Трансформации и анимации на практике</h2>
 
-    
-    <h2>Задания для самостоятельной работы</h2>
-    ...
+    <!-- ==================== РАЗДЕЛ 1: ТРАНСФОРМАЦИИ ==================== -->
+    <section class="section">
+        <h3>1. Трансформации (transform)</h3>
+        
+        <!-- 1.1 Translate - Перемещение -->
+        <div class="example-block">
+            <h4>1.1 Перемещение — translate()</h4>
+            <p>Пример: Кнопка "Купить" сдвигается при наведении (эффект нажатия)</p>
+            <div class="demo-area">
+                <button class="btn-translate">Купить</button>
+            </div>
+            <div class="code-hint">
+                transform: translateY(-3px) — поднимает кнопку<br>
+                transform: translateY(0) — возвращает на место
+            </div>
+        </div>
 
+        <!-- 1.2 Rotate - Поворот -->
+        <div class="example-block">
+            <h4>1.2 Поворот — rotate()</h4>
+            <p>Пример: Иконка загрузки или стрелка раскрытия меню</p>
+            <div class="demo-area">
+                <div class="arrow-rotate">▼</div>
+                <span style="margin-left: 10px;">Наведи на стрелку</span>
+            </div>
+            <div class="code-hint">
+                transform: rotate(180deg) — разворачивает стрелку
+            </div>
+        </div>
+
+        <!-- 1.3 Scale - Масштабирование -->
+        <div class="example-block">
+            <h4>1.3 Масштабирование — scale()</h4>
+            <p>Пример: Увеличение фото в галерее при наведении</p>
+            <div class="demo-area gallery">
+                <!-- Заготовка: вставь ссылку на картинку в src -->
+                <div class="photo-thumb">
+                    <img src="https://img.freepik.com/free-photo/cute-kitten-sitting-staring-playful-fluffy-looking-camera-generated-by-artificial-intelligence_188544-113029.jpg?semt=ais_hybrid&w=740" alt="Фото 1">
+                </div>
+                <div class="photo-thumb">
+                    <img src="https://img.freepik.com/free-photo/view-beautiful-persian-domestic-cat_23-2151773840.jpg?semt=ais_hybrid&w=740&q=80" alt="Фото 2">
+                </div>
+                <div class="photo-thumb">
+                    <img src="https://avatars.mds.yandex.net/i?id=2cd9ec8b0afb63d2d9579c9a80e89156_l-5299999-images-thumbs&n=13" alt="Фото 3">
+                </div>
+            </div>
+            <div class="code-hint">
+                overflow: hidden — скрывает всё, что выходит за рамки<br>
+                object-fit: cover — картинка заполняет контейнер<br>
+                transform: scale(1.15) — увеличивает контейнер<br>
+                position: relative — для позиционирования img
+            </div>
+        </div>
+
+        <!-- 1.4 Skew - Наклон -->
+        <div class="example-block">
+            <h4>1.4 Наклон — skew()</h4>
+            <p>Пример: Эффект "скорости" для баннера</p>
+            <div class="demo-area">
+                <div class="banner-skew">⚡ СКИДКА 50%</div>
+            </div>
+            <div class="code-hint">
+                transform: skewX(-15deg) — наклоняет элемент
+            </div>
+        </div>
+
+        <!-- 1.5 Комбинирование -->
+        <div class="example-block">
+            <h4>1.5 Комбинирование трансформаций</h4>
+            <p>Пример: Карточка товара с 3D-эффектом</p>
+            <div class="demo-area">
+                <div class="card-3d">
+                    <div class="card-inner">Товар</div>
+                </div>
+            </div>
+            <div class="code-hint">
+                transform: rotateY(15deg) translateZ(20px) — 3D поворот + сдвиг
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== РАЗДЕЛ 2: ПЕРЕХОДЫ ==================== -->
+    <section class="section">
+        <h3>2. Переходы (transition)</h3>
+
+        <!-- 2.1 Свойства и длительность -->
+        <div class="example-block">
+            <h4>2.1 Свойства и длительность</h4>
+            <p>Пример: Плавное изменение цвета ссылки</p>
+            <div class="demo-area">
+                <a href="#" class="link-transition">Наведи на меня</a>
+            </div>
+            <div class="code-hint">
+                transition: background-color 0.3s — плавная смена цвета за 0.3 сек
+            </div>
+        </div>
+
+        <!-- 2.2 Функция времени -->
+        <div class="example-block">
+            <h4>2.2 Функция времени (timing-function)</h4>
+            <p>Пример: Сравнение разных функций ускорения</p>
+            <div class="demo-area timing-demo">
+                <div class="timing-box linear">linear</div>
+                <div class="timing-box ease">ease</div>
+                <div class="timing-box ease-in">ease-in</div>
+                <div class="timing-box ease-out">ease-out</div>
+                <div class="timing-box ease-in-out">ease-in-out</div>
+            </div>
+            <p class="hint-text">Наведи на область, чтобы увидеть движение</p>
+        </div>
+
+        <!-- 2.3 Задержка -->
+        <div class="example-block">
+            <h4>2.3 Задержка перехода</h4>
+            <p>Пример: Меню с задержкой появления</p>
+            <div class="demo-area">
+                <div class="menu-trigger">
+                    Меню
+                    <div class="submenu">Подменю 1<br>Подменю 2<br>Подменю 3</div>
+                </div>
+            </div>
+            <div class="code-hint">
+                transition-delay: 0.2s — задержка перед началом
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== РАЗДЕЛ 3: АНИМАЦИИ ==================== -->
+    <section class="section">
+        <h3>3. Анимации (@keyframes)</h3>
+
+        <!-- 3.1 Базовая анимация -->
+        <div class="example-block">
+            <h4>3.1 Базовая анимация</h4>
+            <p>Пример: Пульсирующий индикатор "онлайн"</p>
+            <div class="demo-area">
+                <div class="online-indicator">
+                    <span class="dot"></span>
+                    <span>Online</span>
+                </div>
+            </div>
+            <div class="code-hint">
+                animation: pulse 2s infinite — пульсация каждые 2 секунды
+            </div>
+        </div>
+
+        <!-- 3.2 Длительность и повторение -->
+        <div class="example-block">
+            <h4>3.2 Длительность и повторение</h4>
+            <p>Пример: Загрузка с разными скоростями</p>
+            <div class="demo-area">
+                <div class="loader-slow"></div>
+                <span>Медленно (3s)</span>
+                <div class="loader-fast"></div>
+                <span>Быстро (1s)</span>
+            </div>
+        </div>
+
+        <!-- 3.3 Сложная анимация -->
+        <div class="example-block">
+            <h4>3.3 Сложная анимация с несколькими ключевыми кадрами</h4>
+            <p>Пример: Прыгающий мяч</p>
+            <div class="demo-area bounce-area">
+                <div class="ball">🏀</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== РАЗДЕЛ 4: ТАЙМЛАЙНЫ ==================== -->
+    <section class="section">
+        <h3>4. Таймлайны анимаций</h3>
+
+        <!-- 4.1 animation-delay -->
+        <div class="example-block">
+            <h4>4.1 Задержка начала (animation-delay)</h4>
+            <p>Пример: Последовательное появление элементов списка</p>
+            <div class="demo-area">
+                <ul class="staggered-list">
+                    <li>Пункт 1</li>
+                    <li>Пункт 2</li>
+                    <li>Пункт 3</li>
+                    <li>Пункт 4</li>
+                    <li>Пункт 5</li>
+                </ul>
+            </div>
+            <div class="code-hint">
+                animation-delay: calc(var(--i) * 0.1s) — задержка для каждого элемента
+            </div>
+        </div>
+
+        <!-- 4.2 animation-direction -->
+        <div class="example-block">
+            <h4>4.2 Направление анимации (animation-direction)</h4>
+            <p>Пример: Маятник и вращение</p>
+            <div class="demo-area">
+                <div class="pendulum">⏰</div>
+                <div class="spinner-alternate">🔄</div>
+            </div>
+            <div class="code-hint">
+                animation-direction: alternate — туда-обратно<br>
+                animation-direction: reverse — в обратную сторону
+            </div>
+        </div>
+
+        <!-- 4.3 Состояния анимации -->
+        <div class="example-block">
+            <h4>4.3 Управление анимацией (play-state)</h4>
+            <p>Пример: Пауза при наведении</p>
+            <div class="demo-area">
+                <div class="rotating-icon">🎡</div>
+                <span>Наведи, чтобы остановить</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ЗАДАНИЯ ДЛЯ САМОСТОЯТЕЛЬНОЙ РАБОТЫ ==================== -->
+    <section class="section tasks-section">
+        <h2>📝 Задания для самостоятельной работы</h2>
+        <p class="tasks-intro">Выполни эти задания за ~10 минут каждое. Ответы не даны — попробуй сам!</p>
+
+        <!-- Задание 1 -->
+        <div class="task-card">
+            <h3>Задание 1: Кнопка с эффектом нажатия</h3>
+            <div class="task-template">
+                <button class="task1-button">Нажми меня</button>
+            </div>
+            <div class="task-description">
+                <h4>Задача:</h4>
+                <p>Сделай кнопку, которая при наведении:</p>
+                <ul>
+                    <li>Увеличивается в размере (scale)</li>
+                    <li>Меняет цвет фона плавно (transition)</li>
+                    <li>При нажатии (active) уменьшается — имитация нажатия</li>
+                </ul>
+                <p><strong>Подсказка:</strong> Используй <code>:hover</code> и <code>:active</code> псевдоклассы.</p>
+            </div>
+        </div>
+
+        <!-- Задание 2 -->
+        <div class="task-card">
+            <h3>Задание 2: Бесконечная загрузка</h3>
+            <div class="task-template">
+                <div class="task2-loader"></div>
+            </div>
+            <div class="task-description">
+                <h4>Задача:</h4>
+                <p>Создай анимированный индикатор загрузки:</p>
+                <ul>
+                    <li>Круг, который вращается бесконечно</li>
+                    <li>Длительность: 1 секунда</li>
+                    <li>Линейная функция времени</li>
+                    <li>Добавь градиентную границу (border)</li>
+                </ul>
+                <p><strong>Подсказка:</strong> Используй <code>@keyframes rotate</code> и <code>border-top-color</code>.</p>
+            </div>
+        </div>
+
+        <!-- Задание 3 -->
+        <div class="task-card">
+            <h3>Задание 3: Галерея с эффектом появления</h3>
+            <div class="task-template task3-gallery">
+                <div class="task3-item">1</div>
+                <div class="task3-item">2</div>
+                <div class="task3-item">3</div>
+            </div>
+            <div class="task-description">
+                <h4>Задача:</h4>
+                <p>Сделай карточки, которые появляются последовательно:</p>
+                <ul>
+                    <li>Анимация: плавное появление (opacity 0 → 1) + подъём (translateY)</li>
+                    <li>Первая карточка появляется сразу</li>
+                    <li>Каждая следующая с задержкой на 0.3 секунды</li>
+                    <li>Анимация проигрывается при наведении курсором</li>
+                </ul>
+                <p><strong>Подсказка:</strong> Используй CSS-переменные для задержки или <code>nth-child</code>.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Поставьте "Отлично", пожалуйста :)</p>
+    </footer>
 </body>
 </html>

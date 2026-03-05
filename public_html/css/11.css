@@ -1,0 +1,537 @@
+/* ==================== БАЗОВЫЕ СТИЛИ ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.example-block {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
+}
+
+.demo-area {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    margin: 15px 0;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.code-hint {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 12px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.hint-text {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* ==================== РАЗДЕЛ 1: ТРАНСФОРМАЦИИ ==================== */
+
+/* 1.1 Перемещение — translate() */
+.btn-translate {
+    padding: 12px 30px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-translate:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-translate:active {
+    transform: translateY(0);
+}
+
+/* 1.2 Поворот — rotate() */
+.arrow-rotate {
+    font-size: 24px;
+    color: #e74c3c;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.arrow-rotate:hover {
+    transform: rotate(180deg);
+}
+
+/* 1.3 Масштабирование — scale() */
+.gallery {
+    gap: 20px;
+}
+
+.photo-thumb {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #f39c12, #e74c3c);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    transform-origin: center;
+    /* Добавляем скрытие всего, что выходит за границы */
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-thumb:hover {
+    transform: scale(1.15);
+}
+
+/* Стили для картинки внутри .photo-thumb */
+.photo-thumb img {
+    width: 100%;
+    height: 100%;
+    /* Картинка заполняет контейнер, сохраняя пропорции */
+    object-fit: cover;
+    /* Центрируем картинку */
+    object-position: center;
+    /* Плавный переход при масштабировании */
+    transition: transform 0.3s;
+}
+
+/* При наведении на контейнер — картинка тоже масштабируется */
+.photo-thumb:hover img {
+    transform: scale(1.1);
+}
+
+/* 1.4 Наклон — skew() */
+.banner-skew {
+    background: linear-gradient(90deg, #9b59b6, #3498db);
+    color: white;
+    padding: 15px 40px;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.banner-skew:hover {
+    transform: skewX(-15deg);
+}
+
+/* 1.5 Комбинирование трансформаций */
+.card-3d {
+    width: 150px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-inner {
+    transform: rotateY(15deg) translateZ(20px) rotateX(5deg);
+}
+
+/* ==================== РАЗДЕЛ 2: ПЕРЕХОДЫ ==================== */
+
+/* 2.1 Свойства и длительность */
+.link-transition {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ecf0f1;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.link-transition:hover {
+    background-color: #3498db;
+    color: black;
+    transform: translateX(10px);
+}
+
+/* 2.2 Функция времени */
+.timing-demo {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+}
+
+.timing-box {
+    width: 90px;
+    height: 40px;
+    background: #e74c3c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border-radius: 3px;
+    margin: 5px 0;
+    transition: transform 2s;
+}
+
+.timing-demo:hover .timing-box {
+    transform: translateX(300px);
+}
+
+.timing-box.linear { transition-timing-function: linear; background: #e74c3c; }
+.timing-box.ease { transition-timing-function: ease; background: #3498db; }
+.timing-box.ease-in { transition-timing-function: ease-in; background: #2ecc71; }
+.timing-box.ease-out { transition-timing-function: ease-out; background: #f39c12; }
+.timing-box.ease-in-out { transition-timing-function: ease-in-out; background: #9b59b6; }
+
+/* 2.3 Задержка перехода */
+.menu-trigger {
+    position: relative;
+    padding: 15px 30px;
+    background: #34495e;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #2c3e50;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+    transition-delay: 0.2s;
+    margin-top: 5px;
+}
+
+.menu-trigger:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ==================== РАЗДЕЛ 3: АНИМАЦИИ ==================== */
+
+/* 3.1 Базовая анимация — пульсация */
+.online-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: #2ecc71;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* 3.2 Длительность и повторение */
+.loader-slow, .loader-fast {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ecf0f1;
+    border-top-color: #3498db;
+    border-radius: 50%;
+}
+
+.loader-slow {
+    animation: spin 3s linear infinite;
+}
+
+.loader-fast {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 3.3 Сложная анимация — прыгающий мяч */
+.bounce-area {
+    height: 150px;
+    position: relative;
+    background: linear-gradient(to bottom, #fff 0%, #fff 80%, #ecf0f1 80%);
+    border: 2px dashed #bdc3c7;
+}
+
+.ball {
+    font-size: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 1s ease-in infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { 
+        top: 0; 
+        transform: translateX(-50%) scaleY(1);
+    }
+    50% { 
+        top: 100px; 
+        transform: translateX(-50%) scaleY(0.8);
+    }
+    90% { 
+        transform: translateX(-50%) scaleY(1.1);
+    }
+}
+
+/* ==================== РАЗДЕЛ 4: ТАЙМЛАЙНЫ ==================== */
+
+/* 4.1 animation-delay — последовательное появление */
+.staggered-list {
+    list-style: none;
+}
+
+.staggered-list li {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    margin: 5px 0;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+/* При наведении на demo-area — запускаем анимацию для всех li */
+.demo-area:hover .staggered-list li {
+    animation: fadeInSlide 0.5s ease-out forwards;
+}
+
+/* У каждого элемента своя задержка — они сработают последовательно */
+.demo-area:hover .staggered-list li:nth-child(1) { animation-delay: 0s; }
+.demo-area:hover .staggered-list li:nth-child(2) { animation-delay: 0.2s; }
+.demo-area:hover .staggered-list li:nth-child(3) { animation-delay: 0.4s; }
+.demo-area:hover .staggered-list li:nth-child(4) { animation-delay: 0.6s; }
+.demo-area:hover .staggered-list li:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 4.2 animation-direction */
+.pendulum {
+    font-size: 40px;
+    animation: swing 2s ease-in-out infinite alternate;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+@keyframes swing {
+    from { transform: rotate(-30deg); }
+    to { transform: rotate(30deg); }
+}
+
+.spinner-alternate {
+    font-size: 40px;
+    animation: rotate360 2s linear infinite alternate;
+    display: inline-block;
+}
+
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 4.3 Управление анимацией */
+.rotating-icon {
+    font-size: 50px;
+    animation: rotate360 3s linear infinite;
+    cursor: pointer;
+}
+
+.rotating-icon:hover {
+    animation-play-state: paused;
+}
+
+/* ==================== ЗАДАНИЯ ДЛЯ САМОСТОЯТЕЛЬНОЙ РАБОТЫ ==================== */
+
+.tasks-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.tasks-intro {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.task-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #e74c3c;
+}
+
+.task-card h3 {
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.task-template {
+    background: #ecf0f1;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+.task-description {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.task-description h4 {
+    color: #856404;
+    margin-bottom: 10px;
+}
+
+.task-description ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.task-description code {
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #e83e8c;
+    font-family: 'Courier New', monospace;
+}
+
+/* Заготовки для заданий (без стилей — для самостоятельной работы) */
+.task1-button {
+    /* Задание 1: Добавь стили здесь */
+    padding: 15px 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.task2-loader {
+    /* Задание 2: Добавь стили здесь */
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ddd;
+    border-radius: 50%;
+}
+
+.task3-gallery {
+    gap: 20px;
+}
+
+.task3-item {
+    /* Задание 3: Добавь стили здесь */
+    width: 80px;
+    height: 80px;
+    background: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    margin-top: 40px;
+    padding: 20px;
+}
