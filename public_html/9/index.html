@@ -16,9 +16,29 @@
     <article class="example-container">
         <h3>Пример 1: Базовая концепция и оси</h3>
         <div class="html-block">
-            <p><strong>Разбор HTML тегов:</strong></p>
+            <p><strong>Разбор HTML тегов для Flex-контейнеров:</strong></p>
             <ul>
-                <li><code>&lt;div&gt;</code>: Универсальный блочный элемент для группировки. Обязательно закрывается <code>&lt;/div&gt;</code>. Может располагаться в любом месте <code>&lt;body&gt;</code>. Дочерние — любые элементы. Атрибуты: <code>class</code>, <code>id</code>.</li>
+                <li>
+                    <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>:
+                    <ul>
+                        <li><strong>Смысл:</strong> Семантические теги, задающие логическую структуру страницы (шапка, навигация, основной контент и т.д.).</li>
+                        <li><strong>Закрытие:</strong> Все указанные теги являются парными и <strong>обязательно должны закрываться</strong> соответствующим тегом (напр., <code>&lt;/header&gt;</code>).</li>
+                        <li><strong>Расположение:</strong> Располагаются внутри тега <code>&lt;body&gt;</code> согласно иерархии макета. Например, <code>&lt;header&gt;</code> обычно является первым крупным блоком страницы.</li>
+                        <li><strong>Дочерние элементы:</strong> Могут содержать любые элементы. В контексте Flexbox — <strong>прямые потомки</strong> этих тегов автоматически становятся гибкими «флекс-элементами» при активации режима <code>display: flex</code>.</li>
+                        <li><strong>Атрибуты:</strong> Чаще всего используются глобальные атрибуты: <code>class</code>, <code>id</code>, <code>style</code>.</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <code>&lt;div&gt;</code>:
+                    <ul>
+                        <li><strong>Смысл:</strong> Универсальный блочный контейнер без смысловой нагрузки. Используется, когда семантические теги не подходят или контейнер нужен исключительно для стилизации (напр., группировка карточек в сетку).</li>
+                        <li><strong>Закрытие:</strong> Обязательно требует закрывающего тега <code>&lt;/div&gt;</code>.</li>
+                        <li><strong>Расположение:</strong> Может находиться в любом месте внутри <code>&lt;body&gt;</code>.</li>
+                        <li><strong>Дочерние элементы:</strong> Любые HTML-элементы.</li>
+                        <li><strong>Атрибуты:</strong> <code>class</code>, <code>id</code>, <code>title</code>.</li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <hr>
