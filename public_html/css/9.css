@@ -57,3 +57,8 @@ h1, h2 { color: #2c3e50; }
     background: #27ae60;
 }
 
+.header-task1 {
+    display: flex;
+    background-color: #ffffff;
+    padding: 10px 15px;
+}
