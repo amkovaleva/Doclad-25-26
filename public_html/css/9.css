@@ -57,8 +57,26 @@ h1, h2 { color: #2c3e50; }
     background: #27ae60;
 }
 
-.header-task1 {
+.task {
+    background: #fff3cd;
+    padding: 15px;
+    border-left: 5px solid #ffc107;
+    margin-top: 10px;
+}
+
+.task1-starter {
+    border: 1px dashed #999;
+    padding: 10px;
+}
+
+.task2-starter {
+    border: 1px dashed #999;
+    height: 200px;
+    overflow: auto;
+}
+
+.page-wrapper-task2 {
+    min-height: 100%;
     display: flex;
-    background-color: #ffffff;
-    padding: 10px 15px;
+    flex-direction: column;
 }
