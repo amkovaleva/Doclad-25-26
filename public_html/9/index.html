@@ -15,29 +15,46 @@
     <h2>Примеры</h2>
     <article class="example-container">
         <h3>Пример 1: Базовая концепция и оси</h3>
-        
         <div class="html-block">
             <p><strong>Разбор HTML тегов:</strong></p>
             <ul>
-                <li><code>&lt;div&gt;</code>: Универсальный блочный элемент для группировки. Обязательно закрывается <code>&lt;/div&gt;</code>. Может располагаться в любом месте <code>&lt;body&gt;</code>. Дочерние — любые элементы [2, 4]. Атрибуты: <code>class</code>, <code>id</code>.</li>
+                <li><code>&lt;div&gt;</code>: Универсальный блочный элемент для группировки. Обязательно закрывается <code>&lt;/div&gt;</code>. Может располагаться в любом месте <code>&lt;body&gt;</code>. Дочерние — любые элементы. Атрибуты: <code>class</code>, <code>id</code>.</li>
             </ul>
         </div>
         <hr>
         <div class="css-block">
             <p><strong>Разбор CSS свойств:</strong></p>
             <ul>
-                <li><code>display</code>: Определяет тип контейнера. Значения: <code>flex</code> (блочный), <code>inline-flex</code> (строчный) [5].</li>
-                <li><code>flex-direction</code>: Устанавливает главную ось. Значения: <code>row</code> (строка), <code>row-reverse</code>, <code>column</code> (колонка), <code>column-reverse</code> [6].</li>
+                <li><code>display</code>: Определяет тип контейнера. Значения: <code>flex</code> (блочный), <code>inline-flex</code> (строчный).</li>
+                <li><code>flex-direction</code>: Устанавливает главную ось. Значения: <code>row</code> (строка), <code>row-reverse</code>, <code>column</code> (колонка), <code>column-reverse</code>.</li>
             </ul>
         </div>
         <div class="live-demo">
-            <div class="flex-parent">
+            <div class="flex-parent-1">
                 <div class="flex-child">1</div>
                 <div class="flex-child">2</div>
                 <div class="flex-child">3</div>
             </div>
         </div>
     </article>
+    <article class="example-container">
+        <h3>Пример 2: Выравнивание и распределение (justify-content)</h3>
+        <div class="css-block">
+            <p><strong>Разбор CSS свойств:</strong></p>
+            <ul>
+                <li><code>justify-content</code>: Выравнивает элементы по <strong>главной оси</strong>.</li>
+                <li><strong>Значения:</strong> <code>flex-start</code> (в начало), <code>flex-end</code> (в конец), <code>center</code> (центр), <code>space-between</code> (крайние к краям), <code>space-around</code> (равные отступы вокруг), <code>space-evenly</code> (равные расстояния везде).</li>
+            </ul>
+        </div>
+        <div class="live-demo">
+            <div class="flex-parent-2">
+                <div class="flex-child">A</div>
+                <div class="flex-child">B</div>
+                <div class="flex-child">C</div>
+            </div>
+        </div>
+    </article>
+
 
 
     
