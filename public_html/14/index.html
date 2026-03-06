@@ -1,23 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset='utf-8'>
+  <head>
+    <meta charset="utf-8" />
     <title>Препроцессоры</title>
-    <link rel='stylesheet' href='../css/14.css'>
-</head>
-<body>
-    <h1>Препроцессоры</h1>
+    <link rel="stylesheet" href="../css/14.css" />
+  </head>
+  <body>
+    <h1>Препроцессоры Sass/SCSS</h1>
     <h2><a href="14.pdf" target="_blank">Презентация с теорией</a></h2>
-
-    <h2>Вопросы для самопроверки</h2>
-    ...
-
     <h2>Примеры</h2>
-    ...
+    <div class="tabs" id="tabs">
+      <button onclick="show('variables', this)" class="active">
+        Переменные
+      </button>
+      <button onclick="show('nesting', this)">Вложенность</button>
+      <button onclick="show('ampersand', this)">Символ &</button>
+      <button onclick="show('mixins', this)">Миксины</button>
+      <button onclick="show('content', this)">@content</button>
+      <button onclick="show('extend', this)">@extend</button>
+      <button onclick="show('loops', this)">Циклы</button>
+      <button onclick="show('math', this)">Математика</button>
+    </div>
+    <div class="viewer">
+      <div class="viewer__panel">
+        <div class="viewer__label">Результат</div>
+        <iframe id="preview" src="examples/variables/index.html"></iframe>
+      </div>
+      <div class="viewer__panel">
+        <div class="viewer__label">SCSS</div>
+        <iframe
+          id="scss-view"
+          src="examples/variables/styles/scss.scss"
+        ></iframe>
+      </div>
+      <div class="viewer__panel">
+        <div class="viewer__label">CSS</div>
+        <iframe id="css-view" src="examples/variables/styles/css.css"></iframe>
+      </div>
+    </div>
+    <h2><a id="linktoproject" href="examples/variables/index.html" target="_blank">Открыть проект</a></h2>
 
-    
-    <h2>Задания для самостоятельной работы</h2>
-    ...
+    <h2><a href="questions.pdf" target="_blank">Открыть Тест</a></h2>
+    <h2><a href="tasks.pdf" target="_blank">Открыть Задания</a></h2>
+    <script>
+      function show(name, btn) {
+        document.getElementById("preview").src =
+          "examples/" + name + "/index.html";
+        document.getElementById("scss-view").src =
+          "examples/" + name + "/styles/scss.scss";
+        document.getElementById("css-view").src =
+          "examples/" + name + "/styles/css.css";
+        document.getElementById("linktoproject").href =
+          "examples/" + name + "/index.html";
 
-</body>
+        document.querySelectorAll(".tabs button").forEach((b) => {
+          b.classList.remove("active");
+        });
+        btn.classList.add("active");
+      }
+    </script>
+  </body>
 </html>

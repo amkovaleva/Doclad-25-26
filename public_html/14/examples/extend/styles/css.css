@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: system-ui, sans-serif;
+}
+
+.notice-warn, .notice-err, .notice-ok {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-left: 3px solid;
+  font-size: 14px;
+}
+
+.notice-ok {
+  border-left-color: #2e7d32;
+  color: #2e7d32;
+}
+
+.notice-err {
+  border-left-color: #c62828;
+  color: #c62828;
+}
+
+.notice-warn {
+  border-left-color: #f9a825;
+  color: #f9a825;
+}
+
+/*# sourceMappingURL=css.css.map */

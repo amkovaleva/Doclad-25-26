@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: system-ui, sans-serif;
+  background: #fafafa;
+  color: #222;
+}
+
+h2 {
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.item {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.item--accent {
+  color: #1a73e8;
+}
+
+.item--muted {
+  color: #888;
+}
+
+/*# sourceMappingURL=css.css.map */
