@@ -36,6 +36,13 @@ h1, h2 { color: #2c3e50; }
     padding: 15px;
 }
 
+.flex-parent-3 {
+    display: flex;
+    gap: 10px;
+    background: #eef2f3;
+    padding: 15px;
+}
+
 
 .flex-child {
     padding: 20px;
@@ -44,3 +51,9 @@ h1, h2 { color: #2c3e50; }
     font-weight: bold;
     text-align: center;
 }
+
+.grow {
+    flex-grow: 1;
+    background: #27ae60;
+}
+
