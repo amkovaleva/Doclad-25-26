@@ -1,0 +1,303 @@
+/* ===== ОБЩИЕ СТИЛИ ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.example {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== ПРИМЕР 1: fr единицы ===== */
+.grid-fr {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.grid-fr div {
+    background: #3498db;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+/* ЧЕРЕДОВАНИЕ */
+.grid-fr div:nth-child(even) { 
+    background: #e74c3c; 
+}
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ */
+.grid-fr div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ===== ПРИМЕР 2: фикс + auto ===== */
+.grid-mix {
+    display: grid;
+    grid-template-columns: 200px auto 150px;
+    gap: 15px;
+    background: #bdc3c7;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.grid-mix div {
+    background: #9b59b6;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.grid-mix div:nth-child(even) {
+    background: #f1c40f;
+    color: #333;
+}
+
+.grid-mix div:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+}
+
+/* ===== ПРИМЕР 3: repeat и minmax ===== */
+.grid-repeat {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 15px;
+    background: #34495e;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.grid-repeat div {
+    background: #e67e22;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.grid-repeat div:nth-child(even) {
+    background: #2ecc71;
+}
+
+.grid-repeat div:hover {
+    background: #c0392b !important;
+    transform: scale(1.05);
+}
+
+/* ===== ПРИМЕР 4: grid-column ===== */
+.grid-placement {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: #7f8c8d;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.grid-placement div {
+    background: #27ae60;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.grid-placement div:nth-child(even) {
+    background: #8e44ad;
+}
+
+.wide {
+    grid-column: span 2;
+    background: #c0392b !important;
+}
+
+.full {
+    grid-column: 1 / -1;
+    background: #2980b9 !important;
+}
+
+.grid-placement div:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+}
+
+/* ===== ПРИМЕР 5: grid-row ===== */
+.grid-rows {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    background: #95a5a6;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.grid-rows div {
+    background: #f39c12;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.grid-rows div:nth-child(even) {
+    background: #16a085;
+}
+
+.tall {
+    grid-row: span 2;
+    background: #d35400 !important;
+}
+
+.taller {
+    grid-row: 1 / 4;
+    background: #c0392b !important;
+}
+
+.grid-rows div:hover {
+    filter: brightness(1.2);
+    transform: scale(1.02);
+}
+
+/* ===== ПРИМЕР 6: grid-areas ===== */
+.grid-areas {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "menu main main"
+        "footer footer footer";
+    grid-template-columns: 150px 1fr 1fr;
+    gap: 10px;
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.header { 
+    grid-area: header; 
+    background: #e74c3c; 
+    padding: 20px; 
+    color: white;
+    border-radius: 5px;
+}
+
+.menu { 
+    grid-area: menu; 
+    background: #f39c12; 
+    padding: 20px; 
+    color: white;
+    border-radius: 5px;
+}
+
+.main { 
+    grid-area: main; 
+    background: #27ae60; 
+    padding: 20px; 
+    color: white;
+    border-radius: 5px;
+}
+
+.footer { 
+    grid-area: footer; 
+    background: #3498db; 
+    padding: 20px; 
+    color: white;
+    border-radius: 5px;
+}
+
+.header:hover, .menu:hover, .main:hover, .footer:hover {
+    filter: brightness(1.2);
+    transform: scale(1.01);
+}
+
+/* ===== ПРИМЕР 7: auto-fit/fill ===== */
+.grid-fit, .grid-fill {
+    display: grid;
+    gap: 10px;
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.grid-fit {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.grid-fill {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.grid-fit div, .grid-fill div {
+    background: #3498db;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.grid-fit div:nth-child(even), 
+.grid-fill div:nth-child(even) {
+    background: #e74c3c;
+}
+
+.grid-fit div:hover, .grid-fill div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ===== ПРИМЕР 8: выравнивание ===== */
+.grid-align {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(2, 150px);
+    gap: 10px;
+    background: #bdc3c7;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.center { place-items: center; }
+.start { place-items: start; }
+.end { place-items: end; }
+
+.grid-align div {
+    background: #1abc9c;
+    color: white;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.grid-align div:nth-child(even) {
+    background: #e67e22;
+}
+
+.grid-align div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
