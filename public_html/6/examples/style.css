@@ -1,3 +1,4 @@
+/* === ОБЩИЕ СТИЛИ ДЛЯ КРАСИВОЙ ПРЕЗЕНТАЦИИ === */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -75,7 +76,7 @@ h3 {
 
 /* === БЛОК 1: ЦВЕТА === */
 .color-hex { 
-    background-color: #FF5733; 
+    background-color: #3498db; 
     color: white; 
     padding: 10px; 
 }
@@ -106,6 +107,10 @@ h3 {
     border: 1px solid black; 
 }
 
+.text-color-example {
+    color: #333;
+}
+
 /* === БЛОК 2: ПРОЗРАЧНОСТЬ === */
 .opacity-box {
     background-color: #e74c3c;
@@ -128,6 +133,14 @@ h3 {
     width: 200px;
     display: inline-block;
     border: 1px solid black;
+}
+
+.solid-box {
+    background-color: #e74c3c;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    color: white;
 }
 
 /* === БЛОК 3: ФОНЫ === */
@@ -155,6 +168,22 @@ h3 {
 .repeat-y { background-repeat: repeat-y; }
 .no-repeat { background-repeat: no-repeat; }
 
+/* Background size examples */
+.bg-size-example {
+    background-image: url('resource/car.png');
+    background-repeat: no-repeat;
+    background-color: #ecf0f1;
+    height: 200px;
+    width: 300px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.size-cover { background-size: cover; }
+.size-contain { background-size: contain; }
+.size-100-100 { background-size: 100% 100%; }
+.size-auto { background-size: auto; }
+
 .bg-position-example {
     background-image: url('resource/car.png');
     background-repeat: no-repeat;
@@ -163,6 +192,7 @@ h3 {
     width: 300px;
     border: 2px solid black;
     margin-bottom: 10px;
+    background-size: 100px auto;
 }
 
 .pos-center { background-position: center; }
@@ -199,8 +229,54 @@ h3 {
     margin: 10px 0;
 }
 
+/* Радуга */
+.gradient-rainbow1 {
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+.gradient-rainbow2 {
+    background-image: linear-gradient(90deg, red 0%, orange 15%, yellow 30%, green 50%, blue 70%, indigo 85%, violet 100%);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
 .gradient-radial {
     background-image: radial-gradient(circle, #f1c40f, #e67e22, #e74c3c);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+.gradient-radial-percent {
+    background-image: radial-gradient(circle, red 10%, yellow 30%, green 70%, blue 100%);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+.gradient-percent1 {
+    background-image: linear-gradient(90deg, 
+        red 0%, red 20%, 
+        yellow 20%, yellow 40%, 
+        green 40%, green 60%, 
+        blue 60%, blue 80%, 
+        purple 80%, purple 100%);
+    height: 100px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+.gradient-percent2 {
+    background-image: linear-gradient(90deg, 
+        red 0%, 
+        orange 30%, 
+        yellow 50%, 
+        green 70%, 
+        blue 100%);
     height: 100px;
     width: 300px;
     margin: 10px 0;
@@ -221,19 +297,21 @@ h3 {
     border: 2px solid #7f8c8d;
     background-image: 
         url('resource/car.png'),
+        url('resource/pattern1.png'),
         url('resource/flower1.png'),
         url('resource/flower.png');
     background-repeat: no-repeat;
     background-position: 
         10px 10px,
         70px 10px,
-        130px 10px;
+        130px 10px,
+        190px 10px;
     background-size: 60px 60px;
     position: relative;
 }
 
 .sprite-demo::after {
-    content: "Это имитация спрайта (картинки в одной области)";
+    content: "Это имитация спрайта (4 картинки в одной области)";
     position: absolute;
     bottom: 10px;
     left: 10px;
@@ -243,7 +321,6 @@ h3 {
     font-size: 12px;
 }
 
-/* пример спрайта */
 .social-sprite {
     width: 192px;
     height: 48px;
@@ -266,7 +343,6 @@ h3 {
 .sprite-yt { background-position: -96px 0; }
 .sprite-ig { background-position: -144px 0; }
 
-/* Подписи к примерам */
 .caption {
     font-weight: bold;
     margin-top: 5px;

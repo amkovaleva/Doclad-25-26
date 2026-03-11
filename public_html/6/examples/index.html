@@ -15,12 +15,12 @@
         
         <div class="grid">
             <div class="grid-item">
-                <div class="code-snippet">HEX: #FF5733</div>
-                <div class="color-hex demo-box">Пример текста</div>
+                <div class="code-snippet">HEX: #3498db (Синий)</div>
+                <div class="color-hex demo-box">Текст на синем фоне</div>
             </div>
             <div class="grid-item">
-                <div class="code-snippet">RGB: rgb(46, 204, 113)</div>
-                <div class="color-rgb demo-box">Пример текста</div>
+                <div class="code-snippet">RGB: rgb(46, 204, 113) (Зеленый)</div>
+                <div class="color-rgb demo-box">Текст на зеленом фоне</div>
             </div>
             <div class="grid-item">
                 <div class="code-snippet">RGBA: rgba(52, 152, 219, 0.3)</div>
@@ -30,8 +30,8 @@
         
         <div class="grid">
             <div class="grid-item">
-                <div class="code-snippet">HSL: hsl(60, 100%, 50%)</div>
-                <div class="color-hsl demo-box">Желтый</div>
+                <div class="code-snippet">HSL: hsl(60, 100%, 50%) (Желтый)</div>
+                <div class="color-hsl demo-box">Желтый фон</div>
             </div>
             <div class="grid-item">
                 <div class="code-snippet">HSLA: hsla(300, 100%, 50%, 0.1)</div>
@@ -42,7 +42,7 @@
         <div class="example-block">
             <strong>Свойство color:</strong>
             <div class="code-snippet">p { color: #333; }</div>
-            <p style="color: #333;">Этот текст написан цветом #333 (темно-серый).</p>
+            <p class="text-color-example">Этот текст написан цветом #333 (темно-серый).</p>
         </div>
 
         <!-- === БЛОК 2: ПРОЗРАЧНОСТЬ === -->
@@ -74,7 +74,7 @@
                     <div class="code-snippet">background: rgba(231,76,60,0.5);</div>
                 </div>
                 <div>
-                    <div style="background-color: #e74c3c; padding: 20px; margin:10px; width:200px; color:white;">Непрозрачный для сравнения</div>
+                    <div class="solid-box">Непрозрачный для сравнения</div>
                 </div>
             </div>
             <p><small>Текст внутри rgba-блока остается черным (непрозрачным), в отличие от opacity.</small></p>
@@ -114,6 +114,30 @@
             </div>
         </div>
 
+        <h3>background-size (растягивание фона):</h3>
+        <div class="grid">
+            <div>
+                <div class="bg-size-example size-cover"></div>
+                <div class="code-snippet">background-size: cover;</div>
+                <small>Растягивает с сохранением пропорций, заполняя весь элемент</small>
+            </div>
+            <div>
+                <div class="bg-size-example size-contain"></div>
+                <div class="code-snippet">background-size: contain;</div>
+                <small>Вмещается целиком, могут быть пустые области</small>
+            </div>
+            <div>
+                <div class="bg-size-example size-100-100"></div>
+                <div class="code-snippet">background-size: 100% 100%;</div>
+                <small>Растягивает без сохранения пропорций</small>
+            </div>
+            <div>
+                <div class="bg-size-example size-auto"></div>
+                <div class="code-snippet">background-size: auto (по умолчанию);</div>
+                <small>Оригинальный размер картинки</small>
+            </div>
+        </div>
+
         <h3>background-position:</h3>
         <div class="grid">
             <div>
@@ -132,13 +156,14 @@
 
         <h3>Универсальное свойство background:</h3>
         <div class="bg-shorthand-example demo-box">
-            background: оранжевый + паттерн ! по центру
+            background: оранжевый + паттерн по центру
         </div>
         <div class="code-snippet">background: #e67e22 url('pattern2.png') no-repeat center;</div>
 
         <!-- === БЛОК 4: ГРАДИЕНТЫ === -->
         <h2>🌈 4. Градиенты</h2>
 
+        <h3>Линейные градиенты:</h3>
         <div class="grid">
             <div>
                 <div class="gradient-linear1"></div>
@@ -152,9 +177,44 @@
                 <div class="gradient-linear3"></div>
                 <div class="code-snippet">linear-gradient(to bottom right, #3498db, #9b59b6, #e74c3c);</div>
             </div>
+        </div>
+
+        <h3>Градиент радуга:</h3>
+        <div class="grid">
+            <div>
+                <div class="gradient-rainbow1"></div>
+                <div class="code-snippet">linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);</div>
+            </div>
+            <div>
+                <div class="gradient-rainbow2"></div>
+                <div class="code-snippet">linear-gradient(90deg, red 0%, orange 15%, yellow 30%, green 50%, blue 70%, indigo 85%, violet 100%);</div>
+                <small>С указанием процентов для каждого цвета</small>
+            </div>
+        </div>
+
+        <h3>Радиальные градиенты:</h3>
+        <div class="grid">
             <div>
                 <div class="gradient-radial"></div>
                 <div class="code-snippet">radial-gradient(circle, #f1c40f, #e67e22, #e74c3c);</div>
+            </div>
+            <div>
+                <div class="gradient-radial-percent"></div>
+                <div class="code-snippet">radial-gradient(circle, red 10%, yellow 30%, green 70%, blue 100%);</div>
+            </div>
+        </div>
+
+        <h3>Градиент с процентами (цветовые стопы):</h3>
+        <div class="grid">
+            <div>
+                <div class="gradient-percent1"></div>
+                <div class="code-snippet">linear-gradient(90deg, red 0%, red 20%, yellow 20%, yellow 40%, green 40%, green 60%, blue 60%, blue 80%, purple 80%, purple 100%);</div>
+                <small>Четкие границы между цветами</small>
+            </div>
+            <div>
+                <div class="gradient-percent2"></div>
+                <div class="code-snippet">linear-gradient(90deg, red 0%, orange 30%, yellow 50%, green 70%, blue 100%);</div>
+                <small>Плавные переходы с распределением по процентам</small>
             </div>
         </div>
 

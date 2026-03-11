@@ -1,4 +1,4 @@
-/* Задание 2: CSS спрайты */
+/* Задание 2: CSS спрайты (РЕШЕНИЕ) */
 
 .example {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,9 +29,10 @@ h2 {
 .sprite-icon {
     width: 48px;
     height: 48px;
+    /* ПУТЬ ОТНОСИТЕЛЬНО CSS: из css/ → ../6/examples/resource/4.png */
     background-image: url('../6/examples/resource/4.png');
     background-repeat: no-repeat;
-    border: 1px solid #ccc;
+    display: block;
 }
 
 .sprite-fb {
