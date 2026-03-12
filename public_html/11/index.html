@@ -22,10 +22,11 @@
             <p>Пример: Кнопка "Купить" сдвигается при наведении (эффект нажатия)</p>
             <div class="demo-area">
                 <button class="btn-translate">Купить</button>
+                <span style="margin-left: 10px;">Нажимай Купить!</span>
             </div>
             <div class="code-hint">
-                transform: translateY(-3px) — поднимает кнопку<br>
-                transform: translateY(0) — возвращает на место
+                transform: translateY(-3px) — поднимает кнопку при наведении<br>
+                transform: translateY(0) — возвращает на исходное место при нажатии
             </div>
         </div>
 
@@ -70,11 +71,15 @@
             <h4>1.4 Наклон — skew()</h4>
             <p>Пример: Эффект "скорости" для баннера</p>
             <div class="demo-area">
-                <div class="banner-skew">⚡ СКИДКА 50%</div>
+                <div class="banner-skew skewX">⚡ СКИДКА 50%</div>
+                <div class="banner-skew skewY">⚡ АКЦИЯ ДНЯ</div>
+                <div class="banner-skew skew-def">⚡ РАСПРОДАЖА</div>
                 <span style="margin-left: 10px;">Наведи на объект</span>
             </div>
             <div class="code-hint">
-                transform: skewX(-15deg) — наклоняет элемент
+                transform: skewX(-15deg, -5deg) — наклоняет элемент по оси X<br>
+                transform: skewY(-15deg, -5deg) — наклоняет элемент по оси Y<br>
+                transform: skew(-15deg, -5deg) — наклоняет элемент по обеим осям
             </div>
         </div>
 
@@ -208,11 +213,13 @@
             <p>Пример: Маятник и вращение</p>
             <div class="demo-area">
                 <div class="pendulum">⏰</div>
-                <div class="spinner-alternate">🔄</div>
+                <div class="spinner-normal">🔄</div>
+                <div class="spinner-reverse">🔄</div>
             </div>
             <div class="code-hint">
                 animation-direction: alternate — туда-обратно<br>
-                animation-direction: reverse — в обратную сторону
+                animation-direction: normal — по часовой стрелке<br>
+                animation-direction: reverse — против часовой стрелки
             </div>
         </div>
 
@@ -223,6 +230,9 @@
             <div class="demo-area">
                 <div class="rotating-icon">🎡</div>
                 <span>Наведи, чтобы остановить</span>
+            </div>
+            <div class="code-hint">
+                animation-play-state: paused — останавливает анимацию
             </div>
         </div>
     </section>
