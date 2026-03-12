@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
 
-  <!-- ✅ viewport -->
+  <!-- viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Hero Blend Demo</title>
-  <link rel="stylesheet" href="css/2_hero.css">
+  <link rel="stylesheet" href="../css/2_hero.css">
 </head>
+
 <body>
 
   <!-- HERO -->
@@ -26,23 +28,17 @@
   <section class="demo-image">
     <h2>Адаптивное изображение</h2>
 
-    <!-- ✅ picture + srcset -->
+    <!-- picture + srcset -->
     <picture>
-      <source
-        media="(max-width: 600px)"
-        srcset="resource/images/hero-mobile.jpg">
+      <source media="(max-width: 600px)" srcset="../resources/images/hero-mobile.jpg">
 
-      <source
-        media="(max-width: 1024px)"
-        srcset="resource/images/hero-tablet.jpg">
+      <source media="(max-width: 1024px)" srcset="../resources/images/hero-tablet.jpg">
 
-      <img
-        src="resource/images/hero-desktop.jpg"
-        alt="Пример адаптивного изображения"
-        loading="lazy"
+      <img src="../resources/images/hero-desktop.jpg" alt="Пример адаптивного изображения" loading="lazy"
         class="demo-image__img">
     </picture>
   </section>
 
 </body>
+
 </html>
