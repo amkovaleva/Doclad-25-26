@@ -1,0 +1,55 @@
+Задание 1.
+<body>
+    <dl>
+        <ol>
+            <li>
+        <dt>Ключ</dt>
+        <dd>
+            <ul>
+                <li>Инструмент для отпирания замка — металлический стержень особой формы для открывания и закрывания замка.</li>
+                <li>Родник, источник — место, где подземная вода выходит на поверхность земли.</li>
+            </ul>
+        </dd>
+        </li>
+        <li>
+        <dt>Мир</dt>
+        <dd>
+            <ul>
+                <li>Вселенная, Земля, всё существующее — совокупность всех форм материи в земном и космическом пространстве.</li>
+                <li>Отсутствие войны, спокойствие — состояние общества или государства без военных конфликтов.</li>
+            </ul>
+        </dd>
+        </li>
+        </ol>
+
+    </dl>
+</body>
+Задание 2.
+<head>
+    <style>
+        table {
+            border-collapse:collapse;
+            
+        }
+        thead td,
+        thead th{
+            text-align:center;
+            
+        }
+        td{
+            border: 2px solid #000000;
+            
+        }
+    </style>
+</head>
+<body>
+    <table>
+    <thead>
+        <tr><td>Название фигуры</td><td>Растровая</td><td>Векторная</td></tr>
+    </thead>
+    <tbody>
+        <tr> <td>Круг</td> <td><img src="S600xU_2x.webp" height="300" width="300"/></td> <td><svg><circle cx="150" cy="70" r="70"</svg></td> </tr>
+        <tr> <td>Квадрат</td> <td><img src="S600xU_2x (1).webp" height="300" width="300"/></td> <td><svg><rect x="100" y="25" width="100" height="100"  /></svg></td> </tr>
+    </tbody>
+    </table>
+</body>
