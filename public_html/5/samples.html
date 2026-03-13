@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Примеры типографики в CSS</title>
-    <link rel="stylesheet" href="1_main.css">
+    <link rel="stylesheet" href="5_main.css">
 </head>
 <body>
 
@@ -155,26 +155,65 @@
 
     <!-- ========== 8. vertical-align (ВЕРТИКАЛЬНОЕ ВЫРАВНИВАНИЕ) ========== -->
     <section class="section">
-        <h2>8. vertical-align — вертикальное выравнивание</h2>
-
-        <div class="valign-demo">
-            <p>
-                <span>Текст</span>
-                <img src="https://via.placeholder.com/30x30/3498db/ffffff?text=icon" class="valign-baseline"> baseline
-            </p>
-            <p>
-                <span>Текст</span>
-                <img src="https://via.placeholder.com/30x30/e74c3c/ffffff?text=icon" class="valign-top"> top
-            </p>
-            <p>
-                <span>Текст</span>
-                <img src="https://via.placeholder.com/30x30/2ecc71/ffffff?text=icon" class="valign-middle"> middle
-            </p>
-            <p>
-                <span>Текст</span>
-                <img src="https://via.placeholder.com/30x30/f39c12/ffffff?text=icon" class="valign-bottom"> bottom
-            </p>
-        </div>
+    <h2>8. vertical-align — вертикальное выравнивание</h2>
+    
+    <div class="valign-demo">
+        <!-- BASELINE (по умолчанию) -->
+        <p class="valign-item">
+            <span class="valign-label">baseline:</span>
+            <span class="text">Текст рядом</span>
+            <span class="icon-example valign-baseline">🔔</span>
+            <span class="note">(прилипает к низу букв)</span>
+        </p>
+        
+        <!-- TOP (по верху) -->
+        <p class="valign-item">
+            <span class="valign-label">top:</span>
+            <span class="text">Текст рядом</span>
+            <span class="icon-example valign-top">🔔</span>
+            <span class="note">(по верхнему краю)</span>
+        </p>
+        
+        <!-- MIDDLE (по середине) -->
+        <p class="valign-item">
+            <span class="valign-label">middle:</span>
+            <span class="text">Текст рядом</span>
+            <span class="icon-example valign-middle">🔔</span>
+            <span class="note">(идеально по центру)</span>
+        </p>
+        
+        <!-- BOTTOM (по низу) -->
+        <p class="valign-item">
+            <span class="valign-label">bottom:</span>
+            <span class="text">Текст рядом</span>
+            <span class="icon-example valign-bottom">🔔</span>
+            <span class="note">(по нижнему краю)</span>
+        </p>
+        
+        <!-- TEXT-BOTTOM (по низу текста) -->
+        <p class="valign-item">
+            <span class="valign-label">text-bottom:</span>
+            <span class="text">Текст рядом</span>
+            <span class="icon-example valign-text-bottom">🔔</span>
+            <span class="note">(по низу текста, игнорируя выносные элементы)</span>
+        </p>
+        
+        <!-- SUPER (надстрочный) -->
+        <p class="valign-item">
+            <span class="valign-label">super:</span>
+            <span class="text">Текст рядом</span>
+            <span class="icon-example valign-super">🔔</span>
+            <span class="note">(как верхний индекс)</span>
+        </p>
+        
+        <!-- SUB (подстрочный) -->
+        <p class="valign-item">
+            <span class="valign-label">sub:</span>
+            <span class="text">Текст рядом</span>
+            <span class="icon-example valign-sub">🔔</span>
+            <span class="note">(как нижний индекс)</span>
+        </p>
+    </div>
     </section>
 
     <!-- ========== 9. text-decoration (ДЕКОРАЦИЯ) ========== -->
