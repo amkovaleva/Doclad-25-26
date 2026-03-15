@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2: Магазин</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="example">
+        <h2>Задание 2: Интернет-магазин</h2>
+        
+        <p><strong>Задача:</strong> Создать адаптивную сетку товаров.</p>
+        
+        <p><strong>Что должно получиться:</strong></p>
+        <ul>
+            <li>Карточки автоматически переносятся при уменьшении экрана</li>
+            <li>Минимальная ширина карточки 200px, максимальная 1fr</li>
+            <li>Акционный товар (Ноутбук) занимает 2 колонки</li>
+            <li>При наведении карточка увеличивается</li>
+        </ul>
+        
+        <p><strong>Подсказка:</strong> grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); и grid-column: span 2;</p>
+        
+        <div class="shop">
+            <div class="product sale">
+                <img>
+                <h3>Ноутбук игровой</h3>
+                <div class="price">79 999 ₽</div>
+                <div>🔥 АКЦИЯ</div>
+            </div>
+            
+            <div class="product">
+                <img>
+                <h3>Мышь</h3>
+                <div class="price">1 499 ₽</div>
+            </div>
+            
+            <div class="product">
+                <img>
+                <h3>Клавиатура</h3>
+                <div class="price">2 999 ₽</div>
+            </div>
+            
+            <div class="product">
+                <img>
+                <h3>Наушники</h3>
+                <div class="price">3 499 ₽</div>
+            </div>
+            
+            <div class="product">
+                <img>
+                <h3>Монитор</h3>
+                <div class="price">14 999 ₽</div>
+            </div>
+            
+            <div class="product">
+                <img>
+                <h3>Коврик</h3>
+                <div class="price">499 ₽</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
