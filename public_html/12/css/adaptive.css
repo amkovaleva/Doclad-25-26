@@ -139,3 +139,30 @@ body {
     }
 
 }
+
+@media print {
+
+    body{
+        background:white;
+        color:black;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .container{
+        max-width:100%;
+        box-shadow:none;
+    }
+
+    .content{
+        box-shadow:none;
+        border:none;
+    }
+
+    .corner-gif{
+        display:none;
+    }
+
+}
