@@ -110,3 +110,32 @@ body {
         order: 1;
     }
 }
+
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        order: 2;
+    }
+
+    .content {
+        order: 1;
+    }
+
+    .corner-gif {
+        position: static;
+        display: block;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .content h1{
+        padding-right:0;
+        text-align:center;
+    }
+
+}
