@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Пустая страница</title>
+  <title>Компоненты</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -12,9 +12,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   <!-- Ваши стили -->
   <link rel="stylesheet" href="style.css" />
+
   <style>
     body {
       padding-bottom: 50px;
+    }
+
+    .heading-text {
+      padding: 30px 20px;
     }
 
     .component-section {
@@ -30,17 +35,39 @@
       padding-bottom: 10px;
       border-bottom: 2px solid #0d6efd;
     }
+
+
+    .carousel-container {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+    }
+
+    .carousel-img {
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+
+    .progress-spaced {
+      margin-bottom: 15px;
+    }
   </style>
+
 </head>
 
 <body>
 
   <main class="container">
 
-    <h2>Компоненты Bootstrap</h2>
-    <p>Далее рассмотрим компоненты Bootstrap</p>
+    <h2 class="heading-text">Компоненты Bootstrap</h2>
+    <p>Далее рассмотрим компоненты Bootstrap.
+      Подробнее о них можно прочитать в
+      <a href="https://bootstrap-5.ru/docs/5.3/components/" target="_blank" rel="noopener noreferrer">
+        документации</a>.
+    </p>
 
-    <h2>Аккордеон</h2>
+    <h2 class="heading-text">Аккордеон</h2>
     <div>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
@@ -105,7 +132,7 @@
       </div>
     </div>
 
-    <h2>Оповещения</h2>
+    <h2 class="heading-text">Оповещения</h2>
     <div>
       <p>
         Оповещения или уведомления позволяют давать обратную связь для действий пользователя.
@@ -136,7 +163,7 @@
       </div>
     </div>
 
-    <h2>Эмблемы</h2>
+    <h2 class="heading-text">Эмблемы</h2>
     <div>
       <p>Эмблемы или значки используются для отображения значения кличества, ярлыков и меток. Они масштабируются так,
         чтобы соответствовать размеру непосредственного родительского элемента с
@@ -151,7 +178,8 @@
         Могут использоваться как часть ссылок или
         кнопок для счётчика.
       </p>
-      <div class="d-flex gap-5">
+
+      <div class="d-flex gap-5 mb-3">
         <button type="button" class="btn btn-primary">
           Оповещения <span class="badge text-bg-secondary">4</span>
         </button>
@@ -178,7 +206,7 @@
       </div>
     </div>
 
-    <h2>Breadcrumb</h2>
+    <h2 class="heading-text">Breadcrumb</h2>
     <div>
       <p>
         Навигационная цепочка, или хлебные крошки это цепочка пути по сайту, помогает пользователю понимать в какой
@@ -196,44 +224,45 @@
 
     </div>
 
-    <h2>Кнопки</h2>
+    <h2 class="heading-text">Кнопки</h2>
     <div>
       <p>
         Используйте настраиваемые стили кнопок Bootstrap для взаимодействия с формами, диалоговыми окнами, т.п. Имеется
         поддержка нескольких размеров, состояний и т.д.
       </p>
-      <div>
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-secondary">Secondary</button>
-        <button type="button" class="btn btn-success">Success</button>
-        <button type="button" class="btn btn-danger">Danger</button>
-        <button type="button" class="btn btn-warning">Warning</button>
-        <button type="button" class="btn btn-info">Info</button>
-        <button type="button" class="btn btn-light">Light</button>
-        <button type="button" class="btn btn-dark">Dark</button>
-        <button type="button" class="btn btn-link">Link</button>
+
+      <div class="mb-3">
+        <button type="button" class="btn btn-primary me-2 mb-2">Primary</button>
+        <button type="button" class="btn btn-secondary me-2 mb-2">Secondary</button>
+        <button type="button" class="btn btn-success me-2 mb-2">Success</button>
+        <button type="button" class="btn btn-danger me-2 mb-2">Danger</button>
+        <button type="button" class="btn btn-warning me-2 mb-2">Warning</button>
+        <button type="button" class="btn btn-info me-2 mb-2">Info</button>
+        <button type="button" class="btn btn-light me-2 mb-2">Light</button>
+        <button type="button" class="btn btn-dark me-2 mb-2">Dark</button>
+        <button type="button" class="btn btn-link mb-2">Link</button>
       </div>
+
       <div>
-        <button type="button" class="btn btn-primary btn-lg">Большая кнопка</button>
+        <button type="button" class="btn btn-primary btn-lg me-2">Большая кнопка</button>
         <button type="button" class="btn btn-secondary btn-sm">Маленькая кнопка</button>
       </div>
-
     </div>
 
-    <h2>Группа кнопок</h2>
+    <h2 class="heading-text">Группа кнопок</h2>
     <div>
       <p>
         Сгруппируйте несколько кнопок в одну строку или сложите их в вертикальный столбец. Оберните серию кнопок с
         помощью
         .btn в .btn-group.
       </p>
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-          <label class="btn btn-outline-primary" for="btncheck1">Флажок 1</label>
-          <button type="button" class="btn btn-warning">Средняя 1</button>
-          <button type="button" class="btn btn-primary">Средняя 2</button>
-          <button type="button" class="btn btn-outline-primary">Правая</button>
-        </div>
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btncheck1">Флажок 1</label>
+        <button type="button" class="btn btn-warning">Средняя 1</button>
+        <button type="button" class="btn btn-primary">Средняя 2</button>
+        <button type="button" class="btn btn-outline-primary">Правая</button>
+      </div>
       <p>
         Для групп кнопок требуется соответствующий атрибут <code>role</code> и явная метка, чтобы вспомогательные
         технологии,
@@ -241,9 +270,9 @@
         <code>role="group"</code> для групп кнопок или <code>role="toolbar"</code> для панелей инструментов кнопок.
         Затем
         используйте <code>aria-label</code> или <code>aria-labelledby</code>, чтобы пометить их.
-      <br>Кпопки бывают самыми базовыми, могут иметь смешанные или контурные (то есть без фона) стили.
+        <br>Кпопки бывают самыми базовыми, могут иметь смешанные или контурные (то есть без фона) стили.
         Можно объединять чекбоксы и радиокнопоки в единую группу кнопок, создавать паннель инструментов.
-      <br>Вместо того, чтобы применять классы изменения размера кнопок к каждой кнопке в группе, просто добавьте
+        <br>Вместо того, чтобы применять классы изменения размера кнопок к каждой кнопке в группе, просто добавьте
         .btn-group-*
         к каждой .btn-group, включая каждую при вложении нескольких групп.
       </p>
@@ -262,7 +291,7 @@
       </p>
     </div>
 
-    <h2>Карточки</h2>
+    <h2 class="heading-text">Карточки</h2>
     <div>
       <p>
         Карточка - это гибкий и расширяемый контейнер содержимого. Она включает опции заголовков и футеров, широкий
@@ -295,7 +324,7 @@
         Класс .card-img-top размещает изображение наверху карточки. Текст может быть добавлен к карточке классом
         .card-text.
         Текст внутри этого класса может быть оформлен стандартными тегами HTML.
-      <br>В карточке можно смешивать различные стили, подгонять различные типы содержимого.
+        <br>В карточке можно смешивать различные стили, подгонять различные типы содержимого.
         Есть возможность добавить в карточку верхний и/или нижний колонтитулы.
       </p>
       <div class="card">
@@ -313,60 +342,49 @@
     </div>
 
 
-    <h2>Карусель</h2>
-    <div>
-      <p>
-        Компонент слайд-шоу для цикличного повторения элементов - карусель изображений или текстовых слайдов.
-      <br>Вы должны добавить класс .active к одному из слайдов, иначе карусель не будет видна. Также не забудьте
-        установить
-        уникальный id в файле .carousel для дополнительных элементов управления, особенно если вы используете несколько
-        каруселей на одной странице. Элементы управления и индикаторы должны иметь атрибут data-bs-target (или href для
-        ссылок), который соответствует id элемента .carousel.
-      </p>
-      <p><strong>Вы должны добавить класс <code>.active</code> к одному из слайдов</strong>, иначе карусель не будет
-        видна.
-        Также не забудьте установить уникальный <code>id</code> в файле <code>.carousel</code> для дополнительных
-        элементов
-        управления, особенно если вы используете несколько каруселей на одной странице. Элементы управления и индикаторы
-        должны иметь атрибут <code>data-bs-target</code> (или <code>href</code> для ссылок), который соответствует
-        <code>id</code> элемента <code>.carousel</code>.
-      </p>
-      <p>
-        Существуют различные виды каруселей: базовый, с индикаторами, которые позволяют переходить непосредственно к
-        определенному слайду.
-        Можно добавить подписи к слайдам.
-        Есть возможность добавить плавный переход или воспроизведение карусели, также настроить интервал переключения.
-        Если элементы управления не требуются, то можно создать автовоспроизведение такой карусели.
-      </p>
+    <h2 class="heading-text">Карусель</h2>
+    <div class="component-section">
+      <p>Компонент слайд-шоу для цикличного повторения элементов.</p>
 
-
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" width="800" height="400">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="code-exmp.jpg" class="d-block w-100" alt="Слайд 1">
-            <div class="carousel-caption d-none d-md-block">
-              <p>Метка первого слайда</p>
+      <!-- Обертка для ограничения ширины -->
+      <div class="carousel-container">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="code-exmp.jpg" class="d-block w-100 carousel-img" alt="Слайд 1">
+              <div class="carousel-caption d-none d-md-block">
+                <p>Метка первого слайда</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="vs-symbol.jpg" class="d-block w-100 carousel-img" alt="Слайд 2">
+              <div class="carousel-caption d-none d-md-block">
+                <p>Метка второго слайда</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="html-fun.jpg" class="d-block w-100 carousel-img" alt="Слайд 3">
+              <div class="carousel-caption d-none d-md-block">
+                <p>Метка третьего слайда</p>
+              </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <img src="vs-symbol.jpg" class="d-block w-100" alt="Слайд 2">
-            <div class="carousel-caption d-none d-md-block">
-              <p>Метка второго слайда</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="html-fun.jpg" class="d-block w-100" alt="Слайд 3">
-            <div class="carousel-caption d-none d-md-block">
-              <p>Метка третьего слайда</p>
-            </div>
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Предыдущий</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Следующий</span>
+          </button>
         </div>
-
       </div>
     </div>
 
 
-    <h2>Кнопка закрытия</h2>
+    <h2 class="heading-text">Кнопка закрытия</h2>
     <div>
       <p>
         Универсальная кнопка закрытия для закрытия содержимого, например, модального окна и предупреждения.
@@ -376,23 +394,26 @@
       </div>
     </div>
 
-    <h2>Сворачиваемое содержимое</h2>
+    <h2 class="heading-text">Сворачиваемое содержимое</h2>
     <div>
       <p>
         Плагин свертывания JavaScript используется для показа\скрытия контента. Кнопки или ссылки используются как
         триггеры,
         «нацеленные» на определенные элементы, которые надо скрыть\показать.
       </p>
-      <p>
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
+
+      <p class="mb-3">
+        <a class="btn btn-primary me-2 mb-2" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
           aria-expanded="false" aria-controls="multiCollapseExample1">Переключить первый элемент</a>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2"
-          aria-expanded="false" aria-controls="multiCollapseExample2">Переключить второй элемент</button>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample"
-          aria-expanded="false" aria-controls="collapseWidthExample">
+        <button class="btn btn-primary me-2 mb-2" type="button" data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample2" aria-expanded="false"
+          aria-controls="multiCollapseExample2">Переключить второй элемент</button>
+        <button class="btn btn-primary mb-2" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
           Переключить ширину сворачиваемого
         </button>
       </p>
+
       <div class="row">
         <div class="col">
           <div class="collapse multi-collapse" id="multiCollapseExample1">
@@ -423,7 +444,7 @@
       </div>
     </div>
 
-    <h2>Выпадающие элементы</h2>
+    <h2 class="heading-text">Выпадающие элементы</h2>
     <div>
       <p>
         Выпадающие списки - это переключаемые контекстные наложения для отображения списков ссылок и многого другого.
@@ -474,7 +495,7 @@
       </div>
     </div>
 
-    <h2>Группа списков</h2>
+    <h2 class="heading-text">Группа списков</h2>
     <div>
       <p>
         Группы списков - это гибкий и мощный компонент для отображения контента. Изменяйте и расширяйте их для поддержки
@@ -494,7 +515,7 @@
       </p>
     </div>
 
-    <h2>Модальное окно</h2>
+    <h2 class="heading-text">Модальное окно</h2>
     <div>
       <p>
         Используйте модальный JavaScript плагин Bootstrap для добавления диалоговых окнон на ваш сайт для лайтбоксов,
@@ -508,7 +529,7 @@
       </ul>
     </div>
 
-    <h2>Навигационная панель</h2>
+    <h2 class="heading-text">Навигационная панель</h2>
     <div>
       <p>
         Навигационные ссылки на панели навигации основаны на наших параметрах .nav с их собственным
@@ -558,7 +579,7 @@
       </nav>
     </div>
 
-    <h2>Навигация и вкладки</h2>
+    <h2 class="heading-text">Навигация и вкладки</h2>
     <div>
       <p>
         Навигация, доступная в Bootstrap, имеет общую разметку и стили, от базового класса .nav до активного и
@@ -569,7 +590,7 @@
       </p>
     </div>
 
-    <h2>Вне холста</h2>
+    <h2 class="heading-text">Вне холста</h2>
     <div>
       <p>
         Встраивайте в свой проект скрытые боковые навигационные панели, корзины для покупок и многое другое.
@@ -606,7 +627,7 @@
 
     </div>
 
-    <h2>Нумерация страниц</h2>
+    <h2 class="heading-text">Нумерация страниц</h2>
     <div>
       <p>
         Мы используем большой блок связанных ссылок для нашей нумерации страниц, что делает ссылки труднодоступными и
@@ -646,7 +667,7 @@
       </nav>
     </div>
 
-    <h2>Заполнители</h2>
+    <h2 class="heading-text">Заполнители</h2>
     <div>
       <p>
         Используйте заполнители загрузки для ваших компонентов или страниц, чтобы указать, что процесс загрузки еще
@@ -655,33 +676,38 @@
         для создания «загрузочной карты». Размер и пропорции у них одинаковы.
       </p>
 
-      <div>
-        <div class="card">
-          <img src="html-fun.jpg" class="card-img-top" alt="Картинка">
-
-          <div class="card-body">
-            <h5 class="card-title">Заголовок карточки</h5>
-            <p class="card-text">Небольшой пример текста, основанного на названии карточки и составляющего основную
-              часть
-              содержимого карточки.</p>
-            <a href="#" class="btn btn-primary">Иди куда-нибудь</a>
+      <!-- Обертка с ограничением ширины -->
+      <div class="row">
+        <!-- Карточка с контентом -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card">
+            <img src="html-fun.jpg" class="card-img-top" alt="Картинка">
+            <div class="card-body">
+              <h5 class="card-title">Заголовок карточки</h5>
+              <p class="card-text">Небольшой пример текста, основанного на названии карточки и составляющего основную
+                часть содержимого карточки.</p>
+              <a href="#" class="btn btn-primary">Иди куда-нибудь</a>
+            </div>
           </div>
         </div>
 
-        <div class="card" aria-hidden="true">
-          <img src="grey-back.jpg" class="card-img-top" alt="Заглушка">
-          <div class="card-body">
-            <h5 class="card-title placeholder-glow">
-              <span class="placeholder col-6"></span>
-            </h5>
-            <p class="card-text placeholder-glow">
-              <span class="placeholder col-7"></span>
-              <span class="placeholder col-4"></span>
-              <span class="placeholder col-4"></span>
-              <span class="placeholder col-6"></span>
-              <span class="placeholder col-8"></span>
-            </p>
-            <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+        <!-- Карточка с заполнителями -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card" aria-hidden="true">
+            <img src="grey-back.jpg" class="card-img-top" alt="Заглушка">
+            <div class="card-body">
+              <h5 class="card-title placeholder-glow">
+                <span class="placeholder col-6"></span>
+              </h5>
+              <p class="card-text placeholder-glow">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+              </p>
+              <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+            </div>
           </div>
         </div>
       </div>
@@ -692,11 +718,15 @@
         width. Они могут заменять текст внутри элемента или добавляться как класс-модификатор к существующему
         компоненту.
       </p>
-      <div>
-        <p aria-hidden="true">
-          <span class="placeholder col-6"></span>
-        </p>
-        <a class="btn btn-primary disabled placeholder col-4" aria-disabled="true"></a>
+
+      <!-- Пример заполнителей с ограниченной шириной -->
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <p aria-hidden="true">
+            <span class="placeholder col-6"></span>
+          </p>
+          <a class="btn btn-primary disabled placeholder col-4" aria-disabled="true"></a>
+        </div>
       </div>
 
       <p>
@@ -704,7 +734,7 @@
       </p>
     </div>
 
-    <h2>Информеры или всплывающие окна</h2>
+    <h2 class="heading-text">Информеры или всплывающие окна</h2>
     <div>
       <p>
         Вы должны инициализировать всплывающие окна, прежде чем их можно будет использовать. Один из способов
@@ -713,56 +743,59 @@
       </p>
     </div>
 
-    <h2>Прогрессбар</h2>
+    <h2 class="heading-text">Прогрессбар</h2>
     <div>
       <p>
         Настраиваемые индикаторы выполнения с поддержкой составных полос, анимированных фонов и текстовых меток.
       </p>
 
-      <div>
-        <div class="progress" role="progressbar" aria-label="Example 5px high" aria-valuenow="25" aria-valuemin="0"
-          aria-valuemax="100" style="height: 5px">
-          <div class="progress-bar" style="width: 75%"></div>
-        </div>
-        <div class="progress" role="progressbar" aria-label="Пример успеха" aria-valuenow="25" aria-valuemin="0"
-          aria-valuemax="100">
-          <div class="progress-bar bg-success" style="width: 25%">25%</div>
-        </div>
-        <div class="progress" role="progressbar" aria-label="Пример информации" aria-valuenow="50" aria-valuemin="0"
-          aria-valuemax="100">
-          <div class="progress-bar bg-info text-dark" style="width: 50%">50%</div>
-        </div>
-        <div class="progress" role="progressbar" aria-label="Пример предупреждения" aria-valuenow="75" aria-valuemin="0"
-          aria-valuemax="100">
-          <div class="progress-bar bg-warning text-dark" style="width: 75%">75%</div>
-        </div>
-        <div class="progress" role="progressbar" aria-label="Пример опасности" aria-valuenow="100" aria-valuemin="0"
-          aria-valuemax="100">
-          <div class="progress-bar bg-danger" style="width: 100%">100%</div>
-        </div>
-        <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="25" aria-valuemin="0"
-          aria-valuemax="100" style="height: 20px">
-          <div class="progress-bar" style="width: 25%"></div>
-        </div>
-        <div class="progress-stacked">
-          <div class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="15" aria-valuemin="0"
-            aria-valuemax="100" style="width: 15%">
-            <div class="progress-bar"></div>
-          </div>
-          <div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0"
-            aria-valuemax="100" style="width: 30%">
-            <div class="progress-bar bg-success"></div>
-          </div>
-          <div class="progress" role="progressbar" aria-label="Segment three" aria-valuenow="20" aria-valuemin="0"
-            aria-valuemax="100" style="width: 20%">
-            <div class="progress-bar bg-info"></div>
-          </div>
-        </div>
+      <div class="progress mb-3" role="progressbar" aria-label="Example 5px high" aria-valuenow="25" aria-valuemin="0"
+        aria-valuemax="100" style="height: 5px">
+        <div class="progress-bar" style="width: 75%"></div>
       </div>
 
+      <div class="progress mb-3" role="progressbar" aria-label="Пример успеха" aria-valuenow="25" aria-valuemin="0"
+        aria-valuemax="100">
+        <div class="progress-bar bg-success" style="width: 25%">25%</div>
+      </div>
+
+      <div class="progress mb-3" role="progressbar" aria-label="Пример информации" aria-valuenow="50" aria-valuemin="0"
+        aria-valuemax="100">
+        <div class="progress-bar bg-info text-dark" style="width: 50%">50%</div>
+      </div>
+
+      <div class="progress mb-3" role="progressbar" aria-label="Пример предупреждения" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-warning text-dark" style="width: 75%">75%</div>
+      </div>
+
+      <div class="progress mb-3" role="progressbar" aria-label="Пример опасности" aria-valuenow="100" aria-valuemin="0"
+        aria-valuemax="100">
+        <div class="progress-bar bg-danger" style="width: 100%">100%</div>
+      </div>
+
+      <div class="progress mb-3" role="progressbar" aria-label="Example 20px high" aria-valuenow="25" aria-valuemin="0"
+        aria-valuemax="100" style="height: 20px">
+        <div class="progress-bar" style="width: 25%"></div>
+      </div>
+
+      <div class="progress-stacked mb-3">
+        <div class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="15" aria-valuemin="0"
+          aria-valuemax="100" style="width: 15%">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0"
+          aria-valuemax="100" style="width: 30%">
+          <div class="progress-bar bg-success"></div>
+        </div>
+        <div class="progress" role="progressbar" aria-label="Segment three" aria-valuenow="20" aria-valuemin="0"
+          aria-valuemax="100" style="width: 20%">
+          <div class="progress-bar bg-info"></div>
+        </div>
+      </div>
     </div>
 
-    <h2>Отслеживание прокрутки</h2>
+    <h2 class="heading-text">Отслеживание прокрутки</h2>
     <div>
       <p>
         Автоматическое обновление компонентов навигации Bootstrap или группы списков на основе позиции прокрутки, для
@@ -820,7 +853,7 @@
       </div>
     </div>
 
-    <h2>Спиннеры</h2>
+    <h2 class="heading-text">Спиннеры</h2>
     <div>
       <p>
         Позволяет указать состояние загрузки компонента или страницы. Спиннеры построены только с использованием HTML и
@@ -864,7 +897,7 @@
 
     </div>
 
-    <h2>Всплывающие сообщения</h2>
+    <h2 class="heading-text">Всплывающие сообщения</h2>
     <div>
       <p>
         Настраиваемые всплывающие сообщения для предупреждающих уведомлений пользователей.
@@ -875,7 +908,7 @@
       </p>
     </div>
 
-    <h2>Подсказки</h2>
+    <h2 class="heading-text">Подсказки</h2>
     <div>
       <p>
         Настраиваемые всплывающие подсказки используют CSS3 для анимации, и атрибуты данных для локального хранения
