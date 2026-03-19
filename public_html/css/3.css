@@ -32,3 +32,9 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.requiredForm::after {
+  content: "*";
+  color: red;
+  margin-right: 5px;
+}

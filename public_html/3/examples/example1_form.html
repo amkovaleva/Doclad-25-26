@@ -10,19 +10,20 @@
         <h2>Форма обратной связи</h2>
 
         <form action="/send" method="post">
+            <div class="requiredForm">
+                Имя:
+                <input type="text" name="name" required>
+            </div>
 
-            Имя:
-            <input type="text" name="name" required>
+            <br>
 
-            <br><br>
-
-            Email:
-            <input type="email" name="email" required>
-
+            <div class="requiredForm">
+                Email:
+                <input type="email" name="email" required>
+            </div>
             <br><br>
 
             <button type="submit">Отправить</button>
-
         </form>
     </body>
 </html>
