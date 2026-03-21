@@ -1,0 +1,13 @@
+body {
+    background: gray;
+    color: white;
+}
+
+.parent {
+    background: white;
+}
+
+/* Исправление 1: Явно задать фон */
+.child {
+    background: gray;
+}
