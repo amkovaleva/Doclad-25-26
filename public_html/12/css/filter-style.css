@@ -1,0 +1,186 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #222;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.row {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.item {
+    text-align: center;
+}
+
+.item img {
+    width: 500px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.item p {
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.filter-description p {
+    font-size: 30px;
+}
+
+.filter-description h3 {
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+.photo_grayscale {
+    filter: grayscale(100%);
+}
+
+.photo_blur {
+    filter: blur(5px);
+}
+
+
+.photo_brightness {
+    filter: brightness(0.4);
+}
+
+.photo_contrast {
+    filter: contrast(200%);
+}
+
+.photo_drop-shadow {
+    filter: drop-shadow(16px 16px 20px rgb(131, 131, 240));
+}
+
+
+.photo_hue-rotate {
+    filter: hue-rotate(90deg);
+}
+
+.photo_invert {
+    filter: invert(100%);
+}
+
+.photo_opacity {
+    filter: opacity(50%);
+}
+
+.photo_saturate {
+    filter: saturate(300%);
+}
+
+.photo_sepia {
+    filter: sepia(80%);
+}
+
+.photo_multiple {
+    filter: contrast(155%) brightness(130%);
+}
+
+.button1 {
+    width: 500px;
+    height: 500px;
+    font-size: 33px;
+    padding: 10px 20px;
+    background-color: rgb(69, 126, 224);
+    color: rgb(59, 11, 62);
+    border-radius: 8px;
+}
+
+.button-disabled {
+    width: 500px;
+    height: 500px;
+    font-size: 33px;
+    padding: 10px 20px;
+    background-color: rgb(69, 126, 224);
+    color: rgb(59, 11, 62);
+    border-radius: 8px;
+    filter: grayscale(100%) opacity(50%);
+
+}
+
+
+.button2 {
+    padding: 10px 20px;
+    background-color: rgb(69, 126, 224);
+    color: rgb(59, 11, 62);
+    border-radius: 8px;
+}
+
+.card1,
+.card2 {
+    width: 465px;
+    height: 470px;
+    padding: 30px 20px;
+    background: rgb(210, 63, 63);
+    border-radius: 12px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+}
+
+.card1:hover {
+    filter: brightness(200%);
+
+}
+
+.card2 {
+    filter: blur(3px);
+    transition: 0.5s;
+}
+
+.card1 h1,
+.card2 h1 {
+    font-size: 44px;
+    margin: 0 0 10px;
+}
+
+.card1 p,
+.card2 p {
+    font-size: 18px;
+    margin: 0;
+    line-height: 4;
+}
+
+.card1 img,
+.card2 img {
+    width: 220px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.button2 {
+    font-size: 18px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: 0;
+    margin-top: auto;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="">
+    <style>
+
+/* ===== ФИКСИРОВАННАЯ ВЕРСТКА ===== */
+
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+        }
+
+        .container{
+            width:1200px;
+            margin:40px auto;
+        }
+
+        .sidebar{
+            width:300px;
+            float:left;
+            background:#eeeeee;
+            padding:20px;
+        }
+
+        .content{
+            width:900px;
+            float:left;
+            background:#dddddd;
+            padding:20px;
+        }
+
+        .sidebar ul{
+            list-style:none;
+            padding:0;
+        }
+
+        .sidebar li{
+            padding:8px 0;
+        }
+
+        h1{
+            font-size:32px;
+        }
+
+        p{
+            font-size:16px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!--
+Дана фиксированная верстка:
+.container {
+  width: 1200px;
+}
+
+.sidebar {
+  width: 300px;
+  float: left;
+}
+
+.content {
+  width: 900px;
+  float: left;
+}
+
+
+Задание:
+1.	Убрать фиксированные ширины.
+2.	Добавить breakpoint 768px.
+3.	Сделать текст через rem.
+4.	Использовать clamp для заголовков.
+
+Дополнительно:
+При переходе через breakpoint:
+- sidebar должен переместиться вниз страницы
+- элементы должны выстроиться в колонку.
+
+Цель — получить полноценную адаптивную версию страницы.
+
+-->
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Меню</h2>
+            <ul>
+                <li>Главная</li>
+                <li>О нас</li>
+                <li>Услуги</li>
+                <li>Контакты</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1>Основной контент</h1>
+
+                <p>
+                    Это пример фиксированной верстки. 
+                    Страница имеет ширину 1200px и не адаптируется под мобильные устройства.
+                </p>
+
+                <p>
+                    Ваша задача — переделать эту страницу в адаптивную версию.
+                </p>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

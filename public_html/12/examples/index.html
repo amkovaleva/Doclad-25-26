@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hero Blend Demo</title>
+  <link rel="stylesheet" href="../css/2_hero.css">
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">Современные технологии</h1>
+      <p class="hero__text">
+        Адаптивные изображения и режимы смешивания в действии
+      </p>
+      <button class="hero__btn">Подробнее</button>
+    </div>
+  </section>
+
+  <!-- адаптивное изображение -->
+  <section class="demo-image">
+    <h2>Адаптивное изображение</h2>
+
+    <!-- picture + srcset -->
+    <picture>
+      <source media="(max-width: 600px)" srcset="../resources/images/hero-mobile.jpg">
+
+      <source media="(max-width: 1024px)" srcset="../resources/images/hero-tablet.jpg">
+
+      <img src="../resources/images/hero-desktop.jpg" alt="Пример адаптивного изображения" loading="lazy"
+        class="demo-image__img">
+    </picture>
+  </section>
+   
+  <!-- ===== ДЕМОНСТРАЦИЯ ВСЕХ РЕЖИМОВ background-blend-mode ===== -->
+ <section class="blend-demo">
+  <h2>Все режимы background-blend-mode</h2>
+  <div class="blend-grid">
+    <!-- normal (без смешивания) -->
+    <div class="blend-card blend-normal">
+      <span class="card-label">normal</span>
+    </div>
+    <!-- multiply (уже использован в hero, но показан ещё раз) -->
+    <div class="blend-card blend-multiply">
+      <span class="card-label">multiply</span>
+    </div>
+    <!-- screen -->
+    <div class="blend-card blend-screen">
+      <span class="card-label">screen</span>
+    </div>
+    <!-- overlay -->
+    <div class="blend-card blend-overlay">
+      <span class="card-label">overlay</span>
+    </div>
+    <!-- darken -->
+    <div class="blend-card blend-darken">
+      <span class="card-label">darken</span>
+    </div>
+    <!-- lighten -->
+    <div class="blend-card blend-lighten">
+      <span class="card-label">lighten</span>
+    </div>
+    <!-- color-dodge -->
+    <div class="blend-card blend-color-dodge">
+      <span class="card-label">color-dodge</span>
+    </div>
+    <!-- color-burn -->
+    <div class="blend-card blend-color-burn">
+      <span class="card-label">color-burn</span>
+    </div>
+    <!-- hard-light -->
+    <div class="blend-card blend-hard-light">
+      <span class="card-label">hard-light</span>
+    </div>
+    <!-- soft-light -->
+    <div class="blend-card blend-soft-light">
+      <span class="card-label">soft-light</span>
+    </div>
+    <!-- difference -->
+    <div class="blend-card blend-difference">
+      <span class="card-label">difference</span>
+    </div>
+    <!-- exclusion -->
+    <div class="blend-card blend-exclusion">
+      <span class="card-label">exclusion</span>
+    </div>
+    <!-- hue -->
+    <div class="blend-card blend-hue">
+      <span class="card-label">hue</span>
+    </div>
+    <!-- saturation -->
+    <div class="blend-card blend-saturation">
+      <span class="card-label">saturation</span>
+    </div>
+    <!-- color -->
+    <div class="blend-card blend-color">
+      <span class="card-label">color</span>
+    </div>
+    <!-- luminosity -->
+    <div class="blend-card blend-luminosity">
+      <span class="card-label">luminosity</span>
+    </div>
+  </div>
+</section>
+
+ <!-- ===== ДЕМОНСТРАЦИЯ mix-blend-mode ===== -->
+<section class="mix-demo">
+  <h2>Демонстрация mix-blend-mode</h2>
+  <p class="mix-description">
+    Цветные круги накладываются друг на друга и на фон. 
+    У каждого круга свой режим смешивания.
+  </p>
+  
+  <div class="mix-container">
+    <div class="mix-circle mix-normal">normal</div>
+    <div class="mix-circle mix-multiply">multiply</div>
+    <div class="mix-circle mix-screen">screen</div>
+    <div class="mix-circle mix-overlay">overlay</div>
+    <div class="mix-circle mix-darken">darken</div>
+    <div class="mix-circle mix-lighten">lighten</div>
+    <div class="mix-circle mix-color-dodge">dodge</div>
+    <div class="mix-circle mix-color-burn">burn</div>
+    <div class="mix-circle mix-hard-light">hard</div>
+    <div class="mix-circle mix-soft-light">soft</div>
+    <div class="mix-circle mix-difference">diff</div>
+    <div class="mix-circle mix-exclusion">excl</div>
+    <div class="mix-circle mix-hue">hue</div>
+    <div class="mix-circle mix-saturation">sat</div>
+    <div class="mix-circle mix-color">color</div>
+    <div class="mix-circle mix-luminosity">lumi</div>
+  </div>
+</section>
+
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Вопросы для самопроверки</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f6f9;
+padding:30px;
+}
+
+h1{
+text-align:center;
+}
+
+.question{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.correct{
+background:#c8f7c5;
+}
+
+button{
+margin:5px;
+padding:6px 10px;
+cursor:pointer;
+}
+
+table{
+border-collapse:collapse;
+margin-top:10px;
+}
+
+td,th{
+border:1px solid #ccc;
+padding:6px;
+text-align:center;
+}
+
+input{
+padding:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Вопросы для самопроверки</h1>
+
+
+<div class="question">
+1. Какой параметр отвечает за размытие тени?<br>
+<input id="q1">
+<button onclick="check('q1','blur')">Проверить</button>
+</div>
+
+
+<div class="question">
+2. Можно ли использовать spread-radius в text-shadow?<br>
+<input id="q2">
+<button onclick="check('q2','нет')">Проверить</button>
+</div>
+
+
+<div class="question">
+3. Чем drop-shadow отличается от box-shadow?<br>
+(Ответ обсуждается устно)
+</div>
+
+
+<div class="question">
+4. Можно ли применять несколько фильтров?<br>
+<input id="q4">
+<button onclick="check('q4','да')">Проверить</button>
+</div>
+
+
+<div class="question">
+5. Что делает saturate()?<br>
+(Ответ обсуждается устно)
+</div>
+
+
+<div class="question">
+6. Что делает свойство background-blend-mode?<br><br>
+
+<button onclick="checkBtn(this,true)">A) Смешивает элемент с родителем</button>
+<button onclick="checkBtn(this,true)">B) Управляет прозрачностью элемента</button>
+<button onclick="checkBtn(this,false)">C) Определяет способ смешивания фоновых слоёв одного элемента</button>
+<button onclick="checkBtn(this,true)">D) Управляет z-index</button>
+
+</div>
+
+
+<div class="question">
+7. Какие утверждения о mix-blend-mode верны?<br><br>
+
+<button onclick="multi(this,true)">A) Работает между элементом и фоном родителя</button>
+<button onclick="multi(this,false)">B) Применяется только к background</button>
+<button onclick="multi(this,true)">C) Можно применять к тексту</button>
+<button onclick="multi(this,false)">D) Работает только внутри одного элемента</button>
+<button onclick="multi(this,true)">E) Можно применять к изображениям</button>
+
+</div>
+
+
+<div class="question">
+8. Без meta viewport адаптивная верстка может отображаться некорректно?<br>
+<input id="q8">
+<button onclick="check('q8','да')">Проверить</button>
+</div>
+
+
+<div class="question">
+
+<b>9. Сопоставьте атрибуты viewport и их назначение</b>
+
+<br><br>
+
+1 width=device-width <br>
+2 initial-scale=1 <br>
+3 user-scalable=no <br>
+4 maximum-scale=2 
+
+<br><br>
+
+<b>Варианты:</b><br>
+A — запрещает масштабирование<br>
+B — начальный масштаб страницы<br>
+C — ограничивает максимальный zoom<br>
+D — ширина равна ширине устройства
+
+<br><br>
+
+<table>
+<tr>
+<th>№</th>
+<th>Ответ</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td><input id="m1"></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td><input id="m2"></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td><input id="m3"></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td><input id="m4"></td>
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="match()">Проверить</button>
+
+</div>
+
+
+<div class="question">
+10. Какой тег обязательно должен присутствовать внутри picture?<br><br>
+
+<button onclick="checkBtn(this,true)">A) div</button>
+<button onclick="checkBtn(this,false)">B) img</button>
+<button onclick="checkBtn(this,true)">C) span</button>
+<button onclick="checkBtn(this,true)">D) figure</button>
+
+</div>
+
+
+<div class="question">
+11. Какой атрибут включает ленивую загрузку изображений?<br>
+<input id="q12">
+<button onclick="check('q12','loading=lazy')">Проверить</button>
+</div>
+
+
+<div class="question">
+12. Используются ли Media Queries для изменения ширины экрана?<br>
+<input id="q13">
+<button onclick="check('q13','да')">Проверить</button>
+</div>
+
+
+<div class="question">
+13. Является ли px гибкой единицей измерения?<br>
+<input id="q14">
+<button onclick="check('q14','нет')">Проверить</button>
+</div>
+
+
+<div class="question">
+14. Подход Mobile-first предполагает создание версии для мобильных сначала?<br>
+<input id="q15">
+<button onclick="check('q15','да')">Проверить</button>
+</div>
+
+
+<div class="question">
+15. Breakpoint — это точка изменения дизайна?<br>
+<input id="q16">
+<button onclick="check('q16','да')">Проверить</button>
+</div>
+
+
+<div class="question">
+16. rem зависит от родительского элемента?<br>
+<input id="q17">
+<button onclick="check('q17','нет')">Проверить</button>
+</div>
+
+
+<div class="question">
+17. vh и vw связаны с размером окна браузера?<br>
+<input id="q18">
+<button onclick="check('q18','да')">Проверить</button>
+</div>
+
+
+<div class="question">
+18. Может ли сайт быть адаптивным без Media Queries?<br>
+<input id="q19">
+<button onclick="check('q19','да')">Проверить</button>
+</div>
+
+
+<script>
+
+function check(id,answer){
+let input=document.getElementById(id);
+
+if(input.value.toLowerCase()==answer){
+input.classList.add("correct");
+}
+}
+
+function checkBtn(btn,wrong){
+if(!wrong){
+btn.classList.add("correct");
+}
+}
+
+function multi(btn,correct){
+if(correct){
+btn.classList.add("correct");
+}
+}
+
+function match(){
+
+let a=document.getElementById("m1");
+let b=document.getElementById("m2");
+let c=document.getElementById("m3");
+let d=document.getElementById("m4");
+
+if(a.value.toUpperCase()=="D") a.classList.add("correct");
+if(b.value.toUpperCase()=="B") b.classList.add("correct");
+if(c.value.toUpperCase()=="A") c.classList.add("correct");
+if(d.value.toUpperCase()=="C") d.classList.add("correct");
+
+}
+
+</script>
+
+</body>
+
+</html>
+
