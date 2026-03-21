@@ -2,15 +2,63 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Задание 2: Кнопка</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Задание 2: Создай кнопку</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 20px; }
+        h1 { color: #333; }
+        .task { background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .code { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre; }
+        .preview { border: 2px dashed #ccc; padding: 20px; margin: 20px 0; }
+        .requirements { background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .requirements ul { margin: 10px 0; padding-left: 20px; }
+        .requirements li { margin: 5px 0; }
+    </style>
 </head>
 <body>
-    <h2>Задание 2: Создай кнопку</h2>
-    <p>Создай универсальный класс .btn с CSS-переменными!</p>
+    <h1>Задание 2: Создай кнопку</h1>
+    <p><strong>Время:</strong> 10-12 минут</p>
     
-    <a class="btn" href="#">Ссылка-кнопка</a>
-    <button class="btn">Кнопка</button>
-    <input class="btn" type="submit" value="Отправить">
+    <div class="task">
+        <p>Создай универсальный класс <strong>.btn</strong> для кнопок. Используй CSS-переменные!</p>
+    </div>
+    
+    <div class="requirements">
+        <p><strong>Требования:</strong></p>
+        <ul>
+            <li>Класс должен работать для &lt;a&gt;, &lt;button&gt;, &lt;input&gt;</li>
+            <li>Используй переменную --btn-color для цвета фона</li>
+            <li>При наведении (:hover) цвет должен меняться</li>
+            <li>Текст должен быть белым</li>
+        </ul>
+    </div>
+    
+    <h3>HTML заготовка:</h3>
+    <div class="code">&lt;a class="btn" href="#"&gt;Ссылка-кнопка&lt;/a&gt;
+&lt;button class="btn"&gt;Кнопка&lt;/button&gt;
+&lt;input class="btn" type="submit" value="Отправить"&gt;</div>
+    
+    <h3>Пример как должно выглядеть:</h3>
+    <style>
+        :root { --btn-color: #3498db; }
+        .btn {
+            background-color: var(--btn-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+    <div class="preview">
+        <a class="btn" href="#">Ссылка-кнопка</a>
+        <button class="btn">Кнопка</button>
+        <input class="btn" type="submit" value="Отправить">
+    </div>
 </body>
 </html>
