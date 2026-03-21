@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Примеры: Цвета и фоны</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Цвета и фоны в CSS</h1>
+
+        <!-- === БЛОК 1: ФОРМАТЫ ЦВЕТОВ === -->
+        <h2>📌 1. Форматы цветов</h2>
+        
+        <div class="grid">
+            <div class="grid-item">
+                <div class="code-snippet">HEX: #3498db (Синий)</div>
+                <div class="color-hex demo-box">Текст на синем фоне</div>
+            </div>
+            <div class="grid-item">
+                <div class="code-snippet">RGB: rgb(46, 204, 113) (Зеленый)</div>
+                <div class="color-rgb demo-box">Текст на зеленом фоне</div>
+            </div>
+            <div class="grid-item">
+                <div class="code-snippet">RGBA: rgba(52, 152, 219, 0.3)</div>
+                <div class="color-rgba demo-box">Прозрачный фон</div>
+            </div>
+        </div>
+        
+        <div class="grid">
+            <div class="grid-item">
+                <div class="code-snippet">HSL: hsl(60, 100%, 50%) (Желтый)</div>
+                <div class="color-hsl demo-box">Желтый фон</div>
+            </div>
+            <div class="grid-item">
+                <div class="code-snippet">HSLA: hsla(300, 100%, 50%, 0.1)</div>
+                <div class="color-hsla demo-box">Прозрачный фиолетовый</div>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <strong>Свойство color:</strong>
+            <div class="code-snippet">p { color: #333; }</div>
+            <p class="text-color-example">Этот текст написан цветом #333 (темно-серый).</p>
+        </div>
+
+        <!-- === БЛОК 2: ПРОЗРАЧНОСТЬ === -->
+        <h2>🔍 2. Прозрачность: opacity vs rgba()</h2>
+        
+        <div class="example-block">
+            <strong>opacity (влияет на весь элемент):</strong>
+            <div class="grid">
+                <div>
+                    <div class="opacity-box opacity-1">opacity: 1</div>
+                    <div class="code-snippet">opacity: 1;</div>
+                </div>
+                <div>
+                    <div class="opacity-box opacity-05">opacity: 0.5</div>
+                    <div class="code-snippet">opacity: 0.5;</div>
+                </div>
+                <div>
+                    <div class="opacity-box opacity-02">opacity: 0.2</div>
+                    <div class="code-snippet">opacity: 0.2;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <strong>rgba() (прозрачность только фона):</strong>
+            <div class="grid">
+                <div>
+                    <div class="rgba-box">rgba(231,76,60,0.5) фон</div>
+                    <div class="code-snippet">background: rgba(231,76,60,0.5);</div>
+                </div>
+                <div>
+                    <div class="solid-box">Непрозрачный для сравнения</div>
+                </div>
+            </div>
+            <p><small>Текст внутри rgba-блока остается черным (непрозрачным), в отличие от opacity.</small></p>
+        </div>
+
+        <!-- === БЛОК 3: ФОНЫ === -->
+        <h2>🖼️ 3. Фоны: цвет, картинка, позиционирование</h2>
+
+        <div class="grid">
+            <div class="grid-item">
+                <div class="code-snippet">background-color: #f1c40f;</div>
+                <div class="bg-color-example demo-box">Просто желтый фон</div>
+            </div>
+            <div class="grid-item">
+                <div class="code-snippet">background-image: pattern1.png;</div>
+                <div class="bg-image-example demo-box">Фон с картинкой-паттерном</div>
+            </div>
+        </div>
+
+        <h3>background-repeat:</h3>
+        <div class="grid">
+            <div>
+                <div class="bg-repeat-example repeat"></div>
+                <div class="code-snippet">background-repeat: repeat;</div>
+            </div>
+            <div>
+                <div class="bg-repeat-example repeat-x"></div>
+                <div class="code-snippet">background-repeat: repeat-x;</div>
+            </div>
+            <div>
+                <div class="bg-repeat-example repeat-y"></div>
+                <div class="code-snippet">background-repeat: repeat-y;</div>
+            </div>
+            <div>
+                <div class="bg-repeat-example no-repeat"></div>
+                <div class="code-snippet">background-repeat: no-repeat;</div>
+            </div>
+        </div>
+
+        <h3>background-size (растягивание фона):</h3>
+        <div class="grid">
+            <div>
+                <div class="bg-size-example size-cover"></div>
+                <div class="code-snippet">background-size: cover;</div>
+                <small>Растягивает с сохранением пропорций, заполняя весь элемент</small>
+            </div>
+            <div>
+                <div class="bg-size-example size-contain"></div>
+                <div class="code-snippet">background-size: contain;</div>
+                <small>Вмещается целиком, могут быть пустые области</small>
+            </div>
+            <div>
+                <div class="bg-size-example size-100-100"></div>
+                <div class="code-snippet">background-size: 100% 100%;</div>
+                <small>Растягивает без сохранения пропорций</small>
+            </div>
+            <div>
+                <div class="bg-size-example size-auto"></div>
+                <div class="code-snippet">background-size: auto (по умолчанию);</div>
+                <small>Оригинальный размер картинки</small>
+            </div>
+        </div>
+
+        <h3>background-position:</h3>
+        <div class="grid">
+            <div>
+                <div class="bg-position-example pos-center"></div>
+                <div class="code-snippet">background-position: center;</div>
+            </div>
+            <div>
+                <div class="bg-position-example pos-right-top"></div>
+                <div class="code-snippet">background-position: right top;</div>
+            </div>
+            <div>
+                <div class="bg-position-example pos-25-50"></div>
+                <div class="code-snippet">background-position: 25% 50%;</div>
+            </div>
+        </div>
+
+        <h3>Универсальное свойство background:</h3>
+        <div class="bg-shorthand-example demo-box">
+            background: оранжевый + паттерн по центру
+        </div>
+        <div class="code-snippet">background: #e67e22 url('pattern2.png') no-repeat center;</div>
+
+        <!-- === БЛОК 4: ГРАДИЕНТЫ === -->
+        <h2>🌈 4. Градиенты</h2>
+
+        <h3>Линейные градиенты:</h3>
+        <div class="grid">
+            <div>
+                <div class="gradient-linear1"></div>
+                <div class="code-snippet">linear-gradient(to right, red, yellow);</div>
+            </div>
+            <div>
+                <div class="gradient-linear2"></div>
+                <div class="code-snippet">linear-gradient(45deg, #000, #fff);</div>
+            </div>
+            <div>
+                <div class="gradient-linear3"></div>
+                <div class="code-snippet">linear-gradient(to bottom right, #3498db, #9b59b6, #e74c3c);</div>
+            </div>
+        </div>
+
+        <h3>Градиент радуга:</h3>
+        <div class="grid">
+            <div>
+                <div class="gradient-rainbow1"></div>
+                <div class="code-snippet">linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);</div>
+            </div>
+            <div>
+                <div class="gradient-rainbow2"></div>
+                <div class="code-snippet">linear-gradient(90deg, red 0%, orange 15%, yellow 30%, green 50%, blue 70%, indigo 85%, violet 100%);</div>
+                <small>С указанием процентов для каждого цвета</small>
+            </div>
+        </div>
+
+        <h3>Радиальные градиенты:</h3>
+        <div class="grid">
+            <div>
+                <div class="gradient-radial"></div>
+                <div class="code-snippet">radial-gradient(circle, #f1c40f, #e67e22, #e74c3c);</div>
+            </div>
+            <div>
+                <div class="gradient-radial-percent"></div>
+                <div class="code-snippet">radial-gradient(circle, red 10%, yellow 30%, green 70%, blue 100%);</div>
+            </div>
+        </div>
+
+        <h3>Градиент с процентами (цветовые стопы):</h3>
+        <div class="grid">
+            <div>
+                <div class="gradient-percent1"></div>
+                <div class="code-snippet">linear-gradient(90deg, red 0%, red 20%, yellow 20%, yellow 40%, green 40%, green 60%, blue 60%, blue 80%, purple 80%, purple 100%);</div>
+                <small>Четкие границы между цветами</small>
+            </div>
+            <div>
+                <div class="gradient-percent2"></div>
+                <div class="code-snippet">linear-gradient(90deg, red 0%, orange 30%, yellow 50%, green 70%, blue 100%);</div>
+                <small>Плавные переходы с распределением по процентам</small>
+            </div>
+        </div>
+
+        <!-- === БЛОК 5: CSS СПРАЙТЫ === -->
+        <h2>🧩 5. CSS Спрайты</h2>
+
+        <div class="example-block">
+            <p><strong>Что такое спрайт?</strong> Одно большое изображение, содержащее несколько маленьких иконок.</p>
+            
+            <h3>Имитация спрайта (4 в одном):</h3>
+            <div class="sprite-demo"></div>
+            <p>В одном блоке 4 фоновых изображения с разными позициями.</p>
+
+            <h3>Реалистичный пример спрайта для соцсетей:</h3>
+            <p>Представьте, что это одна картинка шириной 192px (4 иконки по 48px):</p>
+            <div class="social-sprite"></div>
+            
+            <p><strong>Использование спрайта:</strong> Показываем только нужную иконку через background-position.</p>
+            
+            <div class="sprite-container">
+                <div>
+                    <div class="sprite-item sprite-fb"></div>
+                    <div class="code-snippet">background-position: 0 0;</div>
+                    <div>Facebook</div>
+                </div>
+                <div>
+                    <div class="sprite-item sprite-tw"></div>
+                    <div class="code-snippet">background-position: -48px 0;</div>
+                    <div>Twitter</div>
+                </div>
+                <div>
+                    <div class="sprite-item sprite-ig"></div>
+                    <div class="code-snippet">background-position: -96px 0;</div>
+                    <div>Instagram</div>
+                </div>
+                <div>
+                    <div class="sprite-item sprite-yt"></div>
+                    <div class="code-snippet">background-position: -144px 0;</div>
+                    <div>YouTube</div>
+                </div>
+            </div>
+            
+            <div class="code-snippet code-snippet-margin">
+                /* CSS для спрайта */<br>
+                .sprite-item {<br>
+                &nbsp;&nbsp;width: 48px; height: 48px;<br>
+                &nbsp;&nbsp;background: url('sprite.png');<br>
+                }<br>
+                .sprite-fb { background-position: 0 0; }<br>
+                .sprite-tw { background-position: -48px 0; }<br>
+                .sprite-ig { background-position: -96px 0; }<br>
+                .sprite-yt { background-position: -144px 0; }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

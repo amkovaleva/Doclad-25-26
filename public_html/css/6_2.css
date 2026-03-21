@@ -1,0 +1,51 @@
+/* Задание 2: CSS спрайты */
+
+.example {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.sprite-task {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border: 2px dashed #3498db;
+    flex-wrap: wrap;
+}
+
+.sprite-icon {
+    width: 48px;
+    height: 48px;
+    background-image: url('../6/examples/resource/4.png');
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+}
+
+.sprite-fb {
+    background-position: 0 0;
+}
+
+.sprite-tw {
+    background-position: -48px 0;
+}
+
+.sprite-yt {
+    background-position: -96px 0;
+}
+
+.sprite-ig {
+    background-position: -144px 0;
+}

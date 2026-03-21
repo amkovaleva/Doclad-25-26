@@ -1,0 +1,34 @@
+/* Задание 1: Цветовая палитра */
+
+.example {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.task-area {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    border: 2px dashed #3498db;
+}
+
+.task-area p {
+    padding: 15px;
+    margin: 10px 0;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+}
+
