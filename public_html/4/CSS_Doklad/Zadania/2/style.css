@@ -1,0 +1,24 @@
+/*УЖЕ ГОТОВОЕ РЕШЕНИЕ*/
+
+/* Объявление переменной */
+:root {
+    --btn-color: #3498db;
+}
+
+/* Базовый стиль кнопки */
+.btn {
+    background-color: var(--btn-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Эффект при наведении */
+.btn:hover {
+    opacity: 0.8;
+}
