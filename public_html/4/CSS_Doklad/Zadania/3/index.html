@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3: Наследование</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            max-width: 700px; 
+            margin: 40px auto; 
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        h1 { color: #333; }
+        h2 { color: #333; margin-top: 30px; }
+        .task { background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .code { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre; }
+        .questions { background: #fff3cd; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .questions ul { margin: 10px 0; padding-left: 20px; }
+        .questions li { margin: 5px 0; }
+        .correct-preview { background: #d4edda; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .correct-preview h3 { color: #155724; margin-top: 0; }
+        
+        /* Стили для превью проблемы */
+        .problem-body {
+            background: gray;
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .problem-parent {
+            background: white;
+            padding: 20px;
+        }
+        .problem-child {
+            /* Пусто */
+        }
+        
+        /* Стили для правильного решения */
+        .solution-body {
+            background: gray;
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .solution-parent {
+            background: white;
+            padding: 20px;
+        }
+        .solution-child {
+            background: gray;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задание 3: Наследование</h1>
+    <p><strong>Время:</strong> 5-7 минут</p>
+    
+    <div class="task">
+        <p>Почему у внутреннего &lt;div&gt; НЕТ серого фона, хотя у родителя он есть? Как исправить?</p>
+    </div>
+    
+    <h2>HTML:</h2>
+    <div class="code">&lt;body&gt;
+    &lt;div class="parent"&gt;
+        &lt;div class="child"&gt;Текст&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</div>
+    
+    <h2>CSS:</h2>
+    <div class="code">body {
+    background: gray;
+    color: white;
+}
+
+.parent {
+    background: white;
+}
+
+.child {
+    /* Пусто */
+}</div>
+    
+    <h2>Как это выглядит сейчас:</h2>
+    <div class="problem-body">
+        <div class="problem-parent">
+            <div class="problem-child">Текст</div>
+        </div>
+    </div>
+    
+    <div class="questions">
+        <p><strong>Вопросы:</strong></p>
+        <ul>
+            <li>Почему текст белый, а фон не серый?</li>
+            <li>Как сделать фон дочернего блока серым?</li>
+        </ul>
+    </div>
+    
+    <div class="correct-preview">
+        <h3>Как должно выглядеть:</h3>
+        <div class="solution-body">
+            <div class="solution-parent">
+                <div class="solution-child">Текст</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
