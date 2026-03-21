@@ -1,0 +1,27 @@
+/* Универсальный селектор - ВСЕ элементы */
+* {
+    margin: 0;
+    padding: 5px;
+    font-family: Arial;
+}
+
+/* Селектор по тегу - все <p> */
+p {
+    color: blue;
+}
+
+/* Селектор по классу - все с class="text" */
+.text {
+    background-color: #f0f0f0;
+}
+
+/* Селектор по ID - только один элемент */
+#unique {
+    color: red;
+    font-weight: bold;
+}
+
+/* Селектор по тегу для h1 */
+h1 {
+    text-align: center;
+}
