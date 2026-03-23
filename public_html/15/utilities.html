@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Утилиты Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <main class="container my-5">
+        <h2 class="mt-5">Утилиты Bootstrap</h2>
+        <div class="mb-4">
+            <p>Утилиты в Bootstrap — это набор готовых классов, которые позволяют изменить или дополнить существующий
+                стиль элементов на странице. Они предназначены для быстрой стилизации без написания кастомного CSS.</p>
+            <p>Подробнее о них можно прочитать в
+                <a href="https://bootstrap-5.ru/docs/5.3/utilities/" target="_blank" rel="noopener noreferrer">
+                    документации</a>.
+            </p>
+        </div>
+        <h2 class="mt-5">Служебный API</h2>
+        <div class="mb-4">
+            <p>Служебный API - это инструмент на основе Sass для создания служебных классов.
+                Утилиты Bootstrap создаются с помощью служебного API и могут использоваться для изменения или расширения
+                нашего набора служебных классов по умолчанию через Sass.
+            </p>
+            <p>
+                Все служебные переменные добавляются в переменную $utilities в нашей таблице стилей _utilities.scss.
+            </p>
+            <ul>
+                <li><strong>Свойство:</strong>
+                    Требуемый ключ property должен быть установлен для любой утилиты, и он должен содержать допустимое
+                    свойство CSS. Это свойство используется в сгенерированном наборе правил утилиты. Когда ключ class
+                    опущен, он также служит именем класса по умолчанию.
+                </li>
+                <li><strong>Значения: </strong>
+                    Используйте ключ values, чтобы указать, какие значения для указанного property должны использоваться
+                    в сгенерированных именах классов и правилах. Может быть списком или картой (задается в утилитах или
+                    в переменной Sass).
+                </li>
+                <li><strong>Класс: </strong>
+                    Используйте опцию class, чтобы изменить префикс класса, используемый в скомпилированном CSS.
+                </li>
+                <li><strong>Утилиты переменных CSS: </strong>
+                    Установите логическую опцию css-var в значение true, и API будет генерировать локальные переменные
+                    CSS для данного селектора вместо обычных правил property: value. Добавьте необязательное
+                    css-variable-name, чтобы задать имя переменной CSS, отличное от имени класса.
+                </li>
+                <li><strong>Локальные переменные CSS: </strong>
+                    Используйте опцию local-vars, чтобы указать карту Sass, которая будет генерировать локальные
+                    переменные CSS в наборе правил служебного класса. Обратите внимание, что для использования этих
+                    локальных переменных CSS в сгенерированных правилах CSS может потребоваться дополнительная работа.
+                </li>
+                <li><strong>Состояния: </strong>
+                    Используйте опцию state для генерации вариаций псевдокласса. Примеры псевдоклассов: :hover и :focus.
+                    Когда предоставляется список состояний, для этого псевдокласса создаются имена классов. Например,
+                    чтобы изменить непрозрачность при наведении указателя мыши, добавьте state: hover, и Вы получите
+                    .opacity-hover: hover в Вашем скомпилированном CSS.
+                </li>
+                <li><strong>Адаптивность: </strong>
+                    Добавьте логическое значение responseive для создания адаптивных утилит для всех контрольных точек.
+                </li>
+                <li><strong>Печать: </strong>
+                    Включение опции print также сгенерирует служебные классы для печати, которые применяются только в
+                    медиа-запросе @media print {...}.
+                </li>
+                <li><strong>Важность: </strong>
+                    Все утилиты, генерируемые API, включают !important , чтобы гарантировать, что они переопределяют
+                    компоненты и классы модификаторов должным образом. Вы можете переключать этот параметр глобально с
+                    помощью переменной $enable-important-utilities (по умолчанию true).
+                </li>
+                <li><strong>Использование API: </strong>
+                    Теперь, когда Вы знакомы с тем, как работает API утилит, узнайте, как добавлять свои собственные
+                    классы и изменять наши утилиты по умолчанию.
+                </li>
+            </ul>
+            <p><strong>Использование API. </strong> </p>
+            <ul>
+                <li><strong>Переопределение утилит: </strong>
+                    Переопределите существующие утилиты, используя тот же ключ.
+                </li>
+                <li><strong>Добавление утилит: </strong>
+                    Новые утилиты могут быть добавлены к карте по умолчанию $utilities с помощью map-merge. Убедитесь,
+                    что наши необходимые файлы Sass и _utilities.scss сначала импортированы, а затем используйте
+                    map-merge, чтобы добавить Ваши дополнительные утилиты.
+                </li>
+                <li><strong>Изменение утилит: </strong>
+                    Измените существующие утилиты в карте по умолчанию $utilities с помощью функций map-get и map-merge.
+                    В приведенном ниже примере мы добавляем дополнительное значение к утилитам width. Начните с
+                    начального map-merge, а затем укажите, какую утилиту Вы хотите изменить. Оттуда извлеките вложенную
+                    карту "width" «map-get» для доступа и изменения параметров и значений утилиты.
+                </li>
+                <li><strong>Включение адаптивности: </strong>
+                    Вы можете включить адаптивные классы для существующего набора утилит, которые в настоящее время не
+                    отвечают по умолчанию.
+                </li>
+                <li><strong>Переименование утилит: </strong>
+                    API утилит можно использовать для переопределения результирующего class данной утилиты.
+                </li>
+                <li><strong>Удаление утилит: </strong>
+                    Удалите все стандартные утилиты с помощью Sass-функции map-remove().
+                </li>
+            </ul>
+        </div>
+
+
+        <h2 class="mt-5">Фон</h2>
+        <div class="mb-4">
+            <p>Передайте смысл с помощью background-color и добавьте украшения с помощью градиентов.</p>
+            <ul>
+                <li><strong>Фоновый цвет:</strong><br>
+                    Подобно классам цвета контекстного текста, установите фон элемента для любого контекстного класса.
+                    Фоновые утилиты не устанавливают color.
+                </li>
+                <li><strong>Фоновый градиент:</strong>
+                    <br>При добавлении класса .bg-gradient, линейный градиент добавляется как фоновое изображение к
+                    фону. Этот градиент начинается с полупрозрачного белого цвета, который постепенно исчезает к низу.
+                    <br>Если нужен градиент в вашем собственном CSS, просто добавьте background-image:
+                    var(--bs-gradient);.
+                </li>
+                <li><strong>Непрозрачность: </strong>
+                    <br>Начиная с версии 5.1.0, утилиты background-color генерируются с помощью Sass с использованием
+                    переменных CSS. Это позволяет изменять цвет в реальном времени без компиляции и динамических
+                    изменений альфа-прозрачности.
+                    <br>Чтобы изменить непрозрачность, переопределите --bs-bg-opacity с помощью пользовательских стилей
+                    или встроенных стилей. Или выберите любую из утилит .bg-opacity.
+                </li>
+            </ul>
+            <div>
+                <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+                <div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>
+                <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+                <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>
+                <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+                <div class="p-3 mb-2 bg-success-subtle text-success-emphasis">.bg-success-subtle</div>
+                <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+                <div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div>
+                <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+                <div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div>
+                <div class="p-3 mb-2 bg-info text-dark">.bg-info</div>
+                <div class="p-3 mb-2 bg-info-subtle text-info-emphasis">.bg-info-subtle</div>
+                <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+                <div class="p-3 mb-2 bg-light-subtle text-light-emphasis">.bg-light-subtle</div>
+                <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+                <div class="p-3 mb-2 bg-dark-subtle text-dark-emphasis">.bg-dark-subtle</div>
+                <div class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</div>
+                <div class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</div>
+                <div class="p-3 mb-2 bg-body text-body">.bg-body</div>
+                <div class="p-3 mb-2 bg-black text-white">.bg-black</div>
+                <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+                <div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>
+                <div class="bg-success p-2 text-white">Это фон успеха по умолчанию</div>
+                <div class="bg-success p-2" style="--bs-bg-opacity: .5;">Это успешный фон с непрозрачностью 50%</div>
+                <div class="bg-success p-2 text-dark bg-opacity-10">Это успешный фон с непрозрачностью 10%</div>
+            </div>
+
+        </div>
+
+
+        <h2 class="mt-5">Границы</h2>
+        <div class="mb-4">
+            <p>Используйте утилиты границ, чтобы быстро создать границу и граничный радиус элемента. Отлично подходит
+                для изображений, кнопок или любого другого элемента.
+                <br>Используйте служебные программы для создания границ, чтобы добавить или удалить границы элемента.
+                Выбирайте из всех границ или по одной.
+            </p>
+            <ul>
+                <li><strong>Добавление:</strong> Добавьте границы к пользовательским элементам</li>
+                <li><strong>Вычитание:</strong> Или удалите границы</li>
+                <li><strong>Цвет:</strong> Измените цвет границы с помощью утилит, построенных на цветах нашей темы.
+                    Или измените border-color компонента по умолчанию.
+                </li>
+                <li><strong>Непрозрачность:</strong> Аналогично непрозрачности фона, можно изменить с помощью
+                    переопределения --bs-border-opacity
+                    или выбрать любую из утилит .border-opacity.</li>
+                <li><strong>Ширина:</strong> Используя класс border-1, можно изменить ширину границ. Доступно 5
+                    вариантов ширины.</li>
+                <li><strong>Радиус:</strong> Добавьте классы к элементу, чтобы легко изменить его углы. Например,
+                    class="rounded-start" или class="rounded-circle".</li>
+                <li><strong>Размеры:</strong> Используйте классы масштабирования для больших или меньших закругленных
+                    углов. Размеры варьируются от 0 до 5 и могут быть настроены путем изменения API утилит.</li>
+            </ul>
+            <div>
+                <div class="mb-4">
+                    <label for="exampleFormControlInput1" class="form-label">Адрес электронной почты</label>
+                    <input type="email" class="form-control border-success" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+
+                <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+                    Опасный заголовок
+                </div>
+
+                <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+                    Изменение цвета и ширины границы
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="mt-5">Цвета</h2>
+        <div class="mb-4">
+            <p>Передайте смысл через color с помощью нескольких служебных классов цвета. Также включает поддержку
+                стилизации ссылок с помощью состояний наведения.
+            </p>
+            <ul>
+                <li><strong>Непрозрачность: </strong> Чтобы изменить эту непрозрачность, переопределите
+                    --bs-text-opacity с помощью пользовательских стилей или встроенных стилей.
+                    Или выберите любую из утилит .text-opacity.
+                </li>
+
+            </ul>
+            <div>
+                <p class="text-primary">.text-primary</p>
+                <p class="text-primary-emphasis">.text-primary-emphasis</p>
+                <p class="text-secondary">.text-secondary</p>
+                <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
+                <p class="text-success">.text-success</p>
+                <p class="text-success-emphasis">.text-success-emphasis</p>
+                <p class="text-danger">.text-danger</p>
+                <p class="text-danger-emphasis">.text-danger-emphasis</p>
+                <p class="text-warning bg-dark">.text-warning</p>
+                <p class="text-warning-emphasis">.text-warning-emphasis</p>
+                <p class="text-info bg-dark">.text-info</p>
+                <p class="text-info-emphasis">.text-info-emphasis</p>
+                <p class="text-light bg-dark">.text-light</p>
+                <p class="text-light-emphasis">.text-light-emphasis</p>
+                <p class="text-dark bg-white">.text-dark</p>
+                <p class="text-dark-emphasis">.text-dark-emphasis</p>
+
+                <p class="text-body">.text-body</p>
+                <p class="text-body-emphasis">.text-body-emphasis</p>
+                <p class="text-body-secondary">.text-body-secondary</p>
+                <p class="text-body-tertiary">.text-body-tertiary</p>
+
+                <p class="text-black bg-white">.text-black</p>
+                <p class="text-white bg-dark">.text-white</p>
+                <p class="text-black-50 bg-white">.text-black-50</p>
+                <p class="text-white-50 bg-dark">.text-white-50</p>
+                <div class="text-primary">Это основной текст по умолчанию</div>
+                <div class="text-primary" style="--bs-text-opacity: .5;">Это основной текст с непрозрачностью 50%</div>
+                <div class="text-primary text-opacity-25">Это основной текст с непрозрачностью 25%</div>
+            </div>
+        </div>
+
+
+        <h2 class="mt-5">Отображение элементов</h2>
+        <div class="mb-4">
+            <p>Быстрое переключение отображаемых элементов и многого другого с помощью утилит отображения.
+                Включает поддержку некоторых из наиболее распространенных значений, а также некоторые
+                дополнительные функции для управления отображением при печати.
+            </p>
+            <ul>
+                <li><strong>Обозначение:</strong> Утилиты отображения классов, которые применяются ко всем контрольным
+                    точкам, от xs до xxl, не имеют в себе аббревиатуры контрольной точки. Это потому, что эти классы
+                    применяются начиная с min-width: 0; и выше, и поэтому не связаны медиа-запросами. Остальные
+                    контрольные точки, однако, содержат аббревиатуру контрольной точки.
+                    Таким образом, классы именуются в следующем формате:
+                    <ul>
+                        <li>.d-{value} для xs</li>
+                        <li>.d-{breakpoint}-{value} для sm, md, lg, xl и xxl</li>
+                    </ul>
+                    Где значение - одно из: none, inline, inline-block,
+                    block, grid, inline-grid, table, table-cell, table-row,
+                    flex, inline-flex.
+                </li>
+                <li><strong>Скрытие элементов:</strong> Для более быстрой разработки, удобной для мобильных устройств,
+                    используйте адаптивные классы отображения для отображения и скрытия элементов по устройствам.
+                    Избегайте создания совершенно разных версий одного и того же сайта, вместо этого скройте элементы в
+                    зависимости от размера экрана.
+                    Чтобы скрыть элементы, просто используйте класс .d-none или один из классов
+                    .d-{sm,md,lg,xl,xxl}-none для любого варианта адаптивного экрана.
+                    Чтобы отображать элемент только в заданном интервале размеров экрана, Вы можете объединить один
+                    класс .d-*-none с классом .d-*-*, например, .d-none .d-md-block .d-xl-none .d-xxl-none скроет
+                    элемент для всех размеров экрана, кроме средних и больших устройств.
+                </li>
+                <li><strong>Отображение при печати:</strong> Измените значение display элементов при печати с помощью
+                    служебных классов отображения при печати. Включает поддержку тех же значений display, что и наши
+                    адаптивные утилиты .d-*.
+                    Классы печати и отображения можно комбинировать.
+                </li>
+
+            </ul>
+            <div>
+                <div class="d-inline p-2 text-bg-primary">d-inline</div>
+                <div class="d-inline p-2 text-bg-dark">d-inline</div>
+            </div>
+        </div>
+
+
+        <h2 class="mt-5">Flex</h2>
+        <div class="mb-4">
+            <p>Быстрое управление макетом, выравниванием и размером столбцов сетки, навигацией, компонентами и многим
+                другим с помощью полного набора адаптивных утилит flexbox.
+                Для более сложных реализаций может потребоваться пользовательский CSS.
+            </p>
+            <ul>
+                <li><strong>Включение «гибкого» поведения:</strong> Применяйте утилиты display для создания гибкого
+                    контейнера и трансформируйте прямые дочерние элементы в «гибкие». Гибкие контейнеры и элементы можно
+                    изменять дополнительными свойствами гибкости.
+                    Для этого можно использовать класс d-flex или d-inline-flex.
+                </li>
+                <li><strong>Направление:</strong> Задайте направление гибких элементов в гибком контейнере с помощью
+                    утилит направления. В большинстве случаев Вы можете опустить здесь горизонтальный класс, так как
+                    браузер по умолчанию равен row. Однако Вы можете столкнуться с ситуациями, когда Вам нужно явно
+                    установить это значение (например, адаптивные макеты).
+                    Используйте .flex-row, чтобы установить горизонтальное направление (по умолчанию в браузере), или
+                    .flex-row-reverse, чтобы начать горизонтальное направление с противоположной стороны.
+                    Используйте .flex-column, чтобы задать вертикальное направление, или .flex-column-reverse, чтобы
+                    задать вертикальное направление с противоположной стороны.
+                </li>
+                <li><strong>Выравнивание содержимого:</strong> Используйте утилиты justify-content в контейнерах
+                    flexbox, чтобы изменить выравнивание элементов Флекс по главной оси (ось x для начала, ось y, если
+                    flex-direction: column). Выберите start (по умолчанию в браузере), end, center, between, around или
+                    evenly.
+                </li>
+                <li><strong>Выравнивание элементов:</strong> Используйте утилиты align-items на контейнерах flexbox,
+                    чтобы изменить выравнивание элементов Флекс по поперечной оси (ось Y в начале, ось X, если
+                    flex-direction: column). Выберите start, end, center, baseline или stretch (по умолчанию в
+                    браузере).
+                </li>
+                <li><strong>Сплошное выравнивание:</strong> Используйте утилиты align-self для элементов flexbox, чтобы
+                    индивидуально изменить их выравнивание по поперечной оси (ось Y для начала, ось X, если
+                    flex-direction: column). Выберите один из тех же параметров, что и flex-direction: column). Выберите
+                    один из тех же вариантов, что и align-items: start, end, center, baseline или stretch (по умолчанию
+                    в браузере).
+                </li>
+                <li><strong>Заполнение:</strong> Используйте класс .flex-fill для серии родственных элементов, чтобы
+                    заставить их ширину равную их содержимому (или равную ширину, если их содержимое не превышает их
+                    границы), занимая при этом все доступное горизонтальное пространство.
+                </li>
+                <li><strong>Увеличение и уменьшение:</strong> Используйте утилиты .flex-grow-* для переключения
+                    способности элемента Флекс расти, чтобы заполнить доступное пространство. В приведенном ниже примере
+                    элементы .flex-grow-1 используют все доступное пространство, которое могут, а оставшимся двум
+                    элементам Флекс их необходимое пространство.
+                </li>
+                <li><strong>Автоматические поля:</strong> Flexbox может делать довольно удивительные вещи, когда Вы
+                    смешиваете выравнивание гибкости с автоматическими полями.
+                </li>
+                <li><strong>С элементами выравнивания:</strong>Вертикально переместите один элемент Флекс вверх или вниз
+                    контейнера, смешав align-items, flex-direction: column и margin-top: auto или margin-bottom: auto.
+                </li>
+                <li><strong>Обертка:</strong> Измените способ обертки элементов Флекс в гибкий контейнер. Выберите
+                    полное отсутствие переноса (по умолчанию в браузере) с помощью .flex-nowrap, обертывание с помощью
+                    .flex-wrap или обратное обертывание с помощью .flex-wrap-reverse.
+                </li>
+                <li><strong>Порядок:</strong> ИИзмените визуальный порядок определенных элементов Флекс с помощью
+                    нескольких утилит order. Мы предоставляем только варианты создания элемента первым или последним, а
+                    также сброс для использования порядка DOM. Поскольку order принимает любое целочисленное значение от
+                    0 до 5, добавьте собственный CSS для любых дополнительных значений.
+                </li>
+                <li><strong>Выравнивание содержимого:</strong> Используйте утилиты align-content на контейнерах flexbox
+                    для выравнивания элементов Флекс вместе по поперечной оси. Выберите start (по умолчанию для
+                    браузера), end, center, between, around или stretch. Чтобы продемонстрировать эти утилиты, мы ввели
+                    в действие flex-wrap: wrap и увеличили количество элементов Флекс.
+                    <br>Внимание! Это свойство не влияет на отдельные строки элементов Флекс.
+                </li>
+            </ul>
+            <div>
+                <div class="d-flex flex-row mb-3">
+                    <div class="p-2">Флекс элемент 1</div>
+                    <div class="p-2">Флекс элемент 2</div>
+                    <div class="p-2">Флекс элемент 3</div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2">Флекс элемент 1</div>
+                    <div class="p-2">Флекс элемент 2</div>
+                    <div class="p-2">Флекс элемент 3</div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-nowrap">
+                <div class="order-3 p-2">Первый флекс элемент</div>
+                <div class="order-2 p-2">Второй флекс элемент</div>
+                <div class="order-1 p-2">Третий флекс элемент</div>
+            </div>
+        </div>
+
+
+
+        <h2 class="mt-5">Float</h2>
+        <div class="mb-4">
+            <p>Переключайте плавающие на любом элементе и в любой контрольной точке с помощью гибких float-утилит.
+                <br>Эти классы располагают элемент слева или справа, или выключают «прибивку» к определенному краю,
+                основываясь на текущем размере области видимости, используя свойство float в CSS.
+                Здесь задано !important, чтобы избежать проблем со специфичностью.
+            </p>
+            <ul>
+                <li><strong>Адаптивность:</strong> Адаптивные варианты также существуют для каждого значения float.
+                </li>
+
+            </ul>
+            <div>
+                <div class="float-sm-start">Плавающий влево на SM (маленький) размере области просмотра или шире</div>
+                <br>
+                <div class="float-md-start">Плавающий влево на MD (средний) размере области просмотра или шире</div><br>
+                <div class="float-lg-start">Плавающий влево на LG (большой) размере области просмотра или шире</div><br>
+                <div class="float-xl-start">Плавающий влево на XL (очень большой) размере области просмотра или шире
+                </div><br>
+            </div>
+        </div>
+
+ 
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
