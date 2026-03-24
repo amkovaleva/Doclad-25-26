@@ -611,7 +611,6 @@
 &lt;video src="video.mp4" class="object-fit-scale" autoplay&gt;&lt;/video&gt;
 &lt;video src="video.mp4" class="object-fit-none" autoplay&gt;&lt;/video&gt;</code></pre>
     </div>
-</div>
 
     <h2 class="mt-5">Непрозрачность (Opacity)</h2>
     <div class="mb-4">
@@ -891,10 +890,423 @@
   &lt;button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill"&gt;3&lt;/button&gt;
 &lt;/div&gt;</code></pre>
     </div>
-</div>
+                <h2 class="mt-5">Тени (Shadows)</h2>
+                <div class="mb-4">
+                    <p>
+                        Утилиты теней позволяют быстро добавлять или удалять эффект <code>box-shadow</code> к элементам.
+                        Тени на компонентах по умолчанию отключены, но их можно включить через переменную Sass
+                        <code>$enable-shadows</code>.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Доступные классы:</strong> <code>.shadow-none</code>, <code>.shadow-sm</code>,
+                            <code>.shadow</code>, <code>.shadow-lg</code>.
+                        </li>
+                        <li>
+                            <strong>Особенности:</strong> Значения теней хранятся в CSS-переменных, что обеспечивает
+                            гибкость. Классы используют <code>!important</code>.
+                        </li>
+                    </ul>
+                    <div>
+                        <div class="shadow-none p-3 mb-3 bg-body-tertiary rounded">.shadow-none — без тени</div>
+                        <div class="shadow-sm p-3 mb-3 bg-body-tertiary rounded">.shadow-sm — малая тень</div>
+                        <div class="shadow p-3 mb-3 bg-body-tertiary rounded">.shadow — стандартная тень</div>
+                        <div class="shadow-lg p-3 mb-3 bg-body-tertiary rounded">.shadow-lg — большая тень</div>
+                    </div>
+                    <pre
+                        class="bg-light p-3 border rounded"><code>&lt;div class="shadow-sm p-3 bg-body-tertiary rounded"&gt;Малая тень&lt;/div&gt;</code></pre>
+                </div>
 
+                <h2 class="mt-5">Размеры (Sizing)</h2>
+                <div class="mb-4">
+                    <p>
+                        Утилиты размеров позволяют быстро задавать ширину и высоту элементов относительно родителя или
+                        viewport. Поддерживаются процентные значения, <code>auto</code> и единицы viewport.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Ширина:</strong> <code>.w-25</code>, <code>.w-50</code>, <code>.w-75</code>,
+                            <code>.w-100</code>, <code>.w-auto</code>.
+                        </li>
+                        <li>
+                            <strong>Высота:</strong> аналогично — <code>.h-25</code> … <code>.h-100</code>,
+                            <code>.h-auto</code>.
+                        </li>
+                        <li>
+                            <strong>Максимальные размеры:</strong> <code>.mw-100</code> (max-width: 100%),
+                            <code>.mh-100</code>.
+                        </li>
+                        <li>
+                            <strong>Viewport:</strong> <code>.vw-100</code>, <code>.vh-100</code>,
+                            <code>.min-vw-100</code>, <code>.min-vh-100</code>.
+                        </li>
+                        <li><strong>Адаптивность:</strong> классы работают со всеми брейкпоинтами.</li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="w-25 p-3 bg-primary text-white">.w-25</div>
+                            <div class="w-50 p-3 bg-primary text-white">.w-50</div>
+                            <div class="w-75 p-3 bg-primary text-white">.w-75</div>
+                            <div class="w-100 p-3 bg-primary text-white">.w-100</div>
+                        </div>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>&lt;div class="w-50"&gt;Ширина 50%&lt;/div&gt;
+&lt;div class="h-100"&gt;Высота 100%&lt;/div&gt;
+&lt;div class="vw-100"&gt;Ширина 100vw&lt;/div&gt;</code></pre>
+                </div>
 
- 
+                <h2 class="mt-5">Отступы (Spacing)</h2>
+                <div class="mb-4">
+                    <p>
+                        Утилиты отступов — один из самых используемых наборов в Bootstrap. Они позволяют быстро
+                        управлять
+                        <code>margin</code> и <code>padding</code> для всех сторон элемента, отдельных осей или
+                        конкретных сторон.
+                    </p>
+                    <ul>
+                        <li><strong>Сокращения:</strong> <code>m-</code> — margin, <code>p-</code> — padding.</li>
+                        <li>
+                            <strong>Стороны:</strong> <code>t</code> (top), <code>b</code> (bottom),
+                            <code>s</code> (start — лево в LTR), <code>e</code> (end — право в LTR),
+                            <code>x</code> (горизонтальные стороны), <code>y</code> (вертикальные стороны), без буквы —
+                            все четыре стороны.
+                        </li>
+                        <li>
+                            <strong>Размеры:</strong> от <code>0</code> (0) до <code>5</code> (3rem), а также
+                            <code>auto</code> (только для margin).
+                        </li>
+                        <li>
+                            <strong>Отрицательные margins:</strong> включаются через переменную Sass
+                            <code>$enable-negative-margins: true</code>. Используется префикс <code>n</code> — например,
+                            <code>.mt-n3</code>.
+                        </li>
+                        <li>
+                            <strong>Gap:</strong> утилиты <code>.gap-*</code>, <code>.row-gap-*</code> и
+                            <code>.column-gap-*</code> для управления расстоянием между элементами в flex и
+                            grid-контейнерах.
+                        </li>
+                        <li>
+                            <strong>Центрирование:</strong> <code>.mx-auto</code> — горизонтальное центрирование
+                            блочного элемента фиксированной ширины.
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-4">Адаптивность отступов</h4>
+                    <p>
+                        Все утилиты отступов поддерживают адаптивные варианты. Класс без префикса брейкпоинта
+                        применяется ко всем размерам экрана (от <code>xs</code>). Чтобы задать отступ только начиная с
+                        определённого брейкпоинта, добавьте префикс: <code>sm</code>, <code>md</code>, <code>lg</code>,
+                        <code>xl</code> или <code>xxl</code>.
+                    </p>
+                    <p>Примеры адаптивного поведения:</p>
+                    <ul>
+                        <li>
+                            <code>.ms-2 ms-md-4</code> — на мобильных отступ слева 0.5rem, на <code>md</code> и шире —
+                            1.5rem.
+                        </li>
+                        <li><code>.p-3 p-lg-5</code> — базовый padding 1rem, на больших экранах — 3rem.</li>
+                        <li>
+                            <code>.mt-0 mt-xl-5</code> — убрать отступ сверху на маленьких экранах и добавить большой
+                            отступ на <code>xl</code>.
+                        </li>
+                    </ul>
+
+                    <div class="border rounded p-3 bg-light mb-3">
+                        <div class="p-3 p-md-4 p-xl-5 bg-primary text-white rounded">
+                            Этот блок имеет адаптивные внутренние отступы:<br />
+                            <strong>p-3</strong> на мобильных,<br />
+                            <strong>p-md-4</strong> на средних экранах,<br />
+                            <strong>p-xl-5</strong> на очень больших.
+                        </div>
+                    </div>
+
+                    <pre
+                        class="bg-light p-3 border rounded"><code>&lt;div class="p-3 p-md-4 p-xl-5 bg-primary text-white"&gt;
+    Адаптивные отступы внутри блока
+&lt;/div&gt;</code></pre>
+
+                    <h4 class="mt-4">Примеры использования</h4>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light border">
+                                <div class="mt-3 p-3 bg-white border">.mt-3 — отступ сверху</div>
+                                <div class="mx-auto mt-3 p-3 bg-white border" style="width: 200px">
+                                    .mx-auto — горизонтальное центрирование
+                                </div>
+                                <div class="ms-4 mt-3 p-3 bg-white border">.ms-4 — отступ слева (start)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-grid gap-3 grid" style="grid-template-columns: 1fr 1fr">
+                                <div class="p-3 bg-white border">Элемент 1</div>
+                                <div class="p-3 bg-white border">Элемент 2</div>
+                                <div class="p-3 bg-white border">Элемент 3</div>
+                                <div class="p-3 bg-white border">Элемент 4</div>
+                            </div>
+                            <p class="small text-muted mt-2">.d-grid .gap-3 — одинаковый зазор между элементами</p>
+                        </div>
+                    </div>
+
+                    <pre class="bg-light p-3 border rounded mb-3"><code>&lt;!-- Базовые примеры --&gt;
+&lt;div class="mt-3"&gt;Отступ сверху&lt;/div&gt;
+&lt;div class="px-4"&gt;Горизонтальные отступы&lt;/div&gt;
+&lt;div class="p-5"&gt;Отступы со всех сторон&lt;/div&gt;
+
+&lt;!-- Адаптивные --&gt;
+&lt;div class="ms-2 ms-md-5"&gt;Отступ слева меняется по брейкпоинтам&lt;/div&gt;
+&lt;div class="mx-auto" style="width: 300px;"&gt;Центрированный блок&lt;/div&gt;
+
+&lt;!-- Отрицательный margin --&gt;
+&lt;div class="mt-n3"&gt;Отрицательный отступ сверху&lt;/div&gt;
+
+&lt;!-- Gap --&gt;
+&lt;div class="d-flex gap-4"&gt;...&lt;/div&gt;
+&lt;div class="d-grid gap-3 row-gap-5"&gt;...&lt;/div&gt;</code></pre>
+                </div>
+
+                <h2 class="mt-5">Текст (Text)</h2>
+                <div class="mb-4">
+                    <p>
+                        Утилиты текста предоставляют полный контроль над оформлением текстового содержимого:
+                        выравнивание, перенос слов, регистр, размер, вес шрифта, межстрочный интервал и многое другое.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>Выравнивание:</strong> <code>.text-start</code>, <code>.text-center</code>,
+                            <code>.text-end</code> + адаптивные варианты (<code>.text-md-center</code> и т.д.).
+                        </li>
+                        <li>
+                            <strong>Перенос текста:</strong> <code>.text-wrap</code>, <code>.text-nowrap</code>,
+                            <code>.text-break</code>.
+                        </li>
+                        <li>
+                            <strong>Регистр:</strong> <code>.text-lowercase</code>, <code>.text-uppercase</code>,
+                            <code>.text-capitalize</code>.
+                        </li>
+                        <li>
+                            <strong>Размер шрифта:</strong> <code>.fs-1</code> … <code>.fs-6</code> (соответствует
+                            <code>h1</code>–<code>h6</code>).
+                        </li>
+                        <li>
+                            <strong>Вес шрифта:</strong> <code>.fw-bold</code>, <code>.fw-semibold</code>,
+                            <code>.fw-medium</code>, <code>.fw-normal</code>, <code>.fw-light</code>,
+                            <code>.fw-lighter</code>.
+                        </li>
+                        <li><strong>Стиль:</strong> <code>.fst-italic</code>, <code>.fst-normal</code>.</li>
+                        <li>
+                            <strong>Межстрочный интервал:</strong> <code>.lh-1</code>, <code>.lh-sm</code>,
+                            <code>.lh-base</code>, <code>.lh-lg</code>.
+                        </li>
+                        <li><strong>Моноширинный шрифт:</strong> <code>.font-monospace</code>.</li>
+                        <li>
+                            <strong>Декорация:</strong> <code>.text-decoration-none</code>,
+                            <code>.text-decoration-underline</code>, <code>.text-decoration-line-through</code>.
+                        </li>
+                        <li><strong>Сброс стилей:</strong> <code>.text-reset</code>.</li>
+                    </ul>
+
+                    <h4 class="mt-4">Примеры использования</h4>
+
+                    <div class="border rounded p-3 bg-light mb-4">
+                        <p class="text-start"><strong>.text-start</strong> — выравнивание по левому краю</p>
+                        <p class="text-center"><strong>.text-center</strong> — выравнивание по центру</p>
+                        <p class="text-end"><strong>.text-end</strong> — выравнивание по правому краю</p>
+                    </div>
+
+                    <div class="border rounded p-3 bg-light mb-4">
+                        <p class="text-center text-md-start text-lg-end">
+                            На мобильных — по центру (<code>.text-center</code>),<br />
+                            на <code>md</code> — по левому краю (<code>.text-md-start</code>),<br />
+                            на <code>lg</code> и больше — по правому краю (<code>.text-lg-end</code>).
+                        </p>
+                    </div>
+
+                    <div class="border rounded p-3 bg-light mb-4">
+                        <p class="text-nowrap bg-white border p-2" style="width: 200px">
+                            .text-nowrap — текст не переносится
+                        </p>
+                        <p class="text-wrap bg-white border p-2" style="width: 200px">
+                            .text-wrap — обычный перенос (по умолчанию)
+                        </p>
+                        <p class="text-break bg-white border p-2" style="width: 200px">
+                            ОченьДлинноеСловоКотороеНеПомещаетсяВКонтейнерИДолжноРазорваться.text-break
+                        </p>
+                    </div>
+
+                    <div class="border rounded p-3 bg-light mb-4">
+                        <p class="fs-1 fw-bold">.fs-1 .fw-bold</p>
+                        <p class="fs-2 fw-semibold">.fs-2 .fw-semibold</p>
+                        <p class="fs-3 fw-medium">.fs-3 .fw-medium</p>
+                        <p class="fs-4 fw-normal">.fs-4 .fw-normal</p>
+                        <p class="fs-5 fw-light">.fs-5 .fw-light</p>
+                        <p class="fs-6 fw-lighter fst-italic">.fs-6 .fw-lighter .fst-italic</p>
+                    </div>
+
+                    <div class="border rounded p-3 bg-light mb-4">
+                        <p class="lh-1">
+                            .lh-1 Это длинный абзац, демонстрирующий, как наши утилиты влияют на межстрочный интервал
+                            элемента. Классы применяются к самому элементу или иногда к родительскому элементу. Эти
+                            классы можно настраивать по мере необходимости с помощью нашего API утилит.
+                        </p>
+                        <p class="lh-sm">
+                            .lh-sm Это длинный абзац, демонстрирующий, как наши утилиты влияют на межстрочный интервал
+                            элемента. Классы применяются к самому элементу или иногда к родительскому элементу. Эти
+                            классы можно настраивать по мере необходимости с помощью нашего API утилит.
+                        </p>
+                        <p class="lh-base">
+                            .lh-base Это длинный абзац, демонстрирующий, как наши утилиты влияют на межстрочный интервал
+                            элемента. Классы применяются к самому элементу или иногда к родительскому элементу. Эти
+                            классы можно настраивать по мере необходимости с помощью нашего API утилит.
+                        </p>
+                        <p class="lh-lg">
+                            .lh-lg Это длинный абзац, демонстрирующий, как наши утилиты влияют на межстрочный интервал
+                            элемента. Классы применяются к самому элементу или иногда к родительскому элементу. Эти
+                            классы можно настраивать по мере необходимости с помощью нашего API утилит.
+                        </p>
+                    </div>
+
+                    <div class="border rounded p-3 bg-light mb-4">
+                        <p class="text-uppercase">текст в верхнем регистре — .text-uppercase</p>
+                        <p class="text-lowercase">ТЕКСТ В НИЖНЕМ РЕГИСТРЕ — .text-lowercase</p>
+                        <p class="text-capitalize">каждое слово с большой буквы — .text-capitalize</p>
+                        <p class="text-decoration-underline">Подчёркнутый текст — .text-decoration-underline</p>
+                        <p class="text-decoration-line-through">Зачёркнутый текст — .text-decoration-line-through</p>
+                        <p class="text-decoration-none">Ссылка без подчёркивания — .text-decoration-none</p>
+                    </div>
+
+                    <div class="border rounded p-3 bg-light">
+                        <p class="font-monospace">Это моноширинный текст — .font-monospace</p>
+                        <p class="text-reset">Текст со сброшенными цветом и оформлением — .text-reset</p>
+                    </div>
+
+                    <pre class="bg-light p-3 border rounded"><code>&lt;!-- Основные примеры --&gt;
+&lt;p class="text-center fw-bold fs-3"&gt;Заголовок по центру&lt;/p&gt;
+&lt;p class="text-md-end"&gt;Адаптивное выравнивание&lt;/p&gt;
+&lt;p class="text-nowrap"&gt;Без переноса&lt;/p&gt;
+&lt;p class="fs-1 fw-bold lh-lg"&gt;Большой жирный текст с большим интервалом&lt;/p&gt;
+&lt;p class="text-uppercase text-decoration-underline"&gt;Верхний регистр и подчёркивание&lt;/p&gt;
+
+&lt;!-- Моноширинный --&gt;
+&lt;code class="font-monospace"&gt;console.log("Hello");&lt;/code&gt;</code></pre>
+                </div>
+
+                <h2 class="mt-5">Вертикальное выравнивание (Vertical align)</h2>
+                <div class="mb-4">
+                    <p>
+                        Утилиты вертикального выравнивания работают с inline-, inline-block- и табличными элементами,
+                        изменяя свойство <code>vertical-align</code>.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Классы:</strong> <code>.align-baseline</code>, <code>.align-top</code>,
+                            <code>.align-middle</code>, <code>.align-bottom</code>, <code>.align-text-top</code>,
+                            <code>.align-text-bottom</code>.
+                        </li>
+                        <li>
+                            <strong>Особенности:</strong> Не работают с блочными элементами (для них используйте flex).
+                        </li>
+                    </ul>
+                    <div class="border p-3 bg-light">
+                        <span class="align-baseline">baseline</span>
+                        <span class="align-top">top</span>
+                        <span class="align-middle">middle</span>
+                        <span class="align-bottom">bottom</span>
+                        <span class="align-text-top">text-top</span>
+                        <span class="align-text-bottom">text-bottom</span>
+                    </div>
+                    <pre
+                        class="bg-light p-3 border rounded"><code>&lt;span class="align-middle"&gt;Выравнивание по середине&lt;/span&gt;</code></pre>
+                </div>
+
+                <h2 class="mt-5">Видимость (Visibility)</h2>
+                <div class="mb-4">
+                    <p>
+                        Утилиты видимости управляют свойством <code>visibility</code>, не влияя на поток документа и
+                        занимаемое место (в отличие от <code>display: none</code>).
+                    </p>
+                    <ul>
+                        <li><strong>Классы:</strong> <code>.visible</code> и <code>.invisible</code>.</li>
+                        <li>
+                            <strong>Особенности:</strong> <code>.invisible</code> скрывает элемент визуально и для
+                            экранных читалок, но оставляет пространство.
+                        </li>
+                    </ul>
+                    <div class="border p-3 bg-light">
+                        <div class="visible">Видимый элемент</div>
+                        <div class="invisible">Невидимый элемент (занимает место)</div>
+                    </div>
+                    <pre
+                        class="bg-light p-3 border rounded"><code>&lt;div class="invisible"&gt;Скрытый, но занимающий место&lt;/div&gt;</code></pre>
+                </div>
+
+                <h2 class="mt-5">Z-index</h2>
+                <div class="mb-4">
+                    <p>
+                        Утилиты <strong>z-index</strong> позволяют быстро управлять порядком наложения (перекрытия)
+                        элементов друг относительно друга. Чем больше значение z-index, тем «выше» находится элемент на
+                        странице.
+                    </p>
+
+                    <p>
+                        <strong>Важно:</strong> утилиты z-index работают <strong>только</strong> с элементами, у которых
+                        свойство <code>position</code> отличается от <code>static</code> (например,
+                        <code>relative</code>, <code>absolute</code>, <code>fixed</code> или <code>sticky</code>).
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>Доступные классы:</strong> <code>.z-n1</code> (z-index: -1), <code>.z-0</code> (0),
+                            <code>.z-1</code> (1), <code>.z-2</code> (2), <code>.z-3</code> (3).
+                        </li>
+                        <li>
+                            Это низкоуровневые утилиты. Более высокие значения используются компонентами Bootstrap
+                            (модальные окна, тултипы и др.).
+                        </li>
+                    </ul>
+
+                    <div
+                        class="position-relative border rounded bg-light overflow-hidden"
+                        style="height: 260px; max-width: 100%; margin-bottom: 1.5rem">
+                        <div
+                            class="z-1 position-absolute ps-1 bg-danger text-white d-flex align-items-start justify-content-start shadow rounded"
+                            style="width: 150px; height: 150px; top: 10px; left: 10px">
+                            z-1
+                        </div>
+
+                        <!-- Средний -->
+                        <div
+                            class="z-2 position-absolute ps-1 bg-primary text-white d-flex align-items-start justify-content-start shadow rounded"
+                            style="width: 150px; height: 150px; top: 50px; left: 50px">
+                            z-2
+                        </div>
+
+                        <!-- Верхний -->
+                        <div
+                            class="z-3 position-absolute ps-1 bg-success text-white d-flex align-items-start justify-content-start shadow rounded"
+                            style="width: 150px; height: 150px; top: 90px; left: 90px">
+                            z-3
+                        </div>
+                    </div>
+
+                    <p class="small text-muted">Зелёный блок (<code>.z-3</code>) перекрывает все остальные.</p>
+
+                    <h4 class="mt-4">Пример кода</h4>
+                    <pre
+                        class="bg-light p-3 border rounded"><code>&lt;div class="position-relative" style="height: 260px;"&gt;
+    &lt;!-- Самый нижний --&gt;
+    &lt;div class="position-absolute top-0 start-0 z-n1 bg-warning p-3"&gt;z-n1&lt;/div&gt;
+
+    &lt;!-- Самый верхний --&gt;
+    &lt;div class="position-absolute top-50 start-50 translate-middle z-3 bg-primary p-3"&gt;z-3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                    <p>
+                        Если требуется больше уровней наложения, вы можете расширить утилиты через API Bootstrap или
+                        задать нужное значение напрямую в своём CSS.
+                    </p>
+                </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
