@@ -402,6 +402,497 @@
                 </div><br>
             </div>
         </div>
+            <h2 class="mt-5">Interaction</h2>
+    <div class="mb-4">
+        <p>Классы утилит, которые изменяют способ взаимодействия пользователей с содержимым веб-сайта.</p>
+        <p>Измените способ выбора содержимого при взаимодействии с ним пользователя.</p>
+
+        <div class="border rounded p-3 mb-3 bg-white">
+            <p class="user-select-all mb-2">Этот абзац будет полностью выделен при нажатии пользователем. (class="user-select-all")</p>
+            <p class="user-select-auto mb-2">Этот абзац имеет поведение выбора по умолчанию. (class="user-select-auto")</p>
+            <p class="user-select-none mb-0">Этот абзац не будет доступен для выбора при нажатии пользователем. (class="user-select-none")</p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;p class="user-select-all"&gt;Полностью выделяется&lt;/p&gt;
+&lt;p class="user-select-auto"&gt;Поведение по умолчанию&lt;/p&gt;
+&lt;p class="user-select-none"&gt;Не выделяется&lt;/p&gt;</code></pre>
+
+        <h3>Указатель событий</h3>
+        <p>Bootstrap предоставляет классы .pe-none и .pe-auto для предотвращения или добавления взаимодействий элементов.</p>
+
+        <div class="border rounded p-3 mb-3 bg-white">
+            <p><a href="#" class="pe-none" tabindex="-1" aria-disabled="true">Эта ссылка</a> не может быть нажата.</p>
+            <p><a href="#" class="pe-auto">Эта ссылка</a> может быть нажата (это поведение по умолчанию).</p>
+            <p class="pe-none mb-0"><a href="#" tabindex="-1" aria-disabled="true">Эта ссылка</a> не может быть нажата, потому что свойство <code>pointer-events</code> унаследовано от своего родителя. Однако у <a href="#" class="pe-auto">этой ссылки</a> есть класс <code>pe-auto</code>, и по ней можно перейти.</p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;a href="#" class="pe-none"&gt;Неактивная ссылка&lt;/a&gt;
+&lt;a href="#" class="pe-auto"&gt;Активная ссылка&lt;/a&gt;
+&lt;p class="pe-none"&gt;Родитель с pe-none, но &lt;a href="#" class="pe-auto"&gt;эта ссылка&lt;/a&gt; активна&lt;/p&gt;</code></pre>
+        <div class="alert alert-info small">Класс .pe-none предотвращает только взаимодействие с указателем. Для полной нейтрализации добавьте tabindex="-1" и aria-disabled="true".</div>
+    </div>
+
+    <h2 class="mt-5">Link</h2>
+    <div class="mb-4">
+        <h3>Непрозрачность ссылки</h3>
+        <p>Измените альфа-прозрачность значения цвета ссылки rgba() с помощью утилит.</p>
+
+        <div class="border rounded p-3 mb-3 bg-white">
+            <p><a class="link-opacity-10" href="#">Link opacity 10</a></p>
+            <p><a class="link-opacity-25" href="#">Link opacity 25</a></p>
+            <p><a class="link-opacity-50" href="#">Link opacity 50</a></p>
+            <p><a class="link-opacity-75" href="#">Link opacity 75</a></p>
+            <p><a class="link-opacity-100" href="#">Link opacity 100</a></p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;a class="link-opacity-10" href="#"&gt;Opacity 10&lt;/a&gt;
+&lt;a class="link-opacity-25" href="#"&gt;Opacity 25&lt;/a&gt;
+&lt;a class="link-opacity-50" href="#"&gt;Opacity 50&lt;/a&gt;
+&lt;a class="link-opacity-75" href="#"&gt;Opacity 75&lt;/a&gt;
+&lt;a class="link-opacity-100" href="#"&gt;Opacity 100&lt;/a&gt;</code></pre>
+
+        <p>Вы даже можете изменить уровень непрозрачности при наведении.</p>
+        <div class="border rounded p-3 mb-3 bg-white">
+            <p><a class="link-opacity-10-hover" href="#">Непрозрачность при наведении ссылки 10</a></p>
+            <p><a class="link-opacity-25-hover" href="#">Непрозрачность при наведении ссылки 25</a></p>
+            <p><a class="link-opacity-50-hover" href="#">Непрозрачность при наведении ссылки 50</a></p>
+            <p><a class="link-opacity-75-hover" href="#">Непрозрачность при наведении ссылки 75</a></p>
+            <p><a class="link-opacity-100-hover" href="#">Непрозрачность при наведении ссылки 100</a></p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;a class="link-opacity-10-hover" href="#"&gt;Hover opacity 10&lt;/a&gt;
+&lt;a class="link-opacity-25-hover" href="#"&gt;Hover opacity 25&lt;/a&gt;</code></pre>
+
+        <h3>Подчеркивание ссылки</h3>
+        <p>Мы можем менять цвет подчёркивания</p>
+        <div class="border rounded p-3 mb-3 bg-white">
+            <p><a href="#" class="link-underline-primary">Primary underline</a></p>
+            <p><a href="#" class="link-underline-secondary">Secondary underline</a></p>
+            <p><a href="#" class="link-underline-success">Success underline</a></p>
+            <p><a href="#" class="link-underline-danger">Danger underline</a></p>
+            <p><a href="#" class="link-underline-warning">Warning underline</a></p>
+            <p><a href="#" class="link-underline-info">Info underline</a></p>
+            <p><a href="#" class="link-underline-light">Light underline</a></p>
+            <p><a href="#" class="link-underline-dark">Dark underline</a></p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;a href="#" class="link-underline-primary"&gt;Primary underline&lt;/a&gt;
+&lt;a href="#" class="link-underline-secondary"&gt;Secondary underline&lt;/a&gt;</code></pre>
+
+        <p>Измените расстояние подчеркивания от вашего текста. Смещение задается в единицах em.</p>
+        <div class="border rounded p-3 mb-3 bg-white">
+            <p><a href="#">Ссылка по умолчанию</a></p>
+            <p><a class="link-offset-1" href="#">Смещение 1 ссылки</a></p>
+            <p><a class="link-offset-2" href="#">Смещение 2 ссылки</a></p>
+            <p><a class="link-offset-3" href="#">Смещение 3 ссылки</a></p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;a href="#"&gt;Default&lt;/a&gt;
+&lt;a class="link-offset-1" href="#"&gt;Offset 1&lt;/a&gt;
+&lt;a class="link-offset-2" href="#"&gt;Offset 2&lt;/a&gt;
+&lt;a class="link-offset-3" href="#"&gt;Offset 3&lt;/a&gt;</code></pre>
+
+        <p>Измените непрозрачность подчеркивания. Требуется добавить .link-underline, чтобы сначала установить цвет rgba().</p>
+        <div class="border rounded p-3 mb-3 bg-white">
+            <p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Непрозрачность подчеркивания 0</a></p>
+            <p><a class="link-offset-2 link-underline link-underline-opacity-10" href="#">Непрозрачность подчеркивания 10</a></p>
+            <p><a class="link-offset-2 link-underline link-underline-opacity-25" href="#">Непрозрачность подчеркивания 25</a></p>
+            <p><a class="link-offset-2 link-underline link-underline-opacity-50" href="#">Непрозрачность подчеркивания 50</a></p>
+            <p><a class="link-offset-2 link-underline link-underline-opacity-75" href="#">Непрозрачность подчеркивания 75</a></p>
+            <p><a class="link-offset-2 link-underline link-underline-opacity-100" href="#">Непрозрачность подчеркивания 100</a></p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;a class="link-offset-2 link-underline link-underline-opacity-50" href="#"&gt;Underline opacity 50&lt;/a&gt;</code></pre>
+
+        <h3>Варианты наведения</h3>
+        <p>Утилиты .link-offset и .link-underline-opacity включают варианты :hover.</p>
+        <div class="border rounded p-3 mb-3 bg-white">
+            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+                Непрозрачность подчеркивания 0 (при наведении 75)
+            </a>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#"&gt;
+  Hover эффект
+&lt;/a&gt;</code></pre>
+
+        <h3>Цветные ссылки</h3>
+        <p>Используйте новые утилиты для изменения непрозрачности ссылки, непрозрачности подчеркивания и смещения подчеркивания.</p>
+        <div class="border rounded p-3 mb-3 bg-white">
+            <p><a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Primary link</a></p>
+            <p><a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Secondary link</a></p>
+            <p><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Success link</a></p>
+            <p><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Danger link</a></p>
+            <p><a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Warning link</a></p>
+            <p><a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Info link</a></p>
+            <p><a href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Light link</a></p>
+            <p><a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Dark link</a></p>
+            <p><a href="#" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Emphasis link</a></p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"&gt;Primary link&lt;/a&gt;</code></pre>
+        <div class="bd-callout bd-callout-info p-3 bg-info bg-opacity-10 border-start border-info border-4 rounded mb-3">
+            <strong>Совет по специальным возможностям.</strong> Использование цвета для добавления смысла обеспечивает только визуальную индикацию. Убедитесь, что значение очевидно из самого содержания или включено с помощью альтернативных средств.
+        </div>
+    </div>
+
+    <h2 class="mt-5">Object fit</h2>
+    <div class="mb-4">
+        <p>Используйте утилиты подгонки объекта, чтобы изменить содержимое заменяемого элемента, например img или video, чтобы он соответствовал своему контейнеру.</p>
+        <p>Классы: <code>.object-fit-contain</code>, <code>.object-fit-cover</code>, <code>.object-fit-fill</code>, <code>.object-fit-scale</code>, <code>.object-fit-none</code></p>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="border rounded p-3 bg-white h-100">
+                    <h5 class="mb-3">object-fit-contain</h5>
+                    <div class="bg-light border rounded" style="width: 100%; height: 200px;">
+                        <img src="pictures/code-exmp.jpg" class="object-fit-contain w-100 h-100 border rounded" alt="contain">
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>&lt;img src="..." class="object-fit-contain w-100 h-100"&gt;</code></pre>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="border rounded p-3 bg-white h-100">
+                    <h5 class="mb-3">object-fit-cover</h5>
+                    <div class="bg-light border rounded" style="width: 100%; height: 200px;">
+                        <img src="pictures/example.png" class="object-fit-cover w-100 h-100 border rounded" alt="cover">
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>&lt;img src="..." class="object-fit-cover w-100 h-100"&gt;</code></pre>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="border rounded p-3 bg-white h-100">
+                    <h5 class="mb-3">object-fit-fill</h5>
+                    <div class="bg-light border rounded" style="width: 100%; height: 200px;">
+                        <img src="pictures/grey-back.jpg" class="object-fit-fill w-100 h-100 border rounded" alt="fill">
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>&lt;img src="..." class="object-fit-fill w-100 h-100"&gt;</code></pre>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="border rounded p-3 bg-white h-100">
+                    <h5 class="mb-3">object-fit-scale</h5>
+                    <div class="bg-light border rounded" style="width: 100%; height: 200px;">
+                        <img src="pictures/html-fun.jpg" class="object-fit-scale w-100 h-100 border rounded" alt="scale">
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>&lt;img src="..." class="object-fit-scale w-100 h-100"&gt;</code></pre>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="border rounded p-3 bg-white h-100">
+                    <h5 class="mb-3">object-fit-none</h5>
+                    <div class="bg-light border rounded" style="width: 100%; height: 200px;">
+                        <img src="pictures/js-emblem.jpg" class="object-fit-none w-100 h-100 border rounded" alt="none">
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>&lt;img src="..." class="object-fit-none w-100 h-100"&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="mt-3">Адаптивные варианты object-fit</h5>
+        <p>Адаптивные классы: <code>.object-fit-{breakpoint}-{value}</code> для sm, md, lg, xl, xxl.</p>
+        <div class="border rounded p-3 mb-3 bg-white">
+            <div class="bg-light border rounded" style="width: 100%; height: 200px;">
+                <img src="pictures/code-exmp.jpg" class="object-fit-sm-contain object-fit-md-cover object-fit-lg-fill w-100 h-100 border rounded" alt="responsive">
+            </div>
+            <p class="mt-2 mb-0 small text-muted">Это изображение на sm: contain, на md: cover, на lg: fill</p>
+        </div>
+        <pre class="bg-light p-3 border rounded mb-3"><code>&lt;img src="..." class="object-fit-sm-contain object-fit-md-cover object-fit-lg-fill w-100 h-100"&gt;</code></pre>
+
+        <h5 class="mt-3">Видео с object-fit</h5>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="border rounded p-3 bg-white">
+                    <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="object-fit-contain w-100" style="height: 200px;" controls autoplay muted loop></video>
+                    <pre class="bg-light p-3 border rounded"><code>&lt;video class="object-fit-contain"&gt;</code></pre>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="border rounded p-3 bg-white">
+                    <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="object-fit-cover w-100" style="height: 200px;" controls autoplay muted loop></video>
+                    <pre class="bg-light p-3 border rounded"><code>&lt;video class="object-fit-cover"&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+        <pre class="bg-light p-3 border rounded"><code>&lt;video src="video.mp4" class="object-fit-contain" autoplay&gt;&lt;/video&gt;
+&lt;video src="video.mp4" class="object-fit-cover" autoplay&gt;&lt;/video&gt;
+&lt;video src="video.mp4" class="object-fit-fill" autoplay&gt;&lt;/video&gt;
+&lt;video src="video.mp4" class="object-fit-scale" autoplay&gt;&lt;/video&gt;
+&lt;video src="video.mp4" class="object-fit-none" autoplay&gt;&lt;/video&gt;</code></pre>
+    </div>
+</div>
+
+    <h2 class="mt-5">Непрозрачность (Opacity)</h2>
+    <div class="mb-4">
+        <p>Управляйте непрозрачностью элементов. Свойство opacity устанавливает уровень прозрачности, где 1 —完全不透明, .5 — видимый на 50%, а 0 — полностью прозрачный.</p>
+        <p>Установите непрозрачность элемента с помощью утилит <code>.opacity-{value}</code>.</p>
+        
+        <div class="border rounded p-3 mb-3 bg-white">
+            <div class="d-flex gap-4 align-items-center flex-wrap">
+                <div class="bg-primary text-white p-3 rounded opacity-100">opacity-100</div>
+                <div class="bg-primary text-white p-3 rounded opacity-75">opacity-75</div>
+                <div class="bg-primary text-white p-3 rounded opacity-50">opacity-50</div>
+                <div class="bg-primary text-white p-3 rounded opacity-25">opacity-25</div>
+                <div class="bg-primary text-white p-3 rounded opacity-10">opacity-10</div>
+                <div class="bg-primary text-white p-3 rounded opacity-0">opacity-0</div>
+            </div>
+        </div>
+        
+        <pre class="bg-light p-3 border rounded"><code>&lt;div class="opacity-100"&gt;...&lt;/div&gt;
+&lt;div class="opacity-75"&gt;...&lt;/div&gt;
+&lt;div class="opacity-50"&gt;...&lt;/div&gt;
+&lt;div class="opacity-25"&gt;...&lt;/div&gt;
+&lt;div class="opacity-10"&gt;...&lt;/div&gt;
+&lt;div class="opacity-0"&gt;...&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2 class="mt-5">Переполнение (Overflow)</h2>
+    <div class="mb-4">
+        <p>Используйте эти утилиты для быстрой настройки отображения в случае, когда контент выходит за пределы элемента.</p>
+        
+        <h3 class="mt-4">overflow</h3>
+        <p>Настройте свойство overflow с четырьмя значениями и классами по умолчанию.</p>
+        
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white h-100">
+                    <div class="overflow-auto bg-light p-2 border" style="max-height: 150px;">
+                        <p class="mb-0">.overflow-auto — это пример использования для элемента с заданными размерами. По задумке, это содержимое будет прокручиваться вертикально. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-auto</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white h-100">
+                    <div class="overflow-hidden bg-light p-2 border" style="max-height: 150px;">
+                        <p class="mb-0">.overflow-hidden — это пример использования для элемента с заданными размерами. Содержимое обрезается и не выходит за пределы.</p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-hidden</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white h-100">
+                    <div class="overflow-visible bg-light p-2 border" style="max-height: 150px;">
+                        <p class="mb-0">.overflow-visible — это пример использования для элемента с заданными размерами. Содержимое видно за пределами контейнера.</p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-visible</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white h-100">
+                    <div class="overflow-scroll bg-light p-2 border" style="max-height: 150px;">
+                        <p class="mb-0">.overflow-scroll — это пример использования для элемента с заданными размерами. Всегда показывает полосы прокрутки.</p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-scroll</code></pre>
+                </div>
+            </div>
+        </div>
+        
+        <pre class="bg-light p-3 border rounded mb-4"><code>&lt;div class="overflow-auto"&gt;...&lt;/div&gt;
+&lt;div class="overflow-hidden"&gt;...&lt;/div&gt;
+&lt;div class="overflow-visible"&gt;...&lt;/div&gt;
+&lt;div class="overflow-scroll"&gt;...&lt;/div&gt;</code></pre>
+        
+        <h3 class="mt-4">overflow-x</h3>
+        <p>Настройте свойство overflow-x, чтобы повлиять на переполнение содержимого по горизонтали.</p>
+        
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-x-auto bg-light p-2 border" style="max-width: 100%; width: 200px; white-space: nowrap;">
+                        <span>.overflow-x-auto — очень длинный текст который выходит за пределы контейнера и вызывает горизонтальную прокрутку</span>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-x-auto</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-x-hidden bg-light p-2 border" style="max-width: 100%; width: 200px; white-space: nowrap;">
+                        <span>.overflow-x-hidden — очень длинный текст обрезается по горизонтали</span>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-x-hidden</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-x-visible bg-light p-2 border" style="max-width: 100%; width: 200px; white-space: nowrap;">
+                        <span>.overflow-x-visible — очень длинный текст виден за пределами контейнера</span>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-x-visible</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-x-scroll bg-light p-2 border" style="max-width: 100%; width: 200px; white-space: nowrap;">
+                        <span>.overflow-x-scroll — всегда показывает горизонтальную прокрутку</span>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-x-scroll</code></pre>
+                </div>
+            </div>
+        </div>
+        
+        <pre class="bg-light p-3 border rounded mb-4"><code>&lt;div class="overflow-x-auto"&gt;...&lt;/div&gt;
+&lt;div class="overflow-x-hidden"&gt;...&lt;/div&gt;
+&lt;div class="overflow-x-visible"&gt;...&lt;/div&gt;
+&lt;div class="overflow-x-scroll"&gt;...&lt;/div&gt;</code></pre>
+        
+        <h3 class="mt-4">overflow-y</h3>
+        <p>Настройте свойство overflow-y, чтобы повлиять на переполнение содержимого по вертикали.</p>
+        
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-y-auto bg-light p-2 border" style="max-height: 100px; height: 100px;">
+                        <p>.overflow-y-auto — этот контент будет прокручиваться по вертикали. Добавим немного текста для демонстрации. Еще немного текста. И еще для прокрутки.</p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-y-auto</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-y-hidden bg-light p-2 border" style="max-height: 100px; height: 100px;">
+                        <p>.overflow-y-hidden — контент обрезается по вертикали. Дополнительный текст не виден за пределами контейнера.</p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-y-hidden</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-y-visible bg-light p-2 border" style="max-height: 100px; height: 100px;">
+                        <p>.overflow-y-visible — контент виден за пределами контейнера. Этот текст выходит за границы блока. Да да, действительно выходит. Не верите? а вы поверьте!</p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-y-visible</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-y-scroll bg-light p-2 border" style="max-height: 100px; height: 100px;">
+                        <p>.overflow-y-scroll — всегда показывает вертикальную прокрутку. 
+                    </div>
+                    <pre class="bg-light p-3 border rounded"><code>.overflow-y-scroll</code></pre>
+                </div>
+            </div>
+        </div>
+        
+        <pre class="bg-light p-3 border rounded"><code>&lt;div class="overflow-y-auto"&gt;...&lt;/div&gt;
+&lt;div class="overflow-y-hidden"&gt;...&lt;/div&gt;
+&lt;div class="overflow-y-visible"&gt;...&lt;/div&gt;
+&lt;div class="overflow-y-scroll"&gt;...&lt;/div&gt;</code></pre>
+    </div>
+
+    <h2 class="mt-5">Позиция (Position)</h2>
+    <div class="mb-4">
+        <p>Используйте эти сокращенные утилиты для быстрой настройки положения элемента.</p>
+        
+        <h3 class="mt-4">Значения позиции</h3>
+        <p>Доступные классы быстрого позиционирования:</p>
+        
+        <div class="border rounded p-3 mb-3 bg-white">
+            <div class="d-flex flex-wrap gap-3 mb-3">
+                <div class="bg-secondary text-white p-2 rounded position-static">.position-static</div>
+                <div class="bg-secondary text-white p-2 rounded position-relative">.position-relative</div>
+                <div class="bg-secondary text-white p-2 rounded position-absolute">.position-absolute</div>
+                <div class="bg-secondary text-white p-2 rounded position-fixed">.position-fixed</div>
+                <div class="bg-secondary text-white p-2 rounded position-sticky">.position-sticky</div>
+            </div>
+        </div>
+        
+        <pre class="bg-light p-3 border rounded mb-4"><code>&lt;div class="position-static"&gt;...&lt;/div&gt;
+&lt;div class="position-relative"&gt;...&lt;/div&gt;
+&lt;div class="position-absolute"&gt;...&lt;/div&gt;
+&lt;div class="position-fixed"&gt;...&lt;/div&gt;
+&lt;div class="position-sticky"&gt;...&lt;/div&gt;</code></pre>
+        
+        <h3 class="mt-4">Расстановка элементов</h3>
+        <p>Легко располагайте элементы с помощью утилит для позиционирования краев. Формат <code>{property}-{position}</code>.</p>
+        
+        <div class="border rounded p-4 mb-3 bg-white position-relative" style="min-height: 250px;">
+            <div class="position-absolute top-0 start-0 bg-primary text-white p-2 rounded small">top-0 start-0</div>
+            <div class="position-absolute top-0 end-0 bg-danger text-white p-2 rounded small">top-0 end-0</div>
+            <div class="position-absolute top-50 start-50 bg-success text-white p-2 rounded small translate-middle">top-50 start-50</div>
+            <div class="position-absolute bottom-50 end-50 bg-warning p-2 rounded small">bottom-50 end-50</div>
+            <div class="position-absolute bottom-0 start-0 bg-info p-2 rounded small">bottom-0 start-0</div>
+            <div class="position-absolute bottom-0 end-0 bg-dark text-white p-2 rounded small">bottom-0 end-0</div>
+        </div>
+        
+        <pre class="bg-light p-3 border rounded mb-4"><code>&lt;div class="position-relative"&gt;
+  &lt;div class="position-absolute top-0 start-0"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute top-0 end-0"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute top-50 start-50"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute bottom-50 end-50"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute bottom-0 start-0"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute bottom-0 end-0"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h3 class="mt-4">Центрирование элементов</h3>
+        <p>Используйте служебный класс <code>.translate-middle</code> для центрирования элементов.</p>
+        
+        <div class="border rounded p-4 mb-3 bg-white position-relative" style="min-height: 250px;">
+            <div class="position-absolute top-0 start-0 bg-primary text-white p-1 rounded small">top-0 start-0</div>
+            <div class="position-absolute top-0 start-50 translate-middle-x bg-danger text-white p-1 rounded small">top-0 start-50</div>
+            <div class="position-absolute top-0 end-0 bg-success text-white p-1 rounded small">top-0 end-0</div>
+            <div class="position-absolute top-50 start-0 translate-middle-y bg-warning p-1 rounded small">top-50 start-0</div>
+            <div class="position-absolute top-50 start-50 translate-middle bg-info p-1 rounded small">центр</div>
+            <div class="position-absolute top-50 end-0 translate-middle-y bg-dark text-white p-1 rounded small">top-50 end-0</div>
+            <div class="position-absolute bottom-0 start-0 bg-secondary text-white p-1 rounded small">bottom-0 start-0</div>
+            <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light p-1 rounded small">bottom-0 start-50</div>
+            <div class="position-absolute bottom-0 end-0 bg-dark text-white p-1 rounded small">bottom-0 end-0</div>
+        </div>
+        
+        <pre class="bg-light p-3 border rounded mb-4"><code>&lt;div class="position-relative"&gt;
+  &lt;div class="position-absolute top-0 start-0 translate-middle"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute top-0 start-50 translate-middle"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute top-50 start-50 translate-middle"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute top-50 start-0 translate-middle-y"&gt;&lt;/div&gt;
+  &lt;div class="position-absolute top-0 start-50 translate-middle-x"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h3 class="mt-4">Примеры из реальной жизни</h3>
+        
+        <div class="border rounded p-3 mb-3 bg-white">
+            <h5>Маркер на кнопке</h5>
+            <button type="button" class="btn btn-primary position-relative mb-3">
+                Письма <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">+99 <span class="visually-hidden">непрочитанные сообщения</span></span>
+            </button>
+            
+            <pre class="bg-light p-3 border rounded"><code>&lt;button type="button" class="btn btn-primary position-relative"&gt;
+  Письма &lt;span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"&gt;+99&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+        
+        <div class="border rounded p-3 mb-3 bg-white">
+            <h5>Маркер с SVG</h5>
+            <div class="position-relative py-2 px-4 text-bg-dark border border-dark rounded-pill d-inline-block mt-3 mb-3">
+                Маркер <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1" fill="var(--bs-dark)" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+            </div>
+            
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="position-relative py-2 px-4 text-bg-dark border border-dark rounded-pill"&gt;
+  Маркер &lt;svg class="position-absolute top-100 start-50 translate-middle mt-1"&gt;...&lt;/svg&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        
+        <div class="border rounded p-3 mb-3 bg-white">
+            <h5>Уведомления</h5>
+            <button type="button" class="btn btn-primary position-relative mt-3 mb-3">
+                Уведомления <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden">непрочитанные сообщения</span></span>
+            </button>
+            
+            <pre class="bg-light p-3 border rounded"><code>&lt;button type="button" class="btn btn-primary position-relative"&gt;
+  Уведомления &lt;span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"&gt;&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+        
+        <div class="border rounded p-4 mb-3 bg-white position-relative" style="min-height: 100px;">
+            <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 2px;">
+                <div class="progress-bar" style="width: 50%"></div>
+            </div>
+            <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">1</button>
+            <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">2</button>
+            <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;">3</button>
+        </div>
+        
+        <pre class="bg-light p-3 border rounded"><code>&lt;div class="position-relative m-4"&gt;
+  &lt;div class="progress" style="height: 1px;"&gt;
+    &lt;div class="progress-bar" style="width: 50%"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill"&gt;1&lt;/button&gt;
+  &lt;button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill"&gt;2&lt;/button&gt;
+  &lt;button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill"&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+</div>
+
 
  
     </main>
