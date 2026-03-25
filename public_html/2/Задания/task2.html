@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Задание 2: Таблица с медиа</title>
+</head>
+<body>
+
+    <h1>Расписание мероприятий</h1>
+
+    <!-- border="1" делает сетку видимой -->
+    <table border="1" cellpadding="10" cellspacing="0" width="80%">
+        
+        <!-- Заголовок таблицы -->
+        <caption><b>Программа конференции</b></caption>
+
+        <thead>
+            <tr>
+                <th>День</th>
+                <th>Событие</th>
+                <th>Графика</th>
+                <th>Медиа контент</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Строка 1: Аудио и SVG -->
+            <tr>
+                <!-- rowspan="2" объединяет ячейку "День 1" на две строки -->
+                <td rowspan="2" align="center"><b>День 1</b></td>
+                <td>Открытие и приветствие</td>
+                <td align="center">
+                    <!-- Векторный круг -->
+                    <svg width="60" height="60">
+                        <circle cx="30" cy="30" r="25" fill="blue" />
+                    </svg>
+                </td>
+                <td>
+                    <!-- Аудио плеер -->
+                    <audio controls>
+                        <source src="party.mp3" type="audio/mpeg">
+                        Аудио недоступно
+                    </audio>
+                </td>
+            </tr>
+
+            <!-- Строка 2: Видео и Картинка -->
+            <tr>
+                <!-- Ячейка "День 1" пропущена, так как она объединена выше -->
+                <td>Вечерний концерт</td>
+                <td align="center">
+                    <img src="dance.jpg" alt="Фото концерта" width="100">
+                </td>
+                <td>
+                    <!-- Видео с зацикливанием (loop) -->
+                    <video width="200" controls loop>
+                        <source src="concert.mp4" type="video/mp4">
+                        Видео недоступно
+                    </video>
+                </td>
+            </tr>
+        </tbody>
+
+        <!-- Подвал таблицы -->
+        <tfoot>
+            <tr>
+                <!-- colspan="4" объединяет все 4 столбца в одну широкую ячейку -->
+                <td colspan="4" align="center">
+                    <i>Примечание: Строгий фейс-контроль.</i>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>
