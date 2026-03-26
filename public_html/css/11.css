@@ -177,13 +177,34 @@ h3 {
     gap: 70px;
 }
 
+.dot-origin {
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+}
+
+.dot-origin img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .dot-left-top {
     margin-left: 20px;
-    font-size: 20px;
+    width: 20px;
+    height: 20px;
     animation: rotate360-mirrored 2s linear infinite normal;
     display: inline-block;
     transform-origin: left top;
     position: relative;
+}
+
+.dot-left-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .dot-left-top::before {
@@ -200,11 +221,18 @@ h3 {
 }
 
 .dot-right-bottom {
-    font-size: 20px;
+    width: 20px;
+    height: 20px;
     animation: rotate360-mirrored 2s linear infinite normal;
     display: inline-block;
     transform-origin: right bottom;
     position: relative;
+}
+
+.dot-right-bottom img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .dot-right-bottom::before {
@@ -221,11 +249,18 @@ h3 {
 }
 
 .dot-pixels {
-    font-size: 20px;
+    width: 20px;
+    height: 20px;
     animation: rotate360-mirrored 2s linear infinite normal;
     display: inline-block;
     transform-origin: 5px 5px;
     position: relative;
+}
+
+.dot-pixels img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .dot-pixels::before {
