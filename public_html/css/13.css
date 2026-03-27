@@ -82,23 +82,22 @@
 /* ----- 5. СКВОЗНАЯ НУМЕРАЦИЯ (ВАРИАНТ 1) ----- */
 /* Смысл: создание иерархической нумерации, как в оглавлении. */
 .deep-list {
-    counter-reset: outer-counter;
+    counter-reset: outer-seq 0 inner-global 0; /* два счётчика: для внешних и для всех внутренних пунктов */
 }
 .level1 {
-    counter-reset: inner-counter; /* Сбрасываем внутренний счетчик для каждого нового внешнего уровня */
     margin-bottom: 15px;
 }
 .level1-title::before {
-    counter-increment: outer-counter;
-    content: counter(outer-counter) ". ";
+    counter-increment: outer-seq;
+    content: counter(outer-seq) ") ";
     font-weight: bold;
 }
 .level2 {
     margin-left: 25px;
 }
 .level2::before {
-    counter-increment: inner-counter;
-    content: counter(outer-counter) "." counter(inner-counter) ". ";
+    counter-increment: inner-global;
+    content: counter(inner-global) ". ";
     color: #555;
 }
 
