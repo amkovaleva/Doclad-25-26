@@ -1,20 +1,21 @@
 <!doctype html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Знакомство с Bootstrap формами</title>
-        <!-- Bootstrap CSS -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-            crossorigin="anonymous" />
-    </head>
-    <body>
-        <main class="container my-5">
-            <h2 class="mt-5">Что такое формы в Bootstrap?</h2>
-            <div class="mb-4">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Знакомство с Bootstrap формами</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/15-print-forms.css">
+</head>
+
+<body>
+    <main class="container my-3">
+        <section class="pdf-page">
+            <h2 class="mt-4">Что такое формы в Bootstrap?</h2>
+            <div>
                 <p>
                     Формы в Bootstrap — это набор стилей и компонентов для создания удобных, адаптивных и доступных
                     форм. Они включают поля ввода, чекбоксы, радиокнопки, селекты, группы ввода и валидацию. Формы
@@ -25,13 +26,13 @@
                     современными и отзывчивыми.
                 </p>
             </div>
-            <h2 class="mt-5">Обзор форм в Bootstrap</h2>
-            <div class="mb-4">
+            <h2 class="mt-4">Обзор форм в Bootstrap</h2>
+            <div>
                 <p>
                     Формы строятся на классах вроде <code>form-control</code> для полей ввода,
                     <code>form-label</code> для меток и <code>form-text</code> для подсказок. Например:
                 </p>
-                <pre class="bg-light p-3 border rounded"><code>&lt;form&gt;
+                <pre class="bg-light p-2 border rounded"><code>&lt;form&gt;
   &lt;div class="mb-3"&gt;
     &lt;label for="exampleInputEmail1" class="form-label"&gt;Адрес электронной почты&lt;/label&gt;
     &lt;input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" /&gt;
@@ -40,7 +41,7 @@
   &lt;button type="submit" class="btn btn-primary"&gt;Отправить&lt;/button&gt;
 &lt;/form&gt;</code></pre>
                 <form class="m-1 p-1">
-                    <div class="mb-3">
+                    <div>
                         <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                         <div id="emailHelp" class="form-text">Мы никогда не поделимся вашей почтой.</div>
@@ -48,36 +49,33 @@
                     <button type="submit" class="btn btn-primary">Отправить</button>
                 </form>
             </div>
+        </section>
+        <section class="pdf-page">
             <h3 class="mt-4">1. Элементы управления формами (Form Controls)</h3>
-            <div class="mb-4">
+            <div>
                 <p>
                     Класс <code>form-control</code> применяется к <code>&lt;input&gt;</code>,
                     <code>&lt;textarea&gt;</code> и <code>&lt;select&gt;</code>. Поддерживает типы: text, email,
                     password, number, file и т.д. Размеры: <code>form-control-sm</code>, <code>form-control-lg</code>.
                 </p>
-                <pre
-                    class="bg-light p-3 border rounded"><code>&lt;input type="text" class="form-control" placeholder="Введите текст" /&gt;
+                <pre class="bg-light p-2 border rounded"><code>&lt;input type="text" class="form-control" placeholder="Введите текст" /&gt;
 &lt;textarea class="form-control" rows="3"&gt;&lt;/textarea&gt;</code></pre>
 
                 <div class="bd-example">
                     <input type="text" class="form-control mb-2" placeholder="Стандартный текстовый ввод" />
-                    <input
-                        type="number"
-                        class="form-control form-control-sm mb-2"
+                    <input type="number" class="form-control form-control-sm mb-2"
                         placeholder="Маленький численный ввод (.form-control-sm)" />
-                    <input
-                        type="password"
-                        class="form-control form-control-lg"
+                    <input type="password" class="form-control form-control-lg"
                         placeholder="Большой парольный ввод (.form-control-lg)" />
                 </div>
             </div>
             <h3 class="mt-4">2. Выпадающие списки (Select)</h3>
-            <div class="mb-4">
+            <div>
                 <p>
                     Класс <code>form-select</code> для <code>&lt;select&gt;</code>. Поддерживает multiple, size,
                     disabled. Размеры: <code>form-select-sm</code>, <code>form-select-lg</code>.
                 </p>
-                <pre class="bg-light p-3 border rounded"><code>&lt;select class="form-select"&gt;
+                <pre class="bg-light p-2 border rounded"><code>&lt;select class="form-select"&gt;
   &lt;option selected&gt;Выберите...&lt;/option&gt;
   &lt;option value="1"&gt;Один&lt;/option&gt;
 &lt;/select&gt;</code></pre>
@@ -91,13 +89,15 @@
                     </select>
                 </div>
             </div>
+        </section>
+        <section class="pdf-page">
             <h3 class="mt-4">3. Чекбоксы и радиокнопки (Checks and Radios)</h3>
-            <div class="mb-4">
+            <div>
                 <p>
                     Класс <code>form-check</code> для чекбоксов и радиокнопок. Для свитчей — <code>form-switch</code>.
                     Inline: <code>form-check-inline</code>. Без меток: используйте <code>aria-label</code>.
                 </p>
-                <pre class="bg-light p-3 border rounded"><code>&lt;div class="form-check"&gt;
+                <pre class="bg-light p-2 border rounded"><code>&lt;div class="form-check"&gt;
   &lt;input class="form-check-input" type="checkbox" id="check1" /&gt;
   &lt;label class="form-check-label" for="check1"&gt;Стандартный чекбокс&lt;/label&gt;
   &lt;/div&gt;</code></pre>
@@ -109,7 +109,7 @@
                 </div>
             </div>
             <h4 class="mt-4">Варианты расположения и стилизации</h4>
-            <div class="mb-4">
+            <div>
                 <p>
                     Чекбоксы и радиокнопки можно располагать горизонтально, вертикально, делать кнопочного вида и
                     использовать свитчи.
@@ -127,42 +127,25 @@
                             <label class="form-check-label" for="inlineCheckbox2">2</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input
-                                class="form-check-input"
-                                type="checkbox"
-                                id="inlineCheckbox3"
-                                value="option3"
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"
                                 disabled />
                             <label class="form-check-label" for="inlineCheckbox3">3 (отключено)</label>
                         </div>
                     </div>
                     <div class="mb-1">
                         <div class="form-check form-check-inline">
-                            <input
-                                class="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio1"
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                                 value="option1" />
                             <label class="form-check-label" for="inlineRadio1">1</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input
-                                class="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio2"
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                                 value="option2" />
                             <label class="form-check-label" for="inlineRadio2">2</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input
-                                class="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio3"
-                                value="option3"
-                                disabled />
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                value="option3" disabled />
                             <label class="form-check-label" for="inlineRadio3">3 (отключенный)</label>
                         </div>
                     </div>
@@ -198,8 +181,10 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="pdf-page">
             <h3 class="mt-4">4. Ползунки (Range)</h3>
-            <div class="mb-4">
+            <div>
                 <p>
                     Класс <code>form-range</code> для <code>&lt;input type="range"&gt;</code>. Поддерживает min, max,
                     step, disabled.
@@ -210,13 +195,13 @@
                     <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange" />
                 </div>
             </div>
-            <h3 class="mt-5">5. Группы ввода (Input Group)</h3>
-            <div class="mb-4">
+            <h3 class="mt-4">5. Группы ввода (Input Group)</h3>
+            <div>
                 <p>
                     Группы ввода позволяют добавлять текст, иконки, кнопки, выпадающие списки слева и/или справа от поля
                     ввода. Классы: <code>input-group</code>, <code>input-group-text</code>.
                 </p>
-                <pre class="bg-light p-3 border rounded"><code>&lt;div class="input-group"&gt;
+                <pre class="bg-light p-2 border rounded"><code>&lt;div class="input-group"&gt;
   &lt;span class="input-group-text"&gt;Область текста&lt;/span&gt;
   &lt;textarea class="form-control" aria-label="With textarea"&gt;&lt;/textarea&gt;
 &lt;/div&gt;
@@ -234,10 +219,7 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Username получателя"
+                        <input type="text" class="form-control" placeholder="Username получателя"
                             aria-label="Recipient's username" />
                         <span class="input-group-text">@example.com</span>
                     </div>
@@ -248,92 +230,82 @@
                         <span class="input-group-text">.00</span>
                     </div>
                 </div>
-
-                <h5 class="mt-4">С кнопками</h5>
-                <div class="bd-example">
-                    <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary" type="button">Кнопка</button>
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder=""
-                            aria-label="Example text with button addon" />
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Username получателя"
-                            aria-label="Recipient's username" />
-                        <button class="btn btn-outline-primary" type="button">Кнопка</button>
-                    </div>
-
-                    <div class="input-group">
-                        <button
-                            class="btn btn-outline-secondary dropdown-toggle"
-                            type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Выпадающее
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Действие</a></li>
-                            <li><a class="dropdown-item" href="#">Другое действие</a></li>
-                        </ul>
-                        <input type="text" class="form-control" aria-label="Text input with dropdown button" />
-                    </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h5 class="mt-4">С кнопками</h5>
+            <div class="bd-example">
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-secondary" type="button">Кнопка</button>
+                    <input type="text" class="form-control" placeholder=""
+                        aria-label="Example text with button addon" />
                 </div>
 
-                <h5 class="mt-4">С чекбоксами / радиокнопками</h5>
-                <div class="bd-example">
-                    <div class="input-group mb-3">
-                        <div class="input-group-text">
-                            <input
-                                class="form-check-input mt-0"
-                                type="checkbox"
-                                value=""
-                                aria-label="Checkbox for following text input" />
-                        </div>
-                        <input type="text" class="form-control" aria-label="Text input with checkbox" />
-                    </div>
-
-                    <div class="input-group">
-                        <div class="input-group-text">
-                            <input
-                                class="form-check-input mt-0"
-                                type="radio"
-                                value=""
-                                name="radio-addon"
-                                aria-label="Radio for following text input" />
-                        </div>
-                        <input type="text" class="form-control" aria-label="Text input with radio button" />
-                    </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Username получателя"
+                        aria-label="Recipient's username" />
+                    <button class="btn btn-outline-primary" type="button">Кнопка</button>
                 </div>
 
-                <h5 class="mt-4">Несколько дополнений</h5>
-                <div class="bd-example">
-                    <div class="input-group">
-                        <span class="input-group-text">С</span>
-                        <span class="input-group-text">Двумя</span>
-                        <input
-                            type="text"
-                            class="form-control"
-                            aria-label="Dollar amount (with dot and two decimal places)" />
-                        <span class="input-group-text">дополнениями</span>
-                    </div>
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Выпадающее
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Действие</a></li>
+                        <li><a class="dropdown-item" href="#">Другое действие</a></li>
+                    </ul>
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button" />
                 </div>
             </div>
+
+            <h5 class="mt-4">С чекбоксами / радиокнопками</h5>
+            <div class="bd-example">
+                <div class="input-group mb-3">
+                    <div class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox" value=""
+                            aria-label="Checkbox for following text input" />
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" />
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-text">
+                        <input class="form-check-input mt-0" type="radio" value="" name="radio-addon"
+                            aria-label="Radio for following text input" />
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with radio button" />
+                </div>
+            </div>
+
+            <h5 class="mt-4">Несколько дополнений</h5>
+            <div class="bd-example">
+                <div class="input-group">
+                    <span class="input-group-text">С</span>
+                    <span class="input-group-text">Двумя</span>
+                    <input type="text" class="form-control"
+                        aria-label="Dollar amount (with dot and two decimal places)" />
+                    <span class="input-group-text">дополнениями</span>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
             <h3 class="mt-4">6. Плавающие метки (Floating Labels)</h3>
-            <div class="mb-4">
+            <div>
                 <p>Класс <code>form-floating</code> для плавающих меток над полями. <b>Требует placeholder.</b></p>
-                <pre class="bg-light p-3 border rounded"><code>&lt;div class="form-floating mb-3"&gt;
+                <pre class="bg-light p-2 border rounded"><code>&lt;div class="form-floating mb-3"&gt;
   &lt;input type="email" class="form-control" id="floatingInput" placeholder=""&gt;
   &lt;label for="floatingInput"&gt;Плавающая метка&lt;/label&gt;
 &lt;/div&gt;</code></pre>
                 <div class="bd-example">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingExampleEmpty" placeholder="" />
+                        <label for="floatingExample">Плавающая метка</label>
+                    </div>
                     <div class="form-floating">
-                        <input type="email" class="form-control" id="floatingExample" placeholder="" />
+                        <input type="email" class="form-control" id="floatingExampleFilled" placeholder=""
+                            value="Метка уходит наверх, освобождая место для основного текста" />
                         <label for="floatingExample">Плавающая метка</label>
                     </div>
                 </div>
@@ -343,35 +315,26 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text">@</span>
                     <div class="form-floating">
-                        <input
-                            type="email"
-                            class="form-control"
-                            id="floatingInputGroup1"
+                        <input type="email" class="form-control" id="floatingInputGroup1"
                             placeholder="name@example.com" />
                         <label for="floatingInputGroup1">Email address</label>
                     </div>
                 </div>
             </div>
-
             <h5 class="mt-4">Плавающие метки в сетке</h5>
             <p>При работе с системой сеток Bootstap обязательно размещайте элементы формы в классах столбцов.</p>
             <div class="bd-example">
                 <div class="row g-2">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input
-                                type="email"
-                                class="form-control"
-                                id="floatingInputGrid"
+                            <input type="email" class="form-control" id="floatingInputGrid"
                                 placeholder="name@example.com" />
                             <label for="floatingInputGrid">Email address</label>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-floating">
-                            <select
-                                class="form-select"
-                                id="floatingSelectGrid"
+                            <select class="form-select" id="floatingSelectGrid"
                                 aria-label="Floating label select example">
                                 <option selected>Открыть меню</option>
                                 <option value="1">Один</option>
@@ -383,8 +346,10 @@
                     </div>
                 </div>
             </div>
-            <h3 class="mt-5">7. Макеты форм (Layout) — подробный обзор</h3>
-            <div class="mb-4">
+        </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">7. Макеты форм (Layout) — подробный обзор</h3>
+            <div>
                 <p>
                     По умолчанию элементы форм (<code>input</code>, <code>select</code>, <code>textarea</code>) занимают
                     100% ширины родителя и располагаются вертикально. Для создания многостолбцовых, горизонтальных или
@@ -396,7 +361,7 @@
                     Оборачивайте поля в <code>.row</code> и используйте <code>.col-*</code>. Горизонтальные отступы
                     регулируются классами <code>.g-*</code> (gutters).
                 </p>
-                <pre class="bg-light p-3 border rounded"><code>&lt;div class="bd-example"&gt;
+                <pre class="bg-light p-2 border rounded"><code>&lt;div class="bd-example"&gt;
     &lt;div class="row g-3"&gt;
         &lt;div class="col-md-6"&gt;
             &lt;input type="text" class="form-control" placeholder="Имя" /&gt;
@@ -423,82 +388,85 @@
                         </div>
                     </div>
                 </div>
-
-                <h5 class="mt-4">Горизонтальные формы</h5>
-                <p>Используйте класс <code>.col-form-label</code> для выравнивания меток по вертикали с полями.</p>
-                <div class="bd-example">
-                    <form>
-                        <div class="row mb-3">
-                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail" />
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Пароль</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <h5 class="mt-4">Авторазмер колонок (.col-auto)</h5>
-                <p>
-                    Колонка занимает ровно столько места, сколько нужно содержимому. Удобно для форм поиска, фильтров,
-                    логинов.
-                </p>
-                <div class="bd-example">
-                    <form class="row gy-2 gx-3 align-items-center">
-                        <div class="col-auto">
-                            <input type="text" class="form-control" placeholder="Имя пользователя" />
-                        </div>
-                        <div class="col-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" placeholder="Ник" />
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary">Отправить</button>
-                        </div>
-                    </form>
-                </div>
-
-                <h5 class="mt-4">Адаптивные строчные формы (row-cols-auto)</h5>
-                <p>
-                    На больших экранах элементы выстраиваются в ряд по горизонтали, на мобильных — стакаются по
-                    вертикали.
-                </p>
-                <div class="bd-example">
-                    <form class="row row-cols-lg-auto g-3 align-items-center">
-                        <div class="col-12 col-lg-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" placeholder="Username" />
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-auto">
-                            <select class="form-select">
-                                <option selected>Выберите роль</option>
-                                <option>Админ</option>
-                                <option>Пользователь</option>
-                            </select>
-                        </div>
-                        <div class="col-12 col-lg-auto">
-                            <button type="submit" class="btn btn-primary">Войти</button>
-                        </div>
-                    </form>
-                </div>
             </div>
-            <h3 class="mt-5">8. Валидация форм (Validation)</h3>
-            <div class="mb-4">
+        </section>
+        <section class="pdf-page">
+            <h5 class="mt-4">Горизонтальные формы</h5>
+            <p>Используйте класс <code>.col-form-label</code> для выравнивания меток по вертикали с полями.</p>
+            <div class="bd-example">
+                <form>
+                    <div class="row mb-3">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Пароль</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <h5 class="mt-4">Авторазмер колонок (.col-auto)</h5>
+            <p>
+                Колонка занимает ровно столько места, сколько нужно содержимому. Удобно для форм поиска, фильтров,
+                логинов.
+            </p>
+            <div class="bd-example">
+                <form class="row gy-2 gx-3 align-items-center">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" placeholder="Имя пользователя" />
+                    </div>
+                    <div class="col-auto">
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" placeholder="Ник" />
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </div>
+                </form>
+            </div>
+
+            <h5 class="mt-4">Адаптивные строчные формы (row-cols-auto)</h5>
+            <p>
+                На больших экранах элементы выстраиваются в ряд по горизонтали, на мобильных — стакаются по
+                вертикали.
+            </p>
+            <div class="bd-example">
+                <form class="row row-cols-lg-auto g-3 align-items-center">
+                    <div class="col-12 col-lg-auto">
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" placeholder="Username" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-auto">
+                        <select class="form-select">
+                            <option selected>Выберите роль</option>
+                            <option>Админ</option>
+                            <option>Пользователь</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-auto">
+                        <button type="submit" class="btn btn-primary">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">8. Валидация форм (Validation)</h3>
+            <div>
                 <p>
                     Bootstrap использует встроенную HTML5-валидацию + стили для состояний <code>:valid</code> /
                     <code>:invalid</code>. Есть два основных подхода: клиентская (браузерная) и серверная.
                 </p>
 
-                <h5 class="mt-4">Клиентская валидация (рекомендуемый способ)</h5>
+                <h4 class="mt-4">Клиентская валидация (рекомендуемый способ)</h4>
                 <p>
                     Самый удобный вариант для пользователя: он ещё не отправил форму, а уже видит «Эй, тут забыли email»
                     или «Пароль слишком короткий».
@@ -523,12 +491,15 @@
                         именно он включает красивые стили Bootstrap.
                     </li>
                 </ol>
-                <pre class="bg-light p-3 border rounded"><code>&lt;div class="bd-example"&gt;
+            </div>
+        </section>
+        <section class="pdf-page">
+            <pre class="bg-light p-2 border rounded"><code>&lt;div class="bd-example"&gt;
     &lt;form class="needs-validation" novalidate&gt;
         &lt;div class="mb-3"&gt;
             &lt;label for="userEmail" class="form-label"&gt;Email&lt;/label&gt;
             &lt;input type="email" class="form-control" id="userEmail" required /&gt;
-            &lt;div class="invalid-feedback"&gt;Введите нормальный email, пожалуйста&lt;/div&gt;
+            &lt;div class="invalid-feedback"&gt;Введите корректный email&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class="mb-3"&gt;
             &lt;label for="userName" class="form-label"&gt;Имя&lt;/label&gt;
@@ -539,24 +510,24 @@
     &lt;/form&gt;
 &lt;/div&gt;
 </code></pre>
-                <div class="bd-example">
-                    <form class="needs-validation" novalidate>
-                        <div class="mb-3">
-                            <label for="userEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="userEmail" required />
-                            <div class="invalid-feedback">Введите нормальный email, пожалуйста</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="userName" class="form-label">Имя</label>
-                            <input type="text" class="form-control" id="userName" required="" minlength="2" />
-                            <div class="invalid-feedback">Имя должно быть хотя бы из 2 букв</div>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Отправить</button>
-                    </form>
-                </div>
-
-                <pre
-                    class="bg-light p-3 border rounded mt-3"><code>&lt;!-- JavaScript (обычно в конце страницы или в отдельном файле) --&gt;
+            <div class="bd-example">
+                <form class="needs-validation-example" novalidate>
+                    <div class="mb-3">
+                        <label for="userEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="userEmail" required />
+                        <div class="invalid-feedback">Введите корректный email</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userName" class="form-label">Имя</label>
+                        <input type="text" class="form-control" id="userName" required="" minlength="2" />
+                        <div class="invalid-feedback">Имя должно быть хотя бы из 2 букв</div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Отправить</button>
+                </form>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <pre class="bg-light p-2 border rounded mt-3"><code>&lt;!-- JavaScript (обычно в конце страницы или в отдельном файле) --&gt;
 &lt;script&gt;
 (() =&gt; {
   'use strict'
@@ -571,30 +542,47 @@
 })()
 &lt;/script&gt;</code></pre>
 
-                <p>
-                    После этого поле с ошибкой получит красную рамку, под ним появится сообщение, а если всё ок —
-                    зелёная рамка и галочка.
-                </p>
+            <p>
+                После этого поле с ошибкой получит красную рамку, под ним появится сообщение, а если всё ок —
+                зелёная рамка и галочка.
+            </p>
+            <div class="bd-example">
+                <form class="needs-validation" novalidate>
+                    <div class="mb-3d">
+                        <label for="userEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="userEmailSuccess" required 
+                               value="A@AAA.AA"/>
+                        <div class="invalid-feedback">Введите корректный email</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userName" class="form-label">Имя</label>
+                        <input type="text" class="form-control" id="userNameFail" required="" minlength="2" />
+                        <div class="invalid-feedback">Имя должно быть хотя бы из 2 букв</div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Отправить</button>
+                </form>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Серверная валидация</h4>
+            <p>
+                Если форма уже улетела на сервер, а там выяснилось, что логин занят или код неверный — сервер просто
+                возвращает страницу с подсвеченными полями.
+            </p>
 
-                <h5 class="mt-5">Серверная валидация</h5>
-                <p>
-                    Если форма уже улетела на сервер, а там выяснилось, что логин занят или код неверный — сервер просто
-                    возвращает страницу с подсвеченными полями.
-                </p>
+            <p><strong>Как сделать:</strong></p>
+            <ul>
+                <li>
+                    К полю добавляем класс <code>is-invalid</code> (ошибка) или <code>is-valid</code> (всё хорошо).
+                </li>
+                <li>Под полем — тот же <code>invalid-feedback</code> или <code>valid-feedback</code>.</li>
+                <li>
+                    Если поле внутри <code>input-group</code> — добавить класс <code>has-validation</code> на
+                    группу, иначе рамка может криво отображаться.
+                </li>
+            </ul>
 
-                <p><strong>Как сделать:</strong></p>
-                <ul>
-                    <li>
-                        К полю добавляем класс <code>is-invalid</code> (ошибка) или <code>is-valid</code> (всё хорошо).
-                    </li>
-                    <li>Под полем — тот же <code>invalid-feedback</code> или <code>valid-feedback</code>.</li>
-                    <li>
-                        Если поле внутри <code>input-group</code> — добавить класс <code>has-validation</code> на
-                        группу, иначе рамка может криво отображаться.
-                    </li>
-                </ul>
-
-                <pre class="bg-light p-3 border rounded"><code>&lt;div class="bd-example"&gt;
+            <pre class="bg-light p-2 border rounded"><code>&lt;div class="bd-example"&gt;
   &lt;div class="mb-3"&gt;
       &lt;label for="login" class="form-label"&gt;Логин&lt;/label&gt;
       &lt;input type="text" class="form-control is-invalid" id="login" value="admin" /&gt;
@@ -603,37 +591,38 @@
 &lt;/div&gt;
 </code></pre>
 
-                <div class="bd-example">
-                    <div class="mb-3">
-                        <label for="login" class="form-label">Логин</label>
-                        <input type="text" class="form-control is-invalid" id="login" value="admin" />
-                        <div class="invalid-feedback">Такой логин уже занят, придумайте другой</div>
-                    </div>
-                </div>
-
-                <h5 class="mt-4">Где показывать сообщения: под полем или всплывашкой?</h5>
-                <ul>
-                    <li>
-                        <strong>Обычный текст под полем</strong> — классы <code>invalid-feedback</code> /
-                        <code>valid-feedback</code>.
-                    </li>
-                    <li>
-                        <strong>Всплывающая подсказка (tooltip)</strong> — классы <code>invalid-tooltip</code> /
-                        <code>valid-tooltip</code>. Нужно обернуть поле в
-                        <code>&lt;div class="position-relative"&gt;</code>, подсказка появляется при наведении или
-                        фокусе. Используется в случаях, когда места мало.
-                    </li>
-                </ul>
-
-                <div class="bd-example">
-                    <div class="position-relative mb-3">
-                        <input type="text" class="form-control is-invalid" placeholder="Никнейм" />
-                        <div class="invalid-tooltip">Ник занят!</div>
-                    </div>
+            <div class="bd-example">
+                <div class="mb-3">
+                    <label for="login" class="form-label">Логин</label>
+                    <input type="text" class="form-control is-invalid" id="login" value="admin" />
+                    <div class="invalid-feedback">Такой логин уже занят, придумайте другой</div>
                 </div>
             </div>
-            <h3 class="mt-5">9. Доступность и отключенные состояния</h3>
-            <div class="mb-4">
+
+            <h5 class="mt-4">Где показывать сообщения: под полем или всплывашкой?</h5>
+            <ul>
+                <li>
+                    <strong>Обычный текст под полем</strong> — классы <code>invalid-feedback</code> /
+                    <code>valid-feedback</code>.
+                </li>
+                <li>
+                    <strong>Всплывающая подсказка (tooltip)</strong> — классы <code>invalid-tooltip</code> /
+                    <code>valid-tooltip</code>. Нужно обернуть поле в
+                    <code>&lt;div class="position-relative"&gt;</code>, подсказка появляется при наведении или
+                    фокусе. Используется в случаях, когда места мало.
+                </li>
+            </ul>
+
+            <div class="bd-example">
+                <div class="position-relative mb-3">
+                    <input type="text" class="form-control is-invalid" placeholder="Никнейм" />
+                    <div class="invalid-tooltip">Ник занят!</div>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">9. Доступность и отключенные состояния</h3>
+            <div>
                 <p>Bootstrap делает формы максимально доступными, но требует правильного использования атрибутов.</p>
                 <h5 class="mt-4">Отключенные поля и группы (disabled / readonly)</h5>
                 <p>Есть три основных состояния:</p>
@@ -650,7 +639,7 @@
                     <li><code>&lt;fieldset disabled&gt;</code> — отключает сразу всю группу полей</li>
                 </ul>
 
-                <pre class="bg-light p-3 border rounded"><code>&lt;div class="bd-example"&gt;
+                <pre class="bg-light p-2 border rounded"><code>&lt;div class="bd-example"&gt;
     &lt;fieldset disabled&gt;
         &lt;legend&gt;Отключенная группа&lt;/legend&gt;
         &lt;div class="mb-3"&gt;
@@ -665,55 +654,58 @@
     &lt;/fieldset&gt;
 &lt;/div&gt;
 </code></pre>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <div class="bd-example">
+                <fieldset disabled>
+                    <legend>Отключенная группа</legend>
+                    <div class="mb-3">
+                        <label class="form-label">Имя</label>
+                        <input type="text" class="form-control" placeholder="Недоступно" />
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" />
+                        <label class="form-check-label">Нельзя отметить</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </fieldset>
+            </div>
 
-                <div class="bd-example">
-                    <fieldset disabled>
-                        <legend>Отключенная группа</legend>
-                        <div class="mb-3">
-                            <label class="form-label">Имя</label>
-                            <input type="text" class="form-control" placeholder="Недоступно" />
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" />
-                            <label class="form-check-label">Нельзя отметить</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Отправить</button>
-                    </fieldset>
-                </div>
+            <h4 class="mt-4">Доступность: метки и ARIA</h4>
 
-                <h5 class="mt-4">Доступность: метки и ARIA</h5>
+            <p>
+                ARIA (Accessible Rich Internet Applications) — это набор специальных HTML-атрибутов, которые
+                помогают сделать веб-интерфейсы понятными для скринридеров и других вспомогательных технологий. Они
+                не меняют внешний вид страницы, но сообщают программам чтения с экрана, что именно происходит: где
+                метка, где ошибка, какое поле отключено и т.д.
+            </p>
+            <ul>
+                <li>
+                    Каждое поле ввода должно иметь понятную метку — лучше всего через
+                    <code>&lt;label for="id"&gt;</code>. Если видимой метки нет (например, только иконка),
+                    используйте <code>aria-label</code> или <code>aria-labelledby</code>.
+                </li>
+                <li>
+                    Подсказки, сообщения об ошибках и пояснения под полем связывайте с помощью
+                    <code>aria-describedby="id-подсказки"</code>. Тогда скринридеры сразу озвучат важную информацию
+                    после поля.
+                </li>
+                <li>
+                    Для отключённых кнопок и элементов (кроме обычного <code>disabled</code>) добавляйте:
+                    <code>aria-disabled="true"</code> и <code>tabindex="-1"</code> — чтобы их не фокусировали
+                    клавиатурой.
+                </li>
+            </ul>
 
-                <p>
-                    ARIA (Accessible Rich Internet Applications) — это набор специальных HTML-атрибутов, которые
-                    помогают сделать веб-интерфейсы понятными для скринридеров и других вспомогательных технологий. Они
-                    не меняют внешний вид страницы, но сообщают программам чтения с экрана, что именно происходит: где
-                    метка, где ошибка, какое поле отключено и т.д.
-                </p>
-                <ul>
-                    <li>
-                        Каждое поле ввода должно иметь понятную метку — лучше всего через
-                        <code>&lt;label for="id"&gt;</code>. Если видимой метки нет (например, только иконка),
-                        используйте <code>aria-label</code> или <code>aria-labelledby</code>.
-                    </li>
-                    <li>
-                        Подсказки, сообщения об ошибках и пояснения под полем связывайте с помощью
-                        <code>aria-describedby="id-подсказки"</code>. Тогда скринридеры сразу озвучат важную информацию
-                        после поля.
-                    </li>
-                    <li>
-                        Для отключённых кнопок и элементов (кроме обычного <code>disabled</code>) добавляйте:
-                        <code>aria-disabled="true"</code> и <code>tabindex="-1"</code> — чтобы их не фокусировали
-                        клавиатурой.
-                    </li>
-                </ul>
-
-                <pre class="bg-light p-3 border rounded"><code>&lt;!-- Пример: поле + подсказка + ошибка --&gt;
+            <pre class="bg-light p-2 border rounded"><code>&lt;!-- Пример: поле + подсказка + ошибка --&gt;
 &lt;input class="form-control is-invalid" id="email" aria-describedby="emailHelp emailFeedback"&gt;
 &lt;div id="emailHelp" class="form-text"&gt;Мы не передаём почту третьим лицам&lt;/div&gt;
 &lt;div id="emailFeedback" class="invalid-feedback"&gt;Введите корректный email&lt;/div&gt;</code></pre>
-            </div>
-            <h3 class="mt-5">10. Настройка форм через Sass</h3>
-            <div class="mb-4">
+        </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">10. Настройка форм через Sass</h3>
+            <div>
                 <p>
                     Bootstrap написан на Sass, поэтому почти все параметры форм (отступы, цвета границ, размер шрифта,
                     толщину фокусной обводки и т.д.) можно переопределить, не трогая основной код.
@@ -762,9 +754,8 @@
                     </tbody>
                 </table>
 
-                <h5 class="mt-4">Простой пример кастомизации</h5>
-                <pre
-                    class="bg-light p-3 border rounded"><code>// Перед импортом Bootstrap переопределяем нужные переменные
+                <h5 class="mt-2">Простой пример кастомизации</h5>
+                <pre class="bg-light p-2 border rounded"><code>// Перед импортом Bootstrap переопределяем нужные переменные
 $input-padding-y:            .5rem;           // чуть выше поля
 $input-padding-x:            1rem;            // шире поля
 $input-font-size:            1.05rem;         // чуть крупнее текст
@@ -778,28 +769,29 @@ $form-invalid-color:         #dc3545;
 // Затем подключаем
 @import "bootstrap/scss/bootstrap";</code></pre>
             </div>
-            <a href="utilities.html"> переходим дальше </a>
-        </main>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
-        <script>
-            (() => {
-                "use strict";
-                const form = document.querySelector(".needs-validation");
-                form.addEventListener(
-                    "submit",
-                    (event) => {
-                        if (!form.checkValidity()) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add("was-validated");
-                    },
-                    false
-                );
-            })();
-        </script>
-    </body>
+        </section>
+        <a href="utilities.html"> переходим дальше </a>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script>
+        (() => {
+            "use strict";
+            const form = document.querySelector(".needs-validation");
+            form.addEventListener(
+                "submit",
+                (event) => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add("was-validated");
+                },
+                false
+            );
+        })();
+    </script>
+</body>
+
 </html>
