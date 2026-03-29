@@ -12,64 +12,63 @@
     </head>
 
     <body>
-        <h1>Bootstrap</h1>
-        <h2><a href="15.pdf" target="_blank">Презентация с теорией</a></h2>
+        <main class="container my-4">
+            <h1 class="mt-4">Bootstrap</h1>
+            <h2 class="mt-4"><a href="15.pdf" target="_blank">Презентация с теорией</a></h2>
 
-        <h2>Вопросы для самопроверки</h2>
-        <ol>
-            <li>
-                Какую систему использует сетка в Bootstrap?
-                <ul>
-                    <li>8 колонок и 6 адаптивных ярусов</li>
-                    <li>12 колонок и 6 адаптивных ярусов</li>
-                    <li>8 колонок и 5 адаптивных ярусов</li>
-                    <li>12 колонок и 5 адаптивных ярусов</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        12 колонок и 5 адаптивных ярусов
-                    </p>
-                </details>
-            </li>
-            <li>
-                Что выведет следующий код?
-                <pre><code>
+            <h2 class="mt-4">Вопросы для самопроверки</h2>
+            <ol>
+                <li class="mb-2">
+                    Какую систему использует сетка в Bootstrap?
+                    <ul>
+                        <li>8 колонок и 6 адаптивных ярусов</li>
+                        <li>12 колонок и 6 адаптивных ярусов</li>
+                        <li>8 колонок и 5 адаптивных ярусов</li>
+                        <li>12 колонок и 5 адаптивных ярусов</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">12 колонок и 5 адаптивных ярусов</p>
+                    </details>
+                </li>
+                <li class="mb-2">
+                    Что выведет следующий код?
+                    <pre><code>
 &lt;div class="row"&gt;
     &lt;div class="col order-3 order-md-1"&gt;Меню&lt;/div&gt;
     &lt;div class="col order-2 order-md-3"&gt;Контент&lt;/div&gt;
     &lt;div class="col order-1 order-md-2"&gt;Сайдбар&lt;/div&gt;
 &lt;/div&gt;
         </code></pre>
-                <ul>
-                    <li>
-                        На компьютере: Меню -&gt; Контент -&gt; Сайдбар. <br />На телефоне: Меню -&gt; Контент -&gt;
-                        Сайдбар.
-                    </li>
-                    <li>
-                        На компьютере: Меню -&gt; Сайдбар -&gt; Контент. <br />На телефоне: Сайдбар -&gt; Контент -&gt;
-                        Меню.
-                    </li>
-                    <li>
-                        На компьютере: Сайдбар -&gt; Контент -&gt; Меню. <br />На телефоне: Меню -&gt; Сайдбар -&gt;
-                        Контент.
-                    </li>
-                    <li>
-                        На компьютере: Сайдбар -&gt; Меню -&gt; Контент. <br />На телефоне: Контент -&gt; Меню -&gt;
-                        Сайдбар.
-                    </li>
+                    <ul>
+                        <li>
+                            На компьютере: Меню -&gt; Контент -&gt; Сайдбар. <br />На телефоне: Меню -&gt; Контент -&gt;
+                            Сайдбар.
+                        </li>
+                        <li>
+                            На компьютере: Меню -&gt; Сайдбар -&gt; Контент. <br />На телефоне: Сайдбар -&gt; Контент
+                            -&gt; Меню.
+                        </li>
+                        <li>
+                            На компьютере: Сайдбар -&gt; Контент -&gt; Меню. <br />На телефоне: Меню -&gt; Сайдбар -&gt;
+                            Контент.
+                        </li>
+                        <li>
+                            На компьютере: Сайдбар -&gt; Меню -&gt; Контент. <br />На телефоне: Контент -&gt; Меню -&gt;
+                            Сайдбар.
+                        </li>
+                    </ul>
                     <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        На компьютере: Сайдбар -&gt; Контент -&gt; Меню. <br />На телефоне: Меню -&gt; Сайдбар -&gt;
-                        Контент.
-                    </p>
-                </details>
-                </ul>
-            </li>
-            <li>
-                Сколько колонок Bootstrap занимает вложенный элемент?
-                <pre>
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            На компьютере: Сайдбар -&gt; Контент -&gt; Меню. <br />На телефоне: Меню -&gt; Сайдбар -&gt;
+                            Контент.
+                        </p>
+                    </details>
+                </li>
+                <li class="mb-2">
+                    Сколько колонок Bootstrap занимает вложенный элемент?
+                    <pre>
 &lt;div class="row"&gt;
     &lt;div class="col-8"&gt;
         &lt;div class="row"&gt;
@@ -79,346 +78,343 @@
     &lt;/div&gt;
     &lt;div class="col-4"&gt;Сайдбар&lt;/div&gt;
 &lt;/div&gt;
-    </pre
-                >
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        4
-                    </p>
-                </details>
-            </li>
-            <li>
-                Что произойдет, если в одном ряду сумма колонок составит ровно 11 (например, col-4 + col-4 + col-3)?
-                <ul>
-                    <li>Ряд будет выглядеть нормально, но справа останется пустое место на 1 колонку</li>
-                    <!-- Ответ -->
-                    <li>Третья колонка автоматически расширится до col-4, чтобы заполнить ряд</li>
-                    <li>Ряд "схлопнется", и колонки встанут неправильно</li>
-                    <li>Bootstrap выдаст ошибку в консоли</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Третья колонка автоматически расширится до col-4, чтобы заполнить ряд
-                    </p>
-                </details>
-            </li>
+</pre>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">4</p>
+                    </details>
+                </li>
+                <li class="mb-2">
+                    Что произойдет, если в одном ряду сумма колонок составит ровно 11 (например, col-4 + col-4 + col-3)?
+                    <ul>
+                        <li>Ряд будет выглядеть нормально, но справа останется пустое место на 1 колонку</li>
+                        <!-- Ответ -->
+                        <li>Третья колонка автоматически расширится до col-4, чтобы заполнить ряд</li>
+                        <li>Ряд "схлопнется", и колонки встанут неправильно</li>
+                        <li>Bootstrap выдаст ошибку в консоли</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">Третья колонка автоматически расширится до col-4, чтобы заполнить ряд</p>
+                    </details>
+                </li>
 
-            <li>
-                Что произойдёт при клике вне модального элемента?
-                <ul>
-                    <li>Ничего не произойдет, окно останется открытым</li>
-                    <li>Окно свернется в панель задач</li>
-                    <li>Клик вне модального элемента автоматически закрывает его</li>
-                    <li>Появится предупреждение о подтверждении закрытия</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">Клик вне модального элемента автоматически закрывает его.</p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Что произойдёт при клике вне модального элемента?
+                    <ul>
+                        <li>Ничего не произойдет, окно останется открытым</li>
+                        <li>Окно свернется в панель задач</li>
+                        <li>Клик вне модального элемента автоматически закрывает его</li>
+                        <li>Появится предупреждение о подтверждении закрытия</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">Клик вне модального элемента автоматически закрывает его.</p>
+                    </details>
+                </li>
 
-            <li>
-                Сопоставьте цвет и название класса:
-                <div class="row mt-2">
-                    <div class="col-6">
-                        <ol class="mb-0">
-                            <li>primary</li>
-                            <li>dark</li>
-                            <li>warning</li>
-                            <li>success</li>
-                            <li>danger</li>
-                        </ol>
+                <li class="mb-2">
+                    Сопоставьте цвет и название класса:
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <ol class="mb-0">
+                                <li>primary</li>
+                                <li>dark</li>
+                                <li>warning</li>
+                                <li>success</li>
+                                <li>danger</li>
+                            </ol>
+                        </div>
+                        <div class="col-6">
+                            <ul class="mb-0 list-unstyled">
+                                <li>А. Красный</li>
+                                <li>Б. Черный</li>
+                                <li>В. Синий</li>
+                                <li>Г. Желтый</li>
+                                <li>Д. Зеленый</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <ul class="mb-0 list-unstyled">
-                            <li>А. Красный</li>
-                            <li>Б. Черный</li>
-                            <li>В. Синий</li>
-                            <li>Г. Желтый</li>
-                            <li>Д. Зеленый</li>
-                        </ul>
-                    </div>
-                </div>
-                <details class="mt-3">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        1 — В <br />
-                        2 — Б <br />
-                        3 — Г <br />
-                        4 — Д <br />
-                        5 — А
-                    </p>
-                </details>
-            </li>
+                    <details class="mt-3">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            1 — В <br />
+                            2 — Б <br />
+                            3 — Г <br />
+                            4 — Д <br />
+                            5 — А
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Для чего нужны заполнители (placeholders)?
-                <ul>
-                    <li>Для создания резервных копий компонентов</li>
-                    <li>Для указания, что процесс загрузки ещё идёт</li>
-                    <li>Для скрытия контента от поисковых систем</li>
-                    <li>Для автоматического масштабирования изображений</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Используйте заполнители загрузки для ваших компонентов или страниц, чтобы указать, что процесс
-                        загрузки ещё идёт.
-                    </p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Для чего нужны заполнители (placeholders)?
+                    <ul>
+                        <li>Для создания резервных копий компонентов</li>
+                        <li>Для указания, что процесс загрузки ещё идёт</li>
+                        <li>Для скрытия контента от поисковых систем</li>
+                        <li>Для автоматического масштабирования изображений</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Используйте заполнители загрузки для ваших компонентов или страниц, чтобы указать, что
+                            процесс загрузки ещё идёт.
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Что такое прогрессбар?
-                <ul>
-                    <li>Элемент для отображения навигационной цепочки</li>
-                    <li>Компонент для цикличного повторения слайдов</li>
-                    <li>
-                        Настраиваемые индикаторы выполнения с поддержкой составных полос, анимированных фонов и
-                        текстовых меток
-                    </li>
-                    <li>Кнопка для закрытия модальных окон</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Настраиваемые индикаторы выполнения с поддержкой составных полос, анимированных фонов и
-                        текстовых меток.
-                    </p>
-                </details>
-            </li>
-            <li>
-                Какие основные классы используются для стилизации форм в Bootstrap?
-                <ul>
-                    <li>.form-group, .input-control, .label-text</li>
-                    <li>.form-control, .form-label, .form-text</li>
-                    <li>.input-group, .label, .help-text</li>
-                    <li>.form-field, .form-caption, .form-hint</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Правильный ответ: <strong>.form-control, .form-label, .form-text</strong><br />
-                        Класс <code>.form-control</code> стилизует поля ввода, <code>.form-label</code> — метки, а
-                        <code>.form-text</code> — вспомогательный текст-подсказку.
-                    </p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Что такое прогрессбар?
+                    <ul>
+                        <li>Элемент для отображения навигационной цепочки</li>
+                        <li>Компонент для цикличного повторения слайдов</li>
+                        <li>
+                            Настраиваемые индикаторы выполнения с поддержкой составных полос, анимированных фонов и
+                            текстовых меток
+                        </li>
+                        <li>Кнопка для закрытия модальных окон</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Настраиваемые индикаторы выполнения с поддержкой составных полос, анимированных фонов и
+                            текстовых меток.
+                        </p>
+                    </details>
+                </li>
+                <li class="mb-2">
+                    Какие основные классы используются для стилизации форм в Bootstrap?
+                    <ul>
+                        <li>.form-group, .input-control, .label-text</li>
+                        <li>.form-control, .form-label, .form-text</li>
+                        <li>.input-group, .label, .help-text</li>
+                        <li>.form-field, .form-caption, .form-hint</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Правильный ответ: <strong>.form-control, .form-label, .form-text</strong><br />
+                            Класс <code>.form-control</code> стилизует поля ввода, <code>.form-label</code> — метки, а
+                            <code>.form-text</code> — вспомогательный текст-подсказку.
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Для каких элементов применяется класс <code>.form-control</code>?
-                <ul>
-                    <li>Только для &lt;input type="text"&gt;</li>
-                    <li>Для &lt;input&gt;, &lt;textarea&gt; и &lt;select&gt;</li>
-                    <li>Только для кнопок и чекбоксов</li>
-                    <li>Для всех элементов формы без исключения</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Правильный ответ: <strong>Для &lt;input&gt;, &lt;textarea&gt; и &lt;select&gt;</strong>
-                    </p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Для каких элементов применяется класс <code>.form-control</code>?
+                    <ul>
+                        <li>Только для &lt;input type="text"&gt;</li>
+                        <li>Для &lt;input&gt;, &lt;textarea&gt; и &lt;select&gt;</li>
+                        <li>Только для кнопок и чекбоксов</li>
+                        <li>Для всех элементов формы без исключения</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Правильный ответ: <strong>Для &lt;input&gt;, &lt;textarea&gt; и &lt;select&gt;</strong>
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Какой класс используется для стилизации выпадающего списка <code>&lt;select&gt;</code>?
-                <ul>
-                    <li>.form-control</li>
-                    <li>.form-select</li>
-                    <li>.custom-select</li>
-                    <li>.select-control</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">Правильный ответ: <strong>.form-select</strong></p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Какой класс используется для стилизации выпадающего списка <code>&lt;select&gt;</code>?
+                    <ul>
+                        <li>.form-control</li>
+                        <li>.form-select</li>
+                        <li>.custom-select</li>
+                        <li>.select-control</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">Правильный ответ: <strong>.form-select</strong></p>
+                    </details>
+                </li>
 
-            <li>
-                Какой класс создаёт группу чекбоксов или радиокнопок?
-                <ul>
-                    <li>.form-check</li>
-                    <li>.form-group</li>
-                    <li>.input-group</li>
-                    <li>.check-group</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Правильный ответ: <strong>.form-check</strong><br />
-                        Внутри используются <code>.form-check-input</code> и <code>.form-check-label</code>.
-                    </p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Какой класс создаёт группу чекбоксов или радиокнопок?
+                    <ul>
+                        <li>.form-check</li>
+                        <li>.form-group</li>
+                        <li>.input-group</li>
+                        <li>.check-group</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Правильный ответ: <strong>.form-check</strong><br />
+                            Внутри используются <code>.form-check-input</code> и <code>.form-check-label</code>.
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Как сделать чекбоксы и радиокнопки расположенными горизонтально?
-                <ul>
-                    <li>Добавить класс .form-check-inline</li>
-                    <li>Использовать .row и .col</li>
-                    <li>Добавить .horizontal к .form-check</li>
-                    <li>Применить .inline к родителю</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">Правильный ответ: <strong>Добавить класс .form-check-inline</strong></p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Как сделать чекбоксы и радиокнопки расположенными горизонтально?
+                    <ul>
+                        <li>Добавить класс .form-check-inline</li>
+                        <li>Использовать .row и .col</li>
+                        <li>Добавить .horizontal к .form-check</li>
+                        <li>Применить .inline к родителю</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">Правильный ответ: <strong>Добавить класс .form-check-inline</strong></p>
+                    </details>
+                </li>
 
-            <li>
-                Какой класс используется для создания свитча (переключателя)?
-                <ul>
-                    <li>.form-toggle</li>
-                    <li>.form-switch</li>
-                    <li>.custom-switch</li>
-                    <li>.form-check-switch</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">Правильный ответ: <strong>.form-switch</strong></p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Какой класс используется для создания свитча (переключателя)?
+                    <ul>
+                        <li>.form-toggle</li>
+                        <li>.form-switch</li>
+                        <li>.custom-switch</li>
+                        <li>.form-check-switch</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">Правильный ответ: <strong>.form-switch</strong></p>
+                    </details>
+                </li>
 
-            <li>
-                Для чего предназначен компонент Input Group?
-                <ul>
-                    <li>Для объединения нескольких форм в одну</li>
-                    <li>Для добавления текста, кнопок или иконок к полю ввода</li>
-                    <li>Для создания горизонтальных форм</li>
-                    <li>Для валидации группы полей</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Правильный ответ: <strong>Для добавления текста, кнопок или иконок к полю ввода</strong><br />
-                        Основной класс — <code>.input-group</code>, дополнения — <code>.input-group-text</code>.
-                    </p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Для чего предназначен компонент Input Group?
+                    <ul>
+                        <li>Для объединения нескольких форм в одну</li>
+                        <li>Для добавления текста, кнопок или иконок к полю ввода</li>
+                        <li>Для создания горизонтальных форм</li>
+                        <li>Для валидации группы полей</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Правильный ответ: <strong>Для добавления текста, кнопок или иконок к полю ввода</strong
+                            ><br />
+                            Основной класс — <code>.input-group</code>, дополнения — <code>.input-group-text</code>.
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Какой класс используется для создания плавающих меток (Floating Labels)?
-                <ul>
-                    <li>.form-label-floating</li>
-                    <li>.form-floating</li>
-                    <li>.floating-label</li>
-                    <li>.label-float</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Правильный ответ: <strong>.form-floating</strong><br />
-                        Обязательно наличие атрибута <code>placeholder</code>.
-                    </p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Какой класс используется для создания плавающих меток (Floating Labels)?
+                    <ul>
+                        <li>.form-label-floating</li>
+                        <li>.form-floating</li>
+                        <li>.floating-label</li>
+                        <li>.label-float</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Правильный ответ: <strong>.form-floating</strong><br />
+                            Обязательно наличие атрибута <code>placeholder</code>.
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Как по умолчанию располагаются элементы форм в Bootstrap?
-                <ul>
-                    <li>Горизонтально в одну строку</li>
-                    <li>Вертикально (каждый элемент занимает 100% ширины)</li>
-                    <li>В две колонки</li>
-                    <li>Зависит от размера экрана</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Правильный ответ: <strong>Вертикально (каждый элемент занимает 100% ширины)</strong>
-                    </p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Как по умолчанию располагаются элементы форм в Bootstrap?
+                    <ul>
+                        <li>Горизонтально в одну строку</li>
+                        <li>Вертикально (каждый элемент занимает 100% ширины)</li>
+                        <li>В две колонки</li>
+                        <li>Зависит от размера экрана</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Правильный ответ: <strong>Вертикально (каждый элемент занимает 100% ширины)</strong>
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Что нужно добавить на форму для клиентской валидации Bootstrap?
-                <ul>
-                    <li>class="needs-validation" и атрибут novalidate</li>
-                    <li>class="form-validation"</li>
-                    <li>class="validated-form"</li>
-                    <li>Атрибут validate="true"</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Правильный ответ: <strong>class="needs-validation" и атрибут novalidate</strong><br />
-                        После отправки через JavaScript добавляется класс <code>was-validated</code>.
-                    </p>
-                </details>
-            </li>
+                <li class="mb-2">
+                    Что нужно добавить на форму для клиентской валидации Bootstrap?
+                    <ul>
+                        <li>class="needs-validation" и атрибут novalidate</li>
+                        <li>class="form-validation"</li>
+                        <li>class="validated-form"</li>
+                        <li>Атрибут validate="true"</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Правильный ответ: <strong>class="needs-validation" и атрибут novalidate</strong><br />
+                            После отправки через JavaScript добавляется класс <code>was-validated</code>.
+                        </p>
+                    </details>
+                </li>
 
-            <li>
-                Что произойдёт при добавлении атрибута <code>disabled</code> к элементу формы?
-                <ul>
-                    <li>Элемент станет серым и недоступным для редактирования</li>
-                    <li>Элемент исчезнет с экрана</li>
-                    <li>Элемент можно будет прочитать, но нельзя изменить</li>
-                    <li>Ничего не изменится</li>
-                </ul>
-                <details class="mt-2">
-                    <summary class="text-primary">Показать ответ</summary>
-                    <p class="mb-0 ms-3">
-                        Правильный ответ: <strong>Элемент станет серым и недоступным для редактирования</strong><br />
-                        Поле не отправляется на сервер. Для отключения всей группы используется
-                        <code>&lt;fieldset disabled&gt;</code>.
-                    </p>
-                </details>
-            </li>
-        </ol>
+                <li class="mb-2">
+                    Что произойдёт при добавлении атрибута <code>disabled</code> к элементу формы?
+                    <ul>
+                        <li>Элемент станет серым и недоступным для редактирования</li>
+                        <li>Элемент исчезнет с экрана</li>
+                        <li>Элемент можно будет прочитать, но нельзя изменить</li>
+                        <li>Ничего не изменится</li>
+                    </ul>
+                    <details class="mt-2">
+                        <summary class="text-primary">Показать ответ</summary>
+                        <p class="mb-0 ms-3">
+                            Правильный ответ: <strong>Элемент станет серым и недоступным для редактирования</strong
+                            ><br />
+                            Поле не отправляется на сервер. Для отключения всей группы используется
+                            <code>&lt;fieldset disabled&gt;</code>.
+                        </p>
+                    </details>
+                </li>
+            </ol>
 
-        <h2>Примеры</h2>
-        <a href="Grid.html"> Пример использования разметки</a><br />
-        <a href="Components.html">Пример использования компонентов</a><br />
-        <a href="forms.html">Пример использования форм</a><br />
-        <a href="utilities.html">Пример использования утилит</a>
+            <h2 class="mt-4">Примеры</h2>
+            <a href="Grid.html"> Пример использования разметки</a><br />
+            <a href="Components.html">Пример использования компонентов</a><br />
+            <a href="forms.html">Пример использования форм</a><br />
+            <a href="utilities.html">Пример использования утилит</a>
 
-        <h2>Задания для самостоятельной работы</h2>
-        <h3>Круг из кнопочек</h3>
-        <p>Сделайте круг из 12 кнопок (см на рисунок)</p>
-        <img src="pictures/example.png" />
+            <h2 class="mt-4">Задания для самостоятельной работы</h2>
+            <h3 class="mt-4">Круг из кнопочек</h3>
+            <p>Сделайте круг из 12 кнопок (см на рисунок)</p>
+            <img src="pictures/example.png" />
 
-        <h3>Форма регистрации пользователя</h3>
-        <p>
-            Создайте адаптивную форму регистрации с использованием Bootstrap 5.3. Форма должна быть красивой, удобной и
-            полностью рабочей.
-        </p>
+            <h3 class="mt-4">Форма регистрации пользователя</h3>
+            <p>
+                Создайте адаптивную форму регистрации с использованием Bootstrap 5.3. Форма должна быть красивой,
+                удобной и полностью рабочей.
+            </p>
 
-        <p><strong>Требования к форме:</strong></p>
-        <ul>
-            <li>
-                Используйте <strong>плавающие метки</strong> (<code>.form-floating</code>) для всех текстовых полей.
-            </li>
-            <li>
-                Примените систему сетки Bootstrap: имя и фамилия — в две колонки на средних экранах и выше (<code
-                    >.row</code
-                >
-                + <code>.col-md-6</code>).
-            </li>
-            <li>Поле «Email» — с группой ввода (<code>.input-group</code>) и иконкой/префиксом «@».</li>
-            <li>Поля «Пароль» и «Подтверждение пароля» — рядом в две колонки на средних экранах.</li>
-            <li>Добавьте чекбокс «Я согласен с условиями использования» (с классом <code>.form-check</code>).</li>
-            <li>Кнопка отправки — большая, основного цвета (<code>.btn btn-primary btn-lg</code>).</li>
-            <li>
-                Реализуйте клиентскую валидацию Bootstrap:
-                <ul>
-                    <li>Все поля обязательные (<code>required</code>).</li>
-                    <li>Поле email должно проверять корректность адреса.</li>
-                    <li>Пароль — минимум 8 символов.</li>
-                </ul>
-            </li>
-            <li>Форма должна быть полностью адаптивной (на мобильных устройствах поля занимают всю ширину).</li>
-        </ul>
+            <p><strong>Требования к форме:</strong></p>
+            <ul>
+                <li>
+                    Используйте <strong>плавающие метки</strong> (<code>.form-floating</code>) для всех текстовых полей.
+                </li>
+                <li>
+                    Примените систему сетки Bootstrap: имя и фамилия — в две колонки на средних экранах и выше (<code
+                        >.row</code
+                    >
+                    + <code>.col-md-6</code>).
+                </li>
+                <li>Поле «Email» — с группой ввода (<code>.input-group</code>) и иконкой/префиксом «@».</li>
+                <li>Поля «Пароль» и «Подтверждение пароля» — рядом в две колонки на средних экранах.</li>
+                <li>Добавьте чекбокс «Я согласен с условиями использования» (с классом <code>.form-check</code>).</li>
+                <li>Кнопка отправки — большая, основного цвета (<code>.btn btn-primary btn-lg</code>).</li>
+                <li>
+                    Реализуйте клиентскую валидацию Bootstrap:
+                    <ul>
+                        <li>Все поля обязательные (<code>required</code>).</li>
+                        <li>Поле email должно проверять корректность адреса.</li>
+                        <li>Пароль — минимум 8 символов.</li>
+                    </ul>
+                </li>
+                <li>Форма должна быть полностью адаптивной (на мобильных устройствах поля занимают всю ширину).</li>
+            </ul>
 
-        <p>
-            Создайте отдельный файл <strong>registration.html</strong> (или добавьте форму в существующий проект).
-            Подключите Bootstrap 5.3 через CDN.
-        </p>
+            <p>
+                Создайте отдельный файл <strong>registration.html</strong> (или добавьте форму в существующий проект).
+                Подключите Bootstrap 5.3 через CDN.
+            </p>
 
-        <details class="mt-3">
-            <summary class="text-primary">Пример структуры формы (для самопроверки)</summary>
-            <pre class="bg-light p-3 border rounded mt-2"><code>&lt;form class="needs-validation" novalidate&gt;
+            <details class="mt-3">
+                <summary class="text-primary">Пример структуры формы (для самопроверки)</summary>
+                <pre class="bg-light p-3 border rounded mt-2"><code>&lt;form class="needs-validation" novalidate&gt;
   &lt;div class="row g-3"&gt;
     &lt;div class="col-md-6"&gt;
       &lt;div class="form-floating"&gt;
@@ -430,13 +426,14 @@
   &lt;/div&gt;
   &lt;button type="submit" class="btn btn-primary btn-lg mt-4"&gt;Зарегистрироваться&lt;/button&gt;
 &lt;/form&gt;</code></pre>
-        </details>
+            </details>
 
-        <p>После выполнения проверьте форму на разных экранах и протестируйте валидацию.</p>
+            <p>После выполнения проверьте форму на разных экранах и протестируйте валидацию.</p>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                crossorigin="anonymous"></script>
+        </main>
     </body>
 </html>
