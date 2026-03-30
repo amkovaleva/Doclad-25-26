@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знакомство с Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/15-print-grid.css">
+</head>
+<body>
+    <main class="container my-5">
+        <section class="pdf-page">
+            <h2 class="mt-4">Кто такой Bootstrap?</h2>
+            <div>
+                <p class="my-1">Bootstrap — это мощный, многофункциональный интерфейсный инструментарий.</p>
+                <p>
+                    Он содержит готовые шаблоны для кнопок, навигационных панелей, карточек, форм и множества других
+                    элементов, что позволяет быстро создавать современные и адаптивные сайты.
+                </p>
+            </div>
+            <h3 class="mt-2">Где его найти и как скачать?</h3>
+            <div>
+                <p>Есть несколько способов начать работу с Bootstrap:</p>
+                <ul>
+                    <li>
+                        <strong>Официальный сайт:</strong> Самый простой способ — зайти на официальную страницу
+                        <a href="https://getbootstrap.com" target="_blank">getbootstrap.com</a> и нажать кнопку
+                        "Download".
+                    </li>
+                    <li>
+                        <strong>CDN-ссылки (самый популярный способ):</strong> Тебе даже не нужно скачивать файлы. Можно
+                        просто подключить готовые стили и скрипты в коде страницы.
+                    </li>
+                    <li>
+                        <strong>Через пакетный менеджер:</strong> Если ты пользуешься npm или yarn, можно установить его
+                        командой <code>npm install bootstrap</code>.
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-2">Как это выглядит в коде?</h3>
+            <div>
+                <div class="alert alert-info">
+                    Если ты выберешь способ с CDN, тебе нужно будет вставить в шапку сайта (внутри тега &lt;head&gt;)
+                    вот такую ссылку:
+                </div>
+                <pre class="bg-light p-3 border rounded"><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"&gt;</code></pre>
+                <div class="alert alert-info mt-3">А перед закрывающимся тегом &lt;/body&gt; вставить скрипты:</div>
+                <pre class="bg-light p-3 border rounded mb-0"><code>&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+                <p class="text-muted my-1">
+                    <i>Примечание: Версии могут меняться, лучше всегда брать актуальные ссылки на официальном сайте.</i>
+                </p>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Система разметки Bootstrap</h2>
+            <h3 class="mt-2">1. Контейнеры</h3>
+            <div>
+                <p>
+                    В Bootstrap всё начинается с контейнера. Это базовый строительный блок, который содержит,
+                    выравнивает и центрирует содержимое страницы. Контейнеры бывают трех типов: фиксированный
+                    (.container), на всю ширину (.container-fluid) и адаптивные контейнеры (.container-sm, .container-md
+                    и т.д.).
+                </p>
+                <pre class="bg-light p-3 border rounded"><code>&lt;div class="container"&gt;
+    &lt;!-- Содержимое с отступами по бокам --&gt;
+&lt;/div&gt;
+
+&lt;div class="container-fluid"&gt;
+    &lt;!-- Контейнер на всю ширину экрана --&gt;
+&lt;/div&gt;
+
+&lt;div class="container-lg"&gt;
+    &lt;!-- Адаптивный контейнер (будет на всю ширину только на маленьких экранах) --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <h3 class="mt-2">2. Сетка</h3>
+                <p class="mb-0">
+                    Bootstrap использует систему «12 колонок», 5 адаптивных ярусов, препроцессоров Sass и
+                    предустановленных классов.
+                </p>
+                <p class="mb-2">Очень страшные слова, поэтому разберем на небольшом примере:</p>
+                
+                <div class="row g-2">
+                    <div class="col-12">
+                        <div class="bg-light border rounded p-2">
+                            <strong>Представь, что ширина экрана разделена на 12 равных частей.</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <pre class="bg-light p-3 border rounded my-0"><code>&lt;div class="row"&gt; 
+    &lt;div class="col-4"&gt;Заняли 4 колонки&lt;/div&gt;
+    &lt;div class="col-8"&gt;Заняли 8 колонок&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="bg-info-subtle border rounded p-2">
+                        <p class="my-0">
+                            <strong>Почему именно 12?</strong> Число 12 удобно тем, что делится на много частей: на 2,
+                            3, 4, 6. Это дает гибкость в верстке. Например, можно создать макет из двух колонок по 6,
+                            трех колонок по 4, четырех колонок по 3 или шести колонок по 2.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Адаптивные ярусы (брейкпоинты)</h4>
+            <p>
+                Адаптивные ярусы (брейкпоинты) — это точки перелома, при которых макет страницы меняется в зависимости
+                от ширины экрана. Bootstrap имеет 6 предопределенных брейкпоинтов, основанных на размерах популярных
+                устройств.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Ярус</th>
+                            <th>Класс</th>
+                            <th>Когда срабатывает</th>
+                            <th>Какие устройства</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Очень маленький</td>
+                            <td>xs</td>
+                            <td>&lt;576px</td>
+                            <td>Старые телефоны</td>
+                        </tr>
+                        <tr>
+                            <td>Маленький</td>
+                            <td>sm</td>
+                            <td>≥576px</td>
+                            <td>Современные телефоны</td>
+                        </tr>
+                        <tr>
+                            <td>Средний</td>
+                            <td>md</td>
+                            <td>≥768px</td>
+                            <td>Планшеты</td>
+                        </tr>
+                        <tr>
+                            <td>Большой</td>
+                            <td>lg</td>
+                            <td>≥992px</td>
+                            <td>Ноутбуки</td>
+                        </tr>
+                        <tr>
+                            <td>Очень большой</td>
+                            <td>xl</td>
+                            <td>≥1200px</td>
+                            <td>Большие мониторы</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                <h6 class="fw-bold">Пример адаптивной сетки:</h6>
+                <div class="row g-2 mb-3 text-center">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="p-2 bg-info text-white border rounded">Блок 1</div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="p-2 bg-info text-white border rounded">Блок 2</div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="p-2 bg-info text-white border rounded">Блок 3</div>
+                    </div>
+                </div>
+
+                <pre class="bg-light p-3 border rounded small"><code>&lt;!-- 12 колонок на мобильном, 6 на планшете (md), 4 на ноутбуке (lg) --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4"&gt;Блок 1&lt;/div&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4"&gt;Блок 2&lt;/div&gt;
+  &lt;div class="col-12 col-lg-4"&gt;Блок 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">3. Колонки</h2>
+            <p class="mb-0">
+                Поскольку сетка Bootstrap построена на flexbox, мы можем использовать различные утилиты для выравнивания
+                колонок по вертикали и горизонтали.
+            </p>
+            <h4 class="mt-2">Вертикальное выравнивание для всех колонок в ряду</h4>
+            <p>
+                Классы <code>.align-items-*</code> на родителе <code>.row</code> выравнивают все колонки одновременно:
+            </p>
+            <div class="bd-example">
+                <div class="text-center alert alert-info">
+                    <div class="row align-items-start mb-3">
+                        <div class="col"><div class="bg-light border p-5">Верх (align-items-start)</div></div>
+                        <div class="col"><div class="bg-light border p-3">Колонка 2</div></div>
+                        <div class="col"><div class="bg-light border p-3">Колонка 3</div></div>
+                    </div>
+                    <div class="row align-items-center mb-3">
+                        <div class="col"><div class="bg-light border p-5">Центр (align-items-center)</div></div>
+                        <div class="col"><div class="bg-light border p-3">Колонка 2</div></div>
+                        <div class="col"><div class="bg-light border p-3">Колонка 3</div></div>
+                    </div>
+                    <div class="row align-items-end mb-3">
+                        <div class="col">
+                            <div class="bg-light border p-5">Выравнивание по нижнему краю (align-items-end)</div>
+                        </div>
+                        <div class="col"><div class="bg-light border p-3">Колонка 2</div></div>
+                        <div class="col"><div class="bg-light border p-3">Колонка 3</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row align-items-start"&gt;
+    &lt;div class="col"&gt;Верх (align-items-start)&lt;/div&gt;
+    &lt;div class="col"&gt;Колонка 2&lt;/div&gt;
+    &lt;div class="col"&gt;Колонка 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row align-items-center"&gt;
+    &lt;div class="col"&gt;Центр (align-items-center)/div&gt;
+    &lt;div class="col"&gt;Колонка 2/div&gt;
+    &lt;div class="col"&gt;Колонка 3/div&gt;
+&lt;/div&gt;
+&lt;div class="row align-items-end"&gt;
+    &lt;div class="col"&gt;Выравнивание по нижнему краю (align-items-end)&lt;/div&gt;
+    &lt;div class="col"&gt;Колонка 2&lt;/div&gt;
+    &lt;div class="col"&gt;Колонка 3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            <p>Также можно выровнять каждую колонку индивидуально с помощью классов <code>.align-self-*</code>:</p>
+            <div class="bd-example">
+                <div class="text-center alert alert-info">
+                    <div class="row mb-3">
+                        <div class="col-4 align-self-start">
+                            <div class="bg-light border p-5">.align-self-start</div>
+                        </div>
+                        <div class="col-4 align-self-center">
+                            <div class="bg-light border p-3">.align-self-center</div>
+                        </div>
+                        <div class="col-4 align-self-end"><div class="bg-light border p-3">.align-self-end</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row"&gt;
+    &lt;div class="col align-self-start"&gt;...&lt;/div&gt;
+    &lt;div class="col align-self-center"&gt;...&lt;/div&gt;
+    &lt;div class="col align-self-end"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Горизонтальное выравнивание</h4>
+            <p>Классы <code>.justify-content-*</code> на ряду управляют расположением колонок по горизонтали:</p>
+            <div class="bd-example">
+                <div class="text-center alert alert-info">
+                    <div class="row justify-content-start mb-3">
+                        <div class="col-4"><div class="bg-light border p-3">.justify-content-start</div></div>
+                        <div class="col-4"><div class="bg-light border p-3">Колонка 2</div></div>
+                    </div>
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-4 bg-light border p-3">.justify-content-center</div>
+                        <div class="col-4 bg-light border p-3">Колонка 2</div>
+                    </div>
+                    <div class="row justify-content-end mb-3">
+                        <div class="col-4 bg-light border p-3">.justify-content-end</div>
+                        <div class="col-4 bg-light border p-3">Колонка 2</div>
+                    </div>
+                    <div class="row justify-content-around mb-3">
+                        <div class="col-4 bg-light border p-3">.justify-content-around</div>
+                        <div class="col-4 bg-light border p-3">Колонка 2</div>
+                    </div>
+                    <div class="row justify-content-between mb-3">
+                        <div class="col-4 bg-light border p-3">.justify-content-between</div>
+                        <div class="col-4 bg-light border p-3">Колонка 2</div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row justify-content-start"&gt;
+    &lt;div class="col-4"&gt;...&lt;/div&gt;
+    &lt;div class="col-4"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="row justify-content-center mb-3"&gt;
+    &lt;div class="col-4"&gt;...&lt;/div&gt;
+    &lt;div class="col-4"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Обертывание колонок</h4>
+            <p>Если сумма колонок в ряду превышает 12, лишние колонки автоматически переносятся на новую строку:</p>
+            <div class="bd-example">
+                <div>
+                    <div class="row mb-3">
+                        <div class="col-9 bg-light border p-3">.col-9</div>
+                        <div class="col-4 bg-light border p-3">
+                            .col-4<br />Поскольку 9 + 4 = 13 &gt; 12, этот div шириной в 4 колонки переносится на новую
+                            строку как один непрерывный блок.
+                        </div>
+                        <div class="col-6 bg-light border p-3">
+                            .col-6<br />Последующие колонки продолжаются вдоль новой строки.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row"&gt;
+    &lt;div class="col-9"&gt;.col-9&lt;/div&gt;
+    &lt;div class="col-4"&gt;.col-4 (переносится)&lt;/div&gt;
+    &lt;div class="col-6"&gt;.col-6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h4 class="mt-4">Разрывы колонок</h4>
+            <p>
+                Пустой <code>&lt;div class="w-100"&gt;&lt;/div&gt;</code> создаёт принудительный перенос на новую строку
+                в нужном месте:
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="bd-example">
+                        <div class="text-center alert alert-info">
+                            <div class="row">
+                                <div class="col-6 col-sm-4"><div class="bg-light border p-3">.col-6 .col-sm-4</div></div>
+                                <div class="col-6 col-sm-4"><div class="bg-light border p-3">.col-6 .col-sm-4</div></div>
+                                <div class="w-100"></div>
+                                <div class="col-6 col-sm-4"><div class="bg-light border p-3">.col-6 .col-sm-4</div></div>
+                                <div class="col-6 col-sm-4"><div class="bg-light border p-3">.col-6 .col-sm-4</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <pre class="bg-light p-3 border rounded"><code>&lt;div class="row"&gt;
+    &lt;div class="col-6 col-sm-4"&gt;1&lt;/div&gt;
+    &lt;div class="col-6 col-sm-4"&gt;2&lt;/div&gt;
+    &lt;div class="w-100"&gt;&lt;/div&gt;
+    &lt;div class="col-6 col-sm-4"&gt;3&lt;/div&gt;
+    &lt;div class="col-6 col-sm-4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <p class="mt-4 mb-2">Комбинация с утилитами отображения позволяет делать разрыв только на определённых устройствах:</p>
+            <pre class="bg-light p-3 border rounded my-0"><code>&lt;!-- Разрыв только на md и выше --&gt;
+&lt;div class="w-100 d-none d-md-block"&gt;&lt;/div&gt;</code></pre>
+            
+            <h4 class="mt-2">Изменение порядка колонок</h4>
+            <p>
+                Классы <code>.order-*</code> меняют визуальный порядок колонок независимо от их порядка в HTML (доступны
+                значения от 1 до 5):
+            </p>
+                <div class="text-center alert alert-info">
+                    <div class="row">
+                        <div class="col order-3">
+                            <div class="bg-light border p-3">Первый в HTML, но третий по порядку (.order-3)</div>
+                        </div>
+                        <div class="col order-1">
+                            <div class="bg-light border p-3">Второй в HTML, но первый по порядку (.order-1)</div>
+                        </div>
+                        <div class="col order-2">
+                            <div class="bg-light border p-3">Третий в HTML, но второй по порядку (.order-2)</div>
+                        </div>
+                    </div>
+                </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row"&gt;
+    &lt;div class="col order-3"&gt;Первый в HTML, но третий&lt;/div&gt;
+    &lt;div class="col order-1"&gt;Второй в HTML, но первый&lt;/div&gt;
+    &lt;div class="col order-2"&gt;Третий в HTML, но второй&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p>
+                Классы <code>.order-first</code> и <code>.order-last</code> помещают колонку соответственно в начало или
+                конец:
+            </p>
+                <div class="text-center alert alert-info">
+                    <div class="row">
+                        <div class="col-5 order-last">
+                            <div class="bg-light border p-3">Первый в HTML, но последний (.order-last)</div>
+                        </div>
+                        <div class="col-3"><div class="bg-light border p-3">Второй в HTML, без порядка</div></div>
+                        <div class="col-4 order-first">
+                            <div class="bg-light border p-3">Третий в HTML, но первый (.order-first)</div>
+                        </div>
+                    </div>
+                </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row"&gt;
+    &lt;div class="col order-last"&gt;Первый в HTML, но последний&lt;/div&gt;
+    &lt;div class="col"&gt;Второй в HTML&lt;/div&gt;
+    &lt;div class="col order-first"&gt;Третий в HTML, но первый&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Классы смещения .offset-*</h4>
+            <p>Классы <code>.offset-*</code> увеличивают левый отступ колонки на указанное количество колонок:</p>
+            <div class="bd-example">
+                <div class="text-center alert alert-info">
+                    <div class="row mb-3">
+                        <div class="col-md-4"><div class="bg-light border p-3">.col-md-4</div></div>
+                        <div class="col-md-4 offset-md-4">
+                            <div class="bg-light border p-3">.col-md-4 .offset-md-4</div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 offset-md-3">
+                            <div class="bg-light border p-3">.col-md-3 .offset-md-3</div>
+                        </div>
+                        <div class="col-md-3 offset-md-3">
+                            <div class="bg-light border p-3">.col-md-3 .offset-md-3</div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 offset-md-3">
+                            <div class="bg-light border p-3">.col-md-6 .offset-md-3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row"&gt;
+    &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
+    &lt;div class="col-md-4 offset-md-4"&gt;.col-md-4 .offset-md-4&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="row"&gt;
+    &lt;div class="col-md-3 offset-md-3"&gt;.col-md-3 .offset-md-3&lt;/div&gt;
+    &lt;div class="col-md-3 offset-md-3"&gt;.col-md-3 .offset-md-3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="row"&gt;
+    &lt;div class="col-md-6 offset-md-3"&gt;.col-md-6 .offset-md-3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Утилиты полей (margin)</h4>
+            <p>
+                Утилиты <code>.ms-auto</code> (margin-left: auto) и <code>.me-auto</code> (margin-right: auto) позволяют
+                прижимать колонки к краям или создавать переменные отступы:
+            </p>
+            <div class="bd-example">
+                <div class="text-center alert alert-info">
+                    <div class="row mb-3">
+                        <div class="col-md-4"><div class="bg-light border p-3">.col-md-4</div></div>
+                        <div class="col-md-4 ms-auto"><div class="bg-light border p-3">.col-md-4 .ms-auto</div></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3 ms-md-auto">
+                            <div class="bg-light border p-3">.col-md-3 .ms-md-auto</div>
+                        </div>
+                        <div class="col-md-3 ms-md-auto">
+                            <div class="bg-light border p-3">.col-md-3 .ms-md-auto</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto me-auto"><div class="bg-light border p-3">.col-auto .me-auto</div></div>
+                        <div class="col-auto"><div class="bg-light border p-3">.col-auto</div></div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row"&gt;
+    &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
+    &lt;div class="col-md-4 ms-auto"&gt;.col-md-4 .ms-auto&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-md-3 ms-md-auto"&gt;.col-md-3 .ms-md-auto&lt;/div&gt;
+    &lt;div class="col-md-3 ms-md-auto"&gt;.col-md-3 .ms-md-auto&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-auto me-auto"&gt;.col-auto .me-auto&lt;/div&gt;
+    &lt;div class="col-auto"&gt;.col-auto&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">Автономные классы колонок</h3>
+            <p>
+                Классы <code>.col-*</code> можно использовать вне <code>.row</code> для задания ширины любому элементу —
+                в таком случае отступы (gutter) не применяются:
+            </p>
+            <div class="bd-example mb-2">
+                <div class="col-3 p-3 mb-2 bg-light border">.col-3: ширина 25%</div>
+                <div class="col-sm-9 p-3 bg-light border">.col-sm-9: ширина 75% на sm и выше</div>
+            </div>
+            <pre class="bg-light p-2 border rounded"><code>&lt;div class="col-3 p-3"&gt;.col-3: ширина 25%&lt;/div&gt;
+&lt;div class="col-sm-9 p-3"&gt;.col-sm-9: ширина 75% на sm и выше&lt;/div&gt;</code></pre>
+            <p>Это удобно для создания плавающих элементов, например изображений с обтеканием текстом:</p>
+            <div class="bd-example">
+                <div class="clearfix alert alert-info">
+                    <div class="col-md-6 float-md-end mb-3 ms-md-3 bg-secondary text-white p-5 text-center">
+                        Изображение
+                    </div>
+                    <p>
+                        Абзац текста, который обтекает изображение. Класс .clearfix нужен для правильной очистки
+                        обтекания. Изображение имеет классы .col-md-6 (ширина 50% на md и выше), .float-md-end
+                        (обтекание справа) и отступы для красоты.
+                    </p>
+                    <p>Такой подход позволяет создавать адаптивные макеты с обтеканием изображений текстом.</p>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="clearfix"&gt;
+    &lt;img src="..." class="col-md-6 float-md-end mb-3 ms-md-3"&gt;
+    &lt;p&gt;Текст, обтекающий изображение...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">4. Отступы</h3>
+            <p>
+                Отступы между колонками используются для гибкого размещения и выравнивания содержимого в системе сеток
+                Bootstrap. Они создаются с помощью padding у колонок и отрицательных margin у рядов.
+            </p>
+            <h4 class="mt-4">Как это работает</h4>
+            <ul>
+                <li>
+                    Горизонтальные отступы между столбцами создаются с помощью padding. Мы устанавливаем
+                    <code>padding-right</code> и <code>padding-left</code> для каждого столбца и используем
+                    отрицательное значение <code>margin</code> для смещения в начале и конце каждой строки, чтобы
+                    выровнять содержимое.
+                </li>
+                <li>
+                    По умолчанию отступ имеет ширину <code>1.5rem (24px)</code>. Это позволяет сопоставить сетку с
+                    масштабом отступов и интервалов полей.
+                </li>
+                <li>Отступы могут быть быстро отрегулированы с помощью специальных классов.</li>
+            </ul>
+            <h4 class="mt-4">Горизонтальные отступы (.gx-*)</h4>
+            <p>
+                Классы <code>.gx-*</code> управляют шириной горизонтальных промежутков между колонками. Доступны
+                значения от 0 до 5:
+            </p>
+            <div class="bd-example mb-4">
+                <div class="px-4 text-center">
+                    <div class="row gx-5">
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка с отступом</div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка с отступом</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="container px-4 text-center"&gt;
+    &lt;div class="row gx-5"&gt;
+        &lt;div class="col"&gt;&lt;div class="p-3"&gt;Содержание столбца&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="col"&gt;&lt;div class="p-3"&gt;Содержание столбца&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p>
+                <code>.gx-5</code> создает большие отступы между колонками. При использовании больших отступов может
+                потребоваться корректировка контейнера с помощью утилит padding, например <code>.px-4</code>.
+            </p>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Вертикальные отступы (.gy-*)</h4>
+            <p>Классы <code>.gy-*</code> управляют вертикальными промежутками между строками колонок:</p>
+            <div class="bd-example mb-4">
+                <div class="text-center">
+                    <div class="row gy-5">
+                        <div class="col-6">
+                            <div class="bg-light border p-3">Колонка 1</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light border p-3">Колонка 2</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light border p-3">Колонка 3</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light border p-3">Колонка 4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="container text-center"&gt;
+    &lt;div class="row gy-5"&gt;
+        &lt;div class="col-6"&gt;Колонка 1&lt;/div&gt;
+        &lt;div class="col-6"&gt;Колонка 2&lt;/div&gt;
+        &lt;div class="col-6"&gt;Колонка 3&lt;/div&gt;
+        &lt;div class="col-6"&gt;Колонка 4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Горизонтальные и вертикальные отступы (.g-*)</h4>
+            <p>Классы <code>.g-*</code> одновременно задают и горизонтальные, и вертикальные отступы:</p>
+            <div class="bd-example">
+                <div class="text-center mb-4">
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="bg-light border p-1">Колонка с отступами со всех сторон</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light border p-1">Колонка с отступами со всех сторон</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light border p-1">Колонка с отступами со всех сторон</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light border p-1">Колонка с отступами со всех сторон</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="container text-center"&gt;
+    &lt;div class="row g-4"&gt;
+        &lt;div class="col-6"&gt;Колонка&lt;/div&gt;
+        &lt;div class="col-6"&gt;Колонка&lt;/div&gt;
+        &lt;div class="col-6"&gt;Колонка&lt;/div&gt;
+        &lt;div class="col-6"&gt;Колонка&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <h4 class="mt-2">Без промежутков между колонками (.g-0)</h4>
+            <p>
+                Класс <code>.g-0</code> полностью удаляет отступы между колонками. Он убирает отрицательные margin у
+                <code>.row</code> и горизонтальные padding у всех дочерних колонок:
+            </p>
+            <div class="bd-example mb-4">
+                <div class="text-center">
+                    <div class="row g-0">
+                        <div class="col-sm-6 col-md-8">
+                            <div class="bg-light border p-1">.col-sm-6 .col-md-8</div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="bg-light border p-1">.col-6 .col-md-4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row g-0 text-center"&gt;
+    &lt;div class="col-sm-6 col-md-8"&gt;.col-sm-6 .col-md-8&lt;/div&gt;
+    &lt;div class="col-6 col-md-4"&gt;.col-6 .col-md-4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p>Это полезно для создания "сквозных" дизайнов, где элементы должны прилегать друг к другу вплотную.</p>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Ряды столбцов с отступами</h4>
+            <p>
+                Классы отступов можно комбинировать с классами <code>.row-cols-*</code> для создания адаптивных сеток с
+                управляемыми промежутками:
+            </p>
+            <div class="bd-example mb-4">
+                <div class="text-center">
+                    <div class="row row-cols-2 row-cols-lg-4 g-4">
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка ряда</div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка ряда</div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка ряда</div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка ряда</div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка ряда</div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка ряда</div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка ряда</div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-light border p-3">Колонка ряда</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row row-cols-2 row-cols-lg-4 g-4"&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="p-3"&gt;Колонка ряда&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="p-3"&gt;Колонка ряда&lt;/div&gt;
+    &lt;/div&gt;
+    ...
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Доступные значения отступов</h4>
+            <p>
+                Классы отступов строятся из карты Sass <code>$gutters</code>, которая унаследована от карты
+                <code>$spacers</code>. Доступны значения от 0 до 5:
+            </p>
+            <table class="table table-bordered">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Класс</th>
+                        <th>Значение</th>
+                        <th>Размер</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>.g-0, .gx-0, .gy-0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>.g-1, .gx-1, .gy-1</td>
+                        <td>$spacer * 0.25</td>
+                        <td>0.25rem (4px)</td>
+                    </tr>
+                    <tr>
+                        <td>.g-2, .gx-2, .gy-2</td>
+                        <td>$spacer * 0.5</td>
+                        <td>0.5rem (8px)</td>
+                    </tr>
+                    <tr>
+                        <td>.g-3, .gx-3, .gy-3</td>
+                        <td>$spacer</td>
+                        <td>1rem (16px)</td>
+                    </tr>
+                    <tr>
+                        <td>.g-4, .gx-4, .gy-4</td>
+                        <td>$spacer * 1.5</td>
+                        <td>1.5rem (24px) - значение по умолчанию</td>
+                    </tr>
+                    <tr>
+                        <td>.g-5, .gx-5, .gy-5</td>
+                        <td>$spacer * 3</td>
+                        <td>3rem (48px)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                Классы можно делать адаптивными, добавляя брейкпоинты: <code>.gx-md-4</code>, <code>.gy-lg-2</code>,
+                <code>.g-sm-3</code> и т.д.
+            </p>
+            <h4 class="mt-4">Автоматическая компоновка колонок</h4>
+            <h5 class="mt-2">Равная ширина</h5>
+            <p>Если не указывать цифру в классе col, все колонки будут одинаковой ширины:</p>
+            <div class="row mb-3 alert alert-info">
+                <div class="col"><div class="bg-light border p-2 text-center">Колонка 1</div></div>
+                <div class="col"><div class="bg-light border p-2 text-center">Колонка 2</div></div>
+                <div class="col"><div class="bg-light border p-2 text-center">Колонка 3</div></div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <pre class="bg-light p-3 border rounded mt-0 mb-0"><code>&lt;div class="row"&gt;
+    &lt;div class="col"&gt;Колонка 1&lt;/div&gt;
+    &lt;div class="col"&gt;Колонка 2&lt;/div&gt;
+    &lt;div class="col"&gt;Колонка 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h5 class="mt-2">Установка ширины одной колонки</h5>
+            <p>Можно задать ширину одной колонки, остальные подстроятся автоматически:</p>
+            <div class="row mb-0">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <div class="row">
+                            <div class="col"><div class="bg-light border p-2 text-center">1</div></div>
+                            <div class="col-6"><div class="bg-light border p-2 text-center">2 (шире, col-6)</div></div>
+                            <div class="col"><div class="bg-light border p-2 text-center">3</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded mb-0"><code>&lt;div class="row"&gt;
+    &lt;div class="col"&gt;1&lt;/div&gt;
+    &lt;div class="col-6"&gt;2&lt;/div&gt;
+    &lt;div class="col"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h5 class="mt-2">Переменная ширина контента (col-auto)</h5>
+            <p>Класс col-auto заставляет колонку занимать ровно столько места, сколько нужно её содержимому:</p>
+            <div class="row mb-0 justify-content-md-center">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <div class="row">
+                            <div class="col col-lg-2"><div class="bg-light border p-2 text-center">1</div></div>
+                            <div class="col-md-auto">
+                                <div class="bg-light border p-2 text-center">Переменная ширина контента</div>
+                            </div>
+                            <div class="col col-lg-2"><div class="bg-light border p-2 text-center">3</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row"&gt;
+    &lt;div class="col col-lg-2"&gt;1&lt;/div&gt;
+    &lt;div class="col-md-auto"&gt;Переменная ширина контента&lt;/div&gt;
+    &lt;div class="col col-lg-2"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Пример использования адаптивности</h4>
+            <p>
+                Рассмотрим пример с маркетплейсом Yargy Market, где нужно разместить карточки товаров. Для каждого типа
+                устройства требуется своя разметка, так как на экране телефона помещается меньше информации, чем на
+                большом мониторе. Используя классы Bootstrap, мы можем задать разное количество колонок для разных
+                устройств.
+            </p>
+            <div class="row mb-4">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Товар №1</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Товар №2</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Товар №3</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Товар №4</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 class="mt-4">Визуализация расположения на разных устройствах:</h5>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-header bg-primary text-white">Телефон</div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column gap-2">
+                                <span class="badge bg-secondary p-2">Товар №1</span>
+                                <span class="badge bg-secondary p-2">Товар №2</span>
+                                <span class="badge bg-secondary p-2">Товар №3</span>
+                                <span class="badge bg-secondary p-2">Товар №4</span>
+                            </div>
+                            <p class="mt-2 mb-0 small text-muted">1 колонка (col-12)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-header bg-primary text-white">Планшет</div>
+                        <div class="card-body">
+                            <div class="row g-1">
+                                <div class="col-6"><span class="badge bg-secondary d-block p-2">Товар №1</span></div>
+                                <div class="col-6"><span class="badge bg-secondary d-block p-2">Товар №2</span></div>
+                                <div class="col-6"><span class="badge bg-secondary d-block p-2">Товар №3</span></div>
+                                <div class="col-6"><span class="badge bg-secondary d-block p-2">Товар №4</span></div>
+                            </div>
+                            <p class="mt-2 mb-0 small text-muted">2 колонки (col-md-6)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-header bg-primary text-white">Ноутбук</div>
+                        <div class="card-body">
+                            <div class="row g-1">
+                                <div class="col-4"><span class="badge bg-secondary d-block p-2">Товар №1</span></div>
+                                <div class="col-4"><span class="badge bg-secondary d-block p-2">Товар №2</span></div>
+                                <div class="col-4"><span class="badge bg-secondary d-block p-2">Товар №3</span></div>
+                                <div class="col-4"><span class="badge bg-secondary d-block p-2">Товар №4</span></div>
+                            </div>
+                            <p class="mt-2 mb-0 small text-muted">3 колонки (col-lg-4)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-light">
+                        <div class="card-header bg-primary text-white">Монитор</div>
+                        <div class="card-body">
+                            <div class="row g-1">
+                                <div class="col-3"><span class="badge bg-secondary d-block p-2">Товар №1</span></div>
+                                <div class="col-3"><span class="badge bg-secondary d-block p-2">Товар №2</span></div>
+                                <div class="col-3"><span class="badge bg-secondary d-block p-2">Товар №3</span></div>
+                                <div class="col-3"><span class="badge bg-secondary d-block p-2">Товар №4</span></div>
+                            </div>
+                            <p class="mt-2 mb-0 small text-muted">4 колонки (col-xl-3)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Классы .row-cols-*</h4>
+            <p>
+                Классы .row-cols-* — это специальные классы Bootstrap, которые задают количество колонок в ряду прямо на
+                родительском контейнере .row. Вместо того чтобы писать класс для каждой колонки отдельно, мы пишем один
+                класс на весь ряд. Это особенно удобно при работе с динамическим контентом, когда количество элементов
+                может меняться.
+            </p>
+            <p class="my-0"><strong>Синтаксис:</strong></p>
+            <ul>
+                <li><code>.row-cols-{количество}</code> — одинаковое количество колонок на всех экранах</li>
+                <li><code>.row-cols-{breakpoint}-{количество}</code> — адаптивное количество колонок</li>
+                <li><code>.row-cols-auto</code> — колонки подстраиваются под ширину содержимого</li>
+            </ul>
+            <h5 class="mt-2">Пример с разным количеством на разных устройствах:</h5>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 mb-3">
+                <div class="col"><div class="border p-3 text-center bg-light">1</div></div>
+                <div class="col"><div class="border p-3 text-center bg-light">2</div></div>
+                <div class="col"><div class="border p-3 text-center bg-light">3</div></div>
+                <div class="col"><div class="border p-3 text-center bg-light">4</div></div>
+                <div class="col"><div class="border p-3 text-center bg-light">5</div></div>
+                <div class="col"><div class="border p-3 text-center bg-light">6</div></div>
+                <div class="col"><div class="border p-3 text-center bg-light">7</div></div>
+                <div class="col"><div class="border p-3 text-center bg-light">8</div></div>
+            </div>
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6"&gt;
+    &lt;div class="col"&gt;1&lt;/div&gt;
+    &lt;div class="col"&gt;2&lt;/div&gt;
+    ...
+&lt;/div&gt;</code></pre>
+            <h5 class="mt-4">Пример с .row-cols-auto:</h5>
+            <div class="row row-cols-auto g-2 mb-3">
+                <div class="col"><span class="badge bg-secondary p-3">Короткий</span></div>
+                <div class="col"><span class="badge bg-secondary p-3">Средний текст</span></div>
+                <div class="col"><span class="badge bg-secondary p-3">Очень длинный текст для примера</span></div>
+                <div class="col"><span class="badge bg-secondary p-3">Ещё</span></div>
+            </div>
+            <p>Каждая колонка занимает ровно столько места, сколько нужно её содержимому.</p>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Sass (Syntactically Awesome Style Sheets)</h4>
+            <p>
+                Sass — это препроцессор CSS, который расширяет возможности обычного CSS. Он позволяет использовать
+                переменные, вложенность, миксины и другие возможности, делая написание стилей более удобным и
+                поддерживаемым. Bootstrap написан на Sass, поэтому его легко настраивать под свои нужды.
+            </p>
+            <p><strong>Основные возможности Sass:</strong></p>
+            <ul>
+                <li>
+                    <strong>Переменные</strong> — можно задать значения (цвета, отступы) один раз и использовать их
+                    многократно
+                </li>
+                <li><strong>Вложенность</strong> — позволяет писать стили в иерархическом виде, как в HTML</li>
+                <li><strong>Миксины</strong> — переиспользуемые блоки CSS-кода</li>
+                <li><strong>Наследование</strong> — один селектор может наследовать стили другого</li>
+            </ul>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-danger text-white">Обычный CSS</div>
+                        <div class="card-body">
+                            <pre class="mb-0"><code>.button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+}
+
+.button-large {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">Sass</div>
+                        <div class="card-body">
+                            <pre class="mb-0"><code>$main-color: blue;
+$text-color: white;
+
+.button {
+    background-color: $main-color;
+    color: $text-color;
+    padding: 10px;
+
+    &-large {
+        padding: 20px;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-3">
+                В примере выше видно, как Sass позволяет избежать повторения кода. Мы создали переменные для цветов и
+                использовали вложенность (&amp;-large) для создания модификатора кнопки. Это делает код более чистым и
+                легким в поддержке.
+            </p>
+        </section>
+        <section class="pdf-page">
+            <h5 class="mt-4">Переменные сетки в Sass</h5>
+            <p>Bootstrap использует следующие переменные для настройки сетки:</p>
+            <pre class="bg-light p-3 border rounded"><code>// Количество колонок
+$grid-columns: 12;
+
+// Отступы между колонками (gutter)
+$grid-gutter-width: 1.5rem;
+
+// Максимальное количество для .row-cols-*
+$grid-row-columns: 6;
+
+// Контрольные точки (breakpoints)
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Ширина контейнеров
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h5 class="mt-4">Миксины для создания своей сетки</h5>
+            <pre class="bg-light p-3 border rounded"><code>// Создание контейнера
+.my-custom-container {
+    @include make-container();
+}
+
+// Создание ряда
+.my-custom-row {
+    @include make-row();
+}
+
+// Подготовка колонки
+.my-custom-col {
+    @include make-col-ready();
+    @include make-col(6); // колонка на 6 частей
+}
+
+// Колонка со смещением
+.my-col-offset-3 {
+    @include make-col-offset(3);
+}</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Настройка сетки под себя</h4>
+            <p>Вы можете изменить параметры сетки, переопределив переменные Sass до подключения Bootstrap:</p>
+            <pre class="bg-light p-3 border rounded"><code>// Например, сделать 10-колоночную сетку
+$grid-columns: 10;
+
+// Уменьшить отступы между колонками
+$grid-gutter-width: 1rem;
+
+// Добавить свою контрольную точку
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1600px  // новая точка
+);
+
+// Затем подключить Bootstrap
+@import "bootstrap";</code></pre>
+
+            <p class="text-muted"><i>Примечание: После изменения переменных нужно перекомпилировать Sass в CSS.</i></p>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Вложенность сетки</h4>
+            <p>
+                Вложенность — это возможность создавать новую сетку внутри существующей колонки. Это позволяет строить
+                сложные макеты с дополнительной структурой внутри основных блоков. Например, внутри основной колонки с
+                контентом можно создать еще один ряд с несколькими колонками.
+            </p>
+            <p>
+                <strong>Важное правило:</strong> Вложенные колонки считаются относительно родительской колонки, а не
+                всей страницы. Если родитель занимает 8 колонок из 12, то внутри него колонка с классом col-6 будет
+                занимать половину от этих 8 колонок (то есть 4 колонки от общей ширины страницы). Сумма вложенных
+                колонок не должна превышать 12, но может быть меньше.
+            </p>
+            <div class="row">
+                <div class="col-8">
+                    <div class="border border-primary p-3">
+                        <p><strong>Основная колонка (8/12)</strong></p>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="border border-success p-2">Левая подколонка (6/12 внутри родителя)</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border border-success p-2">Правая подколонка (6/12 внутри родителя)</div>
+                            </div>
+                        </div>
+                        <p class="mt-2 mb-0 small text-muted">Внутри создан новый ряд с двумя колонками по 6</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="border border-primary p-3 h-100">
+                        <p><strong>Боковая колонка (4/12)</strong></p>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-3">
+                В данном примере основная колонка занимает 8 частей из 12. Внутри нее создан новый ряд с двумя
+                колонками, каждая из которых занимает по 6 частей внутри родителя. Таким образом, левая и правая
+                подколонки фактически занимают по 4 части от общей ширины страницы (половина от 8).
+            </p>
+        </section>
+        <a href="Components.html"> переходим дальше </a>
+	</main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

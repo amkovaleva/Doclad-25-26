@@ -1,0 +1,144 @@
+/* Эти стили предназначены для получения PDF-документа из HTML-страницы с формами, разбитой на секции .pdf-page */
+/* Протестировано в Chromium. В Firefox выпадающие меню ломаются при печати. */
+/* rows-cols-auto отображается стопкой, а не в ряд в Chromium/Firefox */
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 0;
+    }
+
+    /* Сохранить цвета элементов при печати */
+    * {
+        box-sizing: border-box !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    html, body {
+        width: 297mm !important;
+        height: 210mm !important;
+        background: #fff !important;
+    }
+
+    /* Контейнер-слайд */
+    .pdf-page {
+        width: 297mm !important;
+        height: 210mm !important;
+        
+        page-break-after: always;
+        break-after: page;
+        
+        display: block !important;
+        position: relative;
+        /* Чтобы ничего не вылезло за границы слайда*/
+        overflow: hidden;
+        
+        padding: 10mm !important;
+    }
+
+    /* Фикс кнопок, чтобы не расползались на всю ширину */
+    .btn {
+        display: inline-block !important;
+        width: auto !important;
+        vertical-align: middle !important;
+    }
+    /* Закраска чекбоксов-кнопок (btn-check) */
+    .btn-check:checked + .btn-outline-success,
+    .btn-check:active + .btn-outline-success {
+        background-color: #198754 !important; /* Принудительный зеленый */
+        color: #fff !important;
+    }
+    .btn-check:checked + .btn-outline-primary {
+        background-color: #0d6efd !important;
+        color: #fff !important;
+    }
+    
+    /* Фикс форм, чтобы не сжимались */
+    .form-control, .form-select, .btn {
+        min-height: 38px !important;
+        display: block;
+        width: 100%;
+    }
+    
+    /* Исправляем чекбоксы, чтобы не прыгали */
+    .form-check-input {
+        width: 1em !important;
+        height: 1em !important;
+        margin-top: 0.25em !important;
+        vertical-align: top !important;
+    }
+    
+    .input-group {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+    .input-group .btn {
+        width: auto !important;
+    }
+    .input-group .form-control {
+        flex: 1 1 auto !important;
+        width: 100% !important;
+    }
+    .input-group-text {
+        display: flex !important;
+        align-items: center !important;
+        padding: 0.375rem 0.75rem !important;
+        background-color: #e9ecef !important;
+        border: 1px solid #ced4da !important;
+        white-space: nowrap;
+    }
+
+    /* Исправляем range (ползунок), который пропадает */
+    input[type="range"] {
+        -webkit-appearance: slider-horizontal !important;
+        appearance: slider-horizontal !important;
+        width: 100% !important;
+        height: 20px !important;
+    }
+    
+    /* Возвращаем стрелки в input type=number */
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: inner-spin-button !important;
+        opacity: 1 !important;
+    }
+
+    /* Перезаписываем поведение Bootstrap, чтобы при печати отступы не ехали */
+    .container, .container-fluid {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Костыльное переопределение поведения сеток, чтобы при печати выглядело пристойно */
+    .row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    [class*="col-"] {
+        position: relative;
+        width: 100%;
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+        flex: 1 0 0% !important;
+    }
+    
+    .col-1 { flex: 0 0 8.333% !important; }
+    .col-2 { flex: 0 0 16.666% !important; }
+    .col-3 { flex: 0 0 25% !important; }
+    .col-4 { flex: 0 0 33.333% !important; }
+    .col-5 { flex: 0 0 41.666% !important; }
+    .col-6 { flex: 0 0 50% !important; }
+    .col-7 { flex: 0 0 58.333% !important; }
+    .col-8 { flex: 0 0 66.666% !important; }
+    .col-9 { flex: 0 0 75% !important; }
+    .col-10 { flex: 0 0 83.333% !important; }
+    .col-11 { flex: 0 0 91.666% !important; }
+    .col-12 { flex: 0 0 100% !important; }
+}

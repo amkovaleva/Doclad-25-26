@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Утилиты Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/15-print-utilities.css">
+</head>
+
+<body>
+    <main class="container my-5">
+        <section class="pdf-page">
+            <h2 class="mt-2">Утилиты Bootstrap</h2>
+            <div>
+                <p>
+                    Утилиты в Bootstrap — это набор готовых классов, которые позволяют изменить или дополнить
+                    существующий стиль элементов на странице. Они предназначены для быстрой стилизации без написания
+                    кастомного CSS.
+                </p>
+                <p>
+                    Подробнее о них можно прочитать в
+                    <a href="https://bootstrap-5.ru/docs/5.3/utilities/" target="_blank" rel="noopener noreferrer">
+                        документации</a
+                    >.
+                </p>
+            </div>
+            <h2 class="mt-2">Служебный API</h2>
+            <div>
+                <p>
+                    Служебный API - это инструмент на основе Sass для создания служебных классов. Утилиты Bootstrap
+                    создаются с помощью служебного API и могут использоваться для изменения или расширения нашего набора
+                    служебных классов по умолчанию через Sass.
+                </p>
+                <p>
+                    Все служебные переменные добавляются в переменную $utilities в нашей таблице стилей _utilities.scss.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Свойство:</strong>
+                        Требуемый ключ property должен быть установлен для любой утилиты, и он должен содержать
+                        допустимое свойство CSS. Это свойство используется в сгенерированном наборе правил утилиты.
+                        Когда ключ class опущен, он также служит именем класса по умолчанию.
+                    </li>
+                    <li>
+                        <strong>Значения: </strong>
+                        Используйте ключ values, чтобы указать, какие значения для указанного property должны
+                        использоваться в сгенерированных именах классов и правилах. Может быть списком или картой
+                        (задается в утилитах или в переменной Sass).
+                    </li>
+                    <li>
+                        <strong>Класс: </strong>
+                        Используйте опцию class, чтобы изменить префикс класса, используемый в скомпилированном CSS.
+                    </li>
+                    <li>
+                        <strong>Утилиты переменных CSS: </strong>
+                        Установите логическую опцию css-var в значение true, и API будет генерировать локальные
+                        переменные CSS для данного селектора вместо обычных правил property: value. Добавьте
+                        необязательное css-variable-name, чтобы задать имя переменной CSS, отличное от имени класса.
+                    </li>
+                    <li>
+                        <strong>Локальные переменные CSS: </strong>
+                        Используйте опцию local-vars, чтобы указать карту Sass, которая будет генерировать локальные
+                        переменные CSS в наборе правил служебного класса. Обратите внимание, что для использования этих
+                        локальных переменных CSS в сгенерированных правилах CSS может потребоваться дополнительная
+                        работа.
+                    </li>
+                    <li>
+                        <strong>Состояния: </strong>
+                        Используйте опцию state для генерации вариаций псевдокласса. Примеры псевдоклассов: :hover и
+                        :focus. Когда предоставляется список состояний, для этого псевдокласса создаются имена классов.
+                        Например, чтобы изменить непрозрачность при наведении указателя мыши, добавьте state: hover, и
+                        Вы получите .opacity-hover: hover в Вашем скомпилированном CSS.
+                    </li>
+                    <li>
+                        <strong>Адаптивность: </strong>
+                        Добавьте логическое значение responseive для создания адаптивных утилит для всех контрольных
+                        точек.
+                    </li>
+                    <li>
+                        <strong>Печать: </strong>
+                        Включение опции print также сгенерирует служебные классы для печати, которые применяются только
+                        в медиа-запросе @media print {...}.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <div>
+            <ul>
+                <li><strong>Важность: </strong>
+                    Все утилиты, генерируемые API, включают !important , чтобы гарантировать, что они переопределяют
+                    компоненты и классы модификаторов должным образом. Вы можете переключать этот параметр глобально с
+                    помощью переменной $enable-important-utilities (по умолчанию true).
+                </li>
+                <li><strong>Использование API: </strong>
+                    Теперь, когда Вы знакомы с тем, как работает API утилит, узнайте, как добавлять свои собственные
+                    классы и изменять наши утилиты по умолчанию.
+                </li>
+            </ul>
+            
+            <p><strong>Использование API. </strong> </p>
+            <ul>
+                <li><strong>Переопределение утилит: </strong>
+                    Переопределите существующие утилиты, используя тот же ключ.
+                </li>
+                <li><strong>Добавление утилит: </strong>
+                    Новые утилиты могут быть добавлены к карте по умолчанию $utilities с помощью map-merge. Убедитесь,
+                    что наши необходимые файлы Sass и _utilities.scss сначала импортированы, а затем используйте
+                    map-merge, чтобы добавить Ваши дополнительные утилиты.
+                </li>
+                <li><strong>Изменение утилит: </strong>
+                    Измените существующие утилиты в карте по умолчанию $utilities с помощью функций map-get и map-merge.
+                    В приведенном ниже примере мы добавляем дополнительное значение к утилитам width. Начните с
+                    начального map-merge, а затем укажите, какую утилиту Вы хотите изменить. Оттуда извлеките вложенную
+                    карту "width" «map-get» для доступа и изменения параметров и значений утилиты.
+                </li>
+                <li><strong>Включение адаптивности: </strong>
+                    Вы можете включить адаптивные классы для существующего набора утилит, которые в настоящее время не
+                    отвечают по умолчанию.
+                </li>
+                <li><strong>Переименование утилит: </strong>
+                    API утилит можно использовать для переопределения результирующего class данной утилиты.
+                </li>
+                <li><strong>Удаление утилит: </strong>
+                    Удалите все стандартные утилиты с помощью Sass-функции map-remove().
+                </li>
+            </ul>
+        </div>
+        </section>
+            
+
+        <section class="pdf-page">
+            <h2 class="mt-4">Фон</h2>
+            <div>
+                <p>Передайте смысл с помощью background-color и добавьте украшения с помощью градиентов.</p>
+                <ul>
+                    <li>
+                        <strong>Фоновый цвет:</strong><br />
+                        Подобно классам цвета контекстного текста, установите фон элемента для любого контекстного
+                        класса. Фоновые утилиты не устанавливают color.
+                    </li>
+                    <li>
+                        <strong>Фоновый градиент:</strong> <br />При добавлении класса .bg-gradient, линейный градиент
+                        добавляется как фоновое изображение к фону. Этот градиент начинается с полупрозрачного белого
+                        цвета, который постепенно исчезает к низу. <br />Если нужен градиент в вашем собственном CSS,
+                        просто добавьте background-image: var(--bs-gradient);.
+                    </li>
+                    <li>
+                        <strong>Непрозрачность: </strong> <br />Начиная с версии 5.1.0, утилиты background-color
+                        генерируются с помощью Sass с использованием переменных CSS. Это позволяет изменять цвет в
+                        реальном времени без компиляции и динамических изменений альфа-прозрачности. <br />Чтобы
+                        изменить непрозрачность, переопределите --bs-bg-opacity с помощью пользовательских стилей или
+                        встроенных стилей. Или выберите любую из утилит .bg-opacity.
+                    </li>
+                </ul>
+            </div>
+            <div class="container-fluid">
+                <div class="row row-cols-5 g-2">
+                    <div class="col d-flex"><div class="p-3 bg-primary text-white w-100">.bg-primary</div></div>
+                    <div class="col d-flex">
+                        <div class="p-3 bg-primary-subtle text-primary-emphasis w-100">.bg-primary-subtle</div>
+                    </div>
+                    <div class="col d-flex"><div class="p-3 bg-secondary text-white w-100">.bg-secondary</div></div>
+                    <div class="col d-flex">
+                        <div class="p-3 bg-secondary-subtle text-secondary-emphasis w-100">.bg-secondary-subtle</div>
+                    </div>
+                    <div class="col d-flex"><div class="p-3 bg-success text-white w-100">.bg-success</div></div>
+
+                    <div class="col d-flex">
+                        <div class="p-3 bg-success-subtle text-success-emphasis w-100">.bg-success-subtle</div>
+                    </div>
+                    <div class="col d-flex"><div class="p-3 bg-danger text-white w-100">.bg-danger</div></div>
+                    <div class="col d-flex">
+                        <div class="p-3 bg-danger-subtle text-danger-emphasis w-100">.bg-danger-subtle</div>
+                    </div>
+                    <div class="col d-flex"><div class="p-3 bg-warning text-dark w-100">.bg-warning</div></div>
+                    <div class="col d-flex">
+                        <div class="p-3 bg-warning-subtle text-warning-emphasis w-100">.bg-warning-subtle</div>
+                    </div>
+
+                    <div class="col d-flex"><div class="p-3 bg-info text-dark w-100">.bg-info</div></div>
+                    <div class="col d-flex">
+                        <div class="p-3 bg-info-subtle text-info-emphasis w-100">.bg-info-subtle</div>
+                    </div>
+                    <div class="col d-flex"><div class="p-3 bg-light text-dark w-100">.bg-light</div></div>
+                    <div class="col d-flex">
+                        <div class="p-3 bg-light-subtle text-light-emphasis w-100">.bg-light-subtle</div>
+                    </div>
+                    <div class="col d-flex"><div class="p-3 bg-dark text-white w-100">.bg-dark</div></div>
+
+                    <div class="col d-flex">
+                        <div class="p-3 bg-dark-subtle text-dark-emphasis w-100">.bg-dark-subtle</div>
+                    </div>
+                    <div class="col d-flex"><div class="p-3 bg-body-secondary w-100">.bg-body-secondary</div></div>
+                    <div class="col d-flex"><div class="p-3 bg-body-tertiary w-100">.bg-body-tertiary</div></div>
+                    <div class="col d-flex"><div class="p-3 bg-body text-body w-100">.bg-body</div></div>
+                    <div class="col d-flex"><div class="p-3 bg-black text-white w-100">.bg-black</div></div>
+
+                    <div class="col d-flex"><div class="p-3 bg-white text-dark w-100">.bg-white</div></div>
+                    <div class="col d-flex"><div class="p-3 bg-transparent text-body w-100">.bg-transparent</div></div>
+                    <div class="col d-flex"><div class="p-2 bg-success text-white w-100">Успех</div></div>
+                    <div class="col d-flex">
+                        <div class="p-2 bg-success w-100" style="--bs-bg-opacity: 0.5">Успех 50%</div>
+                    </div>
+                    <div class="col d-flex">
+                        <div class="p-2 bg-success text-dark bg-opacity-10 w-100">Успех 10%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Границы</h2>
+            <div>
+                <p>
+                    Используйте утилиты границ, чтобы быстро создать границу и граничный радиус элемента. Отлично
+                    подходит для изображений, кнопок или любого другого элемента. <br />Используйте служебные программы
+                    для создания границ, чтобы добавить или удалить границы элемента. Выбирайте из всех границ или по
+                    одной.
+                </p>
+                <ul>
+                    <li><strong>Добавление:</strong> Добавьте границы к пользовательским элементам</li>
+                    <li><strong>Вычитание:</strong> Или удалите границы</li>
+                    <li>
+                        <strong>Цвет:</strong> Измените цвет границы с помощью утилит, построенных на цветах нашей темы.
+                        Или измените border-color компонента по умолчанию.
+                    </li>
+                    <li>
+                        <strong>Непрозрачность:</strong> Аналогично непрозрачности фона, можно изменить с помощью
+                        переопределения --bs-border-opacity или выбрать любую из утилит .border-opacity.
+                    </li>
+                    <li>
+                        <strong>Ширина:</strong> Используя класс border-1, можно изменить ширину границ. Доступно 5
+                        вариантов ширины.
+                    </li>
+                    <li>
+                        <strong>Радиус:</strong> Добавьте классы к элементу, чтобы легко изменить его углы. Например,
+                        class="rounded-start" или class="rounded-circle".
+                    </li>
+                    <li>
+                        <strong>Размеры:</strong> Используйте классы масштабирования для больших или меньших
+                        закругленных углов. Размеры варьируются от 0 до 5 и могут быть настроены путем изменения API
+                        утилит.
+                    </li>
+                </ul>
+                <div>
+                    <div class="mb-4">
+                        <label for="exampleFormControlInput1" class="form-label">Адрес электронной почты</label>
+                        <input
+                            type="email"
+                            class="form-control border-success"
+                            id="exampleFormControlInput1"
+                            placeholder="name@example.com" />
+                    </div>
+
+                    <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">Опасный заголовок</div>
+
+                    <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+                        Изменение цвета и ширины границы
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Цвета</h2>
+            <div>
+                <p>
+                    Передайте смысл через color с помощью нескольких служебных классов цвета. Также включает поддержку
+                    стилизации ссылок с помощью состояний наведения.
+                </p>
+                <p>
+                    <strong>Непрозрачность: </strong> Чтобы изменить эту непрозрачность, переопределите
+                    --bs-text-opacity с помощью пользовательских стилей или встроенных стилей. Или выберите любую из
+                    утилит .text-opacity.
+                </p>
+                <div class="container-fluid">
+                    <div class="row row-cols-5 g-2">
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-primary mb-0">.text-primary</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-primary-emphasis mb-0">.text-primary-emphasis</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-secondary mb-0">.text-secondary</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-secondary-emphasis mb-0">.text-secondary-emphasis</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-success mb-0">.text-success</p></div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-success-emphasis mb-0">.text-success-emphasis</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-danger mb-0">.text-danger</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-danger-emphasis mb-0">.text-danger-emphasis</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-dark w-100"><p class="text-warning mb-0">.text-warning</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-warning-emphasis mb-0">.text-warning-emphasis</p>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <div class="p-3 bg-dark w-100"><p class="text-info mb-0">.text-info</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-info-emphasis mb-0">.text-info-emphasis</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-dark w-100"><p class="text-light mb-0">.text-light</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-light-emphasis mb-0">.text-light-emphasis</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-dark mb-0">.text-dark</p></div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-dark-emphasis mb-0">.text-dark-emphasis</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-body mb-0">.text-body</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-body-emphasis mb-0">.text-body-emphasis</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-body-secondary mb-0">.text-body-secondary</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-body-tertiary mb-0">.text-body-tertiary</p>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-black mb-0">.text-black</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-dark w-100"><p class="text-white mb-0">.text-white</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-black-50 mb-0">.text-black-50</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-dark w-100"><p class="text-white-50 mb-0">.text-white-50</p></div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100"><p class="text-primary mb-0">Основной текст</p></div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-primary mb-0" style="--bs-text-opacity: 0.5">Основной 50%</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex">
+                            <div class="p-3 bg-white w-100">
+                                <p class="text-primary text-opacity-25 mb-0">Основной 25%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Отображение элементов</h2>
+            <div>
+                <p>
+                    Быстрое переключение отображаемых элементов и многого другого с помощью утилит отображения. Включает
+                    поддержку некоторых из наиболее распространенных значений, а также некоторые дополнительные функции
+                    для управления отображением при печати.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Обозначение:</strong> Утилиты отображения классов, которые применяются ко всем
+                        контрольным точкам, от xs до xxl, не имеют в себе аббревиатуры контрольной точки. Это потому,
+                        что эти классы применяются начиная с min-width: 0; и выше, и поэтому не связаны медиа-запросами.
+                        Остальные контрольные точки, однако, содержат аббревиатуру контрольной точки. Таким образом,
+                        классы именуются в следующем формате:
+                        <ul>
+                            <li>.d-{value} для xs</li>
+                            <li>.d-{breakpoint}-{value} для sm, md, lg, xl и xxl</li>
+                        </ul>
+                        Где значение - одно из: none, inline, inline-block, block, grid, inline-grid, table, table-cell,
+                        table-row, flex, inline-flex.
+                    </li>
+                    <li>
+                        <strong>Скрытие элементов:</strong> Для более быстрой разработки, удобной для мобильных
+                        устройств, используйте адаптивные классы отображения для отображения и скрытия элементов по
+                        устройствам. Избегайте создания совершенно разных версий одного и того же сайта, вместо этого
+                        скройте элементы в зависимости от размера экрана. Чтобы скрыть элементы, просто используйте
+                        класс .d-none или один из классов .d-{sm,md,lg,xl,xxl}-none для любого варианта адаптивного
+                        экрана. Чтобы отображать элемент только в заданном интервале размеров экрана, Вы можете
+                        объединить один класс .d-*-none с классом .d-*-*, например, .d-none .d-md-block .d-xl-none
+                        .d-xxl-none скроет элемент для всех размеров экрана, кроме средних и больших устройств.
+                    </li>
+                    <li>
+                        <strong>Отображение при печати:</strong> Измените значение display элементов при печати с
+                        помощью служебных классов отображения при печати. Включает поддержку тех же значений display,
+                        что и наши адаптивные утилиты .d-*. Классы печати и отображения можно комбинировать.
+                    </li>
+                </ul>
+                <div class="m-4">
+                    <div class="d-inline p-2 text-bg-primary">d-inline</div>
+                    <div class="d-inline p-2 text-bg-dark">d-inline</div>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Flex</h2>
+            <div>
+                <p>
+                    Быстрое управление макетом, выравниванием и размером столбцов сетки, навигацией, компонентами и
+                    многим другим с помощью полного набора адаптивных утилит flexbox. Для более сложных реализаций может
+                    потребоваться пользовательский CSS.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Включение «гибкого» поведения:</strong> Применяйте утилиты display для создания гибкого
+                        контейнера и трансформируйте прямые дочерние элементы в «гибкие». Гибкие контейнеры и элементы
+                        можно изменять дополнительными свойствами гибкости. Для этого можно использовать класс d-flex
+                        или d-inline-flex.
+                    </li>
+                    <li>
+                        <strong>Направление:</strong> Задайте направление гибких элементов в гибком контейнере с помощью
+                        утилит направления. В большинстве случаев Вы можете опустить здесь горизонтальный класс, так как
+                        браузер по умолчанию равен row. Однако Вы можете столкнуться с ситуациями, когда Вам нужно явно
+                        установить это значение (например, адаптивные макеты). Используйте .flex-row, чтобы установить
+                        горизонтальное направление (по умолчанию в браузере), или .flex-row-reverse, чтобы начать
+                        горизонтальное направление с противоположной стороны. Используйте .flex-column, чтобы задать
+                        вертикальное направление, или .flex-column-reverse, чтобы задать вертикальное направление с
+                        противоположной стороны.
+                    </li>
+                    <li>
+                        <strong>Выравнивание содержимого:</strong> Используйте утилиты justify-content в контейнерах
+                        flexbox, чтобы изменить выравнивание элементов Флекс по главной оси (ось x для начала, ось y,
+                        если flex-direction: column). Выберите start (по умолчанию в браузере), end, center, between,
+                        around или evenly.
+                    </li>
+                    <li>
+                        <strong>Выравнивание элементов:</strong> Используйте утилиты align-items на контейнерах flexbox,
+                        чтобы изменить выравнивание элементов Флекс по поперечной оси (ось Y в начале, ось X, если
+                        flex-direction: column). Выберите start, end, center, baseline или stretch (по умолчанию в
+                        браузере).
+                    </li>
+                    <li>
+                        <strong>Сплошное выравнивание:</strong> Используйте утилиты align-self для элементов flexbox,
+                        чтобы индивидуально изменить их выравнивание по поперечной оси (ось Y для начала, ось X, если
+                        flex-direction: column). Выберите один из тех же параметров, что и flex-direction: column).
+                        Выберите один из тех же вариантов, что и align-items: start, end, center, baseline или stretch
+                        (по умолчанию в браузере).
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <div>
+                <ul>
+                    <li>
+                        <strong>Заполнение:</strong> Используйте класс .flex-fill для серии родственных элементов, чтобы
+                        заставить их ширину равную их содержимому (или равную ширину, если их содержимое не превышает их
+                        границы), занимая при этом все доступное горизонтальное пространство.
+                    </li>
+                    <li>
+                        <strong>Увеличение и уменьшение:</strong> Используйте утилиты .flex-grow-* для переключения
+                        способности элемента Флекс расти, чтобы заполнить доступное пространство. В приведенном ниже
+                        примере элементы .flex-grow-1 используют все доступное пространство, которое могут, а оставшимся
+                        двум элементам Флекс их необходимое пространство.
+                    </li>
+                    <li>
+                        <strong>Автоматические поля:</strong> Flexbox может делать довольно удивительные вещи, когда Вы
+                        смешиваете выравнивание гибкости с автоматическими полями.
+                    </li>
+                    <li>
+                        <strong>С элементами выравнивания:</strong>Вертикально переместите один элемент Флекс вверх или
+                        вниз контейнера, смешав align-items, flex-direction: column и margin-top: auto или
+                        margin-bottom: auto.
+                    </li>
+                    <li>
+                        <strong>Обертка:</strong> Измените способ обертки элементов Флекс в гибкий контейнер. Выберите
+                        полное отсутствие переноса (по умолчанию в браузере) с помощью .flex-nowrap, обертывание с
+                        помощью .flex-wrap или обратное обертывание с помощью .flex-wrap-reverse.
+                    </li>
+                    <li>
+                        <strong>Порядок:</strong> ИИзмените визуальный порядок определенных элементов Флекс с помощью
+                        нескольких утилит order. Мы предоставляем только варианты создания элемента первым или
+                        последним, а также сброс для использования порядка DOM. Поскольку order принимает любое
+                        целочисленное значение от 0 до 5, добавьте собственный CSS для любых дополнительных значений.
+                    </li>
+                    <li>
+                        <strong>Выравнивание содержимого:</strong> Используйте утилиты align-content на контейнерах
+                        flexbox для выравнивания элементов Флекс вместе по поперечной оси. Выберите start (по умолчанию
+                        для браузера), end, center, between, around или stretch. Чтобы продемонстрировать эти утилиты,
+                        мы ввели в действие flex-wrap: wrap и увеличили количество элементов Флекс. <br />Внимание! Это
+                        свойство не влияет на отдельные строки элементов Флекс.
+                    </li>
+                </ul>
+                <div>
+                    <div class="d-flex flex-row mb-3">
+                        <div class="p-2">Флекс элемент 1</div>
+                        <div class="p-2">Флекс элемент 2</div>
+                        <div class="p-2">Флекс элемент 3</div>
+                    </div>
+                    <div class="d-flex flex-row-reverse">
+                        <div class="p-2">Флекс элемент 1</div>
+                        <div class="p-2">Флекс элемент 2</div>
+                        <div class="p-2">Флекс элемент 3</div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-nowrap">
+                    <div class="order-3 p-2">Первый флекс элемент</div>
+                    <div class="order-2 p-2">Второй флекс элемент</div>
+                    <div class="order-1 p-2">Третий флекс элемент</div>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Утилиты Float (Плавающие элементы)</h2>
+            <div>
+                <p><strong>Float</strong> — утилиты для быстрого задания CSS-свойства <code>float</code>.</p>
+                <p>
+                    Они позволяют расположить элемент слева (<code>float: left</code>), справа (<code>float: right</code
+                    >) или отключить плавание (<code>float: none</code>).
+                </p>
+
+                <p class="small text-muted">
+                    В Bootstrap 5.3 float используется реже, чем Flexbox/Grid, но остаётся удобным инструментом для
+                    простых случаев (например, обтекание текста изображением).
+                </p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Основные классы</h5>
+                        <ul class="list-unstyled">
+                            <li><code>.float-start</code> — плавает влево (<code>float: left</code>)</li>
+                            <li><code>.float-end</code> — плавает вправо (<code>float: right</code>)</li>
+                            <li><code>.float-none</code> — отключает плавание (<code>float: none</code>)</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Адаптивные варианты</h5>
+                        <p class="small">
+                            Работают со всеми брейкпоинтами: <code>sm</code>, <code>md</code>, <code>lg</code>,
+                            <code>xl</code>, <code>xxl</code>
+                        </p>
+                        <ul class="list-unstyled small">
+                            <li><code>.float-sm-start</code></li>
+                            <li><code>.float-md-end</code></li>
+                            <li><code>.float-lg-none</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h5 class="mt-4">Пример</h5>
+                <div class="border rounded p-3 bg-light mb-3">
+                    <div class="clearfix">
+                        <div class="float-start bg-primary text-white p-3 me-3 mb-3" style="width: 120px">
+                            <strong>.float-start</strong><br />Слева
+                        </div>
+                        <div class="float-end bg-success text-white p-3 mb-3" style="width: 120px">
+                            <strong>.float-end</strong><br />Справа
+                        </div>
+                        <p>
+                            Текст обтекает плавающие блоки с двух сторон. На маленьких экранах поведение можно изменить
+                            с помощью адаптивных классов.
+                        </p>
+                    </div>
+                </div>
+
+                <pre class="bg-light p-3 border rounded small"><code>&lt;div class="clearfix"&gt;
+  &lt;div class="float-start"&gt;Слева&lt;/div&gt;
+  &lt;div class="float-end"&gt;Справа&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <p class="small mt-3">
+                    <strong>Важно:</strong> Float убирает элемент из нормального потока, из-за чего родитель часто
+                    теряет высоту. Для очистки потока в Bootstrap 5.3 рекомендуется использовать вспомогательный класс
+                    <code>.clearfix</code> на родительском элементе.
+                </p>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Interaction</h2>
+            <p class="lead mb-3">Утилиты для управления выделением текста и взаимодействием с указателем мыши.</p>
+
+            <h5 class="mt-3 mb-2">Выделение текста (User Select)</h5>
+            <div class="border rounded p-3 bg-white mb-3">
+                <p class="user-select-all mb-2"><strong>.user-select-all</strong> — полностью выделяется при клике</p>
+                <p class="user-select-auto mb-2"><strong>.user-select-auto</strong> — обычное поведение браузера</p>
+                <p class="user-select-none mb-0"><strong>.user-select-none</strong> — выделение запрещено</p>
+            </div>
+
+            <pre
+                class="bg-light p-3 border rounded mb-4 small"><code>&lt;p class="user-select-all"&gt;Полностью выделяется&lt;/p&gt;
+&lt;p class="user-select-auto"&gt;Поведение по умолчанию&lt;/p&gt;
+&lt;p class="user-select-none"&gt;Не выделяется&lt;/p&gt;</code></pre>
+
+            <h5 class="mb-2">Указатель событий (Pointer Events)</h5>
+            <div class="border rounded p-3 bg-white mb-3">
+                <p class="mb-2">
+                    <a href="#" class="pe-none text-decoration-underline" tabindex="-1" aria-disabled="true">
+                        .pe-none — ссылка неактивна
+                    </a>
+                </p>
+                <p class="mb-2">
+                    <a href="#" class="pe-auto text-decoration-underline">.pe-auto — обычная активная ссылка</a>
+                </p>
+                <p class="pe-none mb-0">
+                    <a href="#" tabindex="-1" aria-disabled="true">Родитель .pe-none</a>, однако у
+                    <a href="#" class="pe-auto">этой ссылки</a> есть класс <code>pe-auto</code>, и по ней можно перейти.
+                </p>
+            </div>
+
+            <pre
+                class="bg-light p-3 border rounded small"><code>&lt;a href="#" class="pe-none"&gt;Неактивная ссылка&lt;/a&gt;
+&lt;a href="#" class="pe-auto"&gt;Активная ссылка&lt;/a&gt;
+&lt;p class="pe-none"&gt;Родитель с pe-none, но &lt;a href="#" class="pe-auto"&gt;эта ссылка&lt;/a&gt; активна&lt;/p&gt;</code></pre>
+
+            <div class="alert alert-info small mt-3 py-2">
+                <strong>Важно:</strong> Класс <code>.pe-none</code> отключает только события мыши. Для полной
+                недоступности добавляйте <code>tabindex="-1"</code> и <code>aria-disabled="true"</code>.
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Link</h2>
+            <h3 class="mb-2">Непрозрачность ссылки</h3>
+            <p class="mb-3">Управление прозрачностью цвета ссылки с помощью утилит <code>link-opacity-*</code>.</p>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="border rounded p-3 bg-white">
+                        <p class="m-0"><a href="#" class="link-opacity-10">link-opacity-10</a></p>
+                        <p class="m-0"><a href="#" class="link-opacity-25">link-opacity-25</a></p>
+                        <p class="m-0"><a href="#" class="link-opacity-50">link-opacity-50</a></p>
+                        <p class="m-0"><a href="#" class="link-opacity-75">link-opacity-75</a></p>
+                        <p class="m-0"><a href="#" class="link-opacity-100">link-opacity-100</a></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="border rounded p-3 bg-white">
+                        <p class="m-0"><a href="#" class="link-opacity-10-hover">Hover: 10</a></p>
+                        <p class="m-0"><a href="#" class="link-opacity-50-hover">Hover: 50</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <pre class="bg-light p-2 border rounded mt-3 small"><code>&lt;a class="link-opacity-25" href="#"&gt;Opacity 25&lt;/a&gt;
+&lt;a class="link-opacity-10-hover" href="#"&gt;Hover opacity 10&lt;/a&gt;</code></pre>
+
+            <h3 class="mb-3">Подчёркивание ссылки</h3>
+
+            <div class="row g-4">
+                <div class="col">
+                    <p class="mb-2">Цвет подчёркивания:</p>
+                    <div class="border rounded p-3 bg-white">
+                        <div>
+                            <a href="#" class="link-underline-primary me-3">primary</a>
+                            <a href="#" class="link-underline-secondary me-3">secondary</a>
+                            <a href="#" class="link-underline-success me-3">success</a>
+                            <a href="#" class="link-underline-danger me-3">danger</a>
+                        </div>
+                        <div>
+                            <a href="#" class="link-underline-warning me-3">warning</a>
+                            <a href="#" class="link-underline-info me-3">info</a>
+                            <a href="#" class="link-underline-light me-3">light</a>
+                            <a href="#" class="link-underline-dark me-3">dark</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <p class="mb-2">Смещение подчёркивания (<code>link-offset-*</code>):</p>
+                    <div class="border rounded p-3 bg-white">
+                        <p class="mb-1"><a href="#" class="link-offset-1">Offset 1</a></p>
+                        <p class="mb-1"><a href="#" class="link-offset-2">Offset 2</a></p>
+                        <p class="mb-0"><a href="#" class="link-offset-3">Offset 3</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <pre class="bg-light p-2 border rounded mt-3 small"><code>&lt;a class="link-underline-primary"&gt;Primary underline&lt;/a&gt;
+&lt;a class="link-offset-2"&gt;Offset 2&lt;/a&gt;</code></pre>
+        </section>
+        <section class="pdf-page">
+            <h3 class="mb-3">Непрозрачность подчёркивания</h3>
+            <p class="mb-3">Требуется добавить класс <code>.link-underline</code> для работы с прозрачностью.</p>
+
+            <div class="border rounded p-3 bg-white mb-3">
+                <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 me-4">opacity-0</a>
+                <a href="#" class="link-offset-2 link-underline link-underline-opacity-25 me-4">25</a>
+                <a href="#" class="link-offset-2 link-underline link-underline-opacity-50 me-4">50</a>
+                <a href="#" class="link-offset-2 link-underline link-underline-opacity-75 me-4">75</a>
+                <a href="#" class="link-offset-2 link-underline link-underline-opacity-100">100</a>
+            </div>
+
+            <h4 class="mt-4 mb-2">Варианты при наведении + цветные ссылки</h4>
+            <div class="border rounded p-3 bg-white">
+                <p class="mb-2"><a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Primary link</a></p>
+                <p class="mb-2"><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Success link</a></p>
+                <p class="mb-0"><a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Danger link</a></p>
+            </div>
+
+            <pre class="bg-light p-2 border rounded mt-3 small"><code>&lt;a class="link-offset-2 link-underline link-underline-opacity-50"&gt;Underline 50&lt;/a&gt;
+&lt;a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"&gt;Primary&lt;/a&gt;</code></pre>
+
+            <div class="alert alert-info small mt-3 py-2">
+                <strong>Совет по доступности:</strong> Цвет не должен быть единственным способом передачи смысла. Используйте текст или дополнительные индикаторы.
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Object fit</h2>
+            <p class="mb-3">Утилиты для управления тем, как заменяемый контент (img, video) вписывается в свой контейнер.</p>
+            
+            <p class="mb-3"><strong>Основные классы:</strong> 
+                <code>.object-fit-contain</code>, 
+                <code>.object-fit-cover</code>, 
+                <code>.object-fit-fill</code>, 
+                <code>.object-fit-scale</code>, 
+                <code>.object-fit-none</code>
+            </p>
+
+            <div class="row g-3">
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <h6 class="mb-2 text-center">contain</h6>
+                        <div class="bg-light border rounded overflow-hidden" style="height: 140px;">
+                            <img src="resource/code-exmp.jpg" class="object-fit-contain w-100 h-100" alt="contain">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <h6 class="mb-2 text-center">cover</h6>
+                        <div class="bg-light border rounded overflow-hidden" style="height: 140px;">
+                            <img src="resource/example.png" class="object-fit-cover w-100 h-100" alt="cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <h6 class="mb-2 text-center">fill</h6>
+                        <div class="bg-light border rounded overflow-hidden" style="height: 140px;">
+                            <img src="resource/grey-back.jpg" class="object-fit-fill w-100 h-100" alt="fill">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <h6 class="mb-2 text-center">scale-down</h6>
+                        <div class="bg-light border rounded overflow-hidden" style="height: 140px;">
+                            <img src="resource/html-fun.jpg" class="object-fit-scale w-100 h-100" alt="scale">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <h6 class="mb-2 text-center">none</h6>
+                        <div class="bg-light border rounded overflow-hidden" style="height: 140px;">
+                            <img src="resource/js-emblem.jpg" class="object-fit-none w-100 h-100" alt="none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre class="bg-light p-2 border rounded small mt-2"><code>&lt;img src="..." class="object-fit-cover w-100 h-100"&gt;</code></pre>
+            
+            <div class="mt-2 pt-2 border-top">
+                <p class="small mb-0">
+                    <strong>contain</strong> — полностью помещает изображение, сохраняя пропорции (может быть пустое пространство).<br>
+                    <strong>cover</strong> — полностью заполняет контейнер, сохраняя пропорции (часть может обрезаться).<br>
+                    <strong>fill</strong> — растягивает изображение, игнорируя пропорции.<br>
+                    <strong>scale-down</strong> — уменьшает до нужного размера или показывает оригинал (без увеличения).<br>
+                    <strong>none</strong> — оригинальный размер без изменений.
+                </p>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">Адаптивные варианты</h3>
+            <p class="mb-3">Поддерживаются брейкпоинты: <code>object-fit-sm-*</code>, <code>object-fit-md-*</code>, <code>object-fit-lg-*</code> и т.д.</p>
+
+            <div class="border rounded p-3 bg-white mb-4">
+                <div class="bg-light border rounded overflow-hidden" style="height: 160px;">
+                    <img src="resource/code-exmp.jpg" 
+                         class="object-fit-sm-contain object-fit-md-cover object-fit-lg-fill w-100 h-100" 
+                         alt="responsive object-fit">
+                </div>
+                <p class="mt-2 mb-0 small text-muted">
+                    sm: contain → md: cover → lg: fill
+                </p>
+            </div>
+
+            <pre class="bg-light p-2 border rounded small mb-4"><code>&lt;img class="object-fit-sm-contain object-fit-md-cover object-fit-lg-fill w-100 h-100"&gt;</code></pre>
+
+            <h3 class="mb-3">Object fit с видео</h3>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="border rounded p-2 bg-white">
+                        <h6 class="mb-2 text-center">object-fit-contain</h6>
+                        <video src="https://www.w3schools.com/html/mov_bbb.mp4" 
+                               class="object-fit-contain w-100" 
+                               style="height: 140px;" controls muted loop></video>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="border rounded p-2 bg-white">
+                        <h6 class="mb-2 text-center">object-fit-cover</h6>
+                        <video src="https://www.w3schools.com/html/mov_bbb.mp4" 
+                               class="object-fit-cover w-100" 
+                               style="height: 140px;" controls muted loop></video>
+                    </div>
+                </div>
+            </div>
+
+            <pre class="bg-light p-2 border rounded small mt-3"><code>&lt;video class="object-fit-contain w-100" style="height: 200px;"&gt;&lt;/video&gt;
+&lt;video class="object-fit-cover w-100" style="height: 200px;"&gt;&lt;/video&gt;</code></pre>
+    </section>
+    <section class="pdf-page">
+        <h2 class="mt-4">Непрозрачность (Opacity)</h2>
+        <div>
+            <p>
+                Управляйте непрозрачностью элементов. Свойство opacity устанавливает уровень прозрачности, где 1
+                — Полностью непрозрачный, .5 — видимый на 50%, а 0 — полностью прозрачный.
+            </p>
+            <p>Установите непрозрачность элемента с помощью утилит <code>.opacity-{value}</code>.</p>
+
+            <div class="border rounded p-3 mb-3 bg-white">
+                <div class="d-flex gap-4 align-items-center flex-wrap">
+                    <div class="bg-primary text-white p-3 rounded opacity-100">opacity-100</div>
+                    <div class="bg-primary text-white p-3 rounded opacity-75">opacity-75</div>
+                    <div class="bg-primary text-white p-3 rounded opacity-50">opacity-50</div>
+                    <div class="bg-primary text-white p-3 rounded opacity-25">opacity-25</div>
+                    <div class="bg-primary text-white p-3 rounded opacity-10">opacity-10</div>
+                    <div class="bg-primary text-white p-3 rounded opacity-0">opacity-0</div>
+                </div>
+            </div>
+
+            <pre class="bg-light p-3 border rounded"><code>&lt;div class="opacity-100"&gt;...&lt;/div&gt;
+&lt;div class="opacity-75"&gt;...&lt;/div&gt;
+...
+&lt;div class="opacity-0"&gt;...&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 class="mt-4">Переполнение (Overflow)</h2>
+        <div>
+            <p class="mb-2">
+                Используйте эти утилиты для быстрой настройки отображения в случае, когда контент выходит за пределы
+                элемента.
+            </p>
+
+            <h3 class="mt-2">overflow</h3>
+            
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <div class="overflow-auto bg-light p-2 border" style="max-height: 100px">
+                            <p class="mb-0">
+                                .overflow-auto — это пример использования для элемента с заданными размерами. По
+                                задумке, это содержимое будет прокручиваться вертикально. Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua.
+                            </p>
+                        </div>
+                        <pre class="bg-light p-3 border rounded mt-2 mb-0"><code>.overflow-auto</code></pre>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <div class="overflow-hidden bg-light p-2 border" style="max-height: 100px">
+                            <p class="mb-0">
+                                .overflow-hidden — это пример использования для элемента с заданными размерами.
+                                Содержимое обрезается и не выходит за пределы.
+                            </p>
+                        </div>
+                        <pre class="bg-light p-3 border rounded mt-2 mb-0"><code>.overflow-hidden</code></pre>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <div class="overflow-visible bg-light p-2 border" style="max-height: 100px">
+                            <p class="mb-0">
+                                .overflow-visible — это пример использования для элемента с заданными размерами.
+                                Содержимое видно за пределами контейнера.
+                            </p>
+                        </div>
+                        <pre class="bg-light p-3 border rounded mt-2 mb-0"><code>.overflow-visible</code></pre>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="border rounded p-2 bg-white h-100">
+                        <div class="overflow-scroll bg-light p-2 border" style="max-height: 100px">
+                            <p class="mb-0">
+                                .overflow-scroll — это пример использования для элемента с заданными размерами. Всегда
+                                показывает полосы прокрутки.
+                            </p>
+                        </div>
+                        <pre class="bg-light p-3 border rounded mt-2 mb-0"><code>.overflow-scroll</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pdf-page">
+        <h3 class="mt-2">overflow-x</h3>
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white h-100">
+                    <div
+                        class="overflow-x-auto bg-light p-2 border"
+                        style="max-width: 100%; width: 200px; white-space: nowrap">
+                        <span
+                            >.overflow-x-auto — очень длинный текст который выходит за пределы контейнера и вызывает
+                            горизонтальную прокрутку</span
+                        >
+                    </div>
+                    <pre class="bg-light p-3 mt-2 border rounded mt-2 mb-0"><code>.overflow-x-auto</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white h-100 d-flex flex-column">
+                    <div
+                        class="overflow-x-hidden bg-light p-2 border"
+                        style="max-width: 100%; width: 200px; white-space: nowrap">
+                        <span>.overflow-x-hidden — очень длинный текст обрезается по горизонтали</span>
+                    </div>
+                    <pre class="bg-light p-3 mt-2 border rounded mb-0 mt-auto"><code>.overflow-x-hidden</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white h-100 d-flex flex-column">
+                    <div
+                        class="overflow-x-visible bg-light p-2 border"
+                        style="max-width: 100%; width: 200px; white-space: nowrap">
+                        <span>.overflow-x-visible — очень длинный текст виден за пределами контейнера</span>
+                    </div>
+                    <pre class="bg-light p-3 mt-2 border rounded mb-0 mt-auto"><code>.overflow-x-visible</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white h-100">
+                    <div
+                        class="overflow-x-scroll bg-light p-2 border"
+                        style="max-width: 100%; width: 200px; white-space: nowrap">
+                        <span>.overflow-x-scroll — всегда показывает горизонтальную прокрутку</span>
+                    </div>
+                    <pre class="bg-light p-3 mt-2 border rounded mt-2 mb-0"><code>.overflow-x-scroll</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-2">overflow-y</h3>
+
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-y-auto bg-light p-2 border" style="max-height: 100px; height: 100px">
+                        <p>
+                            .overflow-y-auto — этот контент будет прокручиваться по вертикали. Добавим немного текста
+                            для демонстрации. Еще немного текста. И еще для прокрутки.
+                        </p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded mt-2 mb-0"><code>.overflow-y-auto</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-y-hidden bg-light p-2 border" style="max-height: 100px; height: 100px">
+                        <p>
+                            .overflow-y-hidden — контент обрезается по вертикали. Дополнительный текст не виден за
+                            пределами контейнера.
+                        </p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded mt-2 mb-0"><code>.overflow-y-hidden</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-y-visible bg-light p-2 border" style="max-height: 100px; height: 100px">
+                        <p>
+                            .overflow-y-visible — контент виден за пределами контейнера. Этот текст выходит за границы
+                            блока. Да да, действительно выходит. Не верите? а вы поверьте!
+                        </p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded mt-2 mb-0"><code>.overflow-y-visible</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="border rounded p-2 bg-white">
+                    <div class="overflow-y-scroll bg-light p-2 border" style="max-height: 100px; height: 100px">
+                        <p>.overflow-y-scroll — всегда показывает вертикальную прокрутку.</p>
+                    </div>
+                    <pre class="bg-light p-3 border rounded mt-2 mb-0"><code>.overflow-y-scroll</code></pre>
+                </div>
+            </div>
+        </div>
+        <h4 class="my-2">Сводка</h4>
+        <p class="small mb-3">
+            <strong>.overflow</strong> — управляет поведением контента, который выходит за границы элемента.<br />
+            <strong>.overflow-x</strong> — управляет только горизонтальным переполнением.<br />
+            <strong>.overflow-y</strong> — управляет только вертикальным переполнением.
+        </p>
+
+        <pre class="bg-light p-2 border rounded small"><code>&lt;div class="overflow-auto"&gt;...&lt;/div&gt;
+&lt;div class="overflow-hidden"&gt;...&lt;/div&gt;
+&lt;div class="overflow-visible"&gt;...&lt;/div&gt;
+&lt;div class="overflow-scroll"&gt;...&lt;/div&gt;</code></pre>
+
+        <p class="small text-muted mb-0">
+            Чаще всего используются <code>.overflow-auto</code> и <code>.overflow-hidden</code>.
+        </p>
+    </section>
+    <section class="pdf-page">
+        <h2 class="mt-4">Позиция (Position)</h2>
+        <p>Утилиты для быстрой настройки свойства <code>position</code> элемента.</p>
+        <p>
+            <strong>Основные классы:</strong> <code>.position-static</code>, <code>.position-relative</code>,
+            <code>.position-absolute</code>,
+            <code>.position-fixed</code>
+            <code>.position-sticky</code>,
+        </p>
+
+        <div class="border rounded p-3 mb-2 bg-white">
+            <div class="d-flex flex-wrap gap-3 mb-3">
+                <div class="bg-secondary text-white p-2 rounded position-static">.position-static</div>
+                <div class="bg-secondary text-white p-2 rounded position-relative">.position-relative</div>
+            </div>
+            <div class="bg-light border rounded p-3 position-relative" style="height: 100px">
+                <div class="bg-secondary text-white p-2 rounded position-absolute top-0 start-0">
+                    .position-absolute
+                </div>
+            </div>
+            <div class="bg-light border rounded p-3 mt-3" style="height: 150px; overflow-y: auto">
+                <div class="bg-secondary text-white p-2 rounded position-sticky top-0">.position-sticky</div>
+                <p class="mt-2">Прокрути этот контейнер, чтобы увидеть sticky элемент в действии</p>
+                <p>Lorem ipsum dolor sit amet...</p>
+                <p>Lorem ipsum dolor sit amet...</p>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </div>
+        </div>
+        <pre class="bg-light p-3 border rounded"><code>&lt;div class="position-sticky"&gt;...&lt;/div&gt;</code></pre>
+        <div class="mt-2 pt-3 border-top">
+            <h5 class="mb-2">Описание классов</h5>
+            <p class="small mb-0">
+                <strong>static</strong> — стандартное положение в потоке (по умолчанию)<br>
+                <strong>relative</strong> — позиционируется относительно своего обычного места<br>
+                <strong>absolute</strong> — позиционируется относительно ближайшего позиционированного родителя<br>
+                <strong>fixed</strong> — фиксируется относительно окна браузера (viewport)<br>
+                <strong>sticky</strong> — прилипает при прокрутке (гибрид relative + fixed)
+            </p>
+        </div>
+    </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">Расстановка элементов</h3>
+            <p class="mb-3">
+                Утилиты быстрого позиционирования позволяют легко размещать элементы внутри контейнера с помощью
+                комбинаций <code>top-*</code>, <code>start-*</code>, <code>end-*</code> и <code>bottom-*</code>. Все они
+                работают только вместе с классом <code>position-absolute</code> (или <code>position-fixed</code>).
+            </p>
+
+            <p class="mb-3">
+                <strong>Полезные комбинации:</strong>
+                <code>top-0 start-0</code>, <code>top-0 end-0</code>, <code>bottom-0 start-0</code>,
+                <code>bottom-0 end-0</code>, <code>top-50 start-50 translate-middle</code> (центрирование).
+            </p>
+
+            <div class="border rounded p-4 mb-3 bg-white position-relative" style="min-height: 250px">
+                <div class="position-absolute top-0 start-0 bg-primary text-white p-3 rounded">top-0 start-0</div>
+                <div class="position-absolute top-0 end-0 bg-danger text-white p-3 rounded">top-0 end-0</div>
+
+                <div class="position-absolute top-50 start-50 bg-success text-white p-3 rounded translate-middle">
+                    top-50 start-50 + translate-middle
+                </div>
+
+                <div class="position-absolute bottom-50 end-50 bg-warning text-dark p-3 rounded">bottom-50 end-50</div>
+
+                <div class="position-absolute bottom-0 start-0 bg-info text-white p-3 rounded">bottom-0 start-0</div>
+                <div class="position-absolute bottom-0 end-0 bg-dark text-white p-3 rounded">bottom-0 end-0</div>
+            </div>
+
+            <pre
+                class="bg-light p-3 border rounded mb-4"><code>&lt;div class="position-relative" style="height: 320px;"&gt;
+  &lt;div class="position-absolute top-0 start-0"&gt;top-0 start-0&lt;/div&gt;
+  &lt;div class="position-absolute top-0 end-0"&gt;top-0 end-0&lt;/div&gt;
+  &lt;div class="position-absolute top-50 start-50 translate-middle"&gt;Центр&lt;/div&gt;
+  &lt;div class="position-absolute bottom-0 start-0"&gt;bottom-0 start-0&lt;/div&gt;
+  &lt;div class="position-absolute bottom-0 end-0"&gt;bottom-0 end-0&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <div class="alert alert-info small">
+                <strong>Полезный совет:</strong> Для точного центрирования элемента используйте комбинацию
+                <code>top-50 start-50 translate-middle</code>. Класс <code>translate-middle</code> сдвигает элемент на
+                половину его собственной ширины и высоты.
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h3 class="mt-4">Центрирование элементов</h3>
+            <p class="mb-3">
+                Для удобного центрирования абсолютно позиционированных элементов используйте вспомогательные классы
+                <code>translate-middle</code>, <code>translate-middle-x</code> и <code>translate-middle-y</code>.
+            </p>
+
+            <p class="mb-3">
+                <strong>translate-middle</strong> сдвигает элемент на 50% его ширины и высоты, что позволяет легко
+                центрировать его по горизонтали и вертикали.
+            </p>
+
+            <div class="border rounded p-4 mb-3 bg-white position-relative" style="min-height: 280px">
+                <div class="position-absolute top-0 start-0 bg-primary text-white p-2 rounded">top-0 start-0</div>
+                <div class="position-absolute top-0 start-50 translate-middle-x bg-danger text-white p-2 rounded">
+                    top-0 start-50 + translate-middle-x
+                </div>
+                <div class="position-absolute top-0 end-0 bg-success text-white p-2 rounded">top-0 end-0</div>
+
+                <div class="position-absolute top-50 start-0 translate-middle-y bg-warning text-dark p-2 rounded">
+                    top-50 start-0 + translate-middle-y
+                </div>
+                <div class="position-absolute top-50 start-50 translate-middle bg-info text-white p-2 rounded">
+                    top-50 start-50 + translate-middle
+                </div>
+                <div class="position-absolute top-50 end-0 translate-middle-y bg-dark text-white p-2 rounded">
+                    top-50 end-0 + translate-middle-y
+                </div>
+
+                <div class="position-absolute bottom-0 start-0 bg-secondary text-white p-2 rounded">
+                    bottom-0 start-0
+                </div>
+                <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light border p-2 rounded">
+                    bottom-0 start-50 + translate-middle-x
+                </div>
+                <div class="position-absolute bottom-0 end-0 bg-dark text-white p-2 rounded">bottom-0 end-0</div>
+            </div>
+
+            <pre
+                class="bg-light p-3 border rounded mb-4"><code>&lt;div class="position-relative" style="height: 280px;"&gt;
+  &lt;div class="position-absolute top-50 start-50 translate-middle"&gt;Центр по обеим осям&lt;/div&gt;
+  &lt;div class="position-absolute top-0 start-50 translate-middle-x"&gt;Центр по горизонтали&lt;/div&gt;
+  &lt;div class="position-absolute top-50 start-0 translate-middle-y"&gt;Центр по вертикали&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <div class="alert alert-info small py-2">
+                Класс <code>translate-middle</code> — самый удобный способ
+                центрирования абсолютно позиционированных элементов. Он работает за счёт
+                <code>transform: translate(-50%, -50%);</code>.
+            </div>
+        </section>
+        <section class="pdf-page">
+        <h3 class="mt-0">Примеры</h3>
+        <p class="mb-3 text-muted">Классы позиционирования для создания маркеров, бейджей и шаговых индикаторов.</p>
+
+        <div class="row g-3">
+            <div class="col-4">
+                <div class="border rounded p-3 bg-white h-100">
+                    <h6 class="mb-3 small fw-bold text-uppercase">1. Маркер на кнопке</h6>
+                    <button type="button" class="btn btn-primary position-relative">
+                        Письма 
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">+99</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="border rounded p-3 bg-white h-100">
+                    <h6 class="mb-3 small fw-bold text-uppercase">2. Пустое уведомление</h6>
+                    <button type="button" class="btn btn-primary position-relative">
+                        Уведомления
+                        <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="border rounded p-3 bg-white h-100">
+                    <h6 class="mb-3 small fw-bold text-uppercase">3. Шаговый индикатор</h6>
+                    <div class="position-relative mt-4" style="height: 30px;">
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar" style="width: 50%"></div>
+                        </div>
+                        <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 24px; height: 24px; padding: 0; font-size: 10px;">1</button>
+                        <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 24px; height: 24px; padding: 0; font-size: 10px;">2</button>
+                        <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 24px; height: 24px; padding: 0; font-size: 10px;">3</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <pre class="bg-light p-2 border rounded mb-0"><code>&lt;!-- 1. Маркер с числом --&gt;
+&lt;button class="position-relative"&gt;...
+    &lt;span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"&gt;+99&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- 2. Маркер-точка --&gt;
+&lt;span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"&gt;&lt;/span&gt;
+
+&lt;!-- 3. Элемент шага (центрирование на линии) --&gt;
+&lt;button class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill"&gt;2&lt;/button&gt;</code></pre>
+        </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Тени (Shadows)</h2>
+            <div class="mb-4">
+                <p>
+                    Утилиты теней позволяют быстро добавлять или удалять эффект <code>box-shadow</code> к элементам.
+                    Тени на компонентах по умолчанию отключены, но их можно включить через переменную Sass
+                    <code>$enable-shadows</code>.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Доступные классы:</strong> <code>.shadow-none</code>, <code>.shadow-sm</code>,
+                        <code>.shadow</code>, <code>.shadow-lg</code>.
+                    </li>
+                    <li>
+                        <strong>Особенности:</strong> Значения теней хранятся в CSS-переменных, что обеспечивает
+                        гибкость. Классы используют <code>!important</code>.
+                    </li>
+                </ul>
+                <div>
+                    <div class="shadow-none p-3 mb-3 bg-body-tertiary rounded">.shadow-none — без тени</div>
+                    <div class="shadow-sm p-3 mb-3 bg-body-tertiary rounded">.shadow-sm — малая тень</div>
+                    <div class="shadow p-3 mb-3 bg-body-tertiary rounded">.shadow — стандартная тень</div>
+                    <div class="shadow-lg p-3 mb-3 bg-body-tertiary rounded">.shadow-lg — большая тень</div>
+                </div>
+                <pre
+                    class="bg-light p-3 border rounded"><code>&lt;div class="shadow-sm p-3 bg-body-tertiary rounded"&gt;Малая тень&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Размеры (Sizing)</h2>
+            <div class="mb-4">
+                <p>
+                    Утилиты размеров позволяют быстро задавать ширину и высоту элементов относительно родителя или
+                    viewport. Поддерживаются процентные значения, <code>auto</code> и единицы viewport.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Ширина:</strong> <code>.w-25</code>, <code>.w-50</code>, <code>.w-75</code>,
+                        <code>.w-100</code>, <code>.w-auto</code>.
+                    </li>
+                    <li>
+                        <strong>Высота:</strong> аналогично — <code>.h-25</code> … <code>.h-100</code>,
+                        <code>.h-auto</code>.
+                    </li>
+                    <li>
+                        <strong>Максимальные размеры:</strong> <code>.mw-100</code> (max-width: 100%),
+                        <code>.mh-100</code>.
+                    </li>
+                    <li>
+                        <strong>Viewport:</strong> <code>.vw-100</code>, <code>.vh-100</code>, <code>.min-vw-100</code>,
+                        <code>.min-vh-100</code>.
+                    </li>
+                    <li><strong>Адаптивность:</strong> классы работают со всеми брейкпоинтами.</li>
+                </ul>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="w-25 p-3 bg-primary text-white">.w-25</div>
+                        <div class="w-50 p-3 bg-primary text-white">.w-50</div>
+                        <div class="w-75 p-3 bg-primary text-white">.w-75</div>
+                        <div class="w-100 p-3 bg-primary text-white">.w-100</div>
+                    </div>
+                </div>
+                <pre class="bg-light p-3 border rounded mt-4"><code>&lt;div class="w-50"&gt;Ширина 50%&lt;/div&gt;
+&lt;div class="h-100"&gt;Высота 100%&lt;/div&gt;
+&lt;div class="vw-100"&gt;Ширина 100vw&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Отступы (Spacing)</h2>
+            <div class="mb-4">
+                <p>
+                    Утилиты отступов — один из самых используемых наборов в Bootstrap. Они позволяют быстро управлять
+                    <code>margin</code> и <code>padding</code> для всех сторон элемента, отдельных осей или конкретных
+                    сторон.
+                </p>
+                <ul>
+                    <li><strong>Сокращения:</strong> <code>m-</code> — margin, <code>p-</code> — padding.</li>
+                    <li>
+                        <strong>Стороны:</strong> <code>t</code> (top), <code>b</code> (bottom), <code>s</code> (start —
+                        лево в LTR), <code>e</code> (end — право в LTR), <code>x</code> (горизонтальные стороны),
+                        <code>y</code> (вертикальные стороны), без буквы — все четыре стороны.
+                    </li>
+                    <li>
+                        <strong>Размеры:</strong> от <code>0</code> (0) до <code>5</code> (3rem), а также
+                        <code>auto</code> (только для margin).
+                    </li>
+                    <li>
+                        <strong>Отрицательные margins:</strong> включаются через переменную Sass
+                        <code>$enable-negative-margins: true</code>. Используется префикс <code>n</code> — например,
+                        <code>.mt-n3</code>.
+                    </li>
+                    <li>
+                        <strong>Gap:</strong> утилиты <code>.gap-*</code>, <code>.row-gap-*</code> и
+                        <code>.column-gap-*</code> для управления расстоянием между элементами в flex и
+                        grid-контейнерах.
+                    </li>
+                    <li>
+                        <strong>Центрирование:</strong> <code>.mx-auto</code> — горизонтальное центрирование блочного
+                        элемента фиксированной ширины.
+                    </li>
+                </ul>
+
+                <h4 class="mt-4">Адаптивность отступов</h4>
+                <p>
+                    Все утилиты отступов поддерживают адаптивные варианты. Класс без префикса брейкпоинта применяется ко
+                    всем размерам экрана (от <code>xs</code>). Чтобы задать отступ только начиная с определённого
+                    брейкпоинта, добавьте префикс: <code>sm</code>, <code>md</code>, <code>lg</code>,
+                    <code>xl</code> или <code>xxl</code>.
+                </p>
+                <p class="m-0">Примеры адаптивного поведения:</p>
+                <ul>
+                    <li>
+                        <code>.ms-2 ms-md-4</code> — на мобильных отступ слева 0.5rem, на <code>md</code> и шире —
+                        1.5rem.
+                    </li>
+                    <li><code>.p-3 p-lg-5</code> — базовый padding 1rem, на больших экранах — 3rem.</li>
+                    <li>
+                        <code>.mt-0 mt-xl-5</code> — убрать отступ сверху на маленьких экранах и добавить большой отступ
+                        на <code>xl</code>.
+                    </li>
+                </ul>
+
+                <div class="p-3 p-md-4 p-xl-5 bg-primary text-white rounded">
+                    Этот блок имеет адаптивные внутренние отступы:<br />
+                    <strong>p-3</strong> на мобильных,<br />
+                    <strong>p-md-4</strong> на средних экранах,<br />
+                    <strong>p-xl-5</strong> на очень больших.
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h4 class="mt-4">Примеры использования</h4>
+            <div class="mb-4">
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light border">
+                            <div class="mt-3 p-3 bg-white border">.mt-3 — отступ сверху</div>
+                            <div class="mx-auto mt-3 p-3 bg-white border" style="width: 200px">
+                                .mx-auto — горизонтальное центрирование
+                            </div>
+                            <div class="ms-4 mt-3 p-3 bg-white border">.ms-4 — отступ слева (start)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-grid gap-3 grid" style="grid-template-columns: 1fr 1fr">
+                            <div class="p-3 bg-white border">Элемент 1</div>
+                            <div class="p-3 bg-white border">Элемент 2</div>
+                            <div class="p-3 bg-white border">Элемент 3</div>
+                            <div class="p-3 bg-white border">Элемент 4</div>
+                        </div>
+                        <p class="small text-muted mt-2">.d-grid .gap-3 — одинаковый зазор между элементами</p>
+                    </div>
+                </div>
+
+                <pre class="bg-light p-3 border rounded mb-3"><code>&lt;!-- Базовые примеры --&gt;
+&lt;div class="mt-3"&gt;Отступ сверху&lt;/div&gt;
+&lt;div class="px-4"&gt;Горизонтальные отступы&lt;/div&gt;
+&lt;div class="p-5"&gt;Отступы со всех сторон&lt;/div&gt;
+
+&lt;!-- Адаптивные --&gt;
+&lt;div class="ms-2 ms-md-5"&gt;Отступ слева меняется по брейкпоинтам&lt;/div&gt;
+&lt;div class="mx-auto" style="width: 300px;"&gt;Центрированный блок&lt;/div&gt;
+
+&lt;!-- Отрицательный margin --&gt;
+&lt;div class="mt-n3"&gt;Отрицательный отступ сверху&lt;/div&gt;
+
+&lt;!-- Gap --&gt;
+&lt;div class="d-flex gap-4"&gt;...&lt;/div&gt;
+&lt;div class="d-grid gap-3 row-gap-5"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Текст (Text)</h2>
+            <div class="mb-4">
+                <p>
+                    Утилиты текста предоставляют полный контроль над оформлением текстового содержимого: выравнивание,
+                    перенос слов, регистр, размер, вес шрифта, межстрочный интервал и многое другое.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Выравнивание:</strong> <code>.text-start</code>, <code>.text-center</code>,
+                        <code>.text-end</code> + адаптивные варианты (<code>.text-md-center</code> и т.д.).
+                    </li>
+                    <li>
+                        <strong>Перенос текста:</strong> <code>.text-wrap</code>, <code>.text-nowrap</code>,
+                        <code>.text-break</code>.
+                    </li>
+                    <li>
+                        <strong>Регистр:</strong> <code>.text-lowercase</code>, <code>.text-uppercase</code>,
+                        <code>.text-capitalize</code>.
+                    </li>
+                    <li>
+                        <strong>Размер шрифта:</strong> <code>.fs-1</code> … <code>.fs-6</code> (соответствует
+                        <code>h1</code>–<code>h6</code>).
+                    </li>
+                    <li>
+                        <strong>Вес шрифта:</strong> <code>.fw-bold</code>, <code>.fw-semibold</code>,
+                        <code>.fw-medium</code>, <code>.fw-normal</code>, <code>.fw-light</code>,
+                        <code>.fw-lighter</code>.
+                    </li>
+                    <li><strong>Стиль:</strong> <code>.fst-italic</code>, <code>.fst-normal</code>.</li>
+                    <li>
+                        <strong>Межстрочный интервал:</strong> <code>.lh-1</code>, <code>.lh-sm</code>,
+                        <code>.lh-base</code>, <code>.lh-lg</code>.
+                    </li>
+                    <li><strong>Моноширинный шрифт:</strong> <code>.font-monospace</code>.</li>
+                    <li>
+                        <strong>Декорация:</strong> <code>.text-decoration-none</code>,
+                        <code>.text-decoration-underline</code>, <code>.text-decoration-line-through</code>.
+                    </li>
+                    <li><strong>Сброс стилей:</strong> <code>.text-reset</code>.</li>
+                </ul>
+
+                <h4 class="mt-4">Примеры использования</h4>
+
+                <div class="border rounded p-3 bg-light mb-4">
+                    <p class="text-start m-0"><strong>.text-start</strong> — выравнивание по левому краю</p>
+                    <p class="text-center m-0"><strong>.text-center</strong> — выравнивание по центру</p>
+                    <p class="text-end m-0"><strong>.text-end</strong> — выравнивание по правому краю</p>
+                </div>
+
+                <div class="border rounded p-3 bg-light mb-4">
+                    <p class="text-center text-md-start text-lg-end">
+                        На мобильных — по центру (<code>.text-center</code>),<br />
+                        на <code>md</code> — по левому краю (<code>.text-md-start</code>),<br />
+                        на <code>lg</code> и больше — по правому краю (<code>.text-lg-end</code>).
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <div class="mb-4">
+                <div class="border rounded p-3 bg-light mb-4">
+                    <p class="text-nowrap bg-white border p-2" style="width: 200px">
+                        .text-nowrap — текст не переносится
+                    </p>
+                    <p class="text-wrap bg-white border p-2" style="width: 200px">
+                        .text-wrap — обычный перенос (по умолчанию)
+                    </p>
+                    <p class="text-break bg-white border p-2" style="width: 200px">
+                        ОченьДлинноеСловоКотороеНеПомещаетсяВКонтейнерИДолжноРазорваться.text-break
+                    </p>
+                </div>
+
+                <div class="border rounded p-3 bg-light mb-4">
+                    <p class="fs-1 fw-bold">.fs-1 .fw-bold</p>
+                    <p class="fs-2 fw-semibold">.fs-2 .fw-semibold</p>
+                    <p class="fs-3 fw-medium">.fs-3 .fw-medium</p>
+                    <p class="fs-4 fw-normal">.fs-4 .fw-normal</p>
+                    <p class="fs-5 fw-light">.fs-5 .fw-light</p>
+                    <p class="fs-6 fw-lighter fst-italic">.fs-6 .fw-lighter .fst-italic</p>
+                </div>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <div class="mb-4">
+                <div class="border rounded p-3 bg-light mb-4">
+                    <p class="lh-1">
+                        .lh-1 Это длинный абзац, демонстрирующий, как наши утилиты влияют на межстрочный интервал
+                        элемента. Классы применяются к самому элементу или иногда к родительскому элементу. Эти классы
+                        можно настраивать по мере необходимости с помощью нашего API утилит.
+                    </p>
+                    <p class="lh-sm">
+                        .lh-sm Это длинный абзац, демонстрирующий, как наши утилиты влияют на межстрочный интервал
+                        элемента. Классы применяются к самому элементу или иногда к родительскому элементу. Эти классы
+                        можно настраивать по мере необходимости с помощью нашего API утилит.
+                    </p>
+                    <p class="lh-base">
+                        .lh-base Это длинный абзац, демонстрирующий, как наши утилиты влияют на межстрочный интервал
+                        элемента. Классы применяются к самому элементу или иногда к родительскому элементу. Эти классы
+                        можно настраивать по мере необходимости с помощью нашего API утилит.
+                    </p>
+                    <p class="lh-lg mb-0">
+                        .lh-lg Это длинный абзац, демонстрирующий, как наши утилиты влияют на межстрочный интервал
+                        элемента. Классы применяются к самому элементу или иногда к родительскому элементу. Эти классы
+                        можно настраивать по мере необходимости с помощью нашего API утилит.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="border rounded p-3 bg-light mb-4">
+                            <p class="m-0 text-uppercase">текст в верхнем регистре — .text-uppercase</p>
+                            <p class="m-0 text-lowercase">ТЕКСТ В НИЖНЕМ РЕГИСТРЕ — .text-lowercase</p>
+                            <p class="m-0 text-capitalize">каждое слово с большой буквы — .text-capitalize</p>
+                            <p class="m-0 text-decoration-underline">Подчёркнутый текст — .text-decoration-underline</p>
+                            <p class="m-0 text-decoration-line-through">Зачёркнутый текст — .text-decoration-line-through</p>
+                            <p class="m-0 text-decoration-none">Ссылка без подчёркивания — .text-decoration-none</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="border rounded p-3 bg-light mb-4">
+                            <p class="m-0 font-monospace">Это моноширинный текст — .font-monospace</p>
+                            <p class="m-0 text-reset">Текст со сброшенными цветом и оформлением — .text-reset</p>
+                        </div>
+                    </div>
+                </div>
+                <pre class="bg-light p-3 border rounded"><code>&lt;!-- Основные примеры --&gt;
+&lt;p class="text-center fw-bold fs-3"&gt;Заголовок по центру&lt;/p&gt;
+&lt;p class="text-md-end"&gt;Адаптивное выравнивание&lt;/p&gt;
+&lt;p class="text-nowrap"&gt;Без переноса&lt;/p&gt;
+&lt;p class="fs-1 fw-bold lh-lg"&gt;Большой жирный текст с большим интервалом&lt;/p&gt;
+&lt;p class="text-uppercase text-decoration-underline"&gt;Верхний регистр и подчёркивание&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Вертикальное выравнивание (Vertical align)</h2>
+            <div class="mb-4">
+                <p>
+                    Утилиты вертикального выравнивания работают с inline-, inline-block- и табличными элементами,
+                    изменяя свойство <code>vertical-align</code>.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Классы:</strong> <code>.align-baseline</code>, <code>.align-top</code>,
+                        <code>.align-middle</code>, <code>.align-bottom</code>, <code>.align-text-top</code>,
+                        <code>.align-text-bottom</code>.
+                    </li>
+                    <li><strong>Особенности:</strong> Не работают с блочными элементами (для них используйте flex).</li>
+                </ul>
+                <div class="border p-3 bg-light mb-4">
+                    <span class="align-baseline">baseline</span>
+                    <span class="align-top">top</span>
+                    <span class="align-middle">middle</span>
+                    <span class="align-bottom">bottom</span>
+                    <span class="align-text-top">text-top</span>
+                    <span class="align-text-bottom">text-bottom</span>
+                </div>
+                <pre
+                    class="bg-light p-3 border rounded"><code>&lt;span class="align-middle"&gt;Выравнивание по середине&lt;/span&gt;</code></pre>
+            </div>
+
+            <h2 class="mt-4">Видимость (Visibility)</h2>
+            <div class="mb-4">
+                <p>
+                    Утилиты видимости управляют свойством <code>visibility</code>, не влияя на поток документа и
+                    занимаемое место (в отличие от <code>display: none</code>).
+                </p>
+                <ul>
+                    <li><strong>Классы:</strong> <code>.visible</code> и <code>.invisible</code>.</li>
+                    <li>
+                        <strong>Особенности:</strong> <code>.invisible</code> скрывает элемент визуально и для экранных
+                        читалок, но оставляет пространство.
+                    </li>
+                </ul>
+                <div class="border p-3 bg-light mb-4">
+                    <div class="visible">Видимый элемент</div>
+                    <div class="d-flex">
+                        <div class="invisible">Невидимый элемент (занимает место)</div>
+                        <p class="mb-0">&lt;-- тут невидимый элемент, но он занимает место</p>
+                    </div>
+                </div>
+                <pre
+                    class="bg-light p-3 border rounded"><code>&lt;div class="invisible"&gt;Скрытый, но занимающий место&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+        <section class="pdf-page">
+            <h2 class="mt-4">Z-index</h2>
+            <div class="mb-4">
+                <p>
+                    Утилиты <strong>z-index</strong> позволяют быстро управлять порядком наложения (перекрытия)
+                    элементов друг относительно друга. Чем больше значение z-index, тем «выше» находится элемент на
+                    странице.
+                </p>
+
+                <p>
+                    <strong>Важно:</strong> утилиты z-index работают <strong>только</strong> с элементами, у которых
+                    свойство <code>position</code> отличается от <code>static</code> (например, <code>relative</code>,
+                    <code>absolute</code>, <code>fixed</code> или <code>sticky</code>).
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Доступные классы:</strong> <code>.z-n1</code> (z-index: -1), <code>.z-0</code> (0),
+                        <code>.z-1</code> (1), <code>.z-2</code> (2), <code>.z-3</code> (3).
+                    </li>
+                    <li>
+                        Это низкоуровневые утилиты. Более высокие значения используются компонентами Bootstrap
+                        (модальные окна, тултипы и др.).
+                    </li>
+                </ul>
+
+                <div class="row">
+                    <div class="col">
+                        <div
+                            class="position-relative border rounded bg-light overflow-hidden"
+                            style="height: 260px; max-width: 100%; margin-bottom: 1.5rem">
+                            <div
+                                class="z-1 position-absolute ps-1 bg-danger text-white d-flex align-items-start justify-content-start shadow rounded"
+                                style="width: 150px; height: 150px; top: 10px; left: 10px">
+                                z-1
+                            </div>
+
+                            <div
+                                class="z-2 position-absolute ps-1 bg-primary text-white d-flex align-items-start justify-content-start shadow rounded"
+                                style="width: 150px; height: 150px; top: 50px; left: 50px">
+                                z-2
+                            </div>
+
+                            <div
+                                class="z-3 position-absolute ps-1 bg-success text-white d-flex align-items-start justify-content-start shadow rounded"
+                                style="width: 150px; height: 150px; top: 90px; left: 90px">
+                                z-3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <pre
+                            class="bg-light p-3 border rounded"><code>&lt;div class="position-relative" style="height: 260px;"&gt;
+    &lt;!-- Самый нижний --&gt;
+    &lt;div class="position-absolute top-0 start-0 z-n1 bg-warning p-3"&gt;z-n1&lt;/div&gt;
+
+    &lt;!-- Самый верхний --&gt;
+    &lt;div class="position-absolute top-50 start-50 translate-middle z-3 bg-primary p-3"&gt;z-3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <p class="small text-muted">Зелёный блок (<code>.z-3</code>) перекрывает все остальные.</p>
+
+                <p>
+                    Если требуется больше уровней наложения, вы можете расширить утилиты через API Bootstrap или задать
+                    нужное значение напрямую в своём CSS.
+                </p>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
