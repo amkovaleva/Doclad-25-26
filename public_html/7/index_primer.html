@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практика: Блочная модель, плавающие элементы и обтекание</title>
+    <link rel="stylesheet"href='../css/7.css'>
+</head>
+<body>
+
+    <main class="content">
+
+<!-- 1. Блочная модель -->
+<section id="box-model" class="example-section">
+    <h2>1️⃣ Блочная модель элемента</h2>
+    <p class="desc">Блок состоит из 4 слоёв: контент, padding, border, margin</p>
+    
+    <div class="box-model-demo">
+        <div class="box-margin">
+            margin
+            <div class="box-border">
+                border
+                <div class="box-padding">
+                    padding
+                    <div class="box-content">content</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- 2. Размеры -->
+        <section id="sizes" class="example-section">
+            <h2>2️⃣ Размеры: width, height, min/max, box-sizing</h2>
+            
+            <h3>width / height</h3>
+            <div class="grid-3">
+                <div class="size-box w-px">width: 150px</div>
+                <div class="size-box w-em">width: 10em</div>
+                <div class="size-box w-pct">width: 50%</div>
+                <div class="size-box w-auto">width: auto</div>
+                <div class="size-box h-fixed">height: 80px</div>
+                <div class="size-box h-pct">height: 50%</div>
+            </div>
+
+            <h3>min-width / max-width</h3>
+            <div class="responsive-demo">
+                <div class="resp-box">Измените ширину окна — блок не станет уже 200px и не шире 400px</div>
+            </div>
+
+            <h3>box-sizing: content-box vs border-box</h3>
+            <div class="grid-2">
+                <div class="box-sizing-demo content-box">
+                    <strong>content-box</strong><br>
+                    width = только контент
+                </div>
+                <div class="box-sizing-demo border-box">
+                    <strong>border-box</strong><br>
+                    width = контент + padding + border
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Отступы -->
+        <section id="spacing" class="example-section">
+            <h2>3️⃣ Отступы: margin и padding</h2>
+            
+            <h3>margin: краткая запись</h3>
+            <div class="grid-4">
+                <div class="margin-demo m1">margin: 20px<br><small>1 значение</small></div>
+                <div class="margin-demo m2">margin: 10px 30px<br><small>2 значения</small></div>
+                <div class="margin-demo m3">margin: 5px 15px 25px<br><small>3 значения</small></div>
+                <div class="margin-demo m4">margin: 5px 10px 15px 20px<br><small>4 значения</small></div>
+            </div>
+
+            <h3>padding: краткая запись</h3>
+            <div class="grid-4">
+                <div class="padding-demo p1">padding: 20px</div>
+                <div class="padding-demo p2">padding: 10px 30px</div>
+                <div class="padding-demo p3">padding: 5px 15px 25px</div>
+                <div class="padding-demo p4">padding: 5px 10px 15px 20px</div>
+            </div>
+
+            <h3>Схлопывание вертикальных margin</h3>
+            <div class="collapse-demo">
+                <div class="collapse-box top">margin-bottom: 30px</div>
+                <div class="collapse-box bottom">margin-top: 20px</div>
+                <p class="note">🔹 Расстояние между блоками = 30px (максимум из двух), а не 50px</p>
+            </div>
+        </section>
+
+        <!-- 4. Рамки -->
+        <section id="borders" class="example-section">
+            <h2>4️⃣ Рамки: border-style, color, width, radius</h2>
+            
+            <h3>border-style</h3>
+            <div class="grid-3">
+                <div class="border-box b-solid">solid</div>
+                <div class="border-box b-dashed">dashed</div>
+                <div class="border-box b-dotted">dotted</div>
+                <div class="border-box b-double">double</div>
+                <div class="border-box b-groove">groove</div>
+                <div class="border-box b-ridge">ridge</div>
+                <div class="border-box b-inset">inset</div>
+                <div class="border-box b-outset">outset</div>
+                <div class="border-box b-none">none</div>
+            </div>
+
+            <h3>border-color и border-width</h3>
+            <div class="border-custom">
+                <div class="bc-demo">border-color: red green blue orange</div>
+                <div class="bw-demo">border-width: 5px 10px 15px 20px</div>
+            </div>
+
+            <h3>border-radius</h3>
+            <div class="grid-3">
+                <div class="radius-box r-px">20px</div>
+                <div class="radius-box r-circle">50%</div>
+                <div class="radius-box r-elliptic">50px/20px</div>
+                <div class="radius-box r-mixed">10px 20px 30px 40px</div>
+                <div class="radius-box r-single">bottom-left: 50px</div>
+                <div class="radius-box r-complex">5px 10px 15px 30px / 30px 15px 10px 5px</div>
+            </div>
+        </section>
+
+        <!-- 5. Display -->
+        <section id="display" class="example-section">
+            <h2>5️⃣ Свойство display</h2>
+            
+            <h3>Основные значения</h3>
+            <div class="display-grid">
+                <div class="d-block">display: block<br><small>новая строка, 100% ширины</small></div>
+                <div class="d-inline-wrapper">
+                    <span class="d-inline">inline</span>
+                    <span class="d-inline">в строке</span>
+                    <small>не принимает width/height</small>
+                </div>
+                <div class="d-inline-block">inline-block<br><small>в строке + размеры</small></div>
+                <div class="d-none">display: none<br><small>скрыт полностью</small></div>
+            </div>
+
+            <h3>Flexbox</h3>
+            <div class="flex-demo">
+                <div class="flex-container">
+                    <div class="flex-item">Flex 1</div>
+                    <div class="flex-item">Flex 2</div>
+                    <div class="flex-item">Flex 3</div>
+                </div>
+            </div>
+
+            <h3>Табличные значения</h3>
+            <div class="table-demo">
+                <div class="t-table">
+                    <div class="t-row">
+                        <div class="t-cell">Ячейка 1</div>
+                        <div class="t-cell">Ячейка 2</div>
+                    </div>
+                    <div class="t-row">
+                        <div class="t-cell">Ячейка 3</div>
+                        <div class="t-cell">Ячейка 4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Content -->
+        <section id="content" class="example-section">
+            <h2>6️⃣ Свойство content</h2>
+            
+            <h3>::before и ::after</h3>
+            <p class="quote">Цитата с автоматическими кавычками через open-quote/close-quote</p>
+            <p class="label">Текст с префиксом «⚠ Важно:» через ::before</p>
+
+            <h3>attr() — вставка значения атрибута</h3>
+            <p>Ссылка: <a href="https://example.com" class="link-attr">Пример сайта</a></p>
+
+            <h3>Счётчики</h3>
+            <div class="counter-list">
+                <div class="counter-item">Элемент списка</div>
+                <div class="counter-item">Элемент списка</div>
+                <div class="counter-item">Элемент списка</div>
+            </div>
+
+            <h3>url() — вставка изображения</h3>
+            <div class="icon-demo">Текст с иконкой через content: url()</div>
+        </section>
+
+        <!-- 7. Float и Clear -->
+        <section id="float" class="example-section">
+            <h2>7️⃣ Плавающие элементы и обтекание</h2>
+            
+            <h3>float: left / right</h3>
+            <div class="article-demo">
+                <div class="img-float-left">🖼️ Фото слева</div>
+                <p>
+                    Текст статьи обтекает изображение слева. Благодаря <code>float: left</code> 
+                    изображение вышло из потока, и текст занял место справа. 
+                    Это классическое использование float для вёрстки статей с иллюстрациями.
+                </p>
+                
+                <div class="img-float-right">🖼️ Фото справа</div>
+                <p>
+                    А этот абзац обтекает изображение справа. <code>Float: right</code> 
+                    сдвигает элемент вправо, а текст заполняет пространство слева.
+                </p>
+            </div>
+
+            <h3>clear: left / right / both</h3>
+            <div class="float-container">
+                <div class="float-box">Float 1</div>
+                <div class="float-box">Float 2</div>
+                <div class="float-box">Float 3</div>
+                <div class="clear-left">clear: left</div>
+                <div class="clear-both">clear: both</div>
+            </div>
+
+            <h3>Футер с clear: both</h3>
+            <div class="layout-demo">
+                <div class="sidebar">Сайдбар</div>
+                <div class="main">Основной контент</div>
+            </div>
+            <div class="footer">Футер (всегда ниже плавающих)</div>
+        </section>
+
+        <!-- 8. Clearfix -->
+        <section id="clearfix" class="example-section">
+            <h2>8️⃣ Clearfix-методы</h2>
+            <p class="desc">Проблема: контейнер с плавающими элементами схлопывается по высоте.</p>
+            
+            <h3>❌ Без clearfix</h3>
+            <div class="cf-container cf-problem">
+                <div class="cf-box">Блок 1</div>
+                <div class="cf-box">Блок 2</div>
+                <div class="cf-box">Блок 3</div>
+            </div>
+            <p class="note">🔹 Граница контейнера схлопнулась (высота = 0)</p>
+
+            <h3>✅ Метод 1: overflow</h3>
+            <div class="cf-container cf-overflow">
+                <div class="cf-box">Блок 1</div>
+                <div class="cf-box">Блок 2</div>
+                <div class="cf-box">Блок 3</div>
+            </div>
+            <p class="note">overflow: hidden создаёт новый контекст форматирования</p>
+
+            <h3>✅ Метод 2: псевдоэлементы</h3>
+            <div class="cf-container cf-pseudo clearfix">
+                <div class="cf-box">Блок 1</div>
+                <div class="cf-box">Блок 2</div>
+                <div class="cf-box">Блок 3</div>
+            </div>
+            <p class="note">::after с clear: both — классический clearfix</p>
+
+            <h3>✅ Метод 3: flow-root</h3>
+            <div class="cf-container cf-flow">
+                <div class="cf-box">Блок 1</div>
+                <div class="cf-box">Блок 2</div>
+                <div class="cf-box">Блок 3</div>
+            </div>
+            <p class="note">display: flow-root — современное решение</p>
+
+            <h3>✅ Метод 4: отказ от float (Flexbox)</h3>
+            <div class="cf-container cf-flex">
+                <div class="cf-box-flex">Блок 1</div>
+                <div class="cf-box-flex">Блок 2</div>
+                <div class="cf-box-flex">Блок 3</div>
+            </div>
+            <p class="note">Во Flexbox элементы не выпадают из потока</p>
+        </section>
+
+    </main>
+
+ 
+
+</body>
+</html>

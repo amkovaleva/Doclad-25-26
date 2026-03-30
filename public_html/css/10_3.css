@@ -1,0 +1,73 @@
+/* ===== ОБЩИЕ СТИЛИ ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.example {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== ЗАДАНИЕ 3: ГАЛЕРЕЯ ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 150px;
+    gap: 10px;
+    background: #2c3e50;
+    padding: 20px;
+}
+
+.photo {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+/* РАЗМЕРЫ ФОТО */
+.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.horizontal {
+    grid-column: span 2;
+}
+
+.vertical {
+    grid-row: span 2;
+}
+
+/* ЦВЕТА ФОТО */
+.photo:nth-child(1) { background: #e74c3c; }
+.photo:nth-child(2) { background: #e67e22; }
+.photo:nth-child(3) { background: #f1c40f; color: #333; }
+.photo:nth-child(4) { background: #2ecc71; }
+.photo:nth-child(5) { background: #1abc9c; }
+.photo:nth-child(6) { background: #9b59b6; }
+.photo:nth-child(7) { background: #34495e; }
+.photo:nth-child(8) { background: #16a085; }
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ */
+.photo:hover {
+    transform: scale(1.02);
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    filter: brightness(1.1);
+    cursor: pointer;
+}

@@ -9,15 +9,181 @@
     <h1>Flexbox</h1>
     <h2><a href="9.pdf" target="_blank">Презентация с теорией</a></h2>
 
-    <h2>Вопросы для самопроверки</h2>
-    ...
-
-    <h2>Примеры</h2>
-    ...
-
+    <h2><a href="9_questions.docx" target="_blank">Вопросы для самопроверки (DOCX)</a></h2>
     
+    <h2>Примеры</h2>
+    <article class="example-container">
+        <h3>Пример 1: Базовая концепция и оси</h3>
+        <div class="html-block">
+            <p><strong>Разбор HTML тегов для Flex-контейнеров:</strong></p>
+            <ul>
+                <li>
+                    <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>:
+                    <ul>
+                        <li><strong>Смысл:</strong> Семантические теги, задающие логическую структуру страницы (шапка, навигация, основной контент и т.д.).</li>
+                        <li><strong>Закрытие:</strong> Все указанные теги являются парными и <strong>обязательно должны закрываться</strong> соответствующим тегом (напр., <code>&lt;/header&gt;</code>).</li>
+                        <li><strong>Расположение:</strong> Располагаются внутри тега <code>&lt;body&gt;</code> согласно иерархии макета. Например, <code>&lt;header&gt;</code> обычно является первым крупным блоком страницы.</li>
+                        <li><strong>Дочерние элементы:</strong> Могут содержать любые элементы. В контексте Flexbox — <strong>прямые потомки</strong> этих тегов автоматически становятся гибкими «флекс-элементами» при активации режима <code>display: flex</code>.</li>
+                        <li><strong>Атрибуты:</strong> Чаще всего используются глобальные атрибуты: <code>class</code>, <code>id</code>, <code>style</code>.</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <code>&lt;div&gt;</code>:
+                    <ul>
+                        <li><strong>Смысл:</strong> Универсальный блочный контейнер без смысловой нагрузки. Используется, когда семантические теги не подходят или контейнер нужен исключительно для стилизации (напр., группировка карточек в сетку).</li>
+                        <li><strong>Закрытие:</strong> Обязательно требует закрывающего тега <code>&lt;/div&gt;</code>.</li>
+                        <li><strong>Расположение:</strong> Может находиться в любом месте внутри <code>&lt;body&gt;</code>.</li>
+                        <li><strong>Дочерние элементы:</strong> Любые HTML-элементы.</li>
+                        <li><strong>Атрибуты:</strong> <code>class</code>, <code>id</code>, <code>title</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="css-block">
+            <p><strong>Разбор CSS свойств:</strong></p>
+            <ul>
+                <li><code>display</code>: Определяет тип контейнера. Значения: <code>flex</code> (блочный), <code>inline-flex</code> (строчный).</li>
+            </ul>
+        </div>
+        <div class="live-demo">
+            <div class="flex-parent-1">
+                <div class="flex-child">1</div>
+                <div class="flex-child">2</div>
+                <div class="flex-child">3</div>
+            </div>
+        </div>
+    </article>
+    <article class="example-container">
+        <h3>Пример 2: Свойство flex-direction</h3>
+        <div class="theory-css">
+            <p><strong>Свойство flex-direction:</strong> Определяет направление главной оси. Входит в короткую запись <code>flex-flow</code>. Применяется к контейнеру.</p>
+            <ul>
+                <li><code>row</code>: Слева направо (по умолчанию).</li>
+                <li><code>row-reverse</code>: Справа налево.</li>
+                <li><code>column</code>: Сверху вниз.</li>
+                <li><code>column-reverse</code>: Снизу вверх.</li>
+            </ul>
+        </div>
+        <div class="live-demo">
+            <div class="f-container f-direction--row"><div class="flex-child">1</div><div class="flex-child">2</div><span>row</span></div>
+            <div class="f-container f-direction--row-reverse"><div class="flex-child">1</div><div class="flex-child">2</div><span>row-reverse</span></div>
+            <div class="f-container f-direction--column"><div class="flex-child">1</div><div class="flex-child">2</div><span>column</span></div>
+            <div class="f-container f-direction--column-reverse"><div class="flex-child">1</div><div class="flex-child">2</div><span>column-reverse</span></div>
+        </div>
+    </article>
+    <article class="example-container">
+        <h3>Пример 3. Свойство flex-wrap</h3>
+        <div class="theory-css">
+            <p><strong>flex-wrap:</strong> Определяет, будут ли элементы переноситься на новую строку.</p>
+            <ul>
+                <li><code>nowrap</code>: В одну линию (по умолчанию).</li>
+                <li><code>wrap</code>: Перенос на новые строки.</li>
+                <li><code>wrap-reverse</code>: Перенос в обратном порядке.</li>
+            </ul>
+        </div>
+        <div class="live-demo">
+            <div class="f-container f-wrap--nowrap"><div class="flex-child">1</div><div class="flex-child">2</div><div class="flex-child">3</div><div class="flex-child">4</div><div class="flex-child">5</div><div class="flex-child">6</div><div class="flex-child">7</div><div class="flex-child">8</div><div class="flex-child">9</div><div class="flex-child">10</div><div class="flex-child">11</div><div class="flex-child">12</div><span>nowrap</span></div>
+            <div class="f-container f-wrap--wrap"><div class="flex-child">1</div><div class="flex-child">2</div><div class="flex-child">3</div><div class="flex-child">4</div><div class="flex-child">5</div><div class="flex-child">6</div><div class="flex-child">7</div><div class="flex-child">8</div><div class="flex-child">9</div><div class="flex-child">10</div><div class="flex-child">11</div><div class="flex-child">12</div><span>wrap</span></div>
+            <div class="f-container f-wrap--wrap-reverse"><div class="flex-child">1</div><div class="flex-child">2</div><div class="flex-child">3</div><div class="flex-child">4</div><div class="flex-child">5</div><div class="flex-child">6</div><div class="flex-child">7</div><div class="flex-child">8</div><div class="flex-child">9</div><div class="flex-child">10</div><div class="flex-child">11</div><div class="flex-child">12</div><span>wrap-reverse</span></div>
+        </div>
+    </article>
+    <article class="example-container">
+        <h3>Пример 4. Свойство justify-content</h3>
+        <div class="theory-css">
+            <p><strong>justify-content:</strong> Выравнивает элементы вдоль главной оси и распределяет свободное пространство.</p>
+            <ul>
+                <li><code>flex-start</code> / <code>flex-end</code>: К началу / концу оси.</li>
+                <li><code>center</code>: По центру.</li>
+                <li><code>space-between</code>: Крайние элементы к краям.</li>
+                <li><code>space-evenly</code>: Одинаковые расстояния между всеми.</li>
+            </ul>
+        </div>
+        <div class="live-demo">
+            <div class="f-container f-justify--start"><div class="flex-child">1</div><div class="flex-child">2</div></div>
+            <div class="f-container f-justify--end"><div class="flex-child">1</div><div class="flex-child">2</div></div>
+            <div class="f-container f-justify--center"><div class="flex-child">1</div><div class="flex-child">2</div></div>
+            <div class="f-container f-justify--between"><div class="flex-child">1</div><div class="flex-child">2</div></div>
+            <div class="f-container f-justify--evenly"><div class="flex-child">1</div><div class="flex-child">2</div></div>
+        </div>
+    </article>
+    <article class="example-container">
+        <h3>Пример 5. Свойство align-items</h3>
+        <div class="theory-css">
+            <p><strong>align-items:</strong> Выравнивает элементы по поперечной оси в текущей строке.</p>
+            <ul>
+                <li><code>stretch</code>: Растягивание на всю высоту (по умолчанию).</li>
+                <li><code>flex-start</code> / <code>flex-end</code> / <code>center</code>: В начало / конец / центр.</li>
+                <li><code>baseline</code>: По базовой линии текста.</li>
+            </ul>
+        </div>
+        <div class="live-demo">
+            <div class="f-container f-align-i--stretch"><div class="flex-child">1</div><span>stretch</span></div>
+            <div class="f-container f-align-i--center"><div class="flex-child">1</div><span>center</span></div>
+            <div class="f-container f-align-i--baseline"><div class="flex-child" style="padding-top:20px">1</div><div class="flex-child">2</div><span>baseline</span></div>
+        </div>
+    </article>
+    <article class="example-container">
+        <h3>Пример 6. Свойство align-content</h3>
+        <div class="theory-css">
+            <p><strong>align-content:</strong> Выравнивает строки внутри контейнера (только при <code>wrap</code>). Значения аналогичны <code>justify-content</code>.</p>
+        </div>
+        <div class="f-container f-wrap--wrap f-align-c--center" style="height:150px">
+            <div class="flex-child" style="width:45%">1</div><div class="flex-child" style="width:45%">2</div>
+            <span>align-content: center</span>
+        </div>
+    </article>
+    <article class="example-container">
+        <h3>Пример 7. Свойство gap</h3>
+        <div class="theory-css">
+            <p><strong>gap:</strong> Устанавливает расстояние между флекс-элементами.</p>
+        </div>
+        <div class="f-container f-gap--50"><div class="flex-child">1</div><div class="flex-child">2</div><span>gap: 50px</span></div>
+    </article>
+    <article class="example-container">
+        <h3>Примеры 8-12. Свойства элементов (order, align-self, basis, grow, shrink)</h3>
+        <div class="theory-css">
+            <p><strong>flex-grow:</strong> Коэффициент роста. <strong>flex-shrink:</strong> Коэффициент сжатия. <strong>flex-basis:</strong> Базовый размер. <strong>flex:</strong> Короткая запись.</p>
+        </div>
+        <div class="f-container">
+            <div class="flex-child" style="order: 2">order: 2</div>
+            <div class="flex-child" style="flex-grow: 1; align-self: flex-end">grow: 1 & self-end</div>
+            <div class="flex-child" style="flex-basis: 150px">basis: 150px</div>
+            <div class="flex-child" style="flex-shrink: 0; width: 100px">shrink: 0</div>
+        </div>
+    </article>
+
     <h2>Задания для самостоятельной работы</h2>
-    ...
+    <div class="task">
+        <p><strong>Задание 1: Навигационная панель.</strong></p>
+        <p>Используя Flexbox, расположите логотип и меню по краям контейнера (LOGO слева, меню справа). Выровняйте их по центру вертикальной оси.</p>
+        <div class="task1-starter">
+            <header class="header-task1">
+                <div class="logo">LOGO</div>
+                <nav class="nav-links">
+                    <a href="#">Ссылка 1</a>
+                    <a href="#">Ссылка 2</a>
+                    <a href="#">Ссылка 3</a>
+                </nav>
+            </header>
+        </div>
+    </div>
+    <div class="task">
+        <p><strong>Задание 2: «Липкий» футер.</strong></p>
+        <p>Реализуйте схему, при которой нижняя часть (футер) всегда прижата к низу экрана, даже если текста на странице мало.</p>
+        <div class="task2-starter">
+            <div class="page-wrapper-task2">
+                <header style="background: #eee;">Шапка</header>
+                <main class="main-content-task2">
+                    Основной контент (его здесь мало, но футер должен быть внизу).
+                </main>
+                <footer style="background: #ccc;">Липкий футер</footer>
+            </div>
+        </div>
+    </div>
+
+
 
 </body>
 </html>
