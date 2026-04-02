@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1: clip-path восьмиугольник</title>
+    <style>
+        .octagon {
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Превратите квадратное изображение в восьмиугольник</h1>
+    <p>Используйте свойство <code>clip-path: polygon(...)</code>.</p>
+    <img class="octagon" src="square-image.jpg" alt="Квадратное изображение" width="300" height="300">
+</body>
+</html>

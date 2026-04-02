@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3: CSS-счётчики для заголовков</title>
+    <style>
+        body {
+            counter-reset: section;
+        }
+        h2::before {
+            counter-increment: section;
+            content: "Раздел №" counter(section) ". ";
+        }
+    </style>
+</head>
+<body>
+    <h1>Автоматическая нумерация разделов</h1>
+    <h2>Введение</h2>
+    <p>Текст первого раздела...</p>
+    <h2>Основная часть</h2>
+    <p>Текст второго раздела...</p>
+    <h2>Заключение</h2>
+    <p>Текст третьего раздела...</p>
+</body>
+</html>
