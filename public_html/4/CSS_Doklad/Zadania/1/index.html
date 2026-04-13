@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1: Исправь приоритет</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 20px; }
+        h1 { color: #333; }
+        .task { background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .code { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre; }
+        .preview { border: 2px dashed #ccc; padding: 20px; margin: 20px 0; }
+        
+        /* Стили для превью */
+        #box {
+            color: blue;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .text {
+            color: green;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        .note {
+            font-style: italic;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задание 1: Исправь приоритет</h1>
+    <p><strong>Время:</strong> 5-7 минут</p>
+    
+    <div class="task">
+        <p>Дан код. Текст в классе <strong>.text</strong> должен быть ЗЕЛЁНЫМ, но он синий.<br>
+        <strong>Исправь CSS, не меняя HTML!</strong></p>
+    </div>
+    
+    <h3>HTML:</h3>
+    <div class="code">&lt;div id="box" class="container"&gt;
+    &lt;p&gt;Обычный абзац (должен быть синим)&lt;/p&gt;
+    &lt;p class="note"&gt;Заметка (тоже синяя)&lt;/p&gt;
+    &lt;p class="text highlight"&gt;Важный текст (должен быть ЗЕЛЁНЫМ и жирным)&lt;/p&gt;
+    &lt;p&gt;Ещё абзац (синий)&lt;/p&gt;
+&lt;/div&gt;</div>
+    
+    <h3>CSS (как сейчас):</h3>
+    <div class="code">#box {
+    color: blue;
+    background: #f0f0f0;
+    padding: 20px;
+}
+
+.text {
+    color: green;
+}
+
+.highlight {
+    font-weight: bold;
+}</div>
+    
+    <div class="preview">
+        <p><strong>Как это выглядит сейчас (НЕПРАВИЛЬНО):</strong></p>
+        <div id="box">
+            <p>Обычный абзац (должен быть синим)</p>
+            <p class="note">Заметка (тоже синяя)</p>
+            <p class="text highlight" style="color: blue;">Важный текст (должен быть ЗЕЛЁНЫМ и жирным)</p>
+            <p>Ещё абзац (синий)</p>
+        </div>
+    </div>
+</body>
+</html>

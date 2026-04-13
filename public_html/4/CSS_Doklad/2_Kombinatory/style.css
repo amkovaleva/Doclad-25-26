@@ -1,0 +1,40 @@
+/* Базовые стили для красоты */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.container {
+    border: 2px solid #333;
+    padding: 15px;
+}
+
+/* 1. Селектор потомка (пробел) - ВСЕ <p> внутри .container */
+.container p {
+    color: blue;
+    margin: 5px 0;
+}
+
+/* 2. Дочерний селектор (>) - только ПРЯМЫЕ потомки */
+/* Этот селектор выберет только первый <p>, который является 
+прямым ребенком .container */
+.container > p {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* 3. Соседний селектор (+) - первый <p> СРАЗУ после <span> */
+.container span + p {
+    color: green;
+    font-style: italic;
+}
+
+/* 4. Общий сосед (~) - ВСЕ <p> ПОСЛЕ <span> на одном уровне */
+span ~ p {
+    background-color: yellow;
+    padding: 5px;
+}

@@ -1,0 +1,26 @@
+/* 1. [атрибут] — наличие атрибута */
+[placeholder] {
+    border: 2px solid gray;
+}
+
+/* 2. [атрибут="значение"] — точное значение */
+input[type="text"] {
+    background-color: lightblue;
+}
+
+/* 3. [атрибут^="значение"] — начинается с */
+a[href^="https"] {
+    color: green;
+    font-weight: bold;
+}
+
+/* 4. [атрибут^="значение"] — начинается с (для http) */
+a[href^="http://"] {
+    color: black;
+}
+
+/* 5. [атрибут$="значение"] — заканчивается на */
+img[src$=".png"] {
+    border: 3px solid blue;
+}
+}

@@ -1,0 +1,85 @@
+body {
+    font-family: sans-serif;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.box {
+    padding: 15px;
+    margin: 15px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.container {
+    padding: 15px;
+    margin: 15px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background: #fafafa;
+}
+
+/* 1. Тег — 0,0,0,1 */
+p {
+    color: blue;
+}
+
+/* 2. Класс — 0,0,1,0 */
+.text {
+    color: green;
+}
+
+/* 3. Два класса — 0,0,2,0 */
+.text.special {
+    color: orange;
+}
+
+/* 4. ID — 0,1,0,0 */
+#para {
+    color: red;
+}
+
+/* 5. !important — перебивает всё */
+p.important {
+    color: purple !important;
+}
+
+/* 6. Тег + ID + класс — 0,1,1,1 */
+p#main.highlight {
+    color: darkgreen;
+}
+
+/* 7. Три класса — 0,0,3,0 */
+.box.active.selected {
+    background: yellow;
+}
+
+/* 8. Вложенность — 0,0,2,1 */
+.container p {
+    color: brown;
+}
+
+/* 9. Селектор атрибута — 0,0,1,1 */
+input[type="text"] {
+    border: 2px solid blue;
+}
+
+/* 10. Псевдокласс — 0,0,1,0 */
+.box:hover {
+    border-color: red;
+}
+
+/* 11. Инлайн-стиль — 1,0,0,0 (в HTML атрибут style) */
+.inline-test {
+    color: navy;  /* НЕ РАБОТАЕТ — style в HTML перебивает */
+}
+
+/* 12. Последний селектор — одинаковая специфичность */
+.last-selector {
+    color: coral;  /* Первый селектор */
+}
+
+.last-selector {
+    color: turquoise;  /* Второй селектор — ПОБЕДИЛ (ниже в CSS) */
+}

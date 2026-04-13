@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Специфичность</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Специфичность CSS (чем больше значение — тем выше приоритет)</h2>
+    
+    <div class="box">
+        <p><strong>1. Тег (0,0,0,1):</strong></p>
+        <p>Этот текст будет синим (селектор по тегу p)</p>
+    </div>
+    
+    <div class="box">
+        <p><strong>2. Класс (0,0,1,0):</strong></p>
+        <p class="text">Этот текст будет зелёным (селектор по классу .text)</p>
+    </div>
+    
+    <div class="box">
+        <p><strong>3. Два класса (0,0,2,0):</strong></p>
+        <p class="text special">Этот текст будет оранжевым (.text.special)</p>
+    </div>
+    
+    <div class="box">
+        <p><strong>4. ID (0,1,0,0):</strong></p>
+        <p id="para">Этот текст будет красным (#para — ID перебивает классы)</p>
+    </div>
+    
+    <div class="box">
+        <p><strong>5. !important (перебивает всё):</strong></p>
+        <p class="important">Этот текст будет фиолетовым (!important важнее специфичности)</p>
+    </div>
+    
+    <div class="box">
+        <p><strong>6. Тег + ID + класс (0,1,1,1):</strong></p>
+        <p id="main" class="highlight">Этот текст будет тёмно-зелёным (комбинированный селектор)</p>
+    </div>
+    
+    <div class="box">
+        <p><strong>7. Три класса (0,0,3,0):</strong></p>
+        <div class="box active selected">Этот блок будет жёлтым (три класса)</div>
+    </div>
+    
+    <div class="container">
+        <p><strong>8. Вложенность (0,0,2,1):</strong></p>
+        <p>Этот текст будет коричневым (.container p)</p>
+    </div>
+    
+    <div class="box">
+        <p><strong>9. Атрибут (0,0,1,1):</strong></p>
+        <input type="text" value="Поле с синей рамкой (input[type='text'])">
+    </div>
+    
+    <div class="box">
+        <p><strong>10. Псевдокласс :hover (0,0,1,0):</strong></p>
+        <div>Наведи на этот блок — рамка станет красной</div>
+    </div>
+	
+    <div class="box">
+        <p><strong>11. Инлайн-стиль style (1,0,0,0):</strong></p>
+        <p class="inline-test" style="color: magenta;">Этот текст будет пурпурный (атрибут style перебивает всё в CSS)</p>
+    </div>
+    
+    <div class="box">
+        <p><strong>12. Последний селектор (одинаковая специфичность):</strong></p>
+        <p class="last-selector">Этот текст будет БИРЮЗОВЫМ (последний селектор в CSS победил)</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+body {
+    font-family: sans-serif;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* 1. Псевдокласс :hover (одна точка) */
+/* Меняет цвет при наведении мыши */
+a:hover {
+    color: red;
+}
+
+/* 2. Псевдокласс :focus (одна точка) */
+/* Меняет рамку, когда поле активно */
+input:focus {
+    border: 2px solid green;
+    outline: none;
+}
+
+/* 3. Псевдоэлемент ::first-line (две точки) */
+/* Стилизует только первую строку абзаца */
+.text::first-line {
+    font-weight: bold;
+    color: blue;
+	font-size: 18px;
+}
+
+/* 4. Псевдоэлемент ::before (две точки) */
+/* Добавляет контент перед текстом */
+.text::before {
+    content: "→ ";
+    color: green;
+}
