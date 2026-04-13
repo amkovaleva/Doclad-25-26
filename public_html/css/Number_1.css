@@ -1,0 +1,63 @@
+/* 1. Счётчики: counter-reset, counter-increment */
+/* Смысл: автоматическая нумерация элементов без JS [cite: 58] */
+.todo-list {
+    counter-reset: my-counter; /* Инициализация счетчика (значение по умолчанию 0) [cite: 61] */
+}
+
+.todo-item {
+    counter-increment: my-counter; /* Увеличение значения счетчика на 1 [cite: 61] */
+    margin-bottom: 10px;
+}
+
+.todo-item::before {
+    /* Вывод значения через свойство content */
+    content: "Задача №" counter(my-counter) ": "; 
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* 2. Многоколоночный текст: column-count, column-gap */
+/* Смысл: разделение текста на колонки как в газете [cite: 58] */
+.multi-column {
+    /* Короткая запись (shorthand): columns объединяет width и count [cite: 59] */
+    columns: 2 250px; 
+    column-gap: 30px; /* Расстояние между колонками [cite: 61] */
+    text-align: justify;
+}
+
+/* 3. Клиппинг и маски: clip-path, mask */
+/* Смысл: ограничение видимости элемента [cite: 58] */
+.visual-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Клиппинг (обрезка по фигуре) */
+.clipped-box {
+    width: 150px;
+    height: 150px;
+    background: #e74c3c;
+    /* Значение: функция polygon определяет координаты точек [cite: 61] */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* Маскирование (прозрачность через маску) */
+.masked-box {
+    width: 150px;
+    height: 150px;
+    background: #3498db;
+    /* Короткая запись mask (shorthand) объединяет image, repeat и др. [cite: 59] */
+    /* Используем градиент для создания эффекта плавного исчезновения [cite: 61] */
+    -webkit-mask: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    mask: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* 4. Кастомный маркер списка: ::marker */
+/* Смысл: изменение вида стандартного маркера [cite: 58] */
+.custom-list li::marker {
+    /* Значение: любая строка или изображение [cite: 61] */
+    content: "🚀 "; 
+    font-size: 1.2rem;
+    color: #f1c40f;
+}
