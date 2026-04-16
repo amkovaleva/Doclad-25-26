@@ -22,6 +22,11 @@
 .requirements li{
     margin: 5px 0;
 }
-.requirements h2, .requirements h1{
+.requirements h2, .requirements h1, .requirements h3, .requirements h4{
     margin: 20px;
+}
+.requirements h3{
+    line-height: 1.5;
+    color: #b31f1f;
+    text-decoration: underline;
 }

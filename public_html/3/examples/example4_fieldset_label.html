@@ -1,0 +1,51 @@
+<!--(пример fieldset + legend + label)-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Формы и интерактивные элементы</title>
+        <link rel='stylesheet' href='../../css/3.css'>
+    </head>
+    <body div class="example4">
+            <form>
+
+                <fieldset>
+                    <legend>Личные данные</legend>
+
+                    <label for="name">Имя:</label>
+                    <input id="name" type="text">
+
+                    <br><br>
+
+                    <label for="email">Email:</label>
+                    <input id="email" type="email">
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend>Тип аккаунта</legend>
+
+                    <label>
+                        <input type="radio" name="account" checked>
+                        Студент
+                    </label>
+                    <label>
+                        <input type="radio" name="account">
+                        Преподаватель
+                    </label>
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend>Выберите свой город</legend>
+                    <select>
+                        <option>Ярославль</option>
+                        <option>Санкт-Петербург</option>
+                        <option>Москва</option>
+                    </select>
+                </fieldset>
+            </form>
+    </body>
+</html>
