@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Группировка таблицы</title>
+</head>
+<body>
+    <h2>Группировка таблицы</h2>
+    <table border="1" cellpadding="8" cellspacing="0">
+        
+        <!-- заголовок таблицы -->
+        <caption><b>Складской учет: Товары по категориям</b></caption>
+
+        <!-- шапка (одна для всей таблицы) -->
+        <thead>
+            <tr style="background-color: #eee;">
+                <th>Категория</th>
+                <th>Товар</th>
+                <th>Количество</th>
+                <th>Цена за шт.</th>
+                <th>Сумма</th>
+            </tr>
+        </thead>
+
+        <!-- группа 1: электроника -->
+        <tbody>
+            <tr>
+                <td rowspan="3"><b>Электроника</b></td> <!-- объединение ячеек для названия категории -->
+                <td>Ноутбук</td>
+                <td>2</td>
+                <td>50 000 ₽</td>
+                <td>100 000 ₽</td>
+            </tr>
+            <tr>
+                <!-- первая ячейка пропущена, так как она объединена выше (rowspan) -->
+                <td>Мышь</td>
+                <td>5</td>
+                <td>1 000 ₽</td>
+                <td>5 000 ₽</td>
+            </tr>
+            <tr>
+                <td>Клавиатура</td>
+                <td>3</td>
+                <td>3 000 ₽</td>
+                <td>9 000 ₽</td>
+            </tr>
+        </tbody>
+
+        <!-- группа 2: мебель -->
+        <tbody>
+            <tr>
+                <td rowspan="2"><b>Мебель</b></td>
+                <td>Офисное кресло</td>
+                <td>4</td>
+                <td>15 000 ₽</td>
+                <td>60 000 ₽</td>
+            </tr>
+            <tr>
+                <td>Письменный стол</td>
+                <td>1</td>
+                <td>25 000 ₽</td>
+                <td>25 000 ₽</td>
+            </tr>
+        </tbody>
+
+        <!-- группа 3: канцелярия -->
+        <tbody>
+            <tr>
+                <td rowspan="2"><b>Канцелярия</b></td>
+                <td>Бумага А4 (уп)</td>
+                <td>10</td>
+                <td>500 ₽</td>
+                <td>5 000 ₽</td>
+            </tr>
+            <tr>
+                <td>Ручки (набор)</td>
+                <td>20</td>
+                <td>300 ₽</td>
+                <td>6 000 ₽</td>
+            </tr>
+        </tbody>
+
+        <!-- подвал (один для всей таблицы) -->
+        <tfoot>
+            <tr style="background-color: #ddd; font-weight: bold;">
+                <td colspan="4" align="right">ИТОГО ПО СКЛАДУ:</td>
+                <td>210 000 ₽</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
