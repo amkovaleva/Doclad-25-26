@@ -1,0 +1,37 @@
+@use 'sass:math';
+
+$unit: 16px;
+$total: 960px;
+
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: system-ui, sans-serif;
+}
+
+.row {
+  max-width: $total;
+  display: flex;
+  gap: $unit;
+}
+
+.col-half {
+  width: $total / 2;
+  padding: $unit;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+}
+
+.col-third {
+  width: $total / 3;
+  padding: $unit * 1.5;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+}
+
+.col-quarter {
+  width: math.div($total, 4);
+  padding: $unit * 2;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+}

@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: system-ui, sans-serif;
+}
+
+.tag {
+  margin: 10px;
+  padding: 4px 10px;
+}
+
+.br-1 {
+  border: 2px solid #000000;
+}
+
+.br-2 {
+  border: 4px solid #000000;
+}
+
+.br-3 {
+  border: 6px solid #000000;
+}
+
+.br-4 {
+  border: 8px solid #000000;
+}
+
+.tag-ok {
+  display: inline-block;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+  padding: 4px 10px;
+  font-size: 13px;
+  margin: 2px;
+}
+
+.tag-err {
+  display: inline-block;
+  color: #c62828;
+  border: 1px solid #c62828;
+  padding: 4px 10px;
+  font-size: 13px;
+  margin: 2px;
+}
+
+.tag-warn {
+  display: inline-block;
+  color: #f9a825;
+  border: 1px solid #f9a825;
+  padding: 4px 10px;
+  font-size: 13px;
+  margin: 2px;
+}
+
+.tag-info {
+  display: inline-block;
+  color: #1565c0;
+  border: 1px solid #1565c0;
+  padding: 4px 10px;
+  font-size: 13px;
+  margin: 2px;
+}
+
+/*# sourceMappingURL=css.css.map */

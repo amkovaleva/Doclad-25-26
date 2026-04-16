@@ -1,0 +1,43 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button($bg: #222, $color: white) {
+  background: $bg;
+  color: $color;
+  padding: 8px 20px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 4px;
+}
+
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: system-ui, sans-serif;
+}
+
+.banner {
+  @include flex-center;
+  height: 120px;
+  background: #222;
+  color: #eee;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.btn-save {
+  @include button(#1a73e8);
+}
+
+.btn-remove {
+  @include button(#d32f2f);
+}
+
+.btn-ghost {
+  @include button(transparent, #222);
+  border: 1px solid #ccc;
+}

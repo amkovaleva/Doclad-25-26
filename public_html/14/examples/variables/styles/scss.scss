@@ -1,0 +1,33 @@
+$text: #222;
+$accent: #1a73e8;
+$muted: #888;
+$bg: #fafafa;
+$font: system-ui, sans-serif;
+$gap: 12px;
+
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: $font;
+  background: $bg;
+  color: $text;
+}
+
+h2 {
+  font-weight: 500;
+  margin-bottom: $gap * 2;
+}
+
+.item {
+  padding: $gap;
+  margin-bottom: $gap;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.item--accent {
+  color: $accent;
+}
+
+.item--muted {
+  color: $muted;
+}
