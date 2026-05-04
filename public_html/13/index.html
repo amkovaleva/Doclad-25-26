@@ -1,23 +1,124 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset='utf-8'>
-    <title>Продвинутые техники</title>
-    <link rel='stylesheet' href='../css/13.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доклад 13: Продвинутые техники CSS</title>
+    <link rel="stylesheet" href='../css/13.css'>
 </head>
 <body>
-    <h1>Продвинутые техники</h1>
-    <h2><a href="13.pdf" target="_blank">Презентация с теорией</a></h2>
 
-    <h2>Вопросы для самопроверки</h2>
-    ...
+    <h1>Продвинутые техники CSS</h1>
+    <p>Обзор возможностей: CSS-счётчики, многоколоночность, клиппинг, маски и кастомные маркеры.</p>
 
-    <h2>Примеры</h2>
-    ...
+    <!-- ========== 1. CSS СЧЕТЧИКИ ========== -->
+    <section>
+        <h2>1. CSS-счётчики</h2>
+        <p>Автоматическая нумерация элементов без использования JavaScript.</p>
+        <div class="todo-list">
+            <div class="todo-item">Изучить теорию</div>
+            <div class="todo-item">Сделать Pull Request до 6 марта</div>
+            <div class="todo-item">Исправить замечания до 13 марта</div>
+        </div>
+        <p class="note"><em>Результат:</em> перед каждым пунктом автоматически подставляется номер "Задача №1:", "Задача №2:" и т.д.</p>
+    </section>
 
-    
-    <h2>Задания для самостоятельной работы</h2>
-    ...
+    <hr>
+
+    <!-- ========== 2. МНОГОКОЛОНОЧНЫЙ ТЕКСТ ========== -->
+    <section>
+        <h2>2. Многоколоночный текст</h2>
+        <p>Свойство <code>column-count</code> и <code>column-gap</code> для создания газетной верстки.</p>
+        <div class="multi-column">
+            Многоколоночный текст позволяет контенту плавно перетекать из одной колонки в другую. 
+            Это свойство отлично подходит для длинных текстовых блоков, делая их более 
+            читабельными на широких экранах без лишнего нагромождения HTML-разметки. 
+            Здесь мы используем две колонки с расстоянием между ними 30px.
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- ========== 3. КЛИППИНГ И МАСКИ ========== -->
+    <section>
+        <h2>3. Клиппинг и маски</h2>
+        <p>Ограничение видимости элемента с помощью <code>clip-path</code> и <code>mask</code>.</p>
+        <div class="visual-container">
+            <div class="clipped-box"></div>
+            <div class="masked-box"></div>
+        </div>
+        <p><strong>Клиппинг (слева):</strong> элемент обрезан до формы ромба с помощью <code>polygon()</code>.<br>
+        <strong>Маска (справа):</strong> градиентная маска создает эффект плавного исчезновения.</p>
+    </section>
+
+    <hr>
+
+    <!-- ========== 4. КАСТОМНЫЙ МАРКЕР ========== -->
+    <section>
+        <h2>4. Кастомизация маркера списка (::marker)</h2>
+        <p>Изменение стандартного маркера на любой символ или эмодзи.</p>
+        <ul class="custom-list">
+            <li>Использование псевдоэлемента ::marker</li>
+            <li>Возможность вставки символов через content</li>
+            <li>Стилизация цвета и размера маркера</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- ========== 5. НОВЫЙ ПРИМЕР: СКВОЗНАЯ НУМЕРАЦИЯ ========== -->
+    <section>
+        <h2>5. Дополнительный пример: Сквозная нумерация второго уровня</h2>
+        <p>Счетчики CSS позволяют создавать сложную нумерацию, как в технических документах.</p>
+        <div class="deep-list">
+            <div class="level1">
+                <div class="level1-title">Внешний уровень</div>
+                <div class="level2">Подпункт</div>
+                <div class="level2">Подпункт</div>
+                <div class="level2">Подпункт</div>
+            </div>
+            <div class="level1">
+                <div class="level1-title">Внешний уровень</div>
+                <div class="level2">Подпункт</div>
+                <div class="level2">Подпункт</div>
+                <div class="level2">Подпункт</div>
+            </div>
+            <div class="level1">
+                <div class="level1-title">Внешний уровень</div>
+                <div class="level2">Подпункт</div>
+                <div class="level2">Подпункт</div>
+                <div class="level2">Подпункт</div>
+            </div>
+        </div>
+        <p class="note"><em>Результат:</em> внешние уровни нумеруются 1), 2), 3). Подпункты имеют сквозную нумерацию (1, 2, 3, 4, 5, 6, 7, 8, 9) без сброса после каждого внешнего уровня.</p>
+    </section>
+
+    <hr>
+
+    <!-- ========== 6. НОВЫЙ ПРИМЕР: НУМЕРАЦИЯ С ПОДЧЕРКИВАНИЕМ (ВАРИАНТ 2) ========== -->
+    <section>
+        <h2>6. Дополнительный пример: Нумерация второго уровня (формат X-Y)</h2>
+        <p>Альтернативный стиль нумерации: подпункты нумеруются как "Номер_внешнего-Номер_внутреннего".</p>
+        <div class="dash-list">
+            <div class="outer">
+                <div class="outer-title">Внешний уровень</div>
+                <div class="inner">Подпункт</div>
+                <div class="inner">Подпункт</div>
+                <div class="inner">Подпункт</div>
+            </div>
+            <div class="outer">
+                <div class="outer-title">Внешний уровень</div>
+                <div class="inner">Подпункт</div>
+                <div class="inner">Подпункт</div>
+                <div class="inner">Подпункт</div>
+            </div>
+            <div class="outer">
+                <div class="outer-title">Внешний уровень</div>
+                <div class="inner">Подпункт</div>
+            </div>
+        </div>
+        <p class="note"><em>Результат:</em> внешние пункты: 1, 2, 3. Подпункты: 1-1, 1-2, 1-3, 2-1, 2-2, 2-3, 3-1.</p>
+    </section>
 
 </body>
 </html>

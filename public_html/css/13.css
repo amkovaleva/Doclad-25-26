@@ -1,0 +1,165 @@
+/* ======================
+   Доклад 13: Продвинутые техники CSS
+   Стили для демонстрации:
+   1. Счетчики (counter-reset, counter-increment)
+   2. Многоколоночный текст (columns, column-gap)
+   3. Клиппинг и маски (clip-path, mask)
+   4. Кастомные маркеры (::marker)
+   5. Сквозная нумерация
+   6. Нумерация X-Y
+   ====================== */
+
+/* ----- 1. СЧЕТЧИКИ ----- */
+/* Смысл: автоматическая нумерация элементов без JS.
+   Где применяется: к любому блочному или псевдоэлементу. */
+.todo-list {
+    counter-reset: my-counter; /* Инициализация счетчика (значение по умолчанию 0). Можно задать число: counter-reset: my-counter 5; */
+}
+
+.todo-item {
+    counter-increment: my-counter; /* Увеличивает значение счетчика на 1. Можно задать шаг: counter-increment: my-counter 2; */
+    margin-bottom: 10px;
+}
+
+.todo-item::before {
+    /* Вывод значения через свойство content */
+    content: "Задача №" counter(my-counter) ": ";
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* ----- 2. МНОГОКОЛОНОЧНЫЙ ТЕКСТ ----- */
+/* Смысл: разделение текста на колонки как в газете.
+   Короткая запись (shorthand): columns объединяет column-width и column-count.
+   Возможные значения: auto, <length>, <integer>. */
+.multi-column {
+    /* Краткая запись: columns: ширина_колонки количество_колонок; */
+    columns: 2 250px;
+    column-gap: 30px; /* Расстояние между колонками. Значения: normal, <length> */
+    text-align: justify;
+    /* Можно добавить column-rule: 1px solid #ccc; (линия между колонками) */
+}
+
+/* ----- 3. КЛИППИНГ И МАСКИ ----- */
+/* Смысл: ограничение видимости элемента, создание сложных форм.
+   Применяется к любым элементам (чаще к img, div, video). */
+.visual-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Клиппинг (обрезка по фигуре) */
+.clipped-box {
+    width: 150px;
+    height: 150px;
+    background: #e74c3c;
+    /* clip-path: принимает значения: circle(), ellipse(), polygon(), inset(), url() и др. */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Ромб */
+}
+
+/* Маскирование (прозрачность через маску) */
+.masked-box {
+    width: 150px;
+    height: 150px;
+    background: #3498db;
+    /* mask: shorthand объединяет mask-image, mask-repeat, mask-position и др. */
+    /* Значения: linear-gradient(), radial-gradient(), url() (изображение) */
+    -webkit-mask: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    mask: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* ----- 4. КАСТОМНЫЙ МАРКЕР ----- */
+/* Смысл: изменение вида стандартного маркера списка.
+   Применяется к ::marker псевдоэлементу элементов li. */
+.custom-list li::marker {
+    content: "🚀 "; /* Значение: любая строка, emoji или url() */
+    font-size: 1.2rem;
+    color: #f1c40f;
+}
+
+/* ----- 5. СКВОЗНАЯ НУМЕРАЦИЯ (ВАРИАНТ 1) ----- */
+/* Смысл: создание иерархической нумерации, как в оглавлении. */
+.deep-list {
+    counter-reset: outer-seq 0 inner-global 0; /* два счётчика: для внешних и для всех внутренних пунктов */
+}
+.level1 {
+    margin-bottom: 15px;
+}
+.level1-title::before {
+    counter-increment: outer-seq;
+    content: counter(outer-seq) ") ";
+    font-weight: bold;
+}
+.level2 {
+    margin-left: 25px;
+}
+.level2::before {
+    counter-increment: inner-global;
+    content: counter(inner-global) ". ";
+    color: #555;
+}
+
+/* ----- 6. НУМЕРАЦИЯ X-Y (ВАРИАНТ 2) ----- */
+/* Смысл: альтернативный стиль нумерации с дефисом. */
+.dash-list {
+    counter-reset: outer-dash;
+}
+.outer {
+    counter-reset: inner-dash;
+    margin-bottom: 15px;
+}
+.outer-title::before {
+    counter-increment: outer-dash;
+    content: counter(outer-dash) ". ";
+    font-weight: bold;
+}
+.inner {
+    margin-left: 25px;
+}
+.inner::before {
+    counter-increment: inner-dash;
+    content: counter(outer-dash) "-" counter(inner-dash) ". ";
+    color: #555;
+}
+
+/* Вспомогательные стили для читаемости */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Светлый фон */
+    color: #111; /* Темный шрифт */
+}
+section {
+    margin-bottom: 30px;
+}
+h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+h2 {
+    color: #2c3e50;
+}
+code {
+    background: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+.note {
+    background: #f9f9f9;
+    padding: 8px 12px;
+    border-left: 4px solid #3498db;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
